@@ -1,0 +1,3 @@
+# BLE Throughput
+
+-   **Refer the BLE Throughput applications document link (https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_THRUPUT&version=latest&redirect=true)**

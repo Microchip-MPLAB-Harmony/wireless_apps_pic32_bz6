@@ -1,0 +1,629 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="26.1">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="BLE Central devices discover and listen to BLE devices that are advertising. These devices are capable of establishing connection to peripherals . Central devices are also capable of establishing ..."/><meta name="copyright" content="(C) Copyright 2025"/><meta name="generator" content="DITA-OT"/><title>5.1.1 Central Devices</title><!--  Generated with Oxygen version 26.1, build number 2024091616.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151"/><meta name="wh-source-relpath" content="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.xml"/><meta name="wh-out-relpath" content="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.html"/>
+
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/commons.css?buildId=2024091616"/>
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic.css?buildId=2024091616"/>
+
+    <script src="./oxygen-webhelp/app/options/properties.js?buildId=20250610092133"></script>
+    <script src="./oxygen-webhelp/app/localization/strings.js?buildId=2024091616"></script>
+    <script src="./oxygen-webhelp/app/search/index/keywords.js?buildId=20250610092133"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/commons.js?buildId=2024091616"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/topic.js?buildId=2024091616"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/microchip.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/notes.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/mchp-css-overrides.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/syntax-highlight.css?buildId=2024091616"/>
+
+<!-- OneTrust Cookies Consent Notice start for onlinedocs.microchip.com -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="0194dac3-b686-73e5-b876-eb9241be4496"></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for onlinedocs.microchip.com -->
+ 
+<script src="mchp-context-help.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async="" type="text/javascript"></script>
+<script src="https://assets.adobedtm.com/6a72a357eb48/a636c708c7fe/launch-0b0023397020.min.js"></script><!-- Adobe Analytics -->
+</head>
+
+    <body id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="index.html" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\resources/images/microchip.png" alt="PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide &#xA;    "/></a>
+                    <div class=" wh_publication_title "><a href="index.html">PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide 
+    </a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div class="d-flex justify-contents-around"><div class="flex-grow-1"></div><div class="position-relative flex-grow-1"><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div><div class="align-self-center flex-grow-1 ml-2"></div></div></form>
+            
+            <div class="mchp-color-stripe-grid-container">
+  <div class="mchp-main-bar mchp-orange-bar"></div>
+  <div class="mchp-main-bar mchp-blue-bar"></div>
+  <div class="mchp-main-bar mchp-green-bar"></div>
+</div>
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46"><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div></li><li><div class="topicref" data-id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B"><div class="title"><a href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1</ph>
+Building Block Examples</a></div></div></li><li class="active"><div class="topicref" data-id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07"><div class="title"><a href="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1</ph>
+Central Devices</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            <div class="row" style="margin-top: -1em;"><div class="col-lg-7 col-md-7 col-sm-12 offset-lg-3 offset-md-3 text-right border-bottom mb-1"><h2 class="text-dark header_title">
+    </h2></div></div>
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem"><div data-tocid="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9" class="topicref introduction" data-id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42.html" id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9-link">Introduction</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17" class="topicref" data-id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3.html#GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1</ph>
+Quick References</a></div></div></li><li role="treeitem"><div data-tocid="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33" class="topicref" data-id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08.html" id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">2</ph>
+Secure Boot and Signature Header Generation</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41" class="topicref" data-id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795.html#GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">3</ph>
+Getting Started with <span class="ph">PIC32-BZ6</span> Curiosity Board</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68" class="topicref" data-id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html" id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">4</ph>
+Getting Started with Software Development</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132" class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html" id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143" class="topicref" data-id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html" id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1</ph>
+Building Block Examples</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true" class="active"><div data-tocid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151" class="topicref" data-id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.html" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1</ph>
+Central Devices</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="GUID-2E082F1D-213E-4817-AFBE-D69DEB7CAFB3-d2873e159" class="topicref" data-id="GUID-2E082F1D-213E-4817-AFBE-D69DEB7CAFB3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-2E082F1D-213E-4817-AFBE-D69DEB7CAFB3.html" id="GUID-2E082F1D-213E-4817-AFBE-D69DEB7CAFB3-d2873e159-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.1</ph>
+Central - FreeRTOS BLE Stack and App Initialization</a></div></div></li><li role="treeitem"><div data-tocid="GUID-8C12A5C3-8C0F-420B-B85A-686CEB27E038-d2873e167" class="topicref" data-id="GUID-8C12A5C3-8C0F-420B-B85A-686CEB27E038" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-8C12A5C3-8C0F-420B-B85A-686CEB27E038.html" id="GUID-8C12A5C3-8C0F-420B-B85A-686CEB27E038-d2873e167-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.2</ph>
+BLE Legacy Scan</a></div></div></li><li role="treeitem"><div data-tocid="GUID-8B0405D7-DCD0-453B-957E-89A5E6B8BB4D-d2873e175" class="topicref" data-id="GUID-8B0405D7-DCD0-453B-957E-89A5E6B8BB4D" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-8B0405D7-DCD0-453B-957E-89A5E6B8BB4D.html" id="GUID-8B0405D7-DCD0-453B-957E-89A5E6B8BB4D-d2873e175-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.3</ph>
+BLE Scanning Extended Advertisements</a></div></div></li><li role="treeitem"><div data-tocid="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4-d2873e183" class="topicref" data-id="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4.html" id="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4-d2873e183-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.4</ph>
+BLE Connection</a></div></div></li><li role="treeitem"><div data-tocid="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C-d2873e191" class="topicref" data-id="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C.html" id="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C-d2873e191-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.5</ph>
+BLE Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-D8658715-9C4B-43AA-A059-4B9D52A7BB11-d2873e199" class="topicref" data-id="GUID-D8658715-9C4B-43AA-A059-4B9D52A7BB11" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-D8658715-9C4B-43AA-A059-4B9D52A7BB11.html" id="GUID-D8658715-9C4B-43AA-A059-4B9D52A7BB11-d2873e199-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.6</ph>
+BLE Multilink Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-6AE924BD-8121-409A-AAAD-9967DBA4920A-d2873e207" class="topicref" data-id="GUID-6AE924BD-8121-409A-AAAD-9967DBA4920A" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-6AE924BD-8121-409A-AAAD-9967DBA4920A.html" id="GUID-6AE924BD-8121-409A-AAAD-9967DBA4920A-d2873e207-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1.7</ph>
+BLE Transparent UART Central with LE Coded Phy</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215" class="topicref" data-id="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4.html" id="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.2</ph>
+Peripheral Devices</a></div></div></li><li role="treeitem"><div data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2-d2873e303" class="topicref" data-id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2.html" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2-d2873e303-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.3</ph>
+BLE Multirole Multilink Transparent UART </a></div></div></li><li role="treeitem"><div data-tocid="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3-d2873e311" class="topicref" data-id="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3.html" id="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3-d2873e311-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.4</ph>
+HCI Application</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319" class="topicref" data-id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09.html" id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.2</ph>
+Advanced Applications</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551" class="topicref" data-id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F.html" id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3</ph>
+Peripheral Applications</a></div></div></li><li role="treeitem"><div data-tocid="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607" class="topicref" data-id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008.html" id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.4</ph>
+<span class="ph">PIC32CX-BZ6 and PIC32WM-BZ6</span> Three-Wire PTA Coexistence Design</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617" class="topicref" data-id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6.html" id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">6</ph>
+Adding Chip Peripherals</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673" class="topicref" data-id="GUID-B6BEB657-134C-4B53-8893-8781F2397325" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-B6BEB657-134C-4B53-8893-8781F2397325.html#GUID-B6BEB657-134C-4B53-8893-8781F2397325" id="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">7</ph>
+Low Power Design</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700" class="topicref" data-id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B.html#GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">8</ph>
+Firmware and OTA Updates</a><div class="wh-tooltip"><p class="shortdesc">This section documents how to enable firmware updates in the design, whether it is serial         or Over The Air (OTA)</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826" class="topicref" data-id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C.html" id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">9</ph>
+Wireless System and Board Support Services</a></div></div></li><li role="treeitem"><div data-tocid="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468" class="topicref" data-id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308.html" id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">10</ph>
+Application Timer Service</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476" class="topicref" data-id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">11</ph>
+Support Documentation</a><div class="wh-tooltip"><p class="shortdesc">This section has documentation that is generic and used as supporting document with the         application example documentation. </p></div></div></div></li><li role="treeitem"><div data-tocid="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503" class="topicref" data-id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3.html#GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">12</ph>
+Wireless Protocol Software and Libraries</a></div></div></li><li role="treeitem"><div data-tocid="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511" class="topicref" data-id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06.html" id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">13</ph>
+Document Revision History</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519" class="topicref backmatter backmatter_parent" data-id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B.html" id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link">Microchip Information</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-96BAB14D-8260-45EA-BC54-5ECA49AD284B"><h1 class="- topic/title title topictitle1" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-96BAB14D-8260-45EA-BC54-5ECA49AD284B" style="">5.1.1 Central Devices</h1><div class="- topic/body body"><div class="- topic/p p">BLE Central devices discover and listen to BLE devices that are advertising. These devices are
+            capable of establishing connection to <a class="- topic/xref xref" href="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4.html">peripherals</a>.
+            Central devices are also capable of establishing multiple connections(multilink) at the
+            same time. There are certain use cases where a connection between the devices
+            (Peripheral and Central) is not essential and scanning (Receive only, no transmit)
+            feature alone is sufficient. These type of devices are called observers.<div class="- topic/note note notype note_notype" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__NOTE_HR3_ZDM_XYB" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__NOTE_HR3_ZDM_XYB"><span class="note__title">Note:</span>  It is recommended that new users of MPLAB Code Configurator
+                go through the <a class="- topic/xref xref" href="https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-B5D058F5-1D0B-4720-8649-ACE5C0EEE2C0" target="_blank" rel="external noopener">Overview</a></div></div><section class="- topic/section section" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__SDK-SETUP" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__SDK-SETUP"><h2 class="- topic/title title sectiontitle">Prerequisites</h2></section><p class="- topic/p p">Install toolchain and harmony components documented in <a class="- topic/xref xref" href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html"><span><span>Getting Started with Software
+        Development</span></span></a>.</p><section class="- topic/section section" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__BLOCKS" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__BLOCKS"><h2 class="- topic/title title sectiontitle">Blocks</h2><ol class="- topic/ol ol" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-94B931A4-E08D-4F85-ABBB-EB4FB7B1B8BF" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-94B931A4-E08D-4F85-ABBB-EB4FB7B1B8BF"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-FCABC781-AAD0-4868-8801-70DBE600E7D8" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-FCABC781-AAD0-4868-8801-70DBE600E7D8">
+                    <a class="- topic/xref xref" href="GUID-2E082F1D-213E-4817-AFBE-D69DEB7CAFB3.html">FreeRTOS
+                        and BLE Stack Setup</a><ul class="- topic/ul ul">
+                        <li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2E214E7E-8D3B-4BEF-9684-AB1D39395260" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2E214E7E-8D3B-4BEF-9684-AB1D39395260">
+                            <p class="- topic/p p">Create a new MCC Harmony project</p>
+                        </li>
+                        <li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-64C452C4-A1A3-4439-A7CD-3DC99FC4D1A3" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-64C452C4-A1A3-4439-A7CD-3DC99FC4D1A3">
+                            <p class="- topic/p p">configure Harmony components like FreeRTOS and BLE Stack</p>
+                        </li>
+                        <li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-CC011D5B-5CD9-4258-B03B-00F409E7D7FA" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-CC011D5B-5CD9-4258-B03B-00F409E7D7FA">
+                            <p class="- topic/p p">Initiate BLE Stack</p>
+                        </li>
+                    </ul></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2ADBF5CA-4F93-4509-AF69-844A8E94C6DA" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2ADBF5CA-4F93-4509-AF69-844A8E94C6DA"><p class="- topic/p p">
+                        <a class="- topic/xref xref" href="GUID-8C12A5C3-8C0F-420B-B85A-686CEB27E038.html">Legacy
+                            Scan</a></p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-30D093D2-E53E-4829-A80A-6E2CB37A96FD" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-30D093D2-E53E-4829-A80A-6E2CB37A96FD"><p class="- topic/p p">Receive Data Payload using BLE Legacy Scan(no BLE connection)</p></li></ul></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-9055566D-9AB1-42FD-B2D7-06D75BB55949" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-9055566D-9AB1-42FD-B2D7-06D75BB55949"><p class="- topic/p p">
+                        <a class="- topic/xref xref" href="GUID-8B0405D7-DCD0-453B-957E-89A5E6B8BB4D.html">Scan
+                            Extended Advertizement</a></p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-E27C03C6-71D5-4E82-BB2B-275C7EB3383C" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-E27C03C6-71D5-4E82-BB2B-275C7EB3383C"><p class="- topic/p p">Receive Data Payload using BLE Extended Scan(no BLE connection)</p></li></ul></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-775973A6-B9FD-4670-9A8E-6C4645DFF799" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-775973A6-B9FD-4670-9A8E-6C4645DFF799"><p class="- topic/p p">
+                        <a class="- topic/xref xref" href="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4.html"><span><span>BLE Connection</span></span></a></p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-33163671-4137-4415-B03C-26F2DCF05C2C" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-33163671-4137-4415-B03C-26F2DCF05C2C"><p class="- topic/p p">Configure stack for Central Functionality</p></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2B578A6A-D429-40A4-A2AC-FCFFA38AB5B9" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-2B578A6A-D429-40A4-A2AC-FCFFA38AB5B9"><p class="- topic/p p">Connection between Peripheral and Central Device</p></li></ul></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-3C9FAD1E-A7BB-4B92-B5B4-ACA053D4E3E5" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-3C9FAD1E-A7BB-4B92-B5B4-ACA053D4E3E5"><p class="- topic/p p">Profiles and services</p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-131222E3-CE03-4DD0-8546-46F5EB4A312D" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-131222E3-CE03-4DD0-8546-46F5EB4A312D"><p class="- topic/p p">
+                                <a class="- topic/xref xref" href="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C.html">Microchip propreitary - Transparent UART Central (Legacy Scan +
+                                    Connection + Data Exchange)</a></p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-0B454DEE-430A-4E2C-9E89-2F293926B6A7" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-0B454DEE-430A-4E2C-9E89-2F293926B6A7"><p class="- topic/p p">Data Exchange using Microchip Transparent UART profile and service between 2 devices(peripheral and central) after a BLE connection</p></li></ul></li><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-84F01F34-979B-4973-A87F-F49F2BC7FA04" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-84F01F34-979B-4973-A87F-F49F2BC7FA04"><p class="- topic/p p">
+                                <a class="- topic/xref xref" href="GUID-D8658715-9C4B-43AA-A059-4B9D52A7BB11.html">Multilink - Transparent UART Central (Legacy Scan + Multilink
+                                    Connection + Data Exchange between Multiple Links)</a></p><ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-80F01F34-979B-4973-A87F-F49F2BC7FA04" data-ofbid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__GUID-80F01F34-979B-4973-A87F-F49F2BC7FA04"><p class="- topic/p p">Data exchange using Microchip Transparent UART profile and service between 4 devices (1 central and 3 peripherals) after a BLE connection.</p></li></ul></li></ul></li></ol></section></div></article></main></div>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="section-item"><div class="section-title"><a href="#GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__SDK-SETUP" data-tocid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__SDK-SETUP">Prerequisites</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__BLOCKS" data-tocid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07__BLOCKS">Blocks</a></div></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="main">
+  <div class="max">
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-1"/>
+        <span for="section-1" class="accordion-label">
+          <div id="text-5521a8ec2b" class="cmp-text">
+            <p>About</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-overview" class="mchp-link__link" aria-label="Company">Company</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/careers" class="mchp-link__link" aria-label="Careers">Careers</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/contact-us" class="mchp-link__link" aria-label="Contact Us">Contact Us</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center" class="mchp-link__link" aria-label="Media Center">Media Center</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/investors" class="mchp-link__link" aria-label="Investor Relations">Investor Relations</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-responsibility" class="mchp-link__link" aria-label="Corporate Responsibility">Corporate Responsibility</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-2"/>
+        <span for="section-2" class="accordion-label">
+          <div id="text-ea8a67216c" class="cmp-text">
+            <p>Support</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://forum.microchip.com/" class="mchp-link__link" aria-label="Microchip Forums">Microchip Forums</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.avrfreaks.net/" class="mchp-link__link" aria-label="AVR Freaks">AVR Freaks</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/design-help" class="mchp-link__link" aria-label="Design Help">Design Help</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/technical-support" class="mchp-link__link" aria-label="Technical Support">Technical Support</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchip.com/exportcontroldata/" class="mchp-link__link" aria-label="Export Control Data">Export Control Data</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/product-change-notification" class="mchp-link__link" aria-label="PCNs">PCNs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-3"/>
+        <span for="section-3" class="accordion-label">
+          <div id="text-229415b3f9" class="cmp-text">
+            <p>Quick Links</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchipdirect.com/" class="mchp-link__link" aria-label="microchipDIRECT.com">microchipDIRECT.com</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://secure.microchip.com/mu" class="mchp-link__link" aria-label="Microchip University">Microchip University</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/mymicrochip/" class="mchp-link__link" aria-label="myMicrochip">myMicrochip</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center/blog" class="mchp-link__link" aria-label="Blogs">Blogs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/tools-resources/reference-designs" class="mchp-link__link" aria-label="Reference Designs">Reference Designs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/products/selection-tools/parametric-search-landing-page" class="mchp-link__link" aria-label="Parametric Search">Parametric Search</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div class="cmp-image">
+            <img class="cmp-image__image" alt="Microchip Logo" src="oxygen-webhelp/template/resources/images/microchip-logo.png"/>
+          </div>
+        </div>
+        <div>
+          <div id="text-cf91d72ddd" class="cmp-text">
+            <p>Microchip Technology Inc.</p>
+            <p>2355 West Chandler Blvd.</p>
+            <p>Chandler, Arizona, USA</p>
+          </div>
+        </div>
+        <div>
+          <div class="mchp-component-list">
+            <div class="mchp-component-items">
+              <div class="mchp-component-item mchp-component-item--first">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.facebook.com/microchiptechnology/" aria-label="Microchip Facebook" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Facebook" src="oxygen-webhelp/template/resources/images/facebook-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.linkedin.com/company/microchip-technology" aria-label="Microchip LinkedIn" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip LinkedIn" src="oxygen-webhelp/template/resources/images/linkedin-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://x.com/MicrochipTech" aria-label="Microchip Twitter" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Twitter" src="oxygen-webhelp/template/resources/images/twitter-new.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.youtube.com/user/MicrochipTechnology" aria-label="Image Hyperlink" target="_blank">
+                      <img class="cmp-image__image" alt="" src="oxygen-webhelp/template/resources/images/youtube-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.instagram.com/microchiptechnologyinc/" aria-label="Microchip Instagram" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Instagram" src="oxygen-webhelp/template/resources/images/instagram-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item mchp-component-item--last">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.weibo.com/microchiptech" aria-label="Microchip Weibo" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Weibo" src="oxygen-webhelp/template/resources/images/snap.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>
+        © Copyright 1998-<span class="current-year">2024</span> Microchip Technology Inc. All rights reserved.
+        Shanghai ICP Recordal No.09049794
+      </p>
+      <p></p>
+    </div>
+    <div>
+      <div class="legal-privacy-cookie-container">
+        <div class="mchp-component-list">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/website-terms-and-conditions" class="mchp-link__link" aria-label="Terms Of Use">Terms Of Use</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/privacy-notice" class="mchp-link__link" aria-label="Privacy Notice">Privacy Notice</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information" class="mchp-link__link" aria-label="Legal">Legal</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- OneTrust Cookies Settings button start -->
+        <div>
+          <a id="ot-sdk-btn" class="ot-sdk-show-settings">Your Privacy Choices</a>
+          <img src="oxygen-webhelp/template/resources/images/privacyoptions29x14.png" alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip-position="top-center" class="tooltip-initialized"/>
+        </div>
+        <!-- OneTrust Cookies Settings button end -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script><!--
+
+  (function () {
+    var currentYear = new Date().getFullYear();
+    document.querySelector('.current-year').textContent = currentYear;
+  })();
+
+--></script>
+
+<script type="text/javascript"><!--
+
+  _satellite.pageBottom();
+
+--></script>
+<!-- Adobe Analytics -->
+<script type="text/javascript" src="mchp-js/prepend.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+<script type="text/javascript" src="mchp-js/onetrust.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+
+<script><!--
+
+
+  // wait until jquery is ready
+  var jqInterval = setInterval(function() {
+    if (typeof jQuery !== 'undefined') {
+      clearInterval(jqInterval);
+      // jQuery is ready, run your code here
+      $(document).ready(function() {
+        $(document).ready(function() {
+          function open() {
+              $(".accordion-label").click(function(e) {
+                  e.preventDefault();
+                  if (!mediaQueryMatch.matches) {
+                      e = $(this).next(".mchp-component-list");
+                      var f = $(".accordion-list > .mchp-component-list").not(e);
+                      $(this).hasClass("active") ? ($(this).removeClass("active"),
+                      e.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      })) : (f.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      }),
+                      $(".accordion-label").removeClass("active"),
+                      $(this).addClass("active"),
+                      e.slideDown(300, function() {
+                          $(this).css("max-height", "none")
+                      }))
+                  }
+              })
+          }
+          function hide(activeLabel) {
+              if (activeLabel.matches) {
+                  activeLabel = document.getElementsByClassName("accordion-label active");
+                  for (let f = 0; f < activeLabel.length; f++) {
+                    activeLabel[f].classList.remove("active");
+                  }
+                  for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                    accordionList[activeLabel].style.display = "block",
+                    accordionList[activeLabel].style.maxHeight = "none"
+                  }
+              } else {
+                for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                  accordionList[activeLabel].style.display = "none",
+                  accordionList[activeLabel].style.maxHeight = "0"
+                }
+              }
+          }
+          var mediaQueryMatch = window.matchMedia("(min-width: 630px)");
+          var accordionList = $(".accordion-list > .mchp-component-list");
+          hide(mediaQueryMatch);
+          setTimeout(function() {
+              $(".legal-privacy-cookie-container .ot-sdk-show-settings")?.text("Your Privacy Choices")
+          }, 1000);
+          $(window).on("load", function() {
+              open()
+          });
+          mediaQueryMatch.addListener(hide)
+        });
+      });
+    }
+  }, 100);
+
+
+--></script>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

@@ -514,7 +514,7 @@
         <targetDevice>PIC32WM_BZ6204</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pkob4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
@@ -822,8 +822,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1000000-2007ffff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Big Buck/wireless_apps_pic32_bz6/apps/ble/advanced_applications/ble_hogps_app/firmware/ble_hogps_app.X/debug/default/ble_hogps_app_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

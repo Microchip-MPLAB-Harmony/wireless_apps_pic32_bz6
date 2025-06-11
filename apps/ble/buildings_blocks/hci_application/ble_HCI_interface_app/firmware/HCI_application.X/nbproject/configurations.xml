@@ -36,41 +36,41 @@
             </logicalFolder>
             <logicalFolder name="security" displayName="security" projectFiles="true">
               <logicalFolder name="cryptopk" displayName="cryptopk" projectFiles="true">
-                <itemPath>../src/config/default/driver/security/cryptopk/adapter_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ecjpake.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/rsa.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/inputslots.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/impl.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/core_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ed448_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/montgomery_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ec_curves_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ed25519_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/dsa_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/eccweierstrass_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/version.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/cmddefs_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ed25519_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/iomem.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/internal.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/statuscodes_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/cmddefs_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/core_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/montgomery_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/adapter_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/inputslots.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ecjpake.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ed448_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/rsa.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/internal.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/dsa_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ec_curves_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/eccweierstrass_api.h</itemPath>
               </logicalFolder>
               <logicalFolder name="cryptosym" displayName="cryptosym" projectFiles="true">
+                <itemPath>../src/config/default/driver/security/cryptosym/blkcipher_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/mac_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/interrupts_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/internal.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/trnginternal.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/sha1_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/cmmask_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/keyref_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/cmac_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/hash_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/sm3_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/statuscodes.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/sha2_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/trng_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/aead_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/hmac_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/sha1_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/keyref_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/blkcipher_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/trng_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/sha2_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/trnginternal.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/sm3_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/cmmask_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/internal.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/interrupts_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/cmac_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/statuscodes.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/hash_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/mac_api.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/default/driver/security/api_table.h</itemPath>
             </logicalFolder>

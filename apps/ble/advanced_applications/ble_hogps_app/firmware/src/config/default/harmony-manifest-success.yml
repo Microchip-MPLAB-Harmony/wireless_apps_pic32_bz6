@@ -4,7 +4,7 @@
 
 
 project: ble_hogps_app
-creation_date: 2025-06-02T14:51:46.643+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-06-06T11:18:26.990+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.5.2
@@ -15,7 +15,6 @@ compiler: XC32 4.60
 
 modules:
     - {name: "csp", version: "v3.21.0"}
-    - {name: "wireless_pic32cxbz_wbz", version: "v1.5.0"}
     - {name: "core", version: "v3.14.2"}
     - {name: "wireless_ble", version: "v1.4.0"}
     - {name: "CMSIS_5", version: "5.9.0"}

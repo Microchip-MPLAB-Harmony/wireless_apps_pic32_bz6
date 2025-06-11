@@ -1,0 +1,1026 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="26.1">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="This section explains how to create a multirole multilink device and send/receive characters between connected BLE devices over Microchip proprietary Transparent UART Profile. The multilink central ..."/><meta name="copyright" content="(C) Copyright 2025"/><meta name="generator" content="DITA-OT"/><title>5.1.3 BLE Multirole Multilink Transparent UART</title><!--  Generated with Oxygen version 26.1, build number 2024091616.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2-d2873e303"/><meta name="wh-source-relpath" content="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2.xml"/><meta name="wh-out-relpath" content="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2.html"/>
+
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/commons.css?buildId=2024091616"/>
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic.css?buildId=2024091616"/>
+
+    <script src="./oxygen-webhelp/app/options/properties.js?buildId=20250610092133"></script>
+    <script src="./oxygen-webhelp/app/localization/strings.js?buildId=2024091616"></script>
+    <script src="./oxygen-webhelp/app/search/index/keywords.js?buildId=20250610092133"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/commons.js?buildId=2024091616"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/topic.js?buildId=2024091616"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/microchip.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/notes.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/mchp-css-overrides.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/syntax-highlight.css?buildId=2024091616"/>
+
+<!-- OneTrust Cookies Consent Notice start for onlinedocs.microchip.com -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="0194dac3-b686-73e5-b876-eb9241be4496"></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for onlinedocs.microchip.com -->
+ 
+<script src="mchp-context-help.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async="" type="text/javascript"></script>
+<script src="https://assets.adobedtm.com/6a72a357eb48/a636c708c7fe/launch-0b0023397020.min.js"></script><!-- Adobe Analytics -->
+</head>
+
+    <body id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="index.html" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\resources/images/microchip.png" alt="PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide &#xA;    "/></a>
+                    <div class=" wh_publication_title "><a href="index.html">PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide 
+    </a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div class="d-flex justify-contents-around"><div class="flex-grow-1"></div><div class="position-relative flex-grow-1"><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div><div class="align-self-center flex-grow-1 ml-2"></div></div></form>
+            
+            <div class="mchp-color-stripe-grid-container">
+  <div class="mchp-main-bar mchp-orange-bar"></div>
+  <div class="mchp-main-bar mchp-blue-bar"></div>
+  <div class="mchp-main-bar mchp-green-bar"></div>
+</div>
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46"><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div></li><li><div class="topicref" data-id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B"><div class="title"><a href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1</ph>
+Building Block Examples</a></div></div></li><li class="active"><div class="topicref" data-id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2"><div class="title"><a href="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.3</ph>
+BLE Multirole Multilink Transparent UART </a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            <div class="row" style="margin-top: -1em;"><div class="col-lg-7 col-md-7 col-sm-12 offset-lg-3 offset-md-3 text-right border-bottom mb-1"><h2 class="text-dark header_title">
+    </h2></div></div>
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem"><div data-tocid="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9" class="topicref introduction" data-id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42.html" id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9-link">Introduction</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17" class="topicref" data-id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3.html#GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1</ph>
+Quick References</a></div></div></li><li role="treeitem"><div data-tocid="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33" class="topicref" data-id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08.html" id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">2</ph>
+Secure Boot and Signature Header Generation</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41" class="topicref" data-id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795.html#GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">3</ph>
+Getting Started with <span class="ph">PIC32-BZ6</span> Curiosity Board</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68" class="topicref" data-id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html" id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">4</ph>
+Getting Started with Software Development</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132" class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html" id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143" class="topicref" data-id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html" id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1</ph>
+Building Block Examples</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151" class="topicref" data-id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.html" id="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07-d2873e151-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.1</ph>
+Central Devices</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215" class="topicref" data-id="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4.html" id="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4-d2873e215-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.2</ph>
+Peripheral Devices</a></div></div></li><li role="treeitem" class="active"><div data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2-d2873e303" class="topicref" data-id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2.html" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2-d2873e303-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.3</ph>
+BLE Multirole Multilink Transparent UART </a></div></div></li><li role="treeitem"><div data-tocid="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3-d2873e311" class="topicref" data-id="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3.html" id="GUID-9E9093DD-FF69-4287-A716-03BA74D308D3-d2873e311-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1.4</ph>
+HCI Application</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319" class="topicref" data-id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09.html" id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.2</ph>
+Advanced Applications</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551" class="topicref" data-id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F.html" id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3</ph>
+Peripheral Applications</a></div></div></li><li role="treeitem"><div data-tocid="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607" class="topicref" data-id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008.html" id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.4</ph>
+<span class="ph">PIC32CX-BZ6 and PIC32WM-BZ6</span> Three-Wire PTA Coexistence Design</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617" class="topicref" data-id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6.html" id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">6</ph>
+Adding Chip Peripherals</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673" class="topicref" data-id="GUID-B6BEB657-134C-4B53-8893-8781F2397325" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-B6BEB657-134C-4B53-8893-8781F2397325.html#GUID-B6BEB657-134C-4B53-8893-8781F2397325" id="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">7</ph>
+Low Power Design</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700" class="topicref" data-id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B.html#GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">8</ph>
+Firmware and OTA Updates</a><div class="wh-tooltip"><p class="shortdesc">This section documents how to enable firmware updates in the design, whether it is serial         or Over The Air (OTA)</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826" class="topicref" data-id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C.html" id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">9</ph>
+Wireless System and Board Support Services</a></div></div></li><li role="treeitem"><div data-tocid="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468" class="topicref" data-id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308.html" id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">10</ph>
+Application Timer Service</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476" class="topicref" data-id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">11</ph>
+Support Documentation</a><div class="wh-tooltip"><p class="shortdesc">This section has documentation that is generic and used as supporting document with the         application example documentation. </p></div></div></div></li><li role="treeitem"><div data-tocid="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503" class="topicref" data-id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3.html#GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">12</ph>
+Wireless Protocol Software and Libraries</a></div></div></li><li role="treeitem"><div data-tocid="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511" class="topicref" data-id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06.html" id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">13</ph>
+Document Revision History</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519" class="topicref backmatter backmatter_parent" data-id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B.html" id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link">Microchip Information</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2063798D-0C60-4BD2-B8DE-96FFA46017C0"><h1 class="- topic/title title topictitle1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2063798D-0C60-4BD2-B8DE-96FFA46017C0" style="">5.1.3 BLE Multirole Multilink Transparent UART </h1><div class="- topic/body body"><p class="- topic/p p">This section explains how to create a multirole multilink device and send/receive characters
+      between connected BLE devices over Microchip proprietary Transparent UART Profile. The
+      multilink central enables users to connect multiple peripheral devices to a central device.
+      The multilink central device acts as peripheral device and is connected to an another central
+      device(MBD application). The central is MBD application and peripheral devices in this
+      tutorial are <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Boards.</p><p class="- topic/p p">Users can choose to either run the precompiled Application Example hex file provided on the
+        <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board or follow the steps to develop the
+      application from scratch.</p><p class="- topic/p p">It is recommended to follow the examples in sequence to understand the basic concepts before
+      progressing to the advanced topics.</p><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__RECOMMENDED-READS" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__RECOMMENDED-READS"><h2 class="- topic/title title sectiontitle">Recommended Readings</h2>
+      
+      <ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-417E50DE-5980-415B-9CC3-A58D23527D9F" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-417E50DE-5980-415B-9CC3-A58D23527D9F"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0B71A21E-9AA0-4949-A695-B62F5444AF47" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0B71A21E-9AA0-4949-A695-B62F5444AF47">
+          <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Getting Started with Application Building Blocks</strong> – See <em class="+ topic/ph hi-d/i ph i">Building Block
+              Examples</em> from Related Links.</p>
+        </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B31D661E-B603-446C-8A6C-2B7354225A9A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B31D661E-B603-446C-8A6C-2B7354225A9A">
+          <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Getting Started with Peripheral Building Blocks</strong> – See <em class="+ topic/ph hi-d/i ph i">Peripheral Devices</em>
+            from Related Links.</p>
+        </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-779D3AC1-BECE-44D9-BC20-5F4C6B8883DD" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-779D3AC1-BECE-44D9-BC20-5F4C6B8883DD">See <em class="+ topic/ph hi-d/i ph i">BLE Deep Sleep Advertising</em> from Related Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-29A899ED-D719-4D8B-AB49-E37588825AA3" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-29A899ED-D719-4D8B-AB49-E37588825AA3">See <em class="+ topic/ph hi-d/i ph i">BLE Transparent UART</em> from
+          Related Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D30D8155-4BE5-4488-B56A-DBF207365489" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D30D8155-4BE5-4488-B56A-DBF207365489">See <em class="+ topic/ph hi-d/i ph i">BLE Connection</em> from Related
+          Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-1921F900-84E0-4AF6-979B-05ED418EE96A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-1921F900-84E0-4AF6-979B-05ED418EE96A">
+          <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">BLE Software Specification</strong> – See <em class="+ topic/ph hi-d/i ph i"><span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> Harmony Wireless
+              BLE</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.</p>
+        </li></ol>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EA51B0D-8E4A-4555-BD4B-0D1B90A07BB1" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EA51B0D-8E4A-4555-BD4B-0D1B90A07BB1"><h2 class="- topic/title title sectiontitle">Hardware Requirement </h2><div class="- topic/p p"><div class="table-container"><table class="- topic/table table frame-all" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6" data-cols="3"><caption class="- topic/title title tablecap" data-caption-side="top" data-is-repeated="true"><span class="table--title-label"><span class="table--title-label">Table 5-30. </span></span><span class="table--title" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-CA7D474F-4070-45DC-AA5A-DDA84E7444BD">Hardware Prerequisites</span></caption><colgroup><col style="width:33.33333333333333%"/><col style="width:33.33333333333333%"/><col style="width:33.33333333333333%"/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__1">S. No.</th><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__2">Tool</th><th class="- topic/entry entry colsep-0 rowsep-1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__3">Quantity</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__1">1</td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__2"><span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__3">4 (min)</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__1">2</td><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__2">USB-C cable</td><td class="- topic/entry entry colsep-0 rowsep-0" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F6D6776C-7CE6-49ED-B33B-2B18BF03B4F6__entry__3">4</td></tr></tbody></table></div></div></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-21D0FA9A-083B-41A6-8D3F-BE24E852031A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-21D0FA9A-083B-41A6-8D3F-BE24E852031A"><h2 class="- topic/title title sectiontitle">SDK Setup</h2><p class="- topic/p p">Refer to <em class="+ topic/ph hi-d/i ph i">Getting Started with Software Development</em> from Related Links.</p></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C2836D07-01B1-49EF-AAC2-CE48326BC119" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C2836D07-01B1-49EF-AAC2-CE48326BC119"><h2 class="- topic/title title sectiontitle">Software Requirement</h2>
+      <p class="- topic/p p">To install Tera Term tool, refer to the <em class="+ topic/ph hi-d/i ph i">Tera Term</em> web page in <em class="+ topic/ph hi-d/i ph i">Reference
+          Documentation</em> from Related Links.</p></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BE272DC-6424-4165-B344-CBF5ECDA37D7" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BE272DC-6424-4165-B344-CBF5ECDA37D7"><h2 class="- topic/title title sectiontitle">Smartphone App</h2>
+      <p class="- topic/p p">MBD</p></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-223374A9-C495-4FB3-B331-1874CE132816" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-223374A9-C495-4FB3-B331-1874CE132816"><h2 class="- topic/title title sectiontitle">Programming the Precompiled Hex file or
+        Application Example</h2>
+      
+      <p class="- topic/p p">Using <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> X IPE:</p>
+      <ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-86DFBE12-A651-42BA-B28A-3BBE8A45957A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-86DFBE12-A651-42BA-B28A-3BBE8A45957A"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-615EAAB4-CA37-48DC-B8D6-A517E037C6B2" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-615EAAB4-CA37-48DC-B8D6-A517E037C6B2"> Import and program the precompiled hex
+          file: <code class="+ topic/ph pr-d/codeph ph codeph"><span class="- topic/ph ph">&lt;Harmony Content Path&gt;\wireless_apps_pic32_bz6</span>\apps\ble\building_blocks\multirole\multilink\precompiled_hex</code>.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-32A5BDB1-E7AC-43F3-8DE0-1C2A0C6B2BA4" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-32A5BDB1-E7AC-43F3-8DE0-1C2A0C6B2BA4">For detailed steps, refer to
+            <em class="+ topic/ph hi-d/i ph i">Programming a Device in <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> IPE</em> in <em class="+ topic/ph hi-d/i ph i">Reference
+            Documentation</em> from Related Links.<div class="- topic/p p">
+            <div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_RHV_JWQ_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_RHV_JWQ_XYB"><span class="note__title">Note:</span>  Ensure to choose the correct Device and Tool
+              information.</div>
+          </div></li></ol>
+      <p class="- topic/p p">Using <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> X IDE:</p>
+      <ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-38E32D75-4A7E-4FCA-AB19-EAC72582B498" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-38E32D75-4A7E-4FCA-AB19-EAC72582B498"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-33A1AC6E-81BD-4873-9C21-CC3BF516AAC9" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-33A1AC6E-81BD-4873-9C21-CC3BF516AAC9"> Perform the following the steps
+          mentioned in <em class="+ topic/ph hi-d/i ph i">Running a Precompiled Example</em>. For more information, refer to
+            <em class="+ topic/ph hi-d/i ph i">Running a Precompiled Application Example</em> from Related Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-87FDAD2C-721F-4193-A9F9-C5DFD00D8841" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-87FDAD2C-721F-4193-A9F9-C5DFD00D8841"> Open and program the application
+            <code class="+ topic/ph pr-d/codeph ph codeph">mr_ml_trp_uart.x</code> located in <code class="+ topic/ph pr-d/codeph ph codeph"><span class="- topic/ph ph">&lt;Harmony Content Path&gt;\wireless_apps_pic32_bz6</span>\apps\ble\building_blocks\multirole\multilink\firmware</code>.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-55A5BB98-965E-4582-91F0-28B61DC6420A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-55A5BB98-965E-4582-91F0-28B61DC6420A">For more details on how to find the Harmony Content Path, refer to <em class="+ topic/ph hi-d/i ph i">Installing the MCC
+            Plugin</em> from Related Links.</li></ol>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7AEB4551-8490-4AF3-AAD0-B605BC8A1DD8" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7AEB4551-8490-4AF3-AAD0-B605BC8A1DD8"><h2 class="- topic/title title sectiontitle">Demo Description</h2><div class="- topic/p p">Upon programming the demo application, multirole multilink device (<span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board) will start scanning for near by peripheral devices to
+        connect. After a connection has been made data can be sent back and forth over UART between
+        the three peripherals that are connected. The multirole multilink device continues scanning
+        until 100 secs and allows new peripheral devices that are advertising to join. For this
+        example we are going to demonstrate three BLE links. <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_G4J_F5P_KFC" src="GUID-E56151ED-81B2-4F6E-B20A-E8DE361D1677-high.svg"/></div></div><p class="- topic/p p">Demo will print start of the scanning “Scanning”,connected “Connected!” and disconnected
+        “Disconnected” state on a terminal emulator like TeraTerm@ (Speed: 115200, Data: 8-bit,
+        Parity: none, stop bits: 1 bit, Flow control: none) Application Data to be sent to the
+        connected peripheral device should be entered in the terminal emulator.</p>
+      <p class="- topic/p p">Upon a disconnect event, the device will start scanning again if a peripheral was
+        disconnected. If the central was disconnected, then the device will start advertising
+        again.</p></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-137E096D-51A6-4909-A4B9-DB6AD83C8AD7" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-137E096D-51A6-4909-A4B9-DB6AD83C8AD7"><h2 class="- topic/title title sectiontitle">Testing</h2>
+      
+      <div class="- topic/p p">Users must use four <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity boards.<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_BCH_DJC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_BCH_DJC_XYB"><span class="note__title">Note:</span>  For demo testing with multiple links, users need to configure the
+          BLE Device Address for the three peripheral devices as follows:<ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_AJ5_L5P_KFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_AJ5_L5P_KFC"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-03A97D9B-2674-4F6A-90ED-B3E9D902245F" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-03A97D9B-2674-4F6A-90ED-B3E9D902245F">Device 1 will have PUBLIC address of
+              {0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6}</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-DE232827-8751-4A60-93C7-99D9958D6AD4" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-DE232827-8751-4A60-93C7-99D9958D6AD4">Device 2 will have PUBLIC address of
+              {0xB1, 0xB2, 0xB3, 0xB4, 0xB5, 0xB6}</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D678372D-28E0-46BD-A0F9-139ECA4ED78D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D678372D-28E0-46BD-A0F9-139ECA4ED78D">Device 3 will have PUBLIC address of
+              {0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0xC6} </li></ul></div></div>
+      <p class="- topic/p p">Precompiled Hex files for peripheral devices with different addresses as mentioned above
+        are available here.</p>
+      <p class="- topic/p p">Demo Experience when using four <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity boards, three
+        configured as Peripheral and one configured as MultiRole device This section assumes that a
+        user has already programmed the <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> application on 3 <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Boards.</p>
+      <div class="- topic/p p">
+        <ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_SFD_R5P_KFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_SFD_R5P_KFC"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-051115D9-FA75-4E87-9180-81E7F3DD8AC7" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-051115D9-FA75-4E87-9180-81E7F3DD8AC7">Board1 = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with <code class="+ topic/ph pr-d/codeph ph codeph">mr_ml_trp_uart</code> applicaton
+            Programmed</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-54D21636-72ED-4C3F-A0FD-0B7257C64F8D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-54D21636-72ED-4C3F-A0FD-0B7257C64F8D">Board2(Device1) = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> application
+            Programmed</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3CFB44AF-D47A-4251-BB2C-AA8AB7B5D0EF" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3CFB44AF-D47A-4251-BB2C-AA8AB7B5D0EF"> Board3(Device2) = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart </code>application
+            Programmed</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C16F1AD6-CA66-4E69-8F60-DC510BD3748F" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C16F1AD6-CA66-4E69-8F60-DC510BD3748F">Board4(Device3) = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart </code>application
+            Programmed</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E92C0065-D2BF-4205-A9B5-C1420D234555" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E92C0065-D2BF-4205-A9B5-C1420D234555">Phone1 = Smartphone with MBD app
+            installed</li></ul>
+        <div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_XHN_3JC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_XHN_3JC_XYB"><span class="note__title">Note:</span>  It is recommended to reset multirole multilink device first and
+          then the peripheral devices one by one<ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_GXG_JJC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_GXG_JJC_XYB"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9D7831AE-1684-4CF0-9DCD-96AEA7917AF1" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9D7831AE-1684-4CF0-9DCD-96AEA7917AF1"><strong class="+ topic/ph hi-d/b ph b">Board1:</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_ZSY_LJC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_ZSY_LJC_XYB"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49808CE5-AC85-4B24-81A7-65EE219D2A84" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49808CE5-AC85-4B24-81A7-65EE219D2A84">Open TeraTerm @ (Speed: 115200,
+                  Data: 8-bit, Parity: none, stop bits: 1 bit, Flow control: none). <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_WJZ_HVP_KFC" src="GUID-097077E7-B428-4655-BFB6-FF5EF9074C94-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3ECC0FE9-93E9-4D6C-8712-1FA73B275030" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3ECC0FE9-93E9-4D6C-8712-1FA73B275030">Reset the board. Upon reset,
+                  “Scanning” message is displayed on the TeraTerm.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BFDD52F-F4D9-470B-AC41-C89E34A5CDDF" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BFDD52F-F4D9-470B-AC41-C89E34A5CDDF">Upon finding peripheral device
+                  with public address {0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6} message “Found Peer Node”
+                  will be displayed and a connection request will be initiated “Initiating
+                  connection”. </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F098F9E5-046C-48A3-967F-7FC32417AC5D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-F098F9E5-046C-48A3-967F-7FC32417AC5D">During the scan time if more
+                  devices are available which will be true in this case, multirole multilink device
+                  will keep initiating connections with the new peer nodes.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-70CAB595-AE71-48C3-A65A-909DEAD1F502" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-70CAB595-AE71-48C3-A65A-909DEAD1F502">After the scan period, a “Scan
+                  Completed” message will be displayed and the device will begin advertising as a
+                  peripheral. Once advertisement starts, an “Advertising” message will display.</li></ul></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C3F48F4E-0F8D-4D64-92C1-E4A1F276FD85" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C3F48F4E-0F8D-4D64-92C1-E4A1F276FD85"><strong class="+ topic/ph hi-d/b ph b">Board2/Board3/Board4:</strong>
+              <ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_GBT_MJC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_GBT_MJC_XYB"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-63CAF994-F0F4-4486-9962-4F55BE7CD56E" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-63CAF994-F0F4-4486-9962-4F55BE7CD56E">Open TeraTerm @ (Speed: 115200,
+                  Data: 8-bit, Parity: none, stop bits: 1 bit, Flow control: none). <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_Z4W_NVP_KFC" src="GUID-097077E7-B428-4655-BFB6-FF5EF9074C94-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-BA12E919-51D1-42E7-AE13-2132FD872BF5" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-BA12E919-51D1-42E7-AE13-2132FD872BF5">Reset the board. Upon reset,
+                  “Advertising” message is displayed on the TeraTerm.<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_K31_4JC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_K31_4JC_XYB"><span class="note__title">Note:</span> 
+                    Scanner is configured to scan only for 100 seconds. Ensure the peer device is
+                    advertising. </div></li></ul></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9225A5F1-447E-42F2-9368-91DED53362E2" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9225A5F1-447E-42F2-9368-91DED53362E2">
+              <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Phone1</strong> MBD setup:</p>
+              <ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_SCS_11X_KFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_SCS_11X_KFC"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-BC8DA769-714F-4171-BC4B-3D7698137591" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-BC8DA769-714F-4171-BC4B-3D7698137591">Select BLE UART <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_FZX_R1X_KFC" src="GUID-804C99CE-4E96-4E9F-AE57-B612AD3BF7C1-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B879B935-54F9-4769-BFD1-75F8657436D9" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B879B935-54F9-4769-BFD1-75F8657436D9">Select PIC32CXBZ<div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_D5B_T1X_KFC" src="GUID-460742CA-D223-431D-A6CA-5E6D85D5CA5F-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-667BB1B8-5189-4440-B553-DDDE900895CB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-667BB1B8-5189-4440-B553-DDDE900895CB">
+                  <div class="- topic/p p">Select Start<div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_WM1_51X_KFC" src="GUID-4C88D7CF-3DE6-48B5-BAAC-E92F4315CACC-high.svg"/></div></div>
+                </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7076AE1D-B57F-4F17-8C41-430510F36E89" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7076AE1D-B57F-4F17-8C41-430510F36E89">
+                  <div class="- topic/p p">Wait for the <code class="+ topic/ph pr-d/codeph ph codeph">mr_ml_trp_uart</code> device to complete its scanning
+                    and to start advertising, then select “pic32cx-bz6” to connect<div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_USM_V1X_KFC" src="GUID-7224C697-FCDF-4415-819E-6CF370AD5BA3-high.svg"/></div></div>
+                </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7F3E653B-68F2-4857-9B19-BC8050E0888C" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7F3E653B-68F2-4857-9B19-BC8050E0888C">Select “Text mode”<div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_IJG_W1X_KFC" src="GUID-F7D9F25E-A80C-4EA9-9292-FB60E0E89FC1-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D3B54552-3712-473F-A054-660CF3F453C8" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-D3B54552-3712-473F-A054-660CF3F453C8">Within the settings, ensure that
+                  “Display data” is turned ON<div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_G5Z_W1X_KFC" src="GUID-FD8FB28F-8A90-4C07-898F-15906587D1CA-high.svg"/></div></li></ul>
+            </li></ul></div>
+      </div>
+      <div class="- topic/p p">After connection has been established between all peripheral devices and the central MBD
+        device, the TeraTerm windows will look like the image below and the MBD will look like the
+        image below. <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_S23_JVK_LFC" src="GUID-233B65BD-DA4F-425C-9FD8-67B3D361CC72-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_T2X_KVK_LFC" src="GUID-ED0FAAA4-5C81-4C84-A898-2214D3F5CE6C-high.svg"/></div></div>
+      <div class="- topic/p p">Users can now start sending data back and forth between the multirole multilink device and
+        central/peripheral device using the terminal emulator and MBD.<ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_VG3_MVK_LFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_VG3_MVK_LFC"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-CC78CDC8-4DE2-47DF-AC94-29A56CC47798" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-CC78CDC8-4DE2-47DF-AC94-29A56CC47798">Characters entered on multirole multilink device (Board1) terminal emulator will
+            appear on peripheral devices (Board2,3,4) emulator in a round-robin fashion without
+            priority. For example, typing “abc” in the multirole multilink device terminal emulator
+            will print “a” on one peripheral terminal emulator, “b” on another peripheral terminal
+            emulator, and “c” on the last peripheral terminal emulator as shown below <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_PRX_SVK_LFC" src="GUID-63A24FCC-C8AD-4567-A465-FA13A112CEDB-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-ED6B27B9-9AA0-4DD5-B578-1A9BFBA8F270" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-ED6B27B9-9AA0-4DD5-B578-1A9BFBA8F270">Characters entered on any peripheral devices (Board2,3,4) terminal emulator will
+            appear on central device's (Board1) terminal emulator with the prefix “Client Data :” as
+            shown below. <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_QDH_5VK_LFC" src="GUID-7510E568-20E3-4162-B4FD-8776C4E5FC60-high.svg"/></div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9B6A8E45-FDB9-41FA-8AB9-93CEC255284D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9B6A8E45-FDB9-41FA-8AB9-93CEC255284D">Characters entered on any central device (Phone1 with MBD app) using Rx char
+            (49535343-8841-43f4-a8d4-ecbe34729bb3) will appear on multirole device's (Board1)
+            terminal emulator and will be forwarded to the peripheral devices (Board2,3,4).
+            Consequently, the message will be printed on the peripheral device’s terminal emulators.
+            This data will have the prefix of “Server Data :” on the multirole multilink (Board1)
+            terminal emulator To send data on MBD, select the “Input String” field, type a message,
+            and press send <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_CCQ_WVK_LFC" src="GUID-7059FFE2-287C-4212-A842-5CA6622A919B-high.svg"/></div>If successful, the MBD screen will look like the image below
+            and the TeraTerm windows will look like the image below. <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_C5V_XVK_LFC" src="GUID-96D3CD3B-C83F-4F03-824C-25D38441182C-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_SX2_ZVK_LFC" src="GUID-19C8587A-C27D-4392-BAC6-A50BE16612BA-high.svg"/></div></li></ul></div>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49D50497-1913-485A-9D9B-F744A1C9AC9C" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49D50497-1913-485A-9D9B-F744A1C9AC9C"><h2 class="- topic/title title sectiontitle">Developing this Application from scratch
+        using MPLAB Code Configurator</h2>
+      
+      <div class="- topic/p p">Follow the steps below to build the application manually:<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_G4P_WXQ_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_G4P_WXQ_XYB"><span class="note__title">Note:</span>  It is
+          recommended for the new users of the MPLAB Code Configurator to refer <em class="+ topic/ph hi-d/i ph i"><span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> Code Configurator (MCC) User’s Guide</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em>
+          from Related Links.</div></div>
+      <div class="- topic/p p">
+        <ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-813E21EC-C440-4BF4-9129-D1E7F977859F" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-813E21EC-C440-4BF4-9129-D1E7F977859F"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-062B0797-5F78-483A-A406-C7D13DDC3BF8" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-062B0797-5F78-483A-A406-C7D13DDC3BF8">Create a new harmony project. For more
+            details, see <em class="+ topic/ph hi-d/i ph i">Creating a New MCC Harmony Project</em> from Related Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6FE7EE72-BC39-48D1-A4D1-0404D6CA9A2A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6FE7EE72-BC39-48D1-A4D1-0404D6CA9A2A">Import component configuration: This
+            step helps users setup the basic components and configuration required to develop this
+              application.<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_JGS_ZJC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_JGS_ZJC_XYB"><span class="note__title">Note:</span>  Import and Export functionality of component
+              configuration will help users to start from a known working setup of
+              configuration.</div></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-264372A8-447A-44ED-9A57-8993B38DF10B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-264372A8-447A-44ED-9A57-8993B38DF10B"> Accept dependencies or satisfiers when
+            prompted.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B5F57CD6-89DE-4D44-B0B3-A65BE753685C" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B5F57CD6-89DE-4D44-B0B3-A65BE753685C">Verify if the Project Graph window has
+            all the expected configuration.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_FGH_JN1_YYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_FGH_JN1_YYB"><div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_DCF_TN1_YYB" src="GUID-8CBE7D98-A818-402E-A77A-3900F8F8B8B6-high.svg"/></div></figure></li></ol>
+      </div>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A4C19FCA-2304-42E3-A5A6-5C550A9F715E" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A4C19FCA-2304-42E3-A5A6-5C550A9F715E"><h2 class="- topic/title title sectiontitle">Verify Scan, Advertisement and Transparent Profile Configuration</h2><div class="- topic/p p"><ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3651E909-11A4-4C2C-9486-97BC0592275A" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3651E909-11A4-4C2C-9486-97BC0592275A"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6DE73596-DA7E-4921-AF76-10200F1ACC9C" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6DE73596-DA7E-4921-AF76-10200F1ACC9C">Select <strong class="+ topic/ph hi-d/b ph b">BLE_Stack</strong> component in project
+              graph.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_DG1_S4C_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_DG1_S4C_XYB"><div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_U4X_S4C_XYB" src="GUID-A89BBD93-04B6-4252-B5FD-ABFEA5BD0BB8-high.svg"/></div></figure><figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_SQD_T4C_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_SQD_T4C_XYB"><div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_IKM_54C_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_IKM_54C_XYB"><span class="note__title">Note:</span>  Advertising Interval Min and Max can be modified.
+                Advertisement payload can be configured by user here.</div></figure></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-4AADFD0F-73D7-4AE0-A47E-31ED8827E68E" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-4AADFD0F-73D7-4AE0-A47E-31ED8827E68E">Select Transparent Profile configuration.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_B3G_W4C_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_B3G_W4C_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_N1X_W4C_XYB" src="GUID-052F2057-322B-43FF-ADDC-8EB2EBC98630-high.svg"/></span></figure></li></ol></div></section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-76B31218-70DA-4848-9E20-56E6BE9063C7" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-76B31218-70DA-4848-9E20-56E6BE9063C7"><h2 class="- topic/title title sectiontitle">Generating a Code</h2>
+      
+      <p class="- topic/p p"> For more details on code generation, refer to <em class="+ topic/ph hi-d/i ph i">MPLAB Code Configurator (MCC) Code
+          Generation</em> from Related Links. </p>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FILES-AND-ROUTINES-AUTOMATICALLY-GENERATED-BY-THE-MCC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FILES-AND-ROUTINES-AUTOMATICALLY-GENERATED-BY-THE-MCC"><h2 class="- topic/title title sectiontitle">Files and Routines Automatically
+        Generated by the MCC</h2>
+      
+      <div class="- topic/p p">After generating the program source from MCC interface by clicking Generate Code, the BLE
+        configuration can be found in the following project directories.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_HMW_GCZ_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_HMW_GCZ_XYB"><figcaption class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure 5-158. <span id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-DEB2D770-3962-4C29-B85A-E6ADF74C2433" class="fig--title">Project File</span></span></figcaption><div class="- topic/p p">
+            <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_HDK_Y4C_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_HDK_Y4C_XYB"><div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_EBB_Z4C_XYB" src="GUID-9CCCE909-66E0-407D-B4B0-9B10D117A33C-high.svg"/></div></figure>
+          </div></figure></div>
+      <div class="- topic/p p">Initialization routines for OSAL, RF System, and BLE System are auto-generated by the MCC.
+        See <em class="+ topic/ph hi-d/i ph i">OSAL Libraries Help</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.
+        Initialization routine executed during program initialization can be found in the project
+          files.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_JWK_JCZ_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_JWK_JCZ_XYB"><figcaption class="- topic/title title figcap"><span class="figtitleprefix fig--title-label">Figure 5-159. <span id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-9A156219-B84C-4575-B52E-D12474FC6EDC" class="fig--title"><code class="+ topic/ph pr-d/codeph ph codeph">initialization.c</code></span></span></figcaption><div class="- topic/p p">
+            <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_ERT_BPC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_ERT_BPC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_DHN_CPC_XYB" src="GUID-B938657E-0BBD-45C6-A269-C510F3AC028B-high.svg"/></span></figure>
+          </div></figure></div>
+      <p class="- topic/p p">The BLE stack initialization routine executed during application initialization can be
+        found in project files. This initialization routine is automatically generated by the MCC.
+        This call initializes and configures the GAP, GATT, SMP, L2CAP and BLE middleware
+        layers.</p>
+      <div class="- topic/p p">During system sleep, clock (system PLL) will be disabled and system tick will be turned
+        off. FreeRTOS timer needs to be componsated for the time spent in sleep. RTC timer which
+        works in the sleep mode is used to accomplish this. RTC timer will be initialized after BLE
+        stack initialization. <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_KQK_DPC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_KQK_DPC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_ZGG_2PC_XYB" src="GUID-256BEB0A-4C4D-4516-AA7A-6F47CAB05077-high.svg"/></span></figure></div>
+      <div class="table-container"><table class="- topic/table table frame-all" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D" data-cols="2"><caption class="- topic/title title tablecap" data-caption-side="top" data-is-repeated="true"><span class="table--title-label"><span class="table--title-label">Table 5-31. </span></span><span class="table--title" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3AD24C80-4397-4D96-9ACA-5ACA2AE24D38">Source Files</span></caption><colgroup><col style="width:50%"/><col style="width:50%"/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1">Source Files</th><th class="- topic/entry entry colsep-0 rowsep-1" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">Usage</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">Application State machine, includes calls for Initialization of all BLE stack
+                (GAP,GATT, SMP, L2CAP) related component configurations</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">Source code for the BLE stack related component configurations, code related to
+                function calls from <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code></td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">All GAP, GATT, SMP and L2CAP event handlers</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_trspc_handler.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">All transparent UART client related event handlers</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_trsps_handler.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">All transparent UART server related event handlers</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trspc.c</code></td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">All transparent client functions for user application</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trsps.c</code></td><td class="- topic/entry entry colsep-0 rowsep-0" headers="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-0D9332F9-65C8-4FFC-ACC5-DD0BC90D1A7D__entry__2">All transparent server functions for user application</td></tr></tbody></table></div>
+      <div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_S2X_2FS_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_S2X_2FS_XYB"><span class="note__title">Note:</span> <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code> is autogenerated and has a state machine
+        based application code. Users can use this template to develop their own application.</div>
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Header Files</strong></p>
+      <ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E4F3CA57-8CC7-41E5-997F-44DED87432B6" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E4F3CA57-8CC7-41E5-997F-44DED87432B6"><code class="+ topic/ph pr-d/codeph ph codeph">ble_gap.h</code>: This header
+          file contains BLE GAP functions and is automatically included in the
+            <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code> file</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7A8236F0-5F16-4ABF-B425-ED0DA94BA598" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7A8236F0-5F16-4ABF-B425-ED0DA94BA598"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trspc.h</code>: This is the header file associated with API’s and
+          structures related to BLE Transparent Client functions for Application User</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2E3C3F36-23D6-4E65-BB8B-2CC31B020483" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2E3C3F36-23D6-4E65-BB8B-2CC31B020483"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trsps.h</code>: This is the
+          header file associated with API’s and structures related to BLE Transparent Server
+          functions for Application User</li></ul>
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Function Calls</strong></p>
+      <div class="- topic/p p">MCC Framework generates and adds the code to initialize the BLE Stack GAP, GATT, L2CAP and
+        SMP in <code class="+ topic/ph pr-d/codeph ph codeph">APP_BleStackInit()</code> function<ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_LZJ_TNP_KFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_LZJ_TNP_KFC"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A96060F7-03C2-4C3F-AA12-27B5ED573E4D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A96060F7-03C2-4C3F-AA12-27B5ED573E4D"><code class="+ topic/ph pr-d/codeph ph codeph">APP_BleStackInit()</code> is
+            the API that will be called inside the Applications Initial State --
+              <code class="+ topic/ph pr-d/codeph ph codeph">APP_STATE_INIT</code> in <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code></li></ul></div>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_IZY_2NP_KFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_IZY_2NP_KFC">
+      <p class="- topic/p p"></p>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_XYS_1LM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_XYS_1LM_25B"><h2 class="- topic/title title sectiontitle">User Application Development</h2>
+      
+      <div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Include</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_X21_HLM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_X21_HLM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-FFF637FB-8E39-48E9-A72B-0F0B26E77BE0" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-FFF637FB-8E39-48E9-A72B-0F0B26E77BE0">Include the user action. For more
+            information, refer to <em class="+ topic/ph hi-d/i ph i">User Action</em> from Related Links.</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E85B4B25-F489-4917-8B91-54567089366D" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E85B4B25-F489-4917-8B91-54567089366D">
+            <p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trspc.h </code>in app.c, BLE Transparent UART client related API's are
+              available here</p>
+          </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2A497FE7-8F1B-4FB9-A142-BCA4138DCC43" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2A497FE7-8F1B-4FB9-A142-BCA4138DCC43">
+            <p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">ble_trsps.h</code> in app.c, BLE Transparent UART Server related API's are
+              available here</p>
+          </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5B791021-C51F-4D5B-ABF1-F7FA6119A005" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5B791021-C51F-4D5B-ABF1-F7FA6119A005">
+            <p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">osal/osal_freertos_extend.h</code> in <code class="+ topic/ph pr-d/codeph ph codeph">app_trsps_handler.c</code>,
+              OSAL related API's are available here</p>
+          </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-98CBBA08-2795-4C1B-AFB3-83DBC5F43FE3" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-98CBBA08-2795-4C1B-AFB3-83DBC5F43FE3">
+            <div class="- topic/p p">definitions.h in all the files where UART will be used to print debug
+                information<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_DSL_PKC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_DSL_PKC_XYB"><span class="note__title">Note:</span> 
+                <code class="+ topic/ph pr-d/codeph ph codeph">definitions.h</code> is not specific to just UART peripheral, instead it
+                should be included in all application source files where peripheral functionality
+                will be exercised</div></div>
+          </li></ul></div>
+      <div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Start Scanning</strong><pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>// Scanning Enabled
+BLE_GAP_SetScanningEnable(true, BLE_GAP_SCAN_FD_ENABLE, BLE_GAP_SCAN_MODE_OBSERVER, 1000);
+// Output the status string to UART
+SERCOM0_USART_Write((uint8_t *)"Scanning \r\n", 11);</code></pre></div>
+    </section><div class="- topic/p p">
+      <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_OKY_GPC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_OKY_GPC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_EBV_HPC_XYB" src="GUID-71BBFDC9-CA48-442A-BD68-56468443395F-high.svg"/></span></figure></div><p class="- topic/p p">This API is called in the Applications initial state - <code class="+ topic/ph pr-d/codeph ph codeph">APP_STATE_INIT</code> in
+        <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code>. Scan duration is 100 seconds</p><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E7EA372E-D1B8-4217-955E-0FEF42B05FCC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E7EA372E-D1B8-4217-955E-0FEF42B05FCC">
+      <div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Scan Results and intiating a BLE Connection</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_OZ5_DMM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_OZ5_DMM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E657B0DA-D85C-455F-8992-568B3A19407C" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E657B0DA-D85C-455F-8992-568B3A19407C">
+            <p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_GAP_EVT_ADV_REPORT</code> event is generated in
+                <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code> upon finding Advertisements on legacy
+              channels</p>
+          </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E390C741-7494-449C-BE4A-AD581CFD47D1" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-E390C741-7494-449C-BE4A-AD581CFD47D1">
+            <div class="- topic/p p">BLE connection can be initiated by using the API
+                <code class="+ topic/ph pr-d/codeph ph codeph">BLE_GAP_CreateConnection(&amp;createConnParam_t);</code><pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>// code snippet to filter scan results and initiate connection
+  // Filter Devices based of Address, for this example address checking only 2 bytes
+  if ((p_event-&gt;eventField.evtAdvReport.addr.addr[0] == 0xA1 &amp;&amp; p_event-&gt;eventField.evtAdvReport.addr.addr[1] == 0xA2) ||
+      (p_event-&gt;eventField.evtAdvReport.addr.addr[0] == 0xB1 &amp;&amp; p_event-&gt;eventField.evtAdvReport.addr.addr[1] == 0xB2) ||
+      (p_event-&gt;eventField.evtAdvReport.addr.addr[0] == 0xC1 &amp;&amp; p_event-&gt;eventField.evtAdvReport.addr.addr[1] == 0xC2))
+  {
+      SERCOM0_USART_Write((uint8_t *)"Found Peer Node\r\n", 17);
+      BLE_GAP_CreateConnParams_T createConnParam_t;
+      createConnParam_t.scanInterval = 0x3C; // 37.5 ms
+      createConnParam_t.scanWindow = 0x1E; // 18.75 ms
+      createConnParam_t.filterPolicy = BLE_GAP_SCAN_FP_ACCEPT_ALL;
+      createConnParam_t.peerAddr.addrType = p_event-&gt;eventField.evtAdvReport.addr.addrType;
+      memcpy(createConnParam_t.peerAddr.addr, p_event-&gt;eventField.evtAdvReport.addr.addr, GAP_MAX_BD_ADDRESS_LEN);
+      createConnParam_t.connParams.intervalMin = 0x30;
+      createConnParam_t.connParams.intervalMax = 0x30;
+      createConnParam_t.connParams.latency = 0;
+      createConnParam_t.connParams.supervisionTimeout = 0x48;
+      SERCOM0_USART_Write((uint8_t *)"Initiating Connection\r\n", 23);
+      BLE_GAP_CreateConnection(&amp;createConnParam_t);
+  }</code></pre></div>
+            <div class="- topic/p p">
+              <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_UTR_3PC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_UTR_3PC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_SMG_WPC_XYB" src="GUID-224A7E88-341D-4655-B546-C7007C8689E4-high.svg"/></span></figure>
+            </div>
+          </li></ul><div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Connected &amp; Disconnected Events</strong></div><div class="- topic/p p">
+          <ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_DJB_4MM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_DJB_4MM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-53D2DE0C-0E95-4454-8305-825FCDE9E5AD" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-53D2DE0C-0E95-4454-8305-825FCDE9E5AD">In <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code>
+              <code class="+ topic/ph pr-d/codeph ph codeph">BLE_GAP_EVT_CONNECTED</code> event will be generated when a BLE connection
+              is completed. <code class="+ topic/ph pr-d/codeph ph codeph">BLE_GAP_EVT_DISCONNECTED</code> event will be generated when a
+              BLE connection is broken.</li></ul>
+        </div><div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Connection and Disconnection Handlers</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_BRB_QMM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_BRB_QMM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-515F7B3C-02FA-436E-B669-428E2AFCAD28" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-515F7B3C-02FA-436E-B669-428E2AFCAD28">
+              <p class="- topic/p p">Connection handle associated with the peer peripheral device needs to be saved for
+                data exchange after a BLE connection</p>
+            </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5180998D-8B41-40DA-9A4F-966274E953D5" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5180998D-8B41-40DA-9A4F-966274E953D5">
+              <p class="- topic/p p">p_event-&gt;eventField.evtConnect.connHandle has this information</p>
+            </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5D573EE2-88B0-48E6-96A2-E7B26E45CD23" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-5D573EE2-88B0-48E6-96A2-E7B26E45CD23">In Multilink Application, unique connection handler's will be generated for all the
+              peripheral links</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-941DA01A-E58D-4EEA-AAD2-041591080587" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-941DA01A-E58D-4EEA-AAD2-041591080587">
+              <p class="- topic/p p">The disconnect handle associated with the peer peripheral device needs to be
+                removed from the <code class="+ topic/ph pr-d/codeph ph codeph">conn_hdl</code> list. Additionally, if the device that
+                got disconnected was a peripheral, then the multirole device will start scanning
+                again. If the multirole device that got disconnected was a central, then the device
+                will start advertising again.</p>
+            </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3C522913-99CF-4938-894D-82044FAE1B71" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-3C522913-99CF-4938-894D-82044FAE1B71">
+              <p class="- topic/p p">p_event-&gt;eventField.evtDisconnect.connHandle has this information</p>
+            </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2A6A40FA-202D-44F3-81F8-46319FE58F19" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-2A6A40FA-202D-44F3-81F8-46319FE58F19">
+              <div class="- topic/p p">
+                <figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_TVX_WPC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_TVX_WPC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_ZSQ_XPC_XYB" src="GUID-5331ED55-A61C-4A31-ACB2-D38078245570-high.svg"/></span><pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>// Definitions and global variables
+#define BLE_ROLE_CLIENT 1
+#define BLE_ROLE_SERVER 2
+uint16_t conn_hdl_role[3];
+extern uint16_t conn_hdl[3];
+extern uint8_t no_of_links;
+
+// Connection event
+SERCOM0_USART_Write((uint8_t *)"Connected!\r\n", 12);
+conn_hdl[no_of_links] = p_event-&gt;eventField.evtConnect.connHandle;
+no_of_links++;
+
+// Disconnection event
+SERCOM0_USART_Write((uint8_t *)"Disconnected\r\n", 15);
+uint16_t rmv_conn_hdl = p_event-&gt;eventField.evtDisconnect.connHandle;
+uint8_t i = 0;
+for(i = 0; i &lt; no_of_links; i++)
+{
+    if (conn_hdl[i] == rmv_conn_hdl)
+    {
+        uint16_t tmp_hdl = conn_hdl[no_of_links-1];                    
+        conn_hdl[no_of_links-1] = conn_hdl[i];
+        conn_hdl[i] = tmp_hdl;
+
+        uint16_t tmp_role = conn_hdl_role[no_of_links-1];
+        conn_hdl_role[no_of_links-1] = conn_hdl_role[i];
+        conn_hdl_role[i] = tmp_role;
+    }
+}
+if(conn_hdl_role[no_of_links-1] == BLE_ROLE_CLIENT)
+{
+    BLE_GAP_SetScanningEnable(true, BLE_GAP_SCAN_FD_ENABLE, BLE_GAP_SCAN_MODE_OBSERVER, 1000);
+    SERCOM0_USART_Write((uint8_t *)"Scanning \r\n", 11);
+}
+else
+{
+    BLE_GAP_SetAdvEnable(0x01, 0x00);
+    SERCOM0_USART_Write((uint8_t *) "Advertising\r\n", 13);
+}
+no_of_links--;
+</code></pre></figure>
+              </div>
+            </li></ul></div></div>
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Determining the Role of the Connected Devices</strong></p>
+      <ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_CNH_BNM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_CNH_BNM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B968B4EB-4020-43BC-9B35-12C1B7E19CAA" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B968B4EB-4020-43BC-9B35-12C1B7E19CAA">To determine if the connected device is a
+          client, we can check the client sends a server request. This will generate a
+            <code class="+ topic/ph pr-d/codeph ph codeph">GATTC_EVT_DISC_PRIM_SERV_RESP</code> and
+            <code class="+ topic/ph pr-d/codeph ph codeph">GATTC_EVT_DISC_PRIM_SERV_BY_UUID_RESP</code> event in
+            <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code>. </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-ACB0B6BD-A940-40B1-AB62-76E7E2614520" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-ACB0B6BD-A940-40B1-AB62-76E7E2614520">We can then use the <code class="+ topic/ph pr-d/codeph ph codeph">p_event-&gt;eventField.onDiscPrimServResp.connHandle</code>
+          and <code class="+ topic/ph pr-d/codeph ph codeph">p_event-&gt;eventField.onDiscPrimServByUuidResp.connHandle</code> to check
+          which connection handle made generated the event. This will tell us that the connection
+          that made the request is a client. Otherwise, the connection will be a server. <div class=""><img class="- topic/image image break break" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_UPJ_RFL_LFC" src="GUID-117AB005-8308-47A4-843B-FC38E2291719-high.svg"/></div><pre class="+ topic/pre pr-d/codeblock pre codeblock" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__CODEBLOCK_EBP_4FL_LFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__CODEBLOCK_EBP_4FL_LFC"><code>// GATTC_EVT_DISC_PRIM_SERV_RESP event 
+uint8_t i = 0;
+for(i=0; i&lt;no_of_links;i++)
+    if(conn_hdl[i] == p_event-&gt;eventField.onDiscPrimServResp.connHandle)
+        conn_hdl_role[i] = BLE_ROLE_CLIENT;
+
+// GATTC_EVT_DISC_PRIM_SERV_BY_UUID_RESP event
+uint8_t i = 0;
+for(i=0; i&lt;no_of_links;i++)
+    if(conn_hdl[i] == p_event-&gt;eventField.onDiscPrimServByUuidResp.connHandle)
+        conn_hdl_role[i] = BLE_ROLE_CLIENT;
+</code></pre></li></ul>
+      <div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Scan Timeout Handler</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_CKH_BNM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_CKH_BNM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B965B4EB-4020-43BC-9B35-12C1B7E19CAA" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B965B4EB-4020-43BC-9B35-12C1B7E19CAA">The initiated scan operation will
+            provide scan timeout event in <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code>, we can start the
+            advertisement to connect with another central device<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_IKN_YPC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_IKN_YPC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_E1H_ZPC_XYB" src="GUID-F7A99C76-AFFD-4B09-994B-BB47D153764B-high.svg"/></span></figure></li></ul></div>
+      <div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Transmit Data</strong><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_MCX_FNM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_MCX_FNM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-982B2F6E-1B5F-4DFA-9A4E-737F6C45573E" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-982B2F6E-1B5F-4DFA-9A4E-737F6C45573E">
+            <div class="- topic/p p">Add “<code class="+ topic/ph pr-d/codeph ph codeph">APP_MSG_UART_CB</code>” to the generated <code class="+ topic/ph pr-d/codeph ph codeph">APP_MsgId_T</code>
+              in <code class="+ topic/ph pr-d/codeph ph codeph">app.h</code>.<figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_XC5_1QC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_XC5_1QC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_QKL_BQC_XYB" src="GUID-537322DB-EF10-4496-989D-B5771F1E50CA-high.svg"/></span></figure></div>
+          </li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A5541AC4-C643-4BB8-8F8F-58B189D955D9" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A5541AC4-C643-4BB8-8F8F-58B189D955D9"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_SendData(conn_hdl[i],
+              1, &amp;uart_data)</code>; is the API to be used for sending data towards the Client
+            device</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EC2EA5E-0272-4B8F-808A-121F9FF86C33" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EC2EA5E-0272-4B8F-808A-121F9FF86C33">
+            <p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPS_SendData(conn_hdl[i], 1, &amp;uart_data)</code>; is the API to be
+              used for sending data towards the Server device</p>
+            <div class="- topic/p p">
+              <div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_FXX_FGL_LFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_FXX_FGL_LFC"><span class="note__title">Note:</span> * The precompiled application example uses a UART callback
+                to initiate the data transmission upon receiving a character on UART.</div>
+            </div>
+            <div class="- topic/p p">Example Implementation for Transmitting the received data over UART using the
+                <code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_SendData</code> and the <code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPS_SendData</code> API
+              in <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code>.
+                <pre class="+ topic/pre pr-d/codeblock pre codeblock" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__CODEBLOCK_ING_YGL_LFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__CODEBLOCK_ING_YGL_LFC"><code>#define BLE_ROLE_CLIENT 1
+#define BLE_ROLE_SERVER 2
+uint16_t conn_hdl[3];// connection handle info captured @BLE_GAP_EVT_CONNECTED event
+uint8_t uart_data;
+uint8_t no_of_links;// No of connected peripheral devices
+uint8_t i = 0;// link index
+extern uint16_t conn_hdl_role[3];
+
+void uart_cb(SERCOM_USART_EVENT event, uintptr_t context)
+{
+    APP_Msg_T   appMsg;   
+    // If RX data from UART reached threshold (previously set to 1)
+    if( event == SERCOM_USART_EVENT_READ_THRESHOLD_REACHED )
+    {
+        // Read 1 byte data from UART
+        SERCOM0_USART_Read(&amp;uart_data, 1);
+
+        appMsg.msgId = APP_MSG_UART_CB;
+        OSAL_QUEUE_Send(&amp;appData.appQueue, &amp;appMsg, 0);     
+    }
+}
+
+void APP_UartCBHandler()
+{    
+    uint8_t index = 0;
+    for(index = 0; index &lt; no_of_links; index++)
+    {
+        if(conn_hdl_role[index] != BLE_ROLE_CLIENT)
+            BLE_TRSPS_SendData(conn_hdl[index], 1, &amp;uart_data);
+        else 
+        {
+            if(index == i)
+                BLE_TRSPC_SendData(conn_hdl[index], 1, &amp;uart_data);
+        }
+    }   
+    i++;
+    if(i==no_of_links) i = 0; //reset link index    
+}
+
+///////////////////////////////////////////////////////////////
+// Enable UART Read
+SERCOM0_USART_ReadNotificationEnable(true, true);
+// Set UART RX notification threshold to be 1
+SERCOM0_USART_ReadThresholdSet(1);
+// Register the UART RX callback function
+SERCOM0_USART_ReadCallbackRegister(uart_cb, (uintptr_t)NULL);
+
+/////////////////////////////////////////////////////////////
+if(p_appMsg-&gt;msgId==APP_MSG_BLE_STACK_EVT)
+{
+    // Pass BLE Stack Event Message to User Application for handling
+    APP_BleStackEvtHandler((STACK_Event_T *)p_appMsg-&gt;msgData);
+}
+else if(p_appMsg-&gt;msgId==APP_MSG_UART_CB)
+{
+    // Transparent UART Client Data transfer Event
+    APP_UartCBHandler();
+}</code></pre><figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_CN1_JQC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_CN1_JQC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_ED3_KQC_XYB" src="GUID-28898774-ACAA-4CDA-85DC-BA50226A6574-high.svg"/></span></figure></div>
+          </li></ul></div>
+    </section><section class="- topic/section section" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A73C5FCE-52B8-4886-A26E-0E7559FFE6C1" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A73C5FCE-52B8-4886-A26E-0E7559FFE6C1"><div class="- topic/sectiondiv sectiondiv"><strong class="+ topic/ph hi-d/b ph b">Receive Data</strong><div class="- topic/p p"><ul class="- topic/ul ul" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_I4V_QNM_25B" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__UL_I4V_QNM_25B"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-18E25CD1-E197-4912-9AB7-82F438E34706" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-18E25CD1-E197-4912-9AB7-82F438E34706"><p class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_EVT_RECEIVE_DATA</code> is the event generated when data is sent from
+                peripheral device in <code class="+ topic/ph pr-d/codeph ph codeph">app_trspc_handler.c</code></p></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-778F6D15-55CD-4E13-BFC6-14E3766C2285" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-778F6D15-55CD-4E13-BFC6-14E3766C2285"><p class="- topic/p p">Users need to use the <code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_GetDataLength(&amp;data_len)</code> &amp;
+                  <code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPS_GetDataLength(&amp;data_len)</code> API to extract the length
+                of application data received</p></li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B6EC22E1-7886-43A0-8332-6E1652667814" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-B6EC22E1-7886-43A0-8332-6E1652667814">
+              <div class="- topic/p p"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_GetData(&amp;conn_hdl, data)</code>; &amp;
+                  <code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPS_GetData(&amp;conn_hdl, data)</code>; API is used to retrieve
+                the data, <code class="+ topic/ph pr-d/codeph ph codeph">conn_hdl</code> is the value obtained from Connection Handler
+                  section<div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_WTK_TKC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_WTK_TKC_XYB"><span class="note__title">Note:</span> 
+                  <ol class="- topic/ol ol" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__OL_OGF_5KC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__OL_OGF_5KC_XYB"><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-FE320A11-FEFF-4D8B-B1F9-9894FBDA38CD" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-FE320A11-FEFF-4D8B-B1F9-9894FBDA38CD"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPC_Event_T
+                        p_event</code> structure stores the information about BLE transparent UART
+                      callback functions</li><li class="- topic/li li" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-78DA285D-8E6B-4A0E-9C9A-D2085FBCC7CF" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-78DA285D-8E6B-4A0E-9C9A-D2085FBCC7CF"><code class="+ topic/ph pr-d/codeph ph codeph">BLE_TRSPS_Event_T
+                        p_event</code> structure stores the information about BLE transparent UART
+                      callback functions</li></ol>
+                </div></div>
+              <div class="- topic/p p">Example Implementation for printing the received data from peripheral device over
+                  UART<pre class="+ topic/pre pr-d/codeblock pre codeblock"><code>            /* TODO: implement your application code.*/
+            uint16_t data_len;
+            uint8_t *data;
+            // Retrieve received data length
+            BLE_TRSPC_GetDataLength(p_event-&gt;eventField.onReceiveData.connHandle, &amp;data_len);
+            // Allocate memory according to data length
+            data = OSAL_Malloc(data_len);
+            if(data == NULL)
+            break;
+            // Retrieve received data
+            BLE_TRSPC_GetData(p_event-&gt;eventField.onReceiveData.connHandle, data);
+            // Output received data to UART
+            SERCOM0_USART_Write((uint8_t *)"\r\nClient Data :", 15);
+            SERCOM0_USART_Write(data, data_len);
+            // Free memory
+            OSAL_Free(data);</code></pre><figure class="- topic/fig fig fignone" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_BV5_QQC_XYB" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FIG_BV5_QQC_XYB"><span class=""><img class="- topic/image image" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__IMAGE_GMZ_SQC_XYB" src="GUID-70B41B5D-3596-4CF1-AABE-41845BFE4D34-high.svg"/></span></figure></div>
+            </li></ul></div></div></section><div class="- topic/note note notype note_notype" id="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_P4T_KYR_GFC" data-ofbid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__NOTE_P4T_KYR_GFC"><span class="note__title">Note:</span> Users can explore more BLE Advertisement functionalities using the
+      BLE Stack APIs. For more information, refer to <em class="+ topic/ph hi-d/i ph i">BLE Stack</em> in <em class="+ topic/ph hi-d/i ph i">Reference
+        Documentation</em> from Related Links.</div></div></article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relinfo" xml:lang="en-US" lang="en-US"><strong>Related Links</strong><ul class="linklist related_link"><li class="linklist"><p><a class="navheader_parent_path" href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html" title="Building Block Examples"><span><span>5.1 </span><span>Building Block Examples</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-E963C1C9-8AA7-43F9-85D8-D53389F57CD5.html" title="BLE Deep Sleep Advertising"><span><span>5.1.2.4 </span><span>BLE Deep Sleep Advertising</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-D90F1679-2B85-470F-8079-A4F7F05198EB.html" title="BLE Transparent UART"><span><span>5.1.2.6 </span><span>BLE Transparent UART</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-56A0A8B3-166A-41E3-AFB7-517270C895D6.html" title="BLE Connection"><span><span>5.1.2.5 </span><span>BLE Connection </span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-99583057-8B1A-42F2-84E8-CFC7717FA5D1" title="User Action"><span><span>11.1 </span><span> User Action</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3.html#GUID-822B816F-2CA4-4886-A161-45FFF4FC36AE" title="Reference Documentation"><span><span>1.1 </span><span>Reference Documentation</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-699C4D69-3CF9-4869-8129-E4B49F0367F4.html" title="Peripheral Devices"><span><span>5.1.2 </span><span>Peripheral Devices</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html" title="Getting Started with Software Development"><span><span>4 </span><span>Getting Started with Software
+        Development</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-03E7D3CA-7508-4931-B418-3642D531548A.html" title="Running a Precompiled Application Example"><span><span>4.6 </span><span>Running a Precompiled Application
+        Example</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-E1CF1766-75ED-4C99-94F7-31D0710DBDC1.html" title="Installing the MCC Plugin"><span><span>4.2 </span><span>Installing the MCC Plugin</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-F6A4A028-2FC8-4566-B6C8-1F6D0AF646B3.html" title="Creating a New MCC Harmony Project"><span><span>4.4 </span><span>Creating a New MCC Harmony Project</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-FC811D14-AC40-4AC7-BD5A-DEB3CB7950F8" title="MPLAB Code Configurator (MCC) Code Generation"><span><span>11.2 </span><span>MPLAB Code Configurator (MCC) Code
+        Generation</span></span></a></p><p></p></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__RECOMMENDED-READS" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__RECOMMENDED-READS">Recommended Readings</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EA51B0D-8E4A-4555-BD4B-0D1B90A07BB1" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7EA51B0D-8E4A-4555-BD4B-0D1B90A07BB1">Hardware Requirement </a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-21D0FA9A-083B-41A6-8D3F-BE24E852031A" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-21D0FA9A-083B-41A6-8D3F-BE24E852031A">SDK Setup</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C2836D07-01B1-49EF-AAC2-CE48326BC119" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-C2836D07-01B1-49EF-AAC2-CE48326BC119">Software Requirement</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BE272DC-6424-4165-B344-CBF5ECDA37D7" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-6BE272DC-6424-4165-B344-CBF5ECDA37D7">Smartphone App</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-223374A9-C495-4FB3-B331-1874CE132816" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-223374A9-C495-4FB3-B331-1874CE132816">Programming the Precompiled Hex file or
+        Application Example</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7AEB4551-8490-4AF3-AAD0-B605BC8A1DD8" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-7AEB4551-8490-4AF3-AAD0-B605BC8A1DD8">Demo Description</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-137E096D-51A6-4909-A4B9-DB6AD83C8AD7" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-137E096D-51A6-4909-A4B9-DB6AD83C8AD7">Testing</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49D50497-1913-485A-9D9B-F744A1C9AC9C" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-49D50497-1913-485A-9D9B-F744A1C9AC9C">Developing this Application from scratch
+        using MPLAB Code Configurator</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A4C19FCA-2304-42E3-A5A6-5C550A9F715E" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-A4C19FCA-2304-42E3-A5A6-5C550A9F715E">Verify Scan, Advertisement and Transparent Profile Configuration</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-76B31218-70DA-4848-9E20-56E6BE9063C7" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__GUID-76B31218-70DA-4848-9E20-56E6BE9063C7">Generating a Code</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FILES-AND-ROUTINES-AUTOMATICALLY-GENERATED-BY-THE-MCC" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__FILES-AND-ROUTINES-AUTOMATICALLY-GENERATED-BY-THE-MCC">Files and Routines Automatically
+        Generated by the MCC</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_XYS_1LM_25B" data-tocid="GUID-766FE6D3-4915-44D9-8997-DD0787FA16E2__SECTION_XYS_1LM_25B">User Application Development</a></div></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="main">
+  <div class="max">
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-1"/>
+        <span for="section-1" class="accordion-label">
+          <div id="text-5521a8ec2b" class="cmp-text">
+            <p>About</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-overview" class="mchp-link__link" aria-label="Company">Company</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/careers" class="mchp-link__link" aria-label="Careers">Careers</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/contact-us" class="mchp-link__link" aria-label="Contact Us">Contact Us</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center" class="mchp-link__link" aria-label="Media Center">Media Center</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/investors" class="mchp-link__link" aria-label="Investor Relations">Investor Relations</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-responsibility" class="mchp-link__link" aria-label="Corporate Responsibility">Corporate Responsibility</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-2"/>
+        <span for="section-2" class="accordion-label">
+          <div id="text-ea8a67216c" class="cmp-text">
+            <p>Support</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://forum.microchip.com/" class="mchp-link__link" aria-label="Microchip Forums">Microchip Forums</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.avrfreaks.net/" class="mchp-link__link" aria-label="AVR Freaks">AVR Freaks</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/design-help" class="mchp-link__link" aria-label="Design Help">Design Help</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/technical-support" class="mchp-link__link" aria-label="Technical Support">Technical Support</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchip.com/exportcontroldata/" class="mchp-link__link" aria-label="Export Control Data">Export Control Data</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/product-change-notification" class="mchp-link__link" aria-label="PCNs">PCNs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-3"/>
+        <span for="section-3" class="accordion-label">
+          <div id="text-229415b3f9" class="cmp-text">
+            <p>Quick Links</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchipdirect.com/" class="mchp-link__link" aria-label="microchipDIRECT.com">microchipDIRECT.com</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://secure.microchip.com/mu" class="mchp-link__link" aria-label="Microchip University">Microchip University</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/mymicrochip/" class="mchp-link__link" aria-label="myMicrochip">myMicrochip</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center/blog" class="mchp-link__link" aria-label="Blogs">Blogs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/tools-resources/reference-designs" class="mchp-link__link" aria-label="Reference Designs">Reference Designs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/products/selection-tools/parametric-search-landing-page" class="mchp-link__link" aria-label="Parametric Search">Parametric Search</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div class="cmp-image">
+            <img class="cmp-image__image" alt="Microchip Logo" src="oxygen-webhelp/template/resources/images/microchip-logo.png"/>
+          </div>
+        </div>
+        <div>
+          <div id="text-cf91d72ddd" class="cmp-text">
+            <p>Microchip Technology Inc.</p>
+            <p>2355 West Chandler Blvd.</p>
+            <p>Chandler, Arizona, USA</p>
+          </div>
+        </div>
+        <div>
+          <div class="mchp-component-list">
+            <div class="mchp-component-items">
+              <div class="mchp-component-item mchp-component-item--first">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.facebook.com/microchiptechnology/" aria-label="Microchip Facebook" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Facebook" src="oxygen-webhelp/template/resources/images/facebook-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.linkedin.com/company/microchip-technology" aria-label="Microchip LinkedIn" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip LinkedIn" src="oxygen-webhelp/template/resources/images/linkedin-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://x.com/MicrochipTech" aria-label="Microchip Twitter" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Twitter" src="oxygen-webhelp/template/resources/images/twitter-new.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.youtube.com/user/MicrochipTechnology" aria-label="Image Hyperlink" target="_blank">
+                      <img class="cmp-image__image" alt="" src="oxygen-webhelp/template/resources/images/youtube-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.instagram.com/microchiptechnologyinc/" aria-label="Microchip Instagram" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Instagram" src="oxygen-webhelp/template/resources/images/instagram-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item mchp-component-item--last">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.weibo.com/microchiptech" aria-label="Microchip Weibo" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Weibo" src="oxygen-webhelp/template/resources/images/snap.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>
+        © Copyright 1998-<span class="current-year">2024</span> Microchip Technology Inc. All rights reserved.
+        Shanghai ICP Recordal No.09049794
+      </p>
+      <p></p>
+    </div>
+    <div>
+      <div class="legal-privacy-cookie-container">
+        <div class="mchp-component-list">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/website-terms-and-conditions" class="mchp-link__link" aria-label="Terms Of Use">Terms Of Use</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/privacy-notice" class="mchp-link__link" aria-label="Privacy Notice">Privacy Notice</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information" class="mchp-link__link" aria-label="Legal">Legal</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- OneTrust Cookies Settings button start -->
+        <div>
+          <a id="ot-sdk-btn" class="ot-sdk-show-settings">Your Privacy Choices</a>
+          <img src="oxygen-webhelp/template/resources/images/privacyoptions29x14.png" alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip-position="top-center" class="tooltip-initialized"/>
+        </div>
+        <!-- OneTrust Cookies Settings button end -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script><!--
+
+  (function () {
+    var currentYear = new Date().getFullYear();
+    document.querySelector('.current-year').textContent = currentYear;
+  })();
+
+--></script>
+
+<script type="text/javascript"><!--
+
+  _satellite.pageBottom();
+
+--></script>
+<!-- Adobe Analytics -->
+<script type="text/javascript" src="mchp-js/prepend.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+<script type="text/javascript" src="mchp-js/onetrust.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+
+<script><!--
+
+
+  // wait until jquery is ready
+  var jqInterval = setInterval(function() {
+    if (typeof jQuery !== 'undefined') {
+      clearInterval(jqInterval);
+      // jQuery is ready, run your code here
+      $(document).ready(function() {
+        $(document).ready(function() {
+          function open() {
+              $(".accordion-label").click(function(e) {
+                  e.preventDefault();
+                  if (!mediaQueryMatch.matches) {
+                      e = $(this).next(".mchp-component-list");
+                      var f = $(".accordion-list > .mchp-component-list").not(e);
+                      $(this).hasClass("active") ? ($(this).removeClass("active"),
+                      e.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      })) : (f.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      }),
+                      $(".accordion-label").removeClass("active"),
+                      $(this).addClass("active"),
+                      e.slideDown(300, function() {
+                          $(this).css("max-height", "none")
+                      }))
+                  }
+              })
+          }
+          function hide(activeLabel) {
+              if (activeLabel.matches) {
+                  activeLabel = document.getElementsByClassName("accordion-label active");
+                  for (let f = 0; f < activeLabel.length; f++) {
+                    activeLabel[f].classList.remove("active");
+                  }
+                  for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                    accordionList[activeLabel].style.display = "block",
+                    accordionList[activeLabel].style.maxHeight = "none"
+                  }
+              } else {
+                for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                  accordionList[activeLabel].style.display = "none",
+                  accordionList[activeLabel].style.maxHeight = "0"
+                }
+              }
+          }
+          var mediaQueryMatch = window.matchMedia("(min-width: 630px)");
+          var accordionList = $(".accordion-list > .mchp-component-list");
+          hide(mediaQueryMatch);
+          setTimeout(function() {
+              $(".legal-privacy-cookie-container .ot-sdk-show-settings")?.text("Your Privacy Choices")
+          }, 1000);
+          $(window).on("load", function() {
+              open()
+          });
+          mediaQueryMatch.addListener(hide)
+        });
+      });
+    }
+  }, 100);
+
+
+--></script>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

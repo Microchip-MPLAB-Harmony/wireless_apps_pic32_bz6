@@ -781,6 +781,8 @@ void event_Main_send_OnPressed(leButtonWidget* btn)
     // get typed message
     const leString * textfieldStr = Main_InputField->fn->getString(Main_InputField);
     
+    uint8_t lines = 0;
+    
     tx_data_len = textfieldStr->fn->length(textfieldStr); // get message length
     
     // convert leString to char buff
@@ -791,13 +793,13 @@ void event_Main_send_OnPressed(leButtonWidget* btn)
     OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0); // queue TX event
     
     // copy all previous TX/RX messages "down" the list
-    for(uint16_t i=sentCount; i>0; i--)
+    for(lines = sentCount >=NUM_LINES ? sentCount-1 : sentCount; lines>0; lines--)
     {
         for(uint16_t j=0; j<LIST_DISPLAY_SIZE; j++)
         {
-            sentItemsBuff[i][j] = sentItemsBuff[i-1][j];
+            sentItemsBuff[lines][j] = sentItemsBuff[lines-1][j];
         }
-        sentImgBuff[i] = sentImgBuff[i-1];
+        sentImgBuff[lines] = sentImgBuff[lines-1];
     }
     sentCount++;
     
@@ -808,7 +810,7 @@ void event_Main_send_OnPressed(leButtonWidget* btn)
     }
     sentImgBuff[0] = 0; // TX image
     
-    if(sentCount == NUM_LINES)
+    if(sentCount > NUM_LINES)
         sentCount--;       
     
     sentItemUpdated = true;

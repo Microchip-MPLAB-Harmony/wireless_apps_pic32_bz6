@@ -1,0 +1,51 @@
+# Building Block Examples
+
+This section covers PIC32WM_BZ6204 Application Building Blocks. Building blocks are compact training modules revolving around implementing a particular BLE functionality/feature on PIC32WM_BZ6204 Devices.
+
+These training modules ease users' development experience by providing a step-by-step procedure to build a BLE Feature from Scratch. Moving through the building blocks, users will be able to gain familiarity with the SDK, MPLAB Harmony software development framework, MPLAB Code Configurator, and API's necessary for implementing the BLE features of interest. Users who have working knowledge of BLE and no familiarity with the Harmony framework, Microchip BLE SDK, tools, etc., are recommended to start their SW development process with Building Blocks.
+
+New MPLAB Code Configurator users are recommended to go through the **[overview](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-B5D058F5-1D0B-4720-8649-ACE5C0EEE2C0)**.
+
+Building blocks are divided into 4 categories based on the device roles and features users are interested in developing. This segregation is important as users interested in developing only a certain type of device would be provided only the training modules and necessary reference examples related to the device type.
+
+# Central 
+-   **[central_conn](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_CONNECT&version=latest&redirect=true)**
+-   **[legacy_scan](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_LEGCY_SCN&version=latest&redirect=true)**
+-   **[scan_ext_adv](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_SCN_EXT_ADV&version=latest&redirect=true)**
+-   **[central_trp_uart](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_TRANSP_UART&version=latest&redirect=true)**
+-   **[central_trp_uart_codedPhy](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_TRANSP_UART_CENTRL_COD_PHY&version=latest&redirect=true)**
+-   **[multilink](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_MULTI_TRANSP_UART&version=latest&redirect=true)**
+
+# Peripheral
+-   **[deep_sleep_adv](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_DP_SLP_ADV&version=latest&redirect=true)**  
+-   **[ext_adv](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_EXT_ADV&version=latest&redirect=true)**
+-   **[legacy_adv](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_LEGCY_ADV&version=latest&redirect=true)**
+-   **[Legacy_adv_pathloss](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_LEGC_ADV_LOSS&version=latest&redirect=true)**
+-   **[peripheral_conn](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_PERIPH_BLE_CONNECT&version=latest&redirect=true)**
+-   **[two_set_adv](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_MULTI_ADV_SET&version=latest&redirect=true)**
+-   **[custom_service](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_CUS_SER&version=latest&redirect=true)**
+-   **[peripheral_trp_uart](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_PERIPH_BLE_TRANSP_UART&version=latest&redirect=true)**
+-   **[peripheral_trp_uart_codedPhy](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_PERIPH_BLE_TRANSP_UART_CPHY&version=latest&redirect=true)**  
+
+# BLE Multirole Multilink Transparent UART  
+-   **[BLE Multirole Multilink Transparent UART](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_BLE_MULTI_ROLLNK_TRANS_UART&version=latest&redirect=true)**
+
+# HCI Application 
+-   **[ble_HCI_interface_app](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=BZ6_HCI_APP&version=latest&redirect=true)**
+____
+
+
+[![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/blob/master/mplab_harmony_license.md)
+[![Latest release](https://img.shields.io/github/release/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/releases/latest)
+[![Latest release date](https://img.shields.io/github/release-date/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/releases/latest)
+[![Commit activity](https://img.shields.io/github/commit-activity/y/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/graphs/commit-activity)
+[![Contributors](https://img.shields.io/github/contributors-anon/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45.svg)]()
+
+____
+
+[![Developer Help](https://img.shields.io/badge/Youtube-Developer%20Help-red.svg)](https://www.youtube.com/MicrochipDeveloperHelp)
+[![Developer Help](https://img.shields.io/badge/XWiki-Developer%20Help-torquiose.svg)](https://developerhelp.microchip.com/xwiki/bin/view/software-tools/harmony/)
+[![Follow us on Youtube](https://img.shields.io/badge/Youtube-Follow%20us%20on%20Youtube-red.svg)](https://www.youtube.com/user/MicrochipTechnology)
+[![Follow us on LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20us%20on%20LinkedIn-blue.svg)](https://www.linkedin.com/company/microchip-technology)
+[![Follow us on Facebook](https://img.shields.io/badge/Facebook-Follow%20us%20on%20Facebook-blue.svg)](https://www.facebook.com/microchiptechnology/)
+[![Follow us on Twitter](https://img.shields.io/twitter/follow/MicrochipTech.svg?style=social)](https://twitter.com/MicrochipTech)

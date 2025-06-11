@@ -125,8 +125,8 @@ extern "C" {
 #define CONFIG_BLE_GAP_SVC_LE_GATT_SEC_LVLS              false                     /* Enable LE GATT Security Levels */
 
 //Legacy Advertising set
-#define CONFIG_BLE_GAP_ADV_DATA                      {0x02, 0x01, 0x06, 0x05, 0x16, 0xFE, 0xDA, 0xFF, 0xFF}
-#define CONFIG_BLE_GAP_ADV_DATA_ORIG_LEN             9
+#define CONFIG_BLE_GAP_ADV_DATA                      {0x02, 0x01, 0x06, 0x04, 0x16, 0xDA, 0xFE, 0x00}
+#define CONFIG_BLE_GAP_ADV_DATA_ORIG_LEN             8
 #define CONFIG_BLE_GAP_SCAN_RSP_DATA                 {0x0B, 0x09, 0x70, 0x69, 0x63, 0x33, 0x32, 0x63, 0x78, 0x2D, 0x62, 0x7A}
 #define CONFIG_BLE_GAP_SCAN_RSP_DATA_ORIG_LEN        12
 #define CONFIG_BLE_GAP_ADV_TX_PWR                    8 /* Advertising TX Power */

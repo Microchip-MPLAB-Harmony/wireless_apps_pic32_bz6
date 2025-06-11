@@ -1,0 +1,1 @@
+oxy_webhelp_navlinks = {"GUID-4A2BABB9-3C7D-45F1-BAD5-C7978B7429B5-d2873e978":{"topics":[{"title":"<ph>9.4.1.1<\/ph>\nAPP_OTA_HDL_Mode_T","href":"GUID-CBFFF24C-4BA1-47FC-8AC4-7731929F39A5.html","attributes":{"data-id":"app-ota-hdl-mode-t"},"menu":{"hasChildren":false},"tocID":"app-ota-hdl-mode-t-d2873e986","topics":[]}]}};

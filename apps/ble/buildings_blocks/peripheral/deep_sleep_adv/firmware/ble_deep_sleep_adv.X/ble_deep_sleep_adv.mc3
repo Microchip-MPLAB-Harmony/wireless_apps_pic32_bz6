@@ -14177,7 +14177,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;pdsSystem&gt;
   &lt;pdsSystem dnOrder=&quot;0&quot; id=&quot;RETENTION_RAM_SIZE&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;pdsSystem&quot; value=&quot;1000&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;pdsSystem&quot; value=&quot;616&quot;/&gt;
     &lt;/Values&gt;
   &lt;/pdsSystem&gt;
 &lt;/pdsSystem&gt;
@@ -14238,15 +14238,12 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;pic32cx_bz6_devsupport&gt;
   &lt;pic32cx_bz6_devsupport dnOrder=&quot;0&quot; id=&quot;APP_RETENTION_RAM&quot;&gt;
     &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;Integer dnOrder=&quot;0&quot; id=&quot;max&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;32152&lt;/Value&gt;
-      &lt;/Integer&gt;
-      &lt;Boolean dnOrder=&quot;1&quot; id=&quot;visible&quot;&gt;
+      &lt;Boolean dnOrder=&quot;0&quot; id=&quot;visible&quot;&gt;
         &lt;Value dnOrder=&quot;0&quot;&gt;true&lt;/Value&gt;
       &lt;/Boolean&gt;
     &lt;/Attributes&gt;
     &lt;Values dnOrder=&quot;1&quot;&gt;
-      &lt;User dnOrder=&quot;0&quot; value=&quot;384&quot;/&gt;
+      &lt;User dnOrder=&quot;0&quot; value=&quot;0&quot;/&gt;
     &lt;/Values&gt;
   &lt;/pic32cx_bz6_devsupport&gt;
 &lt;/pic32cx_bz6_devsupport&gt;
@@ -14676,7 +14673,7 @@
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;pic32cx_bz6_devsupport&gt;
   &lt;pic32cx_bz6_devsupport dnOrder=&quot;0&quot; id=&quot;TOTAL_RETENTION_RAM_BYTES&quot;&gt;
     &lt;Values dnOrder=&quot;0&quot;&gt;
-      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;pic32cx_bz6_devsupport&quot; value=&quot;1000&quot;/&gt;
+      &lt;Dynamic dnOrder=&quot;0&quot; id=&quot;pic32cx_bz6_devsupport&quot; value=&quot;616&quot;/&gt;
     &lt;/Values&gt;
   &lt;/pic32cx_bz6_devsupport&gt;
 &lt;/pic32cx_bz6_devsupport&gt;
@@ -16324,7 +16321,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\PIC32WM_BZ6204.ld</file>
-         <hash>d597139675ecbdb7f96d2db868ba5dea138b10dae48829e258652f5dba04ea98</hash>
+         <hash>7713ac804feb7f7c89c2458fca5fa7ad39a4b4a8c23c1406fc2c30e8e97fabeb</hash>
       </entry>
       <entry>
          <file>..\src\config\default\ble\lib\ble_stack_bz6_lib.a</file>
@@ -16452,7 +16449,7 @@
       </entry>
       <entry>
          <file>..\src\config\default\definitions.h</file>
-         <hash>2e9158e3344119d8ee1c12dbd0d917a8cd15ee42f4573589704057421ba3638c</hash>
+         <hash>dd0290127a7af13f300798fda02e1ee54a2ef645f7ba36532979109d94644388</hash>
       </entry>
       <entry>
          <file>..\src\config\default\device.h</file>

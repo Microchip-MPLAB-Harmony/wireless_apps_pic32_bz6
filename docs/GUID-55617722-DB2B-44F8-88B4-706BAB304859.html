@@ -1,0 +1,1071 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" data-whc_version="26.1">
+    <head><link rel="shortcut icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><link rel="icon" href="oxygen-webhelp\template\resources/images/favicon.ico"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="description" content="This section explains how to integrate a Low Cost Controllerless (LCC) graphics display with Bluetooth ® Low Energy (BLE) technologies using the PIC32-BZ6 Curiosity Board. The guide provides ..."/><meta name="copyright" content="(C) Copyright 2025"/><meta name="generator" content="DITA-OT"/><title>5.3.3 BLE and LCC Transparent UART</title><!--  Generated with Oxygen version 26.1, build number 2024091616.  --><meta name="wh-path2root" content=""/><meta name="wh-toc-id" content="GUID-55617722-DB2B-44F8-88B4-706BAB304859-d2873e575"/><meta name="wh-source-relpath" content="GUID-55617722-DB2B-44F8-88B4-706BAB304859.xml"/><meta name="wh-out-relpath" content="GUID-55617722-DB2B-44F8-88B4-706BAB304859.html"/>
+
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/commons.css?buildId=2024091616"/>
+    <link rel="stylesheet" type="text/css" href="./oxygen-webhelp/app/topic.css?buildId=2024091616"/>
+
+    <script src="./oxygen-webhelp/app/options/properties.js?buildId=20250610092133"></script>
+    <script src="./oxygen-webhelp/app/localization/strings.js?buildId=2024091616"></script>
+    <script src="./oxygen-webhelp/app/search/index/keywords.js?buildId=20250610092133"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/commons.js?buildId=2024091616"></script>
+    <script defer="defer" src="./oxygen-webhelp/app/topic.js?buildId=2024091616"></script>
+<link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/microchip.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/notes.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/mchp-css-overrides.css?buildId=2024091616"/><link rel="stylesheet" type="text/css" href="oxygen-webhelp/template/resources/css/syntax-highlight.css?buildId=2024091616"/>
+
+<!-- OneTrust Cookies Consent Notice start for onlinedocs.microchip.com -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/consent/0194dac3-b686-73e5-b876-eb9241be4496/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="0194dac3-b686-73e5-b876-eb9241be4496"></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for onlinedocs.microchip.com -->
+ 
+<script src="mchp-context-help.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async="" type="text/javascript"></script>
+<script src="https://assets.adobedtm.com/6a72a357eb48/a636c708c7fe/launch-0b0023397020.min.js"></script><!-- Adobe Analytics -->
+</head>
+
+    <body id="GUID-55617722-DB2B-44F8-88B4-706BAB304859" class="wh_topic_page frmBody">
+        <a href="#wh_topic_body" class="sr-only sr-only-focusable">
+            Jump to main content
+        </a>
+        
+        
+        
+        
+        <header class="navbar navbar-default wh_header">
+    <div class="container-fluid">
+        <div class="wh_header_flex_container navbar-nav navbar-expand-md navbar-dark">
+            <div class="wh_logo_and_publication_title_container">
+                <div class="wh_logo_and_publication_title">
+                    
+                    <a href="index.html" class=" wh_logo d-none d-sm-block "><img src="oxygen-webhelp\template\resources/images/microchip.png" alt="PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide &#xA;    "/></a>
+                    <div class=" wh_publication_title "><a href="index.html">PIC32CX-BZ6 and PIC32WM-BZ6 Application Developer's Guide 
+    </a></div>
+                    
+                </div>
+                
+                
+            </div>
+
+            <div class="wh_top_menu_and_indexterms_link collapse navbar-collapse" id="wh_top_menu_and_indexterms_link">
+                
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+        
+        
+         
+        
+        <div class=" wh_search_input navbar-form wh_topic_page_search search " role="form">
+            
+            
+            
+            <form id="searchForm" method="get" role="search" action="search.html"><div class="d-flex justify-contents-around"><div class="flex-grow-1"></div><div class="position-relative flex-grow-1"><input type="search" placeholder="Search " class="wh_search_textfield" id="textToSearch" name="searchQuery" aria-label="Search query" required="required"/><button type="submit" class="wh_search_button" aria-label="Search"><span class="search_input_text">Search</span></button></div><div class="align-self-center flex-grow-1 ml-2"></div></div></form>
+            
+            <div class="mchp-color-stripe-grid-container">
+  <div class="mchp-main-bar mchp-orange-bar"></div>
+  <div class="mchp-main-bar mchp-blue-bar"></div>
+  <div class="mchp-main-bar mchp-green-bar"></div>
+</div>
+            
+        </div>
+        
+        <div class="container-fluid" id="wh_topic_container">
+            <div class="row">
+
+                <nav class="wh_tools d-print-none navbar-expand-md" aria-label="Tools">
+                    
+                    <div data-tooltip-position="bottom" class=" wh_breadcrumb "><ol class="d-print-none"><li><span class="home"><a href="index.html"><span>Home</span></a></span></li><li><div class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46"><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div></li><li><div class="topicref" data-id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F"><div class="title"><a href="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3</ph>
+Peripheral Applications</a></div></div></li><li class="active"><div class="topicref" data-id="GUID-55617722-DB2B-44F8-88B4-706BAB304859"><div class="title"><a href="GUID-55617722-DB2B-44F8-88B4-706BAB304859.html"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.3</ph>
+BLE and LCC Transparent UART</a></div></div></li></ol></div>
+                    
+                    
+                    
+                    <div class="wh_right_tools">
+                        <button class="wh_hide_highlight" aria-label="Toggle search highlights" title="Toggle search highlights"></button>
+                        <button class="webhelp_expand_collapse_sections" data-next-state="collapsed" aria-label="Collapse sections" title="Collapse sections"></button>
+                        
+                        
+                        
+                        
+                        <div class=" wh_print_link print d-none d-md-inline-block "><button onClick="window.print()" title="Print this page" aria-label="Print this page"></button></div>
+                        
+                        <button type="button" id="wh_toc_button" class="custom-toggler navbar-toggler collapsed wh_toggle_button navbar-light" aria-expanded="false" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    
+                </nav>
+            </div>
+            
+            <div class="row" style="margin-top: -1em;"><div class="col-lg-7 col-md-7 col-sm-12 offset-lg-3 offset-md-3 text-right border-bottom mb-1"><h2 class="text-dark header_title">
+    </h2></div></div>
+            
+            
+            <div class="wh_content_area">
+                <div class="row">
+                    
+                        <nav id="wh_publication_toc" class="col-lg-3 col-md-3 col-sm-12 d-md-block d-none d-print-none" aria-label="Table of Contents Container">
+                            <div id="wh_publication_toc_content">
+		                        
+                            	<div class=" wh_publication_toc " data-tooltip-position="right"><span class="expand-button-action-labels"><span id="button-expand-action" role="button" aria-label="Expand"></span><span id="button-collapse-action" role="button" aria-label="Collapse"></span><span id="button-pending-action" role="button" aria-label="Pending"></span></span><ul role="tree" aria-label="Table of Contents"><li role="treeitem"><div data-tocid="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9" class="topicref introduction" data-id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42.html" id="GUID-69B6DE50-DEC4-4A50-B6E4-F5CAC9AEDC42-d2873e9-link">Introduction</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17" class="topicref" data-id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3.html#GUID-EB8D7351-0387-4517-B50F-6617ECB644C3" id="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3-d2873e17-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">1</ph>
+Quick References</a></div></div></li><li role="treeitem"><div data-tocid="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33" class="topicref" data-id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08.html" id="GUID-1C73B6F6-3DDE-481E-8329-65FB5A3C8F08-d2873e33-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">2</ph>
+Secure Boot and Signature Header Generation</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41" class="topicref" data-id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795.html#GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795" id="GUID-0D809AC0-8504-46A1-A24F-D5D8A64FB795-d2873e41-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">3</ph>
+Getting Started with <span class="ph">PIC32-BZ6</span> Curiosity Board</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68" class="topicref" data-id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html" id="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19-d2873e68-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">4</ph>
+Getting Started with Software Development</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132" class="topicref" data-id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46.html" id="GUID-3CC3561E-252E-43B9-BC8A-47DD108A0A46-d2873e132-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5</ph>
+Getting Started with Bluetooth Low Energy Applications</a><div class="wh-tooltip"><p class="shortdesc">This section provides details on documentation describing the steps to test and develop         the precompiled BLE application examples. </p></div></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143" class="topicref" data-id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html" id="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B-d2873e143-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.1</ph>
+Building Block Examples</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319" class="topicref" data-id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09.html" id="GUID-0C26B124-CE0B-4F25-A6B7-D51A3C1DFF09-d2873e319-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.2</ph>
+Advanced Applications</a></div></div></li><li role="treeitem" aria-expanded="true"><div data-tocid="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551" class="topicref" data-id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F" data-state="expanded"><span role="button" tabindex="0" aria-labelledby="button-collapse-action GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F.html" id="GUID-245E2B68-C775-4B41-8FA8-6F81E59A742F-d2873e551-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3</ph>
+Peripheral Applications</a></div></div><ul role="group" class="navbar-nav nav-list"><li role="treeitem"><div data-tocid="GUID-C9B48C88-17CA-4833-BE36-13B461AFEBE1-d2873e559" class="topicref" data-id="GUID-C9B48C88-17CA-4833-BE36-13B461AFEBE1" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-C9B48C88-17CA-4833-BE36-13B461AFEBE1.html" id="GUID-C9B48C88-17CA-4833-BE36-13B461AFEBE1-d2873e559-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.1</ph>
+BLE and CAN-FD Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-DB9DACBD-62CC-476A-A52F-D32AEE83BCD9-d2873e567" class="topicref" data-id="GUID-DB9DACBD-62CC-476A-A52F-D32AEE83BCD9" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-DB9DACBD-62CC-476A-A52F-D32AEE83BCD9.html" id="GUID-DB9DACBD-62CC-476A-A52F-D32AEE83BCD9-d2873e567-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.2</ph>
+BLE and QEI Transparent UART</a></div></div></li><li role="treeitem" class="active"><div data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859-d2873e575" class="topicref" data-id="GUID-55617722-DB2B-44F8-88B4-706BAB304859" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-55617722-DB2B-44F8-88B4-706BAB304859.html" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859-d2873e575-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.3</ph>
+BLE and LCC Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-C82B98F7-A0A7-45F5-8029-5BE2542F21B7-d2873e583" class="topicref" data-id="GUID-C82B98F7-A0A7-45F5-8029-5BE2542F21B7" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-C82B98F7-A0A7-45F5-8029-5BE2542F21B7.html" id="GUID-C82B98F7-A0A7-45F5-8029-5BE2542F21B7-d2873e583-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.4</ph>
+BLE and Touch Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-AE3677D1-FB02-400B-B7E9-2999E576D218-d2873e591" class="topicref" data-id="GUID-AE3677D1-FB02-400B-B7E9-2999E576D218" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-AE3677D1-FB02-400B-B7E9-2999E576D218.html" id="GUID-AE3677D1-FB02-400B-B7E9-2999E576D218-d2873e591-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.5</ph>
+BLE and TCP/IP TCP Server Transparent UART</a></div></div></li><li role="treeitem"><div data-tocid="GUID-112120C3-9D02-477B-B5F8-A791CAFFDCB8-d2873e599" class="topicref" data-id="GUID-112120C3-9D02-477B-B5F8-A791CAFFDCB8" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-112120C3-9D02-477B-B5F8-A791CAFFDCB8.html" id="GUID-112120C3-9D02-477B-B5F8-A791CAFFDCB8-d2873e599-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.3.6</ph>
+USB CDC Peripheral Transparent UART</a></div></div></li></ul></li><li role="treeitem"><div data-tocid="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607" class="topicref" data-id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008.html" id="GUID-29D584B4-2DB5-4161-B8E2-E5528BE98008-d2873e607-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">5.4</ph>
+<span class="ph">PIC32CX-BZ6 and PIC32WM-BZ6</span> Three-Wire PTA Coexistence Design</a></div></div></li></ul></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617" class="topicref" data-id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6.html" id="GUID-E6DDB222-A9A8-4046-B9DB-9E36CBC3A6A6-d2873e617-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">6</ph>
+Adding Chip Peripherals</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673" class="topicref" data-id="GUID-B6BEB657-134C-4B53-8893-8781F2397325" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-B6BEB657-134C-4B53-8893-8781F2397325.html#GUID-B6BEB657-134C-4B53-8893-8781F2397325" id="GUID-B6BEB657-134C-4B53-8893-8781F2397325-d2873e673-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">7</ph>
+Low Power Design</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700" class="topicref" data-id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B.html#GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B" id="GUID-D7A53CEA-74B4-4CAA-A5D4-F69980188D1B-d2873e700-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">8</ph>
+Firmware and OTA Updates</a><div class="wh-tooltip"><p class="shortdesc">This section documents how to enable firmware updates in the design, whether it is serial         or Over The Air (OTA)</p></div></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826" class="topicref" data-id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C.html" id="GUID-118CCD5A-8F9C-4CF7-9DF4-55142B37F55C-d2873e826-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">9</ph>
+Wireless System and Board Support Services</a></div></div></li><li role="treeitem"><div data-tocid="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468" class="topicref" data-id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308.html" id="GUID-E340BD5A-CC15-4A57-8C66-21E937B7B308-d2873e1468-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">10</ph>
+Application Timer Service</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476" class="topicref" data-id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7" id="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7-d2873e1476-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">11</ph>
+Support Documentation</a><div class="wh-tooltip"><p class="shortdesc">This section has documentation that is generic and used as supporting document with the         application example documentation. </p></div></div></div></li><li role="treeitem"><div data-tocid="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503" class="topicref" data-id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3.html#GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3" id="GUID-B78DD61B-97AA-4BFF-BAC6-FCFA7C45E7E3-d2873e1503-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">12</ph>
+Wireless Protocol Software and Libraries</a></div></div></li><li role="treeitem"><div data-tocid="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511" class="topicref" data-id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06" data-state="leaf"><span role="button" class="wh-expand-btn"></span><div class="title"><a href="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06.html" id="GUID-9E41713F-69D0-4E61-805A-4BA85933CE06-d2873e1511-link"><ph xmlns="http://www.oxygenxml.com/ns/webhelp/toc">13</ph>
+Document Revision History</a></div></div></li><li role="treeitem" aria-expanded="false"><div data-tocid="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519" class="topicref backmatter backmatter_parent" data-id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B" data-state="not-ready"><span role="button" tabindex="0" aria-labelledby="button-expand-action GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link" class="wh-expand-btn"></span><div class="title"><a href="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B.html" id="GUID-0FB3F908-88EE-45CE-94F5-E97AF9049C9B-d2873e1519-link">Microchip Information</a></div></div></li></ul></div>
+		                        
+                            </div>
+                        </nav>
+                    
+                    
+                    <div class="col-lg-7 col-md-9 col-sm-12" id="wh_topic_body">
+                        <button id="wh_close_publication_toc_button" class="close-toc-button d-none" aria-label="Toggle publishing table of content" aria-controls="wh_publication_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        <button id="wh_close_topic_toc_button" class="close-toc-button d-none" aria-label="Toggle topic table of content" aria-controls="wh_topic_toc" aria-expanded="true">
+                            <span class="close-toc-icon-container">
+                                <span class="close-toc-icon"></span>     
+                            </span>
+                        </button>
+                        
+                        <div class=" wh_topic_content body "><main role="main"><article role="article" aria-labelledby="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8BEEC5AD-7CED-48D8-A9A9-FA5A013B5555"><h1 class="- topic/title title topictitle1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8BEEC5AD-7CED-48D8-A9A9-FA5A013B5555" style="">5.3.3 BLE and LCC Transparent UART</h1><div class="- topic/body body"><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_LHF_2G5_HFC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_LHF_2G5_HFC">
+      <p class="- topic/p p">This section explains how to integrate a Low Cost Controllerless (LCC) graphics display
+        with <span class="- topic/tm tm">Bluetooth<span class="- topic/tmmark tmmark ">®</span></span> Low Energy (BLE) technologies using the <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board. The guide provides step-by-step
+        instructions on setting up a BLE central thermostat device capable of communicating with up
+        to eight peripheral devices that support transparent service, including smartphones running
+        the Microchip Bluetooth Data (MBD) application. Users will learn how to utilize the
+        Microchip Graphics Composer to create a simple thermostat application using various widgets.
+        The application provides real-time temperature measurements using the onboard temperature
+        sensor.</p>
+      <p class="- topic/p p">This demonstration highlights how data received from peripheral devices can be displayed on
+        the screen, and how multiple devices can be managed through the graphical user interface
+        (GUI). Users will also learn how to send BLE packets from the <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board to any of the connected peripheral devices.</p>
+      <p class="- topic/p p">Throughout the section, users will explore various GUI widgets and discover how the <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board can support complex applications that
+        display multiple data points simultaneously. This comprehensive guide ensures that users can
+        effectively leverage the capabilities of the <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity
+        Board for advanced BLE and display integration projects.</p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__RECOMMENDED-READS" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__RECOMMENDED-READS"><h2 class="- topic/title title sectiontitle">Recommended Reading</h2>
+      
+      <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0C09986C-8344-4BB9-A1B1-7D48F7FA6571" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0C09986C-8344-4BB9-A1B1-7D48F7FA6571"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0B71A21E-9AA0-4949-A695-B62F5444AF47" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0B71A21E-9AA0-4949-A695-B62F5444AF47">
+          <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Getting Started with Application Building Blocks</strong> – See <em class="+ topic/ph hi-d/i ph i">Building Block
+              Examples</em> from Related Links.</p>
+        </li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-B31D661E-B603-446C-8A6C-2B7354225A9A" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-B31D661E-B603-446C-8A6C-2B7354225A9A">
+          <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Getting Started with Central Building Blocks</strong> – See <em class="+ topic/ph hi-d/i ph i">Central Devices</em> from
+            Related Links.</p>
+        </li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-C4E82E47-64EF-45BC-8334-CB1865291DE0" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-C4E82E47-64EF-45BC-8334-CB1865291DE0">See <em class="+ topic/ph hi-d/i ph i">BLE Connection</em> from Related
+          Links.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-D589F901-A90E-45BF-AA01-E04D99014427" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-D589F901-A90E-45BF-AA01-E04D99014427">See <em class="+ topic/ph hi-d/i ph i">BLE Transparent UART</em> from
+          Related Links.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-402B291E-D1BA-4410-B031-29614EDA7FA4" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-402B291E-D1BA-4410-B031-29614EDA7FA4"><strong class="+ topic/ph hi-d/b ph b">BLE Software Specification</strong> – See
+              <em class="+ topic/ph hi-d/i ph i"><span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> Harmony Wireless BLE</em> in <em class="+ topic/ph hi-d/i ph i">Reference
+            Documentation</em> from Related Links.</li></ol>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__HARDWARE-REQUIRED" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__HARDWARE-REQUIRED"><h2 class="- topic/title title sectiontitle">Hardware Requirement </h2>
+      
+      <div class="table-container"><table class="- topic/table table frame-all" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C" data-cols="3"><caption class="- topic/title title tablecap" data-caption-side="top" data-is-repeated="true"><span class="table--title-label"><span class="table--title-label">Table 5-72. </span></span><span class="table--title" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-7EBE22F3-41E6-4EFC-82A3-625E3BC020CF">Hardware Requirement</span></caption><colgroup><col style="width:100%"/><col style="width:246px"/><col style="width:114px"/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__1">S. No.</th><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__2">Tool</th><th class="- topic/entry entry colsep-0 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__3">Quantity</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__1">1</td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__2"><span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__3">3</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__1">2</td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__2">USB-C cable</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__3">3</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__1">3</td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__2"><a class="- topic/xref xref" href="https://www.microchip.com/en-us/development-tool/ac42g34a" target="_blank" rel="external noopener">RGB332 Adapter</a>
+              </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__3">1</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__1">4</td><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__2"><a class="- topic/xref xref" href="https://www.microchip.com/en-us/development-tool/AC320005-4" target="_blank" rel="external noopener">4.3’’ WQVGA Display</a></td><td class="- topic/entry entry colsep-0 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_UTT_B2J_W2C__entry__3">1</td></tr></tbody></table></div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SDK-SETUP" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SDK-SETUP"><h2 class="- topic/title title sectiontitle">SDK Setup</h2>
+      
+    </section><p class="- topic/p p">Refer to <em class="+ topic/ph hi-d/i ph i">Getting Started with Software Development</em> from Related Links.</p><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SOFTWARE" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SOFTWARE"><h2 class="- topic/title title sectiontitle">Software Requirement</h2>
+      
+      <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_EH2_XQS_GDC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_EH2_XQS_GDC"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1EA2E015-CD7D-45DF-9ECE-BEDE4BE9514A" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1EA2E015-CD7D-45DF-9ECE-BEDE4BE9514A">To install Tera Term tool, refer to the
+            <em class="+ topic/ph hi-d/i ph i">Tera Term</em> web page in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.</li></ol>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SMARTPHONE-APP" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SMARTPHONE-APP"><h2 class="- topic/title title sectiontitle">Smart phone App</h2>
+      
+      <div class="- topic/p p">
+        <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_DPL_FRS_GDC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_DPL_FRS_GDC"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-819ADAE4-9A89-4274-95F8-E4DA8DFBF24C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-819ADAE4-9A89-4274-95F8-E4DA8DFBF24C">Microchip Bluetooth Data (MBD)</li></ol>
+      </div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__PROGRAMMING-THE-PRECOMPILED-HEX-FILE-OR-APPLICATION-EXAMPLE" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__PROGRAMMING-THE-PRECOMPILED-HEX-FILE-OR-APPLICATION-EXAMPLE"><h2 class="- topic/title title sectiontitle">Programming the Precompiled Hex File or
+        Application Example</h2>
+      
+      <p class="- topic/p p">Using <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> X IPE:</p>
+      <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-86DFBE12-A651-42BA-B28A-3BBE8A45957A" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-86DFBE12-A651-42BA-B28A-3BBE8A45957A"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2F820597-A034-46C7-8B24-7A12D0F3539C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2F820597-A034-46C7-8B24-7A12D0F3539C">Import and program the precompiled hex
+          file: <code class="+ topic/ph pr-d/codeph ph codeph"><span class="- topic/ph ph">&lt;Harmony Content Path&gt;\wireless_apps_pic32_bz6</span>\apps\ble\peripheral_applications\lcc_central_trp_uart\precompiled_hex</code>.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-FFF19B26-818A-4558-8504-CEBE1B5EE818" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-FFF19B26-818A-4558-8504-CEBE1B5EE818">For detailed steps, refer to <em class="+ topic/ph hi-d/i ph i">Programming a Device in <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span>
+            IPE</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.<div class="- topic/p p">
+            <div class="- topic/note note notype note_notype" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_AV3_QYQ_XYB" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_AV3_QYQ_XYB"><span class="note__title">Note:</span>  Ensure to choose the correct Device and Tool
+              information.</div>
+          </div></li></ol>
+      <p class="- topic/p p">Using <span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> X IDE:</p>
+      <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-38E32D75-4A7E-4FCA-AB19-EAC72582B498" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-38E32D75-4A7E-4FCA-AB19-EAC72582B498"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3054856D-5B88-41D5-9C1C-0F1AC749C0E2" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3054856D-5B88-41D5-9C1C-0F1AC749C0E2">Perform the following the steps mentioned
+          in <em class="+ topic/ph hi-d/i ph i">Running a Precompiled Example</em>. For more information, refer to <em class="+ topic/ph hi-d/i ph i">Running a
+            Precompiled Application Example</em> from Related Links.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-273771E1-1429-4916-B47A-7295375162D8" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-273771E1-1429-4916-B47A-7295375162D8">Open and program the application
+            <code class="+ topic/ph pr-d/codeph ph codeph">lcc_central_trp_uart.X</code> located in <code class="+ topic/ph pr-d/codeph ph codeph"><span class="- topic/ph ph">&lt;Harmony Content Path&gt;\wireless_apps_pic32_bz6</span><code class="+ topic/ph pr-d/codeph ph codeph">\apps\ble\peripheral_applications\lcc_central_trp_uart
+              \firmware</code></code>.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-926F860C-9744-47DE-8AB0-9EAE167E6F3E" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-926F860C-9744-47DE-8AB0-9EAE167E6F3E">For more details on how to find the
+          Harmony Content Path, refer to <em class="+ topic/ph hi-d/i ph i">Installing the MCC Plugin</em> from Related Links.</li></ol>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEMO-DESCRIPTION" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEMO-DESCRIPTION"><h2 class="- topic/title title sectiontitle">Demo Description</h2>
+      
+      <p class="- topic/p p">The following diagram shows the basic flow of the demonstration.</p>
+    </section><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_F3S_5GF_HDC" src="GUID-3AB1BBA8-1376-4C8C-8867-540771F97EE1-high.svg"/></div><div class="- topic/p p">To highlight the graphics controlling capabilities, we present a simple thermostat that will
+      display the temperature of the onboard temperature sensor. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_NTZ_C4K_W2C" src="GUID-7A305557-7A09-4F1C-8763-0951B6BEB681-high.svg"/></div></div><p class="- topic/p p">There are various screens the user can navigate to (home, BLE options, and settings) via
+      button presses. There are other GUI components such as buttons to control the fan, mode, and
+      to increase or decrease the temperature. The semicircular gauge in the center of the screen
+      will rotate clockwise with increasing temperature readings and counter clockwise with
+      decreasing temperature readings. </p><p class="- topic/p p">If the “Set To” temperature is greater than the onboard temperature reading, then the
+      thermostat will transition to “Heat” mode and the color scheme will be orange. Conversely, if
+      the “Set To” temperature is less than the onboard temperature reading, then the thermostat
+      will transition to “Cool” mode and the color scheme will be blue. </p><p class="- topic/p p">This system acts as a BLE central device that is capable of scanning, connecting, and
+      communicating with up to 8 peripherals. Within the “Scan” page, devices scanned will be added
+      to a list widget. When devices in the list are selected by the user, a connection will attempt
+      to be made. A mobile phone with the MBD app or devices like WBZ351, WBZ451, or another <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board that support transparent service can be
+      connected to, otherwise connection will fail. In either case a message will display announcing
+      the connection status. </p><div class="- topic/p p">If a WBZ351, WBZ451, or <span class="- topic/ph ph">PIC32-BZ6</span> device is being used with the
+      default <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_uart_trp</code> application, the user must comment out the lines
+      in <code class="+ topic/ph pr-d/codeph ph codeph">app_ble.c</code> that assign the MAC address in the
+        <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_uart_trp</code> application code. These devices must be reprogrammed
+      after making these changes in the <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_uart_trp</code> application code. In
+      order for a connection to be made, the MAC address must be unique and the default
+        <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> applications for these devices set the MAC address to
+      the same address. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZW3_SKV_JFC" src="GUID-103A1C07-F2A3-4F38-B778-5CC4B567DBE8-high.svg"/></div></div><div class="- topic/p p">A scan filter has been implemented that will filter out devices that are not advertising with
+      “0xDAFE” as the service UUID. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_S5B_FLV_JFC" src="GUID-02F784E7-D082-44E0-A1D4-B188BB2E3662-high.svg"/></div></div><p class="- topic/p p">The default <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> application for WBZ451 does not include
+      “0xDAFE” as the service UUID. To scan the default <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> WBZ451
+      devices, the user can disable the scan filter OR modify the service UUID in the BLE Stack MCC
+      Configuration Options under the “Service UUID” section in the
+        <code class="+ topic/ph pr-d/codeph ph codeph">peripheral_trp_uart</code> project graph. The code must be regenerated and
+      programmed to the peripheral device for the changes to take place.</p><div class="- topic/p p">The scan filter can be enabled or disabled within the “Settings” page. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_B52_J52_GFC" src="GUID-DB8C43FD-1C69-4536-AAD3-6B95D795D4CA-high.svg"/></div></div><p class="- topic/p p">The scan filter is enabled by default.</p><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZMH_G4K_W2C" src="GUID-1B6088B6-4510-457E-9DB4-8B0021701DA9-high.svg"/></div><div class="- topic/p p">To add custom names to the peripheral devices, this must be done within the peripheral
+      application code. For Microchip BLE devices (WBZ351, WBZ451, PIC32-BZ6) this can be done by
+      changing the “Local Name” in the “Advertisement Data” section in the BLE stack MCC
+      configuration options. The code must be regenerated and programmed to the peripheral
+        device.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_FLN_3L1_KFC" src="GUID-8FC561A5-B8B7-4C60-92BB-818541AA47EB-high.svg"/></div></div><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_GS1_Q52_GFC" src="GUID-8EF4B37F-E74D-497E-AD58-D7AF766677DE-high.svg"/></span><p class="- topic/p p">Within the BLE options page, we present an environment to scan/connect, communicate, and
+      manage up to 8 peripheral devices.</p><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_RRQ_J4K_W2C" src="GUID-74784390-56CD-4BFA-9A3E-816E5C9179F8-high.svg"/></div><p class="- topic/p p">Within the “Data Communication” page, devices that have been connected to will be displayed
+      within another list.</p><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_OMD_44K_W2C" src="GUID-C8E9253C-2465-45CB-93D0-423EEB136C68-high.svg"/></span><div class="- topic/p p">Once a device is selected from this list, another page will show allowing the user to send
+      packets to the selected device and view received packets from all connected peripherals.
+      Received packets are distinguished with a green arrow and a small number indicating which
+      peripheral sent the packet, whereas sent packets are distinguished only with a red arrow. The
+      device name at the top of the page is the peripheral that will receive the packet sent from
+      the GUI.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_EKY_Q4K_W2C" src="GUID-C0728EAE-0B92-458A-88F2-07D24E44E7BD-high.svg"/></div></div><div class="- topic/p p">Users can quickly switch between connected peripherals to indicate which device the GUI will
+      send to by selecting the device and displaying a popup with a list of connected peripherals.
+        <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_WGF_QY2_GFC" src="GUID-BFB90FE4-CFCF-4178-880A-1252261A57DE-high.svg"/></div></div><div class="- topic/p p">Within the “Manage Connected Devices” page, users can choose to disconnect from devices.
+        <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_OMC_T4K_W2C" src="GUID-43ED44C0-9CE3-484D-8D6E-A5EC77E35C54-high.svg"/></div></div><div class="- topic/p p">Meanwhile, various information will also be printed on a terminal application like Teraterm
+      via UART. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_HPQ_V4K_W2C" src="GUID-8F394C60-5CC2-4703-BE7B-BCA55A34B121-high.svg"/></div></div><p class="- topic/p p">The output will show when scanning was initiated and completed. It will also show which
+      devices were scanned and their address. When a connection is attempted, the connection status
+      will also be printed. The data received from the peripheral (“123” in the image) will be
+      shown. Finally, when the device is disconnected, a “Disconnected” message will also be
+      printed.</p><p class="- topic/p p">Besides the disconnect message, all these messages will also be displayed somehow in the GUI.
+      To know if a device was disconnected, it will be removed from the list on the Manage Connected
+      Devices page. </p><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_RB4_NJY_GDC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_RB4_NJY_GDC"><h2 class="- topic/title title sectiontitle">Testing</h2>
+      
+      <div class="- topic/p p">Hardware setup: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_TXL_WY2_GFC" src="GUID-AC1BE392-B321-414F-984F-FA8C897C1D9D-high.svg"/></div><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_OTB_PM1_KFC" src="GUID-66E46886-9F06-4957-AB18-1A00A098D0F2-high.svg"/></span></div>
+      <p class="- topic/p p">Make sure the cable is connected to a correct position of the LCD module as shown in the
+        above picture.</p>
+      <p class="- topic/p p">This demo utilizes two additional <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Boards
+        configured as BLE Transparent UART and one smartphone device with MBD installed (See <em class="+ topic/ph hi-d/i ph i">BLE
+          Transparent UART</em> from Related Links). These devices act as peripherals that advertise
+        and connect to our central <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board.</p>
+      <p class="- topic/p p">Board1 = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with lcc_central_trp_uart
+        application programmed</p>
+      <p class="- topic/p p">Board2 = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with peripheral_trp_uart
+        application programmed</p>
+      <p class="- topic/p p">Board3 = <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board with peripheral_trp_uart
+        application programmed</p>
+      <p class="- topic/p p">Phone1 = smartphone with MBD installed</p>
+      <div class="- topic/p p">Board2 and Board3: Open TeraTerm @ (Speed: 115200, Data: 8-bit, Parity: none, stop bits: 1
+        bit, Flow control: none). Reset the board. Upon reset, the devices will automatically begin
+        advertising and “Advertising” message is displayed on the TeraTerm.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_QC5_CQK_W2C" src="GUID-8DDEAB92-F14B-4E67-B17D-E8D971FE7095-high.svg"/></div><strong class="+ topic/ph hi-d/b ph b">iOS MBD Steps</strong></div>
+      <p class="- topic/p p">Phone1: To begin advertising on the MBD app, follow the below sequence of events:</p>
+      <div class="- topic/p p">Select <strong class="+ topic/ph hi-d/b ph b">BLE UART</strong>: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_V4X_2QK_W2C" src="GUID-E3D95725-4BD1-4E97-990D-CA384EF2DC60-high.svg"/></div></div>
+      <div class="- topic/p p">Select <strong class="+ topic/ph hi-d/b ph b">PIC32CXBZ</strong>:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_XDF_HQK_W2C" src="GUID-59AAB922-D60B-4495-804C-6399EEFEACDA-high.svg"/></div></div>
+      <div class="- topic/p p">Select <strong class="+ topic/ph hi-d/b ph b">Start:</strong><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_QHH_JQK_W2C" src="GUID-B98C4F3E-EE7B-4F69-85D1-0EB4D0C6CFC3-high.svg"/></div></div>
+      <div class="- topic/p p">Switch to the Peripheral page, set the device name to “MBD_Device” and start
+          advertising.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_EYZ_LQK_W2C" src="GUID-BB9165B5-A7A7-4942-86CF-1DD765FA9B06-high.svg"/></div></div>
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Android MBD Steps</strong></p>
+      <div class="- topic/p p">Select BLE UART: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZDC_W51_KFC" src="GUID-1899E431-B3B2-4536-8DC1-1C47C76F61C4-high.svg"/></div>Select PIC32CXBZ(Peripheral): <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_EDB_1V1_KFC" src="GUID-F9406F74-FFBB-4641-A163-1DEC02D01FE8-high.svg"/></div></div>
+      <div class="- topic/p p">Set device name to “MBD_device”: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JYX_CV1_KFC" src="GUID-796DEA90-D8C7-46A2-9A9A-9B3CF3311E71-high.svg"/></div>Select “Legacy Advertising” then select “Start”
+        to begin advertising. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_X1Y_FV1_KFC" src="GUID-FDF001B9-5B55-4E8E-89D1-226E7AC066A6-high.svg"/></div></div>
+      <p class="- topic/p p">Board 1: Open TeraTerm @ (Speed: 115200, Data: 8-bit, Parity: none, stop bits: 1 bit, Flow
+        control: none). Reset the board. </p>
+      <div class="- topic/p p">Upon reset, an initial startup screen will be displayed before the home screen.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_NJN_BZ2_GFC" src="GUID-44EEFA2F-1276-4758-9DF3-8D5383AEFD7F-high.svg"/></div>After a small animation, the home screen will be displayed. The temperature will be
+        temporarily hidden until valid temperatures are read from the onboard temperature sensor.
+        Temperature readings are based off averages over a period of time. Since this is the initial
+        startup, the system needs time to take initial measurements and compute the first average.
+          <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_RVH_JZ2_GFC" src="GUID-B7C3F0B2-1066-4D6F-8F6C-62AA071CC31C-high.svg"/></div></div>
+      <div class="- topic/p p">After a short period, an accurate temperature reading will be displayed:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_S52_4QK_W2C" src="GUID-26C1BAC3-5E45-4B52-B213-2B475EE1E0E7-high.svg"/></div></div>
+      <div class="- topic/p p">Navigate to the BLE options page by selecting the center left button with the BLE icon.
+        This will display the following page. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_MZS_DSK_W2C" src="GUID-DED460F8-F0B8-4FB4-A572-67056AAC93BC-high.svg"/></div></div>
+      <p class="- topic/p p">Navigate to the Scan page by selecting the Scan menu button.</p>
+      <p class="- topic/p p">Before scanning, recall that the scan filter is enabled by default, which will only display
+        devices that are advertising with “0xDAFE” as the service UUID. To enable or disable this
+        feature, navigate to the settings page by selecting the gear icon at the bottom left of the
+        screen.</p>
+      <div class="- topic/p p">Begin scanning for peripherals by selecting the Scan button. The scan limit is 1 minute 40
+        seconds. After this, scanning will stop. Advertising devices will begin displaying on the
+        list: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_OPL_3SK_W2C" src="GUID-36287334-9118-44B2-AA37-26FB4991D3E1-high.svg"/></div></div>
+      <div class="- topic/p p">Select the <strong class="+ topic/ph hi-d/b ph b">Stop</strong> button to complete the scan.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_KFR_KSK_W2C" src="GUID-4BFF0EB4-FD43-49CE-8E3B-2077DD2AAC51-high.svg"/></div></div>
+      <div class="- topic/p p">Begin selecting the devices “dev_1_pic32cx-bz6”, “dev_2_pic32cx-bz6”, “MBD_Device”. Once a
+        device is selected, scanning will stop if it was still enabled. Status messages will display
+        in the bottom right corner. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_VHJ_NSK_W2C" src="GUID-E74F26A2-FAC0-4CD2-A8F7-929F8327A368-high.svg"/></div></div>
+      <div class="- topic/p p">Board2 and Board3 will show a “Connected” message.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_RWZ_PSK_W2C" src="GUID-0142464A-E975-4D8E-B5E1-86272F396F97-high.svg"/></div></div>
+      <div class="- topic/p p">Phone1 will automatically switch to this screen upon connection.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_A4D_SSK_W2C" src="GUID-D871AE88-D570-4D50-98DA-84EC47C75FF4-high.svg"/></div></div>
+      <div class="- topic/p p">After all three peripherals are connected, navigate to the data communication page either
+        by selecting the Go Back button or selecting the BLE icon on the center left of the screen,
+        then selecting the Data Communication menu button shown on the BLE options page.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_K3G_5SK_W2C" src="GUID-95F073D2-0C62-48D9-98F9-BED3783B2816-high.svg"/></div> Select “<strong class="+ topic/ph hi-d/b ph b">dev_1_pic32cx_bz6</strong>” the following page will display. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_TRL_WSK_W2C" src="GUID-2A7C766A-7DCC-4F4F-969A-AF34E4624383-high.svg"/></div></div>
+      <div class="- topic/p p">On Board2’s terminal window, begin typing characters into the window and the characters
+        will display on the list. The most recently received message will be displayed at the top of
+        the list. Only the latest 30 messages will be displayed on the list.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_BNX_YSK_W2C" src="GUID-0087E898-B1F2-4970-B9F0-361FB028FD64-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_PZ5_1TK_W2C" src="GUID-025F00F5-9161-484D-AC17-26B92E29FB0D-high.svg"/></div></div>
+      <div class="- topic/p p">Select the input field at the top of the page below the device name to display the
+        keyboard. Enter characters and press <strong class="+ topic/ph hi-d/b ph b">Send</strong> to send to the peripheral device. The
+        maximum input character is 26.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_YS2_DTK_W2C" src="GUID-EEAE760C-D70D-4BB1-9EF6-BC0E0A615CB1-high.svg"/></div></div>
+      <div class="- topic/p p">The sent data will be displayed on the list and distinguished with a red arrow, whereas
+        green arrows signify received packets. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_B2N_FTK_W2C" src="GUID-3D95AB1D-F2B5-4306-9B2F-E247DC5ECA9B-high.svg"/></div></div>
+      <div class="- topic/p p">The received data on the peripheral will be displayed on Board2’s Teraterm window. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_MBT_HTK_W2C" src="GUID-7AA28F5E-37AB-4AED-99B5-CCF938C011D2-high.svg"/></div></div>
+      <p class="- topic/p p">The received data from all connected peripherals will be displayed on the list. The green
+        arrows have a small number that indicates which device sent the packet.</p>
+      <p class="- topic/p p">To send packets from MBD to be received by the GUI do the following:</p>
+      <div class="- topic/p p">On Phone1, select text mode and ensure “Display data” is turned on in the settings.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JLQ_MTK_W2C" src="GUID-2354DDD4-B524-4421-9DC8-137B447B6E03-high.svg"/></div></div>
+      <div class="- topic/p p">Exit the settings page by selecting Done. Then, begin entering and sending messages in the
+        Input String field on MBD.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JTG_PTK_W2C" src="GUID-DAF67AA2-445B-45D6-8A41-2048014E3A78-high.svg"/></div><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_XDR_QTK_W2C" src="GUID-43DA0057-4FED-4366-921F-55662BE1DA1D-high.svg"/></span></div>
+      <p class="- topic/p p">The message will display on Board1’s GUI with a green arrow and a number 2. Received
+        packets with data longer than 25 bytes will be split into multiple lines on the GUI.</p>
+      <p class="- topic/p p">To send data to MBD from the GUI, the device must be selected first.</p>
+      <p class="- topic/p p">Press the device name text at the top of the page (“1. dev_1_pic32cx-bz6”) to display a
+        popup menu that displays the connected devices. Select <strong class="+ topic/ph hi-d/b ph b">MBD_Device</strong> to send messages to
+        MBD.</p>
+      <div class="- topic/p p">The device name at the top of the page will be updated to show the device that the GUI will
+        send packets to.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_F4G_1BF_GFC" src="GUID-67BE8EDD-C749-497E-A8C7-1FB78CAC225E-high.svg"/></div></div>
+      <div class="- topic/p p">Select the input field at the top of the page below the device name to display the
+        keyboard. Enter characters and press <strong class="+ topic/ph hi-d/b ph b">Send</strong> to send to the peripheral device. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZP4_VTK_W2C" src="GUID-C71B276F-5C6E-4B8A-8882-07AD0B8DE8AF-high.svg"/></div></div>
+      <div class="- topic/p p">The sent message will be displayed on Board1 and on MBD on Phone1. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_KXZ_XTK_W2C" src="GUID-40F8CE54-04AB-469E-A58F-875DBFD12CD7-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_GF2_ZTK_W2C" src="GUID-AC8FFCB7-9B41-4DB1-98E0-D9F81EB512CA-high.svg"/></div></div>
+      <div class="- topic/p p">dev_2_pic32cx-bz6 will perform the same as dev_1_pic32cx-bz6. Switch to dev_2_ pic32cx-bx6
+        as was done before when the MBD_Device was selected. Sending and receiving data for dev_2_
+        pic32cx-bx6 is exactly the same as dev_1_ pic32cx-bx6 except the GUI will distinguish the
+        received packets with small numbers within the green arrows. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_XVQ_HBF_GFC" src="GUID-E47CC472-E859-497B-981C-6F8021BEC95C-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_MYH_JBF_GFC" src="GUID-7EFC0CD1-6F26-43F4-99B1-19DF4171E49A-high.svg"/></div>By default, the list will not clear unless the “Clear” button is
+        pressed but a maximum of 30 most recent messages will be displayed on the list.</div>
+      <div class="- topic/p p">Next, navigate to the Manage Connected Devices page by selecting the Go Back button and
+        selecting the Manage Connected Devices button.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_O3S_B5K_W2C" src="GUID-E24E5780-A601-4544-B5A6-03D4DF2156D2-high.svg"/></div></div>
+      <div class="- topic/p p">Ensure “MBD_Device” is selected as shown in the image above and select the Disconnect
+        button. The device will be removed from the list and MBD will show the following message.
+          <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_YTY_D5K_W2C" src="GUID-6455784B-C7AC-463A-A3B1-5EED2CA4E82F-high.svg"/></div></div>
+      <p class="- topic/p p">Notice that the index associated with dev_2_pic32cx-bz6 was updated from 3 to 2 once
+        MBD_Device was disconnected. If messages are received from dev_2_pic32cx-bz6 at this point,
+        Commented [AB35]: updated then the number within the green arrow will also be updated to 2
+        from 3. The indices are only updated when peripheral devices are disconnected.</p>
+      <div class="- topic/p p"> Disconnect from the other two peripherals and their terminal will display a “Disconnected”
+        message. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_IMH_TBF_GFC" src="GUID-3558FE1E-EA74-46BF-969E-F66B98E84A4E-high.svg"/></div></div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEVELOPING-THIS-APPLICATION-FROM-SCRATCH-USING-MPLAB-CODE-CONFIGURATOR" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEVELOPING-THIS-APPLICATION-FROM-SCRATCH-USING-MPLAB-CODE-CONFIGURATOR"><h2 class="- topic/title title sectiontitle">Developing the Application from Scratch
+        using the MPLAB Code Configurator</h2>
+      
+      <div class="- topic/p p">Follow the steps below to build the application manually:<div class="- topic/note note notype note_notype" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_G4P_WXQ_XYB" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_G4P_WXQ_XYB"><span class="note__title">Note:</span>  It is
+          recommended for the new users of the MPLAB Code Configurator to refer <em class="+ topic/ph hi-d/i ph i"><span class="- topic/tm tm">MPLAB<span class="- topic/tmmark tmmark ">®</span></span> Code Configurator (MCC) User’s Guide</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em>
+          from Related Links.</div></div>
+      <ol class="- topic/ol ol" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_HV2_RNY_GDC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__OL_HV2_RNY_GDC"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-72A84248-9EAC-4106-B1C0-16FF6BBED473" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-72A84248-9EAC-4106-B1C0-16FF6BBED473">
+          <p class="- topic/p p">Create a new harmony project. For more details, see <em class="+ topic/ph hi-d/i ph i">Creating a New MCC Harmony
+              Project</em> from Related Links.</p>
+        </li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-E752ABD9-B664-4927-B777-4E78CDB26B8C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-E752ABD9-B664-4927-B777-4E78CDB26B8C">Import component configuration – This
+          step helps users setup the basic components and configuration required to develop this
+          application. The imported file is of format <code class="+ topic/ph pr-d/codeph ph codeph">.mc3</code> and is located in the
+          path “<span class="- topic/ph ph">&lt;Harmony Content Path&gt;\wireless_apps_pic32_bz6</span><code class="+ topic/ph pr-d/codeph ph codeph">\apps\ble\peripheral_applications\lcc_central_trp_uart
+            \firmware\lcc_central_trp_uart.X</code>”.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3989AA3E-B33C-4610-81EE-8DAE484BC890" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3989AA3E-B33C-4610-81EE-8DAE484BC890">Accept dependencies or satisfiers when
+          prompted.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-CA6EA219-7024-4308-9383-9CA89521A634" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-CA6EA219-7024-4308-9383-9CA89521A634">Verify if the Project Graph window has
+          all the expected configuration.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_EW2_C4F_HDC" src="GUID-14C69A0C-47B0-4FED-9842-7C7A99B97ABB-high.svg"/></div></li></ol>
+      <p class="- topic/p p">The following components are from the GFX library:</p>
+      <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_UGL_4LP_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_UGL_4LP_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-BC37A940-FCBF-4943-AB67-8922BC68926D" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-BC37A940-FCBF-4943-AB67-8922BC68926D">Gfx Core LE</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-02C10D37-7DFB-4C0A-889E-A3D434041843" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-02C10D37-7DFB-4C0A-889E-A3D434041843">Input System Service</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1BB74916-1869-49F5-ABF7-A9BF8D7D4ABA" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1BB74916-1869-49F5-ABF7-A9BF8D7D4ABA">MaxTouch Controller</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-60592916-32C2-4A3F-8543-FF3D9BA4FB19" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-60592916-32C2-4A3F-8543-FF3D9BA4FB19">PDA TM4301B</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-63F09B1E-8327-4F94-8AA8-12038C9C8445" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-63F09B1E-8327-4F94-8AA8-12038C9C8445">LE LCC</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8988E2FE-291F-4645-A92B-F70CA0A99BEE" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8988E2FE-291F-4645-A92B-F70CA0A99BEE">Legato</li></ul>
+      <p class="- topic/p p">This project utilizes the GFX library to generate the code needed for graphics projects.
+        Refer Harmony guide <em class="+ topic/ph hi-d/i ph i">Getting Started with Microchip Graphics Suite (MGS) Harmony</em> in
+          <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links for graphics projects. Additionally, it
+        is recommended that users refer to <em class="+ topic/ph hi-d/i ph i">Getting Started with a New Harmony Graphics
+          Application </em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links to learn how to
+        utilize the library to create projects. </p>
+      <p class="- topic/p p">Microchip Graphics Suite (MGS) Harmony Composer is a GUI design tool used to create widgets
+        and configure various screens. For more information about the MGS Composer, refer to
+          <em class="+ topic/ph hi-d/i ph i">Microchip Graphics Suite (MGS) Harmony Composer User Guide</em>  in <em class="+ topic/ph hi-d/i ph i">Reference
+          Documentation</em> from Related Links.</p>
+      <p class="- topic/p p"> For more information on the BLE related components, see <em class="+ topic/ph hi-d/i ph i">BLE Transparent UART</em> from
+        Related Links. </p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_H3J_QNQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_H3J_QNQ_W2C"><h2 class="- topic/title title sectiontitle">GUI
+        Design Decisions <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_P43_ZBF_GFC" src="GUID-15D9A1E3-B204-4F14-BA8A-D3F767D8AD54-high.svg"/></div></h2><p class="- topic/p p">For high resolution displays, one of the main
+        contributors of RAM usage will be the frame buffer which is dictated by the pixel count and
+        cannot be minimized. </p><p class="- topic/p p">Additionally, the scratch buffer contributes heavily to RAM
+        usage. It is used for drawing segments of the screen on page refreshes. This can be
+        increased or decreased but will impact refreshing performance. For detailed information on
+        the scratch buffer, see <em class="+ topic/ph hi-d/i ph i">Adjusting Scratch Buffer Size</em> in <em class="+ topic/ph hi-d/i ph i">Reference
+          Documentation</em> from Related Links.</p><p class="- topic/p p">Lastly, the fixed heaps also contribute to the
+        RAM usage but are dictated by the number of widgets used. for further information about
+        fixed heaps, see <em class="+ topic/ph hi-d/i ph i">Optimizing the Memory Manager Settings</em> in <em class="+ topic/ph hi-d/i ph i">Reference
+          Documentation</em> from Related Links. </p><p class="- topic/p p">Frame Buffer:</p><p class="- topic/p p">Since we are using
+        Hardware setup 3 for this application, our frame buffer will be allocated within the <span class="- topic/ph ph">PIC32-BZ6</span> Curiosity Board. Additionally, we are using RGB332 so we
+        only require a single byte for each pixel. For our 480x272 display, the frame buffer will
+        require 480*272*1byte = 130,560 bytes. </p><p class="- topic/p p">Scratch Buffer:</p><p class="- topic/p p">To minimize our scratch
+        buffer, we recognize that our design mainly updates the center most part of the screen
+        whereas the left of the screen is a secondary update that just changes the button that is
+        selected. Therefore, we implement a ‘single screen’ design that hides and reveals different
+        panels to create the illusion that screens are changing. Specifically, we only update the
+        portion of the screen shown below which is 338x252 pixels large.</p><div class="- topic/p p">
+        <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_PQB_CMP_W2C" src="GUID-C732BD94-32F7-4069-B86B-AEA9C2278C54-high.svg"/></div>
+      </div><p class="- topic/p p">Since the largest part of the screen to be updated is 338x252 pixels, we only need to
+        allocate a scratch buffer of size 338*252*1byte = 85,176 bytes. </p> In MGS Harmony
+      Composer, each ‘screen’ is a panel sized 338x252, with the exception of the home page. To
+      display the home page, all panels are hidden and only the home widgets will display. When
+      another screen is intended to be shown by pressing one of the three buttons on the left of the
+      screen, the panel will display. For example, when the BLE icon button is selected, an event
+      will be generated and the following panel will be made visible and will become enabled.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_W41_DMP_W2C" src="GUID-3B6B9C9F-8C93-403A-83AA-E31573EB29DE-high.svg"/></div></section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_NFQ_WNQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_NFQ_WNQ_W2C"><h2 class="- topic/title title sectiontitle">Navigating withing MGS Harmony Composer
+        for the Thermostat GUI</h2>
+      
+      <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_E1C_1MP_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_E1C_1MP_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-CE61FBD7-02DF-4F9E-9D05-6D677EE0FCA7" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-CE61FBD7-02DF-4F9E-9D05-6D677EE0FCA7">Since everything is implemented on one
+          screen, the other pages are not visible by default. To view another page, select the panel
+          you would like to view in the Screen Tree, then select visible in the Object Editor. For
+          example, if we want to see the BLE options page, the procedure is as follows: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_A35_JMP_W2C" src="GUID-682A1AB2-BCD1-44BF-9818-2BD3670AE23D-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZHX_LMP_W2C" src="GUID-CCB143F6-B19D-467E-9EED-E888F4308596-high.svg"/></div><div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_YDS_NMP_W2C" src="GUID-E6C3224C-49CC-41D5-BCF7-8EBA4908DE01-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8807D4C3-3418-4C8E-827C-4DA7A9D7607F" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-8807D4C3-3418-4C8E-827C-4DA7A9D7607F"><strong class="+ topic/ph hi-d/b ph b">Adding Widgets: </strong> Refer to
+            <em class="+ topic/ph hi-d/i ph i">Widgets Guide</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.<div class="- topic/p p">New widgets
+            can be dragged and dropped into the MGC screen. Widgets:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_BWR_TMP_W2C" src="GUID-9E53954B-5589-4442-B7C8-CBFE47325273-high.svg"/></div></div>Events are disabled for new widgets by default, so they must be
+          enabled if needed. Also, if an event is enabled, the event handler must be defined in the
+          code otherwise the build will fail. See below for details about events.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-253BA73C-DAB7-4408-9D43-8C3A4F787B32" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-253BA73C-DAB7-4408-9D43-8C3A4F787B32"><strong class="+ topic/ph hi-d/b ph b">Fixed Heaps: </strong>If a new widget is
+          added, you must increase the number of fixed heaps and reoptimize later (notes on
+          optimization later). Increase all fixed heap sizes by a large amount during development to
+          avoid crashes. Fixed heaps can be increased in the Memory portion of the Project
+            Settings:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_DG2_1RP_W2C" src="GUID-C900C8AB-B4A0-4734-8069-F33DAD69D8A7-high.svg"/></div> If the fixed heaps are increased in the project settings, the code
+          must be regenerated to reflect the changes in the code.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-9D986108-DAA3-4691-BE3D-76CDB05A5FC1" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-9D986108-DAA3-4691-BE3D-76CDB05A5FC1"><strong class="+ topic/ph hi-d/b ph b">Events: </strong>  Refer to <em class="+ topic/ph hi-d/i ph i">Creating a
+            Dynamic UI with Event Handling</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related
+            Links.<div class="- topic/p p">Events can be enabled or disabled in MGC in the Event Manager under
+              Project:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_N1H_HRP_W2C" src="GUID-EBB0B4B2-6FC3-4B0F-A671-8D2269DD82A7-high.svg"/></div></div><div class="- topic/p p">Events can also be enabled or disabled in the Object Editor
+            when a widget is selected.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_OKQ_JRP_W2C" src="GUID-98B36C93-FC0D-4C79-899A-13998605FC64-high.svg"/></div></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2E3976D8-63D3-4B70-B8A1-B2FF0E3FB8C6" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2E3976D8-63D3-4B70-B8A1-B2FF0E3FB8C6">Events are handled in the
+            <code class="+ topic/ph pr-d/codeph ph codeph">app_screen_splash.c</code> and <code class="+ topic/ph pr-d/codeph ph codeph">app_screen_main.c</code> files found
+          in the <code class="+ topic/ph pr-d/codeph ph codeph">lcc_central_trp_uart\firmware\src</code> folder. For example, when the
+          BLE button is pressed, the event handler is as follows:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_XZF_XRP_W2C" src="GUID-8D6285A2-6F36-44F4-BF77-635FFE37A821-high.svg"/></div><p class="- topic/p p">In this code, all other panels are disabled and made invisible,
+            and only the BLE options panel is enabled and made visible.</p></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-700D1CC4-7120-4062-8EA2-E51FB8C876E2" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-700D1CC4-7120-4062-8EA2-E51FB8C876E2"><strong class="+ topic/ph hi-d/b ph b">Images, fonts, and strings</strong> can be
+          added and managed in their respective pages found under Asset:<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_MH3_ZRP_W2C" src="GUID-E5FCCFA9-2AC6-4FB8-902F-FBD1B5135229-high.svg"/></div><p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">MGC Assets Guide:</strong> Refer to <em class="+ topic/ph hi-d/i ph i">Microchip Graphics Suite
+              (MGS) Harmony Graphics Assets Guide</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related
+            Links.</p></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-73923D5B-8984-49A1-B2FE-0714EFDC2450" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-73923D5B-8984-49A1-B2FE-0714EFDC2450"><strong class="+ topic/ph hi-d/b ph b">Color Schemes Guide:</strong> Refer to
+            <em class="+ topic/ph hi-d/i ph i">About the Schemes and Scheme Editor</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from
+          Related Links.<div class="- topic/p p">The available schemes in the project can also be used. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_KGJ_BSP_W2C" src="GUID-C13832D1-5C92-4F5F-B4DD-32122A393109-high.svg"/></div></div><p class="- topic/p p">LightMode is used for the background color of the panels.
+            GrayScheme is used for the gray color of text. HeatingScheme is used for the orange
+            color of text. CoolScheme is used for blue color of text. WhiteScheme is used for white
+            color of text. </p></li></ul>
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Notes about reoptimizing fixed heaps: </strong></p>
+      <p class="- topic/p p">Refer to <em class="+ topic/ph hi-d/i ph i">Optimizing the Memory Manager Settings</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em>
+        from Related Links.</p>
+      <p class="- topic/p p">After adding more widgets to the design, the fixed heaps can be increased and reoptimized.
+        The GFX library provides a function called leMemoryPrintReport() that can print out the
+        fixedHeap usage of the GUI to a terminal.</p>
+      <p class="- topic/p p">Below is an example of how the fixedHeaps can be optimized with this thermostat GUI using
+        Debug mode and breakpoints rather than printing out the fixedHeap usage report.</p>
+      <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_I3L_DSP_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_I3L_DSP_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0FB308E3-2188-4F17-9FB8-5F5F2C77459A" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0FB308E3-2188-4F17-9FB8-5F5F2C77459A">First increase all heap sizes by at least
+          5 for each new widget added. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_NRX_S2Q_W2C" src="GUID-BDA08085-F9DB-414A-A98B-23158CF32790-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A1E630F0-6DDA-4A95-B04D-61C6F309CC64" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A1E630F0-6DDA-4A95-B04D-61C6F309CC64">Second, uncomment the following line in
+            <code class="+ topic/ph pr-d/codeph ph codeph">app_screen_main.c</code>.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JNX_52Q_W2C" src="GUID-4AFFE68E-04D3-4335-87AF-BB8023AC72C1-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0E6A4638-0302-4149-BF9F-5BAE009077F2" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-0E6A4638-0302-4149-BF9F-5BAE009077F2">Then, enable a breakpoint in the
+          leMemoryPrintReport() function in <code class="+ topic/ph pr-d/codeph ph codeph">legato_memory.c</code>.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_RJQ_W2Q_W2C" src="GUID-4AC10AA5-0C0B-4CA9-8F47-6793F8CD1C6E-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-C22D340A-32B7-47ED-BF09-8C940E542CD4" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-C22D340A-32B7-47ED-BF09-8C940E542CD4">Add a watch to the fixedHeaps
+            array.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_YJH_1FQ_W2C" src="GUID-DAF64A55-3670-46AD-ACBD-5E715F93D7FD-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3FE646DF-9F59-44F1-A396-CB850F8E3F6B" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-3FE646DF-9F59-44F1-A396-CB850F8E3F6B">Run the project in Debug mode.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_QRT_BFQ_W2C" src="GUID-EBE885B3-9DCB-46B9-9605-0449A31FB8B4-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-43C99D62-EA4C-464F-A0CD-E2E46165A466" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-43C99D62-EA4C-464F-A0CD-E2E46165A466">Run through the entire GUI, selecting all
+          buttons and making all panels visible at least once. Do not press the temperature down
+          button until the very end.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_NJR_DFQ_W2C" src="GUID-53D1C14E-C77D-49FF-81F0-894A95770106-high.svg"/></div><p class="- topic/p p">Once the down button is pressed, the
+            program will break, and you can analyze the fixedHeaps array to see the max
+          usage.</p></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-E781ADF8-743B-4EC4-8189-844997B92E07" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-E781ADF8-743B-4EC4-8189-844997B92E07">After all buttons are pressed and the
+          down button is pressed last, the program will break. In the “Watches” tab, you can view
+          the fixedHeaps array. Here you can view each fixed heaps logical block size and their max
+          usage: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZVZ_FFQ_W2C" src="GUID-831FEBE4-C9EA-4950-B711-901907080E8C-high.svg"/></div><p class="- topic/p p">fixedHeaps[0] corresponds to LE_FIXEDHEAP_SIZE_16 in
+            legato_config.h. fixedHeaps[1] corresponds to LE_FIXEDHEAP_SIZE_32. fixedHeaps[2]
+            corresponds to LE_FIXEDHEAP_SIZE_64 and so on.</p></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-D27D425D-083B-4F8B-BBEE-8E3E5A165AE9" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-D27D425D-083B-4F8B-BBEE-8E3E5A165AE9">
+          <div class="- topic/p p">Set the fixed heap sizes to the maxUsage number. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_R1Z_HFQ_W2C" src="GUID-EDDF8C88-C44D-4582-9DEE-5AD80E327724-high.svg"/></div></div>
+          <p class="- topic/p p">Reprogram the device not in debug mode and run through the entire GUI to ensure there
+            are no crashes.</p>
+        </li></ul>
+    </section><p class="- topic/p p"> </p><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_L4R_WKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_L4R_WKQ_W2C"><h2 class="- topic/title title sectiontitle">Tasks and Task Priority</h2>
+      
+      <div class="- topic/p p">
+        <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_IYX_XKQ_W2C" src="GUID-907C373A-0104-496D-AC08-19BC0E7C7C91-high.svg"/></div>
+      </div>
+      <p class="- topic/p p">The above diagram shows the multiple tasks running simultaneously. Input system service,
+        LCC, Legato, and MaxTouch Controller all come from GFX while BLE and App core do not. Legato
+        and LCC have higher priority than MaxTouch to prioritize screen updates over touch events
+        but lower priority than BLE to avoid throughput deterioration.</p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GENERATE-CODE-LINK-FOR-INSTRUCTIONS" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GENERATE-CODE-LINK-FOR-INSTRUCTIONS"><h2 class="- topic/title title sectiontitle">Generating Code</h2>
+      
+      <p class="- topic/p p">For more details on code generation, refer to <em class="+ topic/ph hi-d/i ph i">MPLAB Code Configurator (MCC) Code
+          Generation</em> from Related Links. </p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_GD5_SKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_GD5_SKQ_W2C"><h2 class="- topic/title title sectiontitle">Files and Routines Automatically
+        generated by the MCC</h2>
+      
+      <p class="- topic/p p">For details about the BLE configuration that is generated, see <em class="+ topic/ph hi-d/i ph i">BLE Transparent UART</em>
+        from Related Links. </p>
+      <p class="- topic/p p">For details about GFX code generation, see <em class="+ topic/ph hi-d/i ph i">Getting Started with a New Harmony Graphics
+          Application</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links.</p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_R2W_QKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_R2W_QKQ_W2C"><h2 class="- topic/title title sectiontitle">User Application Development</h2>
+      
+      <p class="- topic/p p"><strong class="+ topic/ph hi-d/b ph b">Include</strong></p>
+      <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_N4W_RKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_N4W_RKQ_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-74E2690C-45BA-41B4-8A69-D5E90F3B7EF1" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-74E2690C-45BA-41B4-8A69-D5E90F3B7EF1"><code class="+ topic/ph pr-d/codeph ph codeph">definitions.h</code> in all the
+          files where UART will be used to print debug information.</li></ul>
+      <div class="- topic/p p">
+        <div class="- topic/note note notype note_notype" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_O4W_RKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__NOTE_O4W_RKQ_W2C"><span class="note__title">Note:</span> definitions.h is not specific to just UART peripheral, instead
+          it must be included in all application source files where peripheral functionality will be
+          exercised.</div>
+      </div>
+      <ul class="- topic/ul ul"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1484A880-C098-41D0-8E56-EDD8157EC383" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1484A880-C098-41D0-8E56-EDD8157EC383">Include the user action. For more
+          information, refer to <em class="+ topic/ph hi-d/i ph i">User Action</em> from Related Links.</li></ul>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UDC_NKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UDC_NKQ_W2C"><h2 class="- topic/title title sectiontitle">Pin Settings</h2>
+      
+      <div class="- topic/p p">Verify the following pin settings: <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_Q4Q_4KQ_W2C" src="GUID-DB2A7104-CE4D-4DBA-9637-430DE0CC7394-high.svg"/></div></div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UST_JKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UST_JKQ_W2C"><h2 class="- topic/title title sectiontitle">Unique Files</h2>
+      
+      <div class="- topic/p p">The following list of files were either edited or added to the project. <div class="table-container"><table class="- topic/table table frame-all" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C" data-cols="3"><caption></caption><colgroup><col style="width:162"/><col style="width:126"/><col style="width:336"/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1">File</th><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added or Edited</th><th class="- topic/entry entry colsep-0 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Notes</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Maintains app state machine. Added OSAL queue callbacks for trp service and a
+                  timer callback for the clock. Added to the initialization.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Added a function to update and store scanned devices. Configured as active
+                  scan.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Maintain a connection handle list when connections are established and
+                  destroyed. Maintain a scanned device list. </td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble_utility.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Added two functions. One for parsing advertisements and extracting the name
+                  of the device. The other function converts hex to ascii.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_ble_utility.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_trspc_handler.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Updates the GUI when data is received. Maintains a list GUI that displays the
+                  received data</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_trspc_handler.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Edited</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">default_design.zip</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">MGS Composer design</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_macros.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Holds macros for gfx library</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_screen_main.c</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Holds GUI event handling for the main screen</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_screen_main.h</code></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3"> —</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__1"><code class="+ topic/ph pr-d/codeph ph codeph">app_screen_splash.c</code></td><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__2">Added </td><td class="- topic/entry entry colsep-0 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_ZTT_LKQ_W2C__entry__3">Holds GUI event handling for the initial screen.</td></tr></tbody></table></div></div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_JBQ_FKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_JBQ_FKQ_W2C"><h2 class="- topic/title title sectiontitle">Widgets within app_screen_main.c</h2>
+      
+      <p class="- topic/p p">The following table shows the widgets with their accompanying event handlers. </p>
+      <div class="table-container"><table class="- topic/table table frame-all" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C" data-cols="3"><caption></caption><colgroup><col style="width:33.33333333333333%"/><col style="width:33.33333333333333%"/><col style="width:33.33333333333333%"/></colgroup><thead class="- topic/thead thead"><tr class="- topic/row"><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1">Widget</th><th class="- topic/entry entry colsep-1 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">Event handler</th><th class="- topic/entry entry colsep-0 rowsep-1" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Notes</th></tr></thead><tbody class="- topic/tbody tbody"><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_PF5_HKQ_W2C" src="GUID-094DC76B-06DC-4BEB-8C74-F9E7B906E553-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">N/A</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">This displays the current temperature reading from the onboard temperature
+                sensor. It is read every one second, but the temperature displayed is an average of
+                5 measurements. The small blue circle will move along the white arc with increasing
+                or decreasing temperature readings.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_QF5_HKQ_W2C" src="GUID-294D3E25-84BF-4201-830A-789D0A489061-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">N/A</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">This displays the desired temperature. </td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_RF5_HKQ_W2C" src="GUID-6B73BB5A-DB11-4A72-B7E2-9185786EB53A-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_UpButton_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">This increases the “Set To” temperature on the home screen. If the “Set To”
+                temperature is greater than the onboard temperature reading, then the thermostat
+                will transition to “Heat” mode and the color scheme will be orange. </td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_SF5_HKQ_W2C" src="GUID-4E56CC8D-46CB-4B02-B383-F9857A6546DA-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_DownButton_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">This decreases the “Set To” temperature on the home screen. If the “Set To”
+                temperature is less than the onboard temperature reading, then the thermostat will
+                transition to “Cool” mode and the color scheme will be blue.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_TF5_HKQ_W2C" src="GUID-F10E6B9F-D444-412F-8870-B6800D9797AB-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_home_button_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Hides all other panels and shows home screen</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_UF5_HKQ_W2C" src="GUID-E96482A4-AB90-4CCC-B227-6980B78A91CB-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_ble_button_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Hides all other panels and displays BLE options panel</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_VF5_HKQ_W2C" src="GUID-DCA80BE9-8D17-4973-9A9D-02631E1E3B1F-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_settings_button_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Hides all other panels and displays the settings panel</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_WF5_HKQ_W2C" src="GUID-0C081B63-042B-4057-A458-7D415C035C43-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_fan_button_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Changes the Fan Mode String (Auto, On, Off)</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_XF5_HKQ_W2C" src="GUID-032347A9-00AC-4771-8BC8-D98E5763A99E-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">Main_mode_button_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Changes the Mode string (Cool, Heat) and changes the color scheme. </td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_YF5_HKQ_W2C" src="GUID-33A5080D-2458-4037-8CB7-59DD0B81613A-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_ScannedDevs_0_OnSelectionChanged(leListWidget* wgt, uint32_t idx,
+                leBool selected)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">On the Manage Connected Devices screen. Used to set the ID for the disconnect
+                event/</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_ZF5_HKQ_W2C" src="GUID-D1B92334-EE92-4C9D-B669-9C54168AC73C-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_DisconnectButton_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Manually disconnect from a device. Updates the GUI and generates Disconnect
+                event. BLE_GAP_EVT_DISCONNECTED in app_ble_handler.c will maintain the connection
+                handle list and handle cases where the GUI was busy when a spontaneous disconnect
+                occurs.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_AG5_HKQ_W2C" src="GUID-37ADA8BB-2243-40D2-9E89-980EE503801E-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_GoBackButton_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Hides other subpanels and displays BLE options page.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_BG5_HKQ_W2C" src="GUID-ECFD17E2-A7B6-4440-8B0B-E5DC4F538E68-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_scan_option_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Display the Scan panel</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_CG5_HKQ_W2C" src="GUID-1C62FEA3-2C6B-4088-81F4-DD2CF1116086-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_text_window_option_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Displays the Data Communication panel where users select a device they want to
+                communicate with</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_DG5_HKQ_W2C" src="GUID-4C549D73-9867-43A1-9692-4B94A3BC9455-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_manage_option_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Displays the Manage Connected Devices panel where devices can be manually
+                disconnected</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_EG5_HKQ_W2C" src="GUID-0F421064-AE16-4E77-9D40-AC874FAAF6F1-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_connectedDevs_OnSelectionChanged(leListWidget* wgt, uint32_t idx,
+                leBool selected)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Go to the BLE communication panel with the selected device as the title. Set
+                the main index so trp service is associated with this device.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_FG5_HKQ_W2C" src="GUID-610F4A2A-DEDB-436E-9957-CBE9A3C238DA-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_scan_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Start the scan</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_GG5_HKQ_W2C" src="GUID-D90B361C-0D6A-464A-A641-BC0CEB758D1C-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_scan_OnReleased(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">End the scan</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_HG5_HKQ_W2C" src="GUID-BEEB4E82-1431-444A-99B0-331B07139BB3-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_ScannedDevs_OnSelectionChanged(leListWidget* wgt, uint32_t idx,
+                leBool selected)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Attempt to establish a connection with the selected device. Add device to our
+                connected device lists. BLE_GAP_EVT_CONNECTED event in
+                  <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code> will maintain the connection handle
+                list.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_IG5_HKQ_W2C" src="GUID-08A53F99-1762-41D3-9290-246EAA1CB95D-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_InputField_OnFocusChanged(leTextFieldWidget* btn, leBool
+                state)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Displays the keyboard</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JG5_HKQ_W2C" src="GUID-23352212-F924-491D-AA92-08F9DBB507E7-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_KeyPadWidget_0_OnKeyClick(leKeyPadWidget* wgt, leButtonWidget* cell,
+                uint32_t row, uint32_t col)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Checks if the shift key (“^”) was pressed. If it was, make the keyboard
+                characters uppercase. For additional information, refer to <em class="+ topic/ph hi-d/i ph i">How-To Create a
+                  Numeric Keypad</em> in <em class="+ topic/ph hi-d/i ph i">Reference Documentation</em> from Related Links. </td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_KG5_HKQ_W2C" src="GUID-32824944-EAC7-42FE-8002-B2921E6000E5-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_send_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Queue an event to send the data using transparent service. Update the DataField
+                list buffers.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_LG5_HKQ_W2C" src="GUID-68BBE62B-E584-4E7E-982F-94B0557AC49A-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">event_Main_cancel_OnPressed(leButtonWidget* btn)</td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Close the keyboard</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_VVJ_FDF_GFC" src="GUID-1A97B339-D94B-4DEC-B058-5DF2BC18959A-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">
+                <p class="- topic/p p">event_Main_ClearButton_OnPressed(leButtonWidget* btn)</p>
+              </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Clears the TX/RX list</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_KGM_HDF_GFC" src="GUID-C3FA4E76-C677-4A44-BBE8-68556D21B7F8-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">
+                <p class="- topic/p p">event_Main_DevNameButton_OnPressed(leButtonWidget* btn)</p>
+              </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Displays a popup menu listing all connected peripheral devices. Selecting a
+                device from the list sets it as the target for outgoing BLE messages from the
+                central GUI. The GUI will continue to receive data from all connected peripherals,
+                but only the selected device will receive messages sent from the GUI.</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_GHW_JDF_GFC" src="GUID-DB02D607-8F85-4153-820E-2F422A8074DB-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">
+                <p class="- topic/p p">event_Main_close_OnPressed(leButtonWidget* btn)</p>
+              </td><td class="- topic/entry entry colsep-0 rowsep-1" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Close the popup window</td></tr><tr class="- topic/row"><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__1"><span class=""><img class="- topic/image image" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_E21_MDF_GFC" src="GUID-F1BF5D7D-944F-4F2F-AB36-CB349E530338-high.svg"/></span></td><td class="- topic/entry entry colsep-1 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__2">
+                <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_SYW_MDF_GFC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_SYW_MDF_GFC"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1B5889DC-A0C7-49E9-9604-1B16B0F39D7D" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-1B5889DC-A0C7-49E9-9604-1B16B0F39D7D">event_Main_enable_filter_checkbox_OnUnchecked(leCheckBoxWidget* btn)</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-DE133AB0-A675-4A92-A9CA-42CE89A75E0E" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-DE133AB0-A675-4A92-A9CA-42CE89A75E0E">event_Main_enable_filter_checkbox_OnChecked(leCheckBoxWidget* btn)</li></ul>
+              </td><td class="- topic/entry entry colsep-0 rowsep-0" headers="GUID-55617722-DB2B-44F8-88B4-706BAB304859__TABLE_OF5_HKQ_W2C__entry__3">Enables or disables a flag that controls whether to display scanned devices
+                without service UUID “0xDAFE”</td></tr></tbody></table></div>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_WZD_BKQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_WZD_BKQ_W2C"><h2 class="- topic/title title sectiontitle">Additional GUI Interaction within
+        app_main_screen.c</h2>
+      
+      <p class="- topic/p p">All interaction with the GUI should be implemented within
+          <code class="+ topic/ph pr-d/codeph ph codeph">app_main_screen.c</code>. Therefore, there are additional functions defined
+        within <code class="+ topic/ph pr-d/codeph ph codeph">app_main_screen.c</code>. </p>
+      <ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_UMR_WFQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_UMR_WFQ_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A09CF716-3190-4A9E-B693-B9C2B46D4BB1" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A09CF716-3190-4A9E-B693-B9C2B46D4BB1">Lists that are dynamically updated
+          require special care.<ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_KRC_2GQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_KRC_2GQ_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-68DA469A-A33F-4C51-80B4-479BE64BC609" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-68DA469A-A33F-4C51-80B4-479BE64BC609">The contents of the scanned
+              peripherals list are updated on a timer. Specifically, TimerCallback2()<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_JHQ_GJQ_W2C" src="GUID-09270F92-0DE3-4C73-9631-131FB4A716BB-high.svg"/></div></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-6BD1309B-E4C2-4B84-A513-48B77A64E21A" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-6BD1309B-E4C2-4B84-A513-48B77A64E21A">The contents of the data field list
+              are also updated on a timer.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_S55_3JQ_W2C" src="GUID-637C1EAD-685D-4A19-BD7F-440EE5872D12-high.svg"/></div> The timer callback is in
+                <code class="+ topic/ph pr-d/codeph ph codeph">app.c</code> but the contents are updated while the GUI is in the
+              APP_MAIN_STATE_PROCESSING state.</li></ul></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-4CA661EE-5B5F-4130-A190-303010B3EE70" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-4CA661EE-5B5F-4130-A190-303010B3EE70">Additional helper functions<ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_PBW_CGQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_PBW_CGQ_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A566FC24-F1F2-48F0-A071-ADDE63C1C606" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A566FC24-F1F2-48F0-A071-ADDE63C1C606">clearDevList() clears the contents of
+              the scanned peripherals list.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2C13439B-3794-4E0F-9610-78DF7EB084C1" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-2C13439B-3794-4E0F-9610-78DF7EB084C1">clearSentList() clears the Data Field
+              list when another device is selected for communication or upon disconnect.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A302CEB9-3719-497C-B05D-8F7C3AA9CC51" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-A302CEB9-3719-497C-B05D-8F7C3AA9CC51">shuffleDynamicStringListLeft() is
+              used to maintain the connected device dynamic string list upon disconnect.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-7BDE33B0-71F8-4050-AAE0-699E869593B3" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-7BDE33B0-71F8-4050-AAE0-699E869593B3">shuffleBLEListLeft() is used to
+              maintain the connected device list of type APP_BLE_ScannedDev.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-882769EC-001B-4C4A-81A1-BE7F730D4BDF" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-882769EC-001B-4C4A-81A1-BE7F730D4BDF">MainScrn_UpdateClock() is used to
+              update the clock that is displayed on the main screen, it is called every second.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-F32F4856-1FA7-4FB3-8C5A-501B570A9519" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-F32F4856-1FA7-4FB3-8C5A-501B570A9519">MainScrn_UpdateMode() is used to
+              update the Mode string on the home page and change the color scheme.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-63BA2049-2C50-4B07-9ECF-3BBEEEBAC5FC" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-63BA2049-2C50-4B07-9ECF-3BBEEEBAC5FC">MainScrn_UpdateFan() is used to
+              update the fan string.</li></ul></li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-01778C02-A907-4154-9FC2-8A1D35385327" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-01778C02-A907-4154-9FC2-8A1D35385327">Screen event callbacks<ul class="- topic/ul ul" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_TWP_BGQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__UL_TWP_BGQ_W2C"><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-AAAB3639-62C3-4E12-9818-067799E60D69" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-AAAB3639-62C3-4E12-9818-067799E60D69">The Main_OnShow() function is the
+              function called only once when the screen is first shown.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-144FA934-74E5-40A6-ACB9-B4CA9F811FAD" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-144FA934-74E5-40A6-ACB9-B4CA9F811FAD">Main_OnHide() is the function called
+              when another screen is made visible. Since this design is a singe screen.
+              implementation, this function will not be called.</li><li class="- topic/li li" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-ACBE1812-C7B7-4D61-8358-B80A8BEBFFAD" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GUID-ACBE1812-C7B7-4D61-8358-B80A8BEBFFAD">Main_OnUpdate() is periodically
+              called to update the GUI. A state machine is maintained to update certain parts of the
+              GUI.</li></ul></li></ul>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_PK1_YJQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_PK1_YJQ_W2C"><h2 class="- topic/title title sectiontitle">BLE Implementation</h2>
+      
+      <p class="- topic/p p">Active scanning mode is enabled to scan for MBD in <code class="+ topic/ph pr-d/codeph ph codeph">app_ble.c</code>. A struct
+        called APP_BLE_ScannedDev holds the name, address, index, and connection handle for each
+        scanned device and each connected device. </p>
+      <p class="- topic/p p">Additionally, only information involving the device name and address is extracted to
+        display the name in the GUI and use the address to check if we are already connected. The
+        functions associated with parsing the advertisements is APP_Adv_Parser() and
+        APP_HexToAscii() in <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_utility.c</code>. The name and address are associated
+        with each APP_BLE_ScannedDev scanned. </p>
+      <p class="- topic/p p">On an advertisement report event, “BLE_GAP_EVT_ADV_REPORT,” if the scan filter is enabled,
+        the system will parse the advertisement data to check if the service UUID is 0xDAFE. If it
+        is, then the device will be stored and displayed on the GUI. If the scan filter is disabled,
+        all scanned devices will be displayed on the GUI.</p>
+      <p class="- topic/p p">When a device is connected successfully, the connection handle is captured in a list so we
+        can utilize each device’s connection handle when communicating. </p>
+      <p class="- topic/p p">When a disconnect occurs, the corresponding connection handle is removed from our list.
+        These events are BLE_GAP_EVT_CONNECTED and BLE_GAP_EVT_DISCONNECTED in
+          <code class="+ topic/ph pr-d/codeph ph codeph">app_ble_handler.c</code>. </p>
+      <p class="- topic/p p">When data is received from a peripheral, BLE_TRSPC_EVT_RECEIVE_DATA in
+          <code class="+ topic/ph pr-d/codeph ph codeph">app_trspc_handler.c</code> handles the GUI DataField list update to display the
+        new message. </p>
+    </section><section class="- topic/section section" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_D31_TJQ_W2C" data-ofbid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_D31_TJQ_W2C"><h2 class="- topic/title title sectiontitle">Temperature Sensor
+        Implementation</h2>
+      
+      <div class="- topic/p p"> To utilize the onboard temperature sensor, the following components must be in the project
+        graph. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_G3F_VJQ_W2C" src="GUID-F39830FD-B206-45AE-AFEF-C4FB136D3AC4-high.svg"/></div></div>
+      <div class="- topic/p p">Additionally, the following pin must be configured. <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_H3F_VJQ_W2C" src="GUID-C263594C-95B8-421B-BD79-DCB8BC5787C5-high.svg"/></div></div>
+      <div class="- topic/p p">The file <code class="+ topic/ph pr-d/codeph ph codeph">temp_sensor.c</code> will be generated.<div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_I3F_VJQ_W2C" src="GUID-E9EBCD1E-F414-4617-878A-1BBAE35AAA6B-high.svg"/></div></div>
+      <p class="- topic/p p">From here, the function MCP9700_Temp_Fahrenheit() can be called to get the temperature
+        reading in Fahrenheit. Each second, this function will be called within the
+          <code class="+ topic/ph pr-d/codeph ph codeph">app_main_screen.c</code> file to gather a single reading. The temperature
+        displayed on the home page will be the computed average of the last 5 temperature readings,
+        therefore the reading on the GUI will be updated every five seconds.</p>
+    </section></div></article></main></div>
+                        
+                        
+                        <div class=" wh_related_links d-print-none "><nav aria-label="Related Links" role="navigation" class="- topic/related-links related-links"><div class="- topic/linklist linklist relinfo" xml:lang="en-US" lang="en-US"><strong>Related Links</strong><ul class="linklist related_link"><li class="linklist"><p><a class="navheader_parent_path" href="GUID-EB8D7351-0387-4517-B50F-6617ECB644C3.html#GUID-822B816F-2CA4-4886-A161-45FFF4FC36AE" title="Reference Documentation"><span><span>1.1 </span><span>Reference Documentation</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-32BBEDCC-E563-4055-BC67-CE4A680B973B.html" title="Building Block Examples"><span><span>5.1 </span><span>Building Block Examples</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-31D9E246-C660-48C3-BC8B-2726226F1B07.html" title="Central Devices"><span><span>5.1.1 </span><span>Central Devices</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-E29E2397-4C37-4CB1-AEB3-2C2DBC956DB4.html" title="BLE Connection"><span><span>5.1.1.4 </span><span>BLE Connection</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-EDB01DA0-8DCE-4327-B8F4-F379C7E49A4C.html" title="BLE Transparent UART"><span><span>5.1.1.5 </span><span>BLE Transparent UART</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-CE900A63-7CC8-4538-B352-32336E8EAA19.html" title="Getting Started with Software Development"><span><span>4 </span><span>Getting Started with Software
+        Development</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-03E7D3CA-7508-4931-B418-3642D531548A.html" title="Running a Precompiled Application Example"><span><span>4.6 </span><span>Running a Precompiled Application
+        Example</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-E1CF1766-75ED-4C99-94F7-31D0710DBDC1.html" title="Installing the MCC Plugin"><span><span>4.2 </span><span>Installing the MCC Plugin</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-F6A4A028-2FC8-4566-B6C8-1F6D0AF646B3.html" title="Creating a New MCC Harmony Project"><span><span>4.4 </span><span>Creating a New MCC Harmony Project</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-FC811D14-AC40-4AC7-BD5A-DEB3CB7950F8" title="MPLAB Code Configurator (MCC) Code Generation"><span><span>11.2 </span><span>MPLAB Code Configurator (MCC) Code
+        Generation</span></span></a></p><p></p></li><li class="linklist"><p><a class="navheader_parent_path" href="GUID-5FC6D5A2-B8C3-4AD8-AC31-0AABE237A2F7.html#GUID-99583057-8B1A-42F2-84E8-CFC7717FA5D1" title="User Action"><span><span>11.1 </span><span> User Action</span></span></a></p><p></p></li></ul></div></nav></div>
+                        
+                        
+                        
+                    </div>
+                    
+                        <nav role="navigation" id="wh_topic_toc" aria-label="On this page" class="col-lg-2 d-none d-lg-block navbar d-print-none"> 
+                            <div id="wh_topic_toc_content">
+		                        
+	                            <div class=" wh_topic_toc "><div class="wh_topic_label">On this page</div><ul><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__RECOMMENDED-READS" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__RECOMMENDED-READS">Recommended Reading</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__HARDWARE-REQUIRED" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__HARDWARE-REQUIRED">Hardware Requirement </a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SDK-SETUP" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SDK-SETUP">SDK Setup</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SOFTWARE" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SOFTWARE">Software Requirement</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SMARTPHONE-APP" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SMARTPHONE-APP">Smart phone App</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__PROGRAMMING-THE-PRECOMPILED-HEX-FILE-OR-APPLICATION-EXAMPLE" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__PROGRAMMING-THE-PRECOMPILED-HEX-FILE-OR-APPLICATION-EXAMPLE">Programming the Precompiled Hex File or
+        Application Example</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEMO-DESCRIPTION" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEMO-DESCRIPTION">Demo Description</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_RB4_NJY_GDC" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_RB4_NJY_GDC">Testing</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEVELOPING-THIS-APPLICATION-FROM-SCRATCH-USING-MPLAB-CODE-CONFIGURATOR" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__DEVELOPING-THIS-APPLICATION-FROM-SCRATCH-USING-MPLAB-CODE-CONFIGURATOR">Developing the Application from Scratch
+        using the MPLAB Code Configurator</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_H3J_QNQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_H3J_QNQ_W2C">GUI
+        Design Decisions <div class=""><img class="- topic/image image break break" id="GUID-55617722-DB2B-44F8-88B4-706BAB304859__IMAGE_P43_ZBF_GFC" src="GUID-15D9A1E3-B204-4F14-BA8A-D3F767D8AD54-high.svg"/></div></a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_NFQ_WNQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_NFQ_WNQ_W2C">Navigating withing MGS Harmony Composer
+        for the Thermostat GUI</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_L4R_WKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_L4R_WKQ_W2C">Tasks and Task Priority</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__GENERATE-CODE-LINK-FOR-INSTRUCTIONS" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__GENERATE-CODE-LINK-FOR-INSTRUCTIONS">Generating Code</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_GD5_SKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_GD5_SKQ_W2C">Files and Routines Automatically
+        generated by the MCC</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_R2W_QKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_R2W_QKQ_W2C">User Application Development</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UDC_NKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UDC_NKQ_W2C">Pin Settings</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UST_JKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_UST_JKQ_W2C">Unique Files</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_JBQ_FKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_JBQ_FKQ_W2C">Widgets within app_screen_main.c</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_WZD_BKQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_WZD_BKQ_W2C">Additional GUI Interaction within
+        app_main_screen.c</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_PK1_YJQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_PK1_YJQ_W2C">BLE Implementation</a></div></li><li class="section-item"><div class="section-title"><a href="#GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_D31_TJQ_W2C" data-tocid="GUID-55617722-DB2B-44F8-88B4-706BAB304859__SECTION_D31_TJQ_W2C">Temperature Sensor
+        Implementation</a></div></li></ul></div>
+	                        	
+                        	</div>
+                        </nav>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div> 
+        <footer class="wh_footer">
+  <div class=" footer-container mx-auto ">
+    <div class="main">
+  <div class="max">
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-1"/>
+        <span for="section-1" class="accordion-label">
+          <div id="text-5521a8ec2b" class="cmp-text">
+            <p>About</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-overview" class="mchp-link__link" aria-label="Company">Company</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/careers" class="mchp-link__link" aria-label="Careers">Careers</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/contact-us" class="mchp-link__link" aria-label="Contact Us">Contact Us</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center" class="mchp-link__link" aria-label="Media Center">Media Center</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/investors" class="mchp-link__link" aria-label="Investor Relations">Investor Relations</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/corporate-responsibility" class="mchp-link__link" aria-label="Corporate Responsibility">Corporate Responsibility</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-2"/>
+        <span for="section-2" class="accordion-label">
+          <div id="text-ea8a67216c" class="cmp-text">
+            <p>Support</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://forum.microchip.com/" class="mchp-link__link" aria-label="Microchip Forums">Microchip Forums</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.avrfreaks.net/" class="mchp-link__link" aria-label="AVR Freaks">AVR Freaks</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/design-help" class="mchp-link__link" aria-label="Design Help">Design Help</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/technical-support" class="mchp-link__link" aria-label="Technical Support">Technical Support</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchip.com/exportcontroldata/" class="mchp-link__link" aria-label="Export Control Data">Export Control Data</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/support/product-change-notification" class="mchp-link__link" aria-label="PCNs">PCNs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="accordion-list">
+        <input type="checkbox" class="accordion-input" id="section-3"/>
+        <span for="section-3" class="accordion-label">
+          <div id="text-229415b3f9" class="cmp-text">
+            <p>Quick Links</p>
+          </div>
+        </span>
+        <div class="mchp-component-list" style="display: block; max-height: none">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://www.microchipdirect.com/" class="mchp-link__link" aria-label="microchipDIRECT.com">microchipDIRECT.com</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a target="_blank" href="https://secure.microchip.com/mu" class="mchp-link__link" aria-label="Microchip University">Microchip University</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/mymicrochip/" class="mchp-link__link" aria-label="myMicrochip">myMicrochip</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/media-center/blog" class="mchp-link__link" aria-label="Blogs">Blogs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/tools-resources/reference-designs" class="mchp-link__link" aria-label="Reference Designs">Reference Designs</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/products/selection-tools/parametric-search-landing-page" class="mchp-link__link" aria-label="Parametric Search">Parametric Search</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div>
+          <div class="cmp-image">
+            <img class="cmp-image__image" alt="Microchip Logo" src="oxygen-webhelp/template/resources/images/microchip-logo.png"/>
+          </div>
+        </div>
+        <div>
+          <div id="text-cf91d72ddd" class="cmp-text">
+            <p>Microchip Technology Inc.</p>
+            <p>2355 West Chandler Blvd.</p>
+            <p>Chandler, Arizona, USA</p>
+          </div>
+        </div>
+        <div>
+          <div class="mchp-component-list">
+            <div class="mchp-component-items">
+              <div class="mchp-component-item mchp-component-item--first">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.facebook.com/microchiptechnology/" aria-label="Microchip Facebook" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Facebook" src="oxygen-webhelp/template/resources/images/facebook-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.linkedin.com/company/microchip-technology" aria-label="Microchip LinkedIn" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip LinkedIn" src="oxygen-webhelp/template/resources/images/linkedin-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://x.com/MicrochipTech" aria-label="Microchip Twitter" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Twitter" src="oxygen-webhelp/template/resources/images/twitter-new.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.youtube.com/user/MicrochipTechnology" aria-label="Image Hyperlink" target="_blank">
+                      <img class="cmp-image__image" alt="" src="oxygen-webhelp/template/resources/images/youtube-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.instagram.com/microchiptechnologyinc/" aria-label="Microchip Instagram" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Instagram" src="oxygen-webhelp/template/resources/images/instagram-icon.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="mchp-component-item mchp-component-item--last">
+                <div class="image">
+                  <div class="cmp-image">
+                    <a class="cmp-image__link" href="https://www.weibo.com/microchiptech" aria-label="Microchip Weibo" target="_blank">
+                      <img class="cmp-image__image" alt="Microchip Weibo" src="oxygen-webhelp/template/resources/images/snap.png"/>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>
+        © Copyright 1998-<span class="current-year">2024</span> Microchip Technology Inc. All rights reserved.
+        Shanghai ICP Recordal No.09049794
+      </p>
+      <p></p>
+    </div>
+    <div>
+      <div class="legal-privacy-cookie-container">
+        <div class="mchp-component-list">
+          <div class="mchp-component-items">
+            <div class="mchp-component-item mchp-component-item--first">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/website-terms-and-conditions" class="mchp-link__link" aria-label="Terms Of Use">Terms Of Use</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information/privacy-notice" class="mchp-link__link" aria-label="Privacy Notice">Privacy Notice</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+            <div class="mchp-component-item mchp-component-item--last">
+              <div class="link">
+                <div>
+                  <a href="https://www.microchip.com/en-us/about/legal-information" class="mchp-link__link" aria-label="Legal">Legal</a>
+                  <span class="mchp-link__separator"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- OneTrust Cookies Settings button start -->
+        <div>
+          <a id="ot-sdk-btn" class="ot-sdk-show-settings">Your Privacy Choices</a>
+          <img src="oxygen-webhelp/template/resources/images/privacyoptions29x14.png" alt="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip="California Consumer Privacy Act (CCPA) Opt-Out Icon" data-tooltip-position="top-center" class="tooltip-initialized"/>
+        </div>
+        <!-- OneTrust Cookies Settings button end -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script><!--
+
+  (function () {
+    var currentYear = new Date().getFullYear();
+    document.querySelector('.current-year').textContent = currentYear;
+  })();
+
+--></script>
+
+<script type="text/javascript"><!--
+
+  _satellite.pageBottom();
+
+--></script>
+<!-- Adobe Analytics -->
+<script type="text/javascript" src="mchp-js/prepend.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+<script type="text/javascript" src="mchp-js/onetrust.js"></script>
+<!-- Package for viewing PDFs on mobile devices -->
+
+<script><!--
+
+
+  // wait until jquery is ready
+  var jqInterval = setInterval(function() {
+    if (typeof jQuery !== 'undefined') {
+      clearInterval(jqInterval);
+      // jQuery is ready, run your code here
+      $(document).ready(function() {
+        $(document).ready(function() {
+          function open() {
+              $(".accordion-label").click(function(e) {
+                  e.preventDefault();
+                  if (!mediaQueryMatch.matches) {
+                      e = $(this).next(".mchp-component-list");
+                      var f = $(".accordion-list > .mchp-component-list").not(e);
+                      $(this).hasClass("active") ? ($(this).removeClass("active"),
+                      e.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      })) : (f.slideUp(300, function() {
+                          $(this).css("max-height", "0")
+                      }),
+                      $(".accordion-label").removeClass("active"),
+                      $(this).addClass("active"),
+                      e.slideDown(300, function() {
+                          $(this).css("max-height", "none")
+                      }))
+                  }
+              })
+          }
+          function hide(activeLabel) {
+              if (activeLabel.matches) {
+                  activeLabel = document.getElementsByClassName("accordion-label active");
+                  for (let f = 0; f < activeLabel.length; f++) {
+                    activeLabel[f].classList.remove("active");
+                  }
+                  for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                    accordionList[activeLabel].style.display = "block",
+                    accordionList[activeLabel].style.maxHeight = "none"
+                  }
+              } else {
+                for (activeLabel = 0; activeLabel < accordionList.length; activeLabel++) {
+                  accordionList[activeLabel].style.display = "none",
+                  accordionList[activeLabel].style.maxHeight = "0"
+                }
+              }
+          }
+          var mediaQueryMatch = window.matchMedia("(min-width: 630px)");
+          var accordionList = $(".accordion-list > .mchp-component-list");
+          hide(mediaQueryMatch);
+          setTimeout(function() {
+              $(".legal-privacy-cookie-container .ot-sdk-show-settings")?.text("Your Privacy Choices")
+          }, 1000);
+          $(window).on("load", function() {
+              open()
+          });
+          mediaQueryMatch.addListener(hide)
+        });
+      });
+    }
+  }, 100);
+
+
+--></script>
+  </div>
+</footer>
+        
+        <div id="go2top" class="d-print-none">
+            <span class="oxy-icon oxy-icon-up"></span>
+        </div>
+        
+        <div id="modal_img_large" class="modal">
+            <span class="close oxy-icon oxy-icon-remove"></span>
+            <div id="modal_img_container"></div>
+            <div id="caption"></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

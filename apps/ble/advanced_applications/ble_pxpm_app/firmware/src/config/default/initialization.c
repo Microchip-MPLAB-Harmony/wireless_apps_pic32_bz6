@@ -157,9 +157,10 @@
 // *****************************************************************************
 // *****************************************************************************
 /* Following MISRA-C rules are deviated in the below code block */
-/* MISRA C-2012 Rule 11.1 */
-/* MISRA C-2012 Rule 11.3 */
-/* MISRA C-2012 Rule 11.8 */
+/* MISRA C-2012 Rule 7.2 - Deviation record ID - H3_MISRAC_2012_R_7_2_DR_1 */
+/* MISRA C-2012 Rule 11.1 - Deviation record ID - H3_MISRAC_2012_R_11_1_DR_1 */
+/* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
+/* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
 
 
 
@@ -176,7 +177,6 @@ SYSTEM_OBJECTS sysObj;
 // Section: Library/Stack Initialization Data
 // *****************************************************************************
 // *****************************************************************************
-//#define POWER_CTRL_ENABLE
 #define QUEUE_LENGTH_BLE        (32)
 #define QUEUE_ITEM_SIZE_BLE     (sizeof(void *))
 #define EXT_COMMON_MEMORY_SIZE  (31*1024)
@@ -328,11 +328,10 @@ void SYS_Initialize ( void* data )
 
     EVSYS_Initialize();
 
+	BSP_Initialize();
     RTC_Initialize();
 
     NVM_Initialize();
-
-	BSP_Initialize();
 
 
     /* MISRAC 2012 deviation block start */
@@ -415,11 +414,7 @@ void SYS_Initialize ( void* data )
     btOption.cmnMemSize = EXT_COMMON_MEMORY_SIZE;
     //Configure BLE option
     btOption.p_cmnMemAddr = OSAL_Malloc(btOption.cmnMemSize);
-#ifndef POWER_CTRL_ENABLE
-    btOption.deFeatMask = BT_SYS_FEAT_PWR_CTRL;
-#else
     btOption.deFeatMask = 0;
-#endif
 
     // Initialize BLE Stack
     BT_SYS_Init(&bleRequestQueueHandle, &osalAPIList, &btOption, &btSysCfg);
