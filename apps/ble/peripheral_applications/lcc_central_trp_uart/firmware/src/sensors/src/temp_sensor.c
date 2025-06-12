@@ -17,7 +17,7 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -103,7 +103,7 @@ float MCP9700_Temp_Celsius(void)
         
     vout = vout * ADC_VREF;  // Convert to voltage with 3.25 V is reference
               
-    // TA = (VOUT - V0°C )/TC  TC = 0.01, V0°C = 0.5v as per MCP9700/9700A datasheet
+    // TA = (VOUT - V0ï¿½C )/TC  TC = 0.01, V0ï¿½C = 0.5v as per MCP9700/9700A datasheet
 	temperature = (vout - MCP9700_V0C)/MCP9700_TC;
 	
 	return (temperature);

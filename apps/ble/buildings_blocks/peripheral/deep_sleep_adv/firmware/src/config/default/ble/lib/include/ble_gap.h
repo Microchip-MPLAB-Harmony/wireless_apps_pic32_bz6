@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -2746,8 +2746,8 @@ uint16_t BLE_GAP_SetPathLossReportingEnable(uint16_t connHandle, bool enable);
  * @brief Sets the initial values for the acceptable parameters for subrating requests.
  * @note  This command should be used only after the @ref BLE_GAP_EVT_FEATURE_EXCHANGE_COMPL event has been received.
  *          The following conditions will result in an MBA_RES_INVALID_PARA response:\n
- *          - Subrate Max Ã? (Max Latency + 1) is greater than 500.\n
- *          - Current connection interval Ã? Subrate Max Ã? (Max Latency + 1) is greater than or equal to half the 
+ *          - Subrate Max ï¿½? (Max Latency + 1) is greater than 500.\n
+ *          - Current connection interval ï¿½? Subrate Max ï¿½? (Max Latency + 1) is greater than or equal to half the 
  *              Supervision Timeout parameter.\n
  *          - Subrate Max is less than Subrate Min.\n
  *          - Continuation Number is greater than or equal to Subrate Max.\n
@@ -2764,8 +2764,8 @@ uint16_t BLE_GAP_SetDefaultSubrate(BLE_GAP_SubrateParams_T  *p_subrateParams);
  * @brief Request a change to the subrating factor and/or other parameters.
  * @note  This command should be used only after the @ref BLE_GAP_EVT_FEATURE_EXCHANGE_COMPL event has been received.
  *          The following conditions will result in an MBA_RES_INVALID_PARA response:\n
- *          - Subrate Max Ã? (Max Latency + 1) is greater than 500.\n
- *          - Current connection interval Ã? Subrate Max Ã? (Max Latency + 1) is greater than or equal to half the 
+ *          - Subrate Max ï¿½? (Max Latency + 1) is greater than 500.\n
+ *          - Current connection interval ï¿½? Subrate Max ï¿½? (Max Latency + 1) is greater than or equal to half the 
  *              Supervision Timeout parameter.\n
  *          - Subrate Max is less than Subrate Min.\n
  *          - Continuation Number is greater than or equal to Subrate Max.\n
