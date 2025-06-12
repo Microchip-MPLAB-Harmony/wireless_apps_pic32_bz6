@@ -27,7 +27,7 @@ topology needs. Refer to the following links for release notes, training materia
 | Folder     | Description                                               |
 | ---        | ---                                                       |
 | apps       | [Example applications for PIC32WM_BZ6204 devices](./apps/readme.md)         |
-| docs       | [Wireless Application Example help documentation](https://onlinedocs.microchip.com/oxy/GUID-99E91F8E-E9F7-4C2C-B98A-E9662A2ABA50-en-US-1/index.html)
+| docs       | [Wireless Application Example help documentation](https://onlinedocs.microchip.com/oxy/GUID-657D3893-6C33-47F8-978B-86DB297AC33D-en-US-1/index.html)
 
 ## Code Examples
 
