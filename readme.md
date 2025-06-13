@@ -35,8 +35,8 @@ The following applications are provided to demonstrate the typical use case of o
 
 | BLE Examples | Families |
 | --- | :---: |
-| [BLE peripheral Legacy Adv](apps/ble/building_blocks/peripheral/legacy_adv/readme.md) | PIC32WM_BZ6204 |
-| [BLE HCI](apps/ble/building_blocks/hci_application/readme.md) | PIC32WM_BZ6204 |
+| [BLE peripheral Legacy Adv](apps/ble\building_blocks/peripheral/legacy_adv/readme.md) | PIC32WM_BZ6204 |
+| [BLE HCI](apps/ble/building_blocks/hci_application/ble_HCI_interface_app/readme.md) | PIC32WM_BZ6204 |
 | [BLE peripheral Ext Adv](apps/ble/building_blocks/peripheral/ext_adv/readme.md) | PIC32WM_BZ6204 |
 | [BLE Peripheral Connection](apps/ble/building_blocks/peripheral/peripheral_conn/readme.md) | PIC32WM_BZ6204 |
 | [BLE Deep Sleep Adv](apps/ble/building_blocks/peripheral/deep_sleep_adv/readme.md) | PIC32WM_BZ6204 |
