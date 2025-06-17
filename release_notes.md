@@ -60,4 +60,4 @@ Following table provides number of Wireless examples available for different dev
 - MPLAB® X IDE plug-ins:
   - MPLAB® Code Configurator (MCC) `v5.5.1`
 - [MPLAB® XC32 C/C++ Compiler v4.60]
-- **PIC32CX-BZ6 Family - DFP 1.2.17**
+- PIC32CX-BZ6 Family - DFP 1.2.17
