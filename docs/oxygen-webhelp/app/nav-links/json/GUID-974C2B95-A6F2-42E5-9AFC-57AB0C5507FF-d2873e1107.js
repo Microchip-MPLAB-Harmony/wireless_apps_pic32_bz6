@@ -1,1 +1,0 @@
-oxy_webhelp_navlinks = {"GUID-974C2B95-A6F2-42E5-9AFC-57AB0C5507FF-d2873e1107":{"topics":[{"title":"<ph>9.5.1.1<\/ph>\nAPP_BLE_LinkState_T","href":"GUID-D337D190-6F61-4EA0-AEE9-CA58B5C83335.html","attributes":{"data-id":"app-ble-linkstate-t"},"menu":{"hasChildren":false},"tocID":"app-ble-linkstate-t-d2873e1115","topics":[]}]}};
