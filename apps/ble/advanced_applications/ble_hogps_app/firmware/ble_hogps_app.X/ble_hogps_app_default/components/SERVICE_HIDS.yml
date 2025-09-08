@@ -1,0 +1,92 @@
+configVersion: 1.0.0
+componentName: SERVICE_HIDS
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: SERVICE_HIDS
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: BLE_HIDS_Capability
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: PROFILE_HOGP
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: BLE_HIDS_Dependency
+            type: String
+          type: Attributes
+        type: DirectCapability
+      type: Attachments
+    type: SERVICE_HIDS
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: SERVICE_HIDS
+          x: '450'
+          y: '220'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    HIDS_BOOTMODE_SUPPORT:
+      attributes:
+        id: HIDS_BOOTMODE_SUPPORT
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_HIDS
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    HIDS_DEVICE_TYPE:
+      attributes:
+        id: HIDS_DEVICE_TYPE
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    HIDS_KB_SUPPORT:
+      attributes:
+        id: HIDS_KB_SUPPORT
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_HIDS
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    HIDS_M_SUPPORT:
+      attributes:
+        id: HIDS_M_SUPPORT
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_HIDS
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}

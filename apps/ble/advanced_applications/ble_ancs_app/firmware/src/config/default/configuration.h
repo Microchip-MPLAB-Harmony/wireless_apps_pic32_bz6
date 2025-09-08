@@ -20,7 +20,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -113,7 +113,7 @@ extern "C" {
 #define CONFIG_BLE_GAP_SVC_APPEARANCE                    0x0                 /* Appearance */
 #define CONFIG_BLE_GAP_SVC_PERI_PRE_CP                   false                /* Enable Peripheral Preferred Connection Parameters */
 #define CONFIG_BLE_GAP_SVC_ENC_DATA_KEY_MATL             false                   /* Enable Encrypted Data Key Material */
-#define CONFIG_BLE_GAP_SVC_LE_GATT_SEC_LVLS              false                     /* Enable LE GATT Security Levels */
+#define CONFIG_BLE_GAP_SVC_LE_GATT_SEC_LVLS              false                    /* Enable LE GATT Security Levels */
 
 //Legacy Advertising set
 #define CONFIG_BLE_GAP_ADV_DATA                      {0x02, 0x01, 0x06, 0x06, 0x09, 0x4D, 0x2D, 0x64, 0x65, 0x76, 0x11, 0x15, 0xD0, 0x00, 0x2D, 0x12, 0x1E, 0x4B, 0x0F, 0xA4, 0x99, 0x4E, 0xCE, 0xB5, 0x31, 0xF4, 0x05, 0x79}

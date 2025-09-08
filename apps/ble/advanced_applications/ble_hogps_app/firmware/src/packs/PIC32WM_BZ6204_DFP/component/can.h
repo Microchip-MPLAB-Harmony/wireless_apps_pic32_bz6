@@ -19,9 +19,11 @@
  *
  */
 
-/*  file generated from device description file (ATDF) version 2025-01-29T18:23:31Z  */
+/*  file generated from device description file (ATDF) version 2025-07-28T21:01:48Z  */
 #ifndef _PIC32WM_BZ6_CAN_COMPONENT_H_
 #define _PIC32WM_BZ6_CAN_COMPONENT_H_
+
+#include "core_cm4.h"
 
 /* ************************************************************************** */
 /*                      SOFTWARE API DEFINITION FOR CAN                       */

@@ -19,16 +19,16 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_DSU_INSTANCE_
 #define _PIC32WM_BZ6_DSU_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DSU peripheral ========== */
-#define DSU_DMAC_ID_DCC0                         (2)        
-#define DSU_DMAC_ID_DCC1                         (3)        
-#define DSU_DMAC_ID_DCC0                         (2)        
-#define DSU_DMAC_ID_DCC1                         (3)        
+#define DSU_DMAC_ID_DCC0                         (2)
+#define DSU_DMAC_ID_DCC1                         (3)
+#define DSU_DMAC_ID_DCC0                         (2)
+#define DSU_DMAC_ID_DCC1                         (3)
 #define DSU_FLASH_ADDR_END                       (0x011FFFFF) /* Flash address end */
 #define DSU_FLASH_ADDR_START                     (0x00800000) /* Flash address start */
 #define DSU_INSTANCE_ID                          (32)       /* Instance index for DSU */

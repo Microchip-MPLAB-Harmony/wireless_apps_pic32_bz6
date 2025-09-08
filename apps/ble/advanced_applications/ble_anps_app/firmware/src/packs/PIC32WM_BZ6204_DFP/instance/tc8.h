@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_TC8_INSTANCE_
 #define _PIC32WM_BZ6_TC8_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TC8 peripheral ========== */
-#define TC8_DMAC_ID_MC0                          (60)       
-#define TC8_DMAC_ID_MC1                          (61)       
-#define TC8_DMAC_ID_OVF                          (59)       
-#define TC8_GCLK_ID                              (11)       
+#define TC8_DMAC_ID_MC0                          (60)
+#define TC8_DMAC_ID_MC1                          (61)
+#define TC8_DMAC_ID_OVF                          (59)
+#define TC8_GCLK_ID                              (11)
 #define TC8_INSTANCE_ID                          (100)      /* Instance index for TC8 */
-#define TC8_MASTER_SLAVE_MODE                    (1)        
+#define TC8_MASTER_SLAVE_MODE                    (1)
 #define TC8_PAC_ID                               (100)      /* Index for TC8 registers write protection */
 
 #endif /* _PIC32WM_BZ6_TC8_INSTANCE_ */

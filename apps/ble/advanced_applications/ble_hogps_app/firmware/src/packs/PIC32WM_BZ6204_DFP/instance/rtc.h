@@ -19,17 +19,17 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_RTC_INSTANCE_
 #define _PIC32WM_BZ6_RTC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for RTC peripheral ========== */
-#define RTC_CHIP_RTC_NUM_OF_ALARMS               (2)        
-#define RTC_CHIP_RTC_NUM_OF_BKREGS               (1)        
-#define RTC_CHIP_RTC_NUM_OF_COMP16               (4)        
-#define RTC_CHIP_RTC_NUM_OF_TAMPERS              (4)        
-#define RTC_CHIP_RTC_PADDR_MSB                   (9)        
-#define RTC_DMAC_ID_TIMESTAMP                    (1)        
+#define RTC_CHIP_RTC_NUM_OF_ALARMS               (2)
+#define RTC_CHIP_RTC_NUM_OF_BKREGS               (1)
+#define RTC_CHIP_RTC_NUM_OF_COMP16               (4)
+#define RTC_CHIP_RTC_NUM_OF_TAMPERS              (4)
+#define RTC_CHIP_RTC_PADDR_MSB                   (9)
+#define RTC_DMAC_ID_TIMESTAMP                    (1)
 
 #endif /* _PIC32WM_BZ6_RTC_INSTANCE_ */

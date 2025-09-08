@@ -48,7 +48,6 @@
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/byte_stream.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_assert.h</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -272,7 +271,6 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/sercom.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/wdt.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/eic.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/rcon.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/dmt.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/dsu.h</itemPath>
@@ -283,6 +281,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/btzbsys.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/adchs.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc6.h</itemPath>
@@ -348,8 +347,8 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/eic.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/can1.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/wdt.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/pio/pic32wm_bz6204.h</itemPath>
@@ -363,8 +362,33 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="ble_anpc_app_default"
+                     displayName="ble_anpc_app_default"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>ble_anpc_app_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/pic32cx_bz6_devsupport.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/BLE_STACK_LIB.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/FreeRTOS.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/sercom0.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/evsys.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/drv_usart.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/pdsSystem.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/nvm.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/core.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/PROFILE_ANP.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/BSP_PIC32WM_BZ6_Curiosity.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/dfp.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/cmsis.yml</itemPath>
+          <itemPath>ble_anpc_app_default/components/drv_usart_0.yml</itemPath>
+        </logicalFolder>
+        <itemPath>ble_anpc_app_default/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>ble_anpc_app.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -398,7 +422,6 @@
               </logicalFolder>
               <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.c</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -509,14 +532,14 @@
         <targetDevice>PIC32WM_BZ6204</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.60</languageToolchainVersion>
+        <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
-        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.2.17"/>
+        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
+        <pack name="CMSIS" vendor="ARM" version="6.2.0"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

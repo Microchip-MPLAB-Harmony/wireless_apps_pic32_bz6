@@ -19,17 +19,17 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_PAC_INSTANCE_
 #define _PIC32WM_BZ6_PAC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for PAC peripheral ========== */
-#define PAC_CHIP_PAC_HMATRIX0_SLAVE_SIZE         (14)       
-#define PAC_CHIP_PAC_HMATRIX1_IMPLEMENTED        (0)        
-#define PAC_CHIP_PAC_HMATRIX1_SLAVE_SIZE         (0)        
-#define PAC_CHIP_PAC_HPB_NUM                     (4)        
-#define PAC_CHIP_PAC_PADDR_MSB                   (9)        
+#define PAC_CHIP_PAC_HMATRIX0_SLAVE_SIZE         (14)
+#define PAC_CHIP_PAC_HMATRIX1_IMPLEMENTED        (0)
+#define PAC_CHIP_PAC_HMATRIX1_SLAVE_SIZE         (0)
+#define PAC_CHIP_PAC_HPB_NUM                     (4)
+#define PAC_CHIP_PAC_PADDR_MSB                   (9)
 #define PAC_INSTANCE_ID                          (0)        /* Instance index for PAC */
 #define PAC_ID                                   (0)        /* Index for PAC registers write protection */
 

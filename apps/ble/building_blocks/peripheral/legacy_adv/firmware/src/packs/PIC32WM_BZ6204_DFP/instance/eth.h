@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_ETH_INSTANCE_
 #define _PIC32WM_BZ6_ETH_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for ETH peripheral ========== */
-#define ETH_AXI_MSTR                             (0)        
-#define ETH_DATA_MSB                             (31)       
-#define ETH_GCLK_ID                              (30)       
-#define ETH_MCU32_AXI                            (0)        
+#define ETH_AXI_MSTR                             (0)
+#define ETH_DATA_MSB                             (31)
+#define ETH_GCLK_ID                              (30)
+#define ETH_MCU32_AXI                            (0)
 #define ETH_PAC_ID                               (37)       /* Index for ETH registers write protection */
-#define ETH_RXSRAM_SIZE                          (32768)    
-#define ETH_TXSRAM_SIZE                          (32768)    
+#define ETH_RXSRAM_SIZE                          (32768)
+#define ETH_TXSRAM_SIZE                          (32768)
 
 #endif /* _PIC32WM_BZ6_ETH_INSTANCE_ */

@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_TC2_INSTANCE_
 #define _PIC32WM_BZ6_TC2_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TC2 peripheral ========== */
-#define TC2_DMAC_ID_MC0                          (42)       
-#define TC2_DMAC_ID_MC1                          (43)       
-#define TC2_DMAC_ID_OVF                          (41)       
-#define TC2_GCLK_ID                              (8)        
+#define TC2_DMAC_ID_MC0                          (42)
+#define TC2_DMAC_ID_MC1                          (43)
+#define TC2_DMAC_ID_OVF                          (41)
+#define TC2_GCLK_ID                              (8)
 #define TC2_INSTANCE_ID                          (7)        /* Instance index for TC2 */
-#define TC2_MASTER_SLAVE_MODE                    (1)        
+#define TC2_MASTER_SLAVE_MODE                    (1)
 #define TC2_PAC_ID                               (7)        /* Index for TC2 registers write protection */
 
 #endif /* _PIC32WM_BZ6_TC2_INSTANCE_ */

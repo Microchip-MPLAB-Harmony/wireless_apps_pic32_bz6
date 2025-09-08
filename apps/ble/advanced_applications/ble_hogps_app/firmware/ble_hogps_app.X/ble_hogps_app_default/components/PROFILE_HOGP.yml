@@ -1,0 +1,67 @@
+configVersion: 1.0.0
+componentName: PROFILE_HOGP
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: PROFILE_HOGP
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: BLE_BAS_Dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: SERVICE_BAS
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: BLE_BAS_Capability
+            type: String
+          type: Attributes
+        type: DirectDependency
+      - attributes:
+          id: BLE_HIDS_Dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: SERVICE_HIDS
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: BLE_HIDS_Capability
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: PROFILE_HOGP
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: PROFILE_HOGP
+          x: '165'
+          y: '356'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols: {}
+  userData: {}
