@@ -1,0 +1,126 @@
+configVersion: 1.0.0
+componentName: pic32cx_bz6_devsupport
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pic32cx_bz6_devsupport
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pic32cx_bz6_devsupport
+          x: '530'
+          y: '100'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    AUTO_LOAD_PDS:
+      attributes:
+        id: AUTO_LOAD_PDS
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    CUSTOM_ANT_ENABLE:
+      attributes:
+        id: CUSTOM_ANT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    ENABLE_CONSOLE:
+      attributes:
+        id: ENABLE_CONSOLE
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    FREERTOS_CONFIG_PATH:
+      attributes:
+        id: FREERTOS_CONFIG_PATH
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: config/default/FreeRTOSConfig.h/
+          type: Dynamic
+        type: Values
+      type: String
+    IEEE_802154_PHY_LOADED:
+      attributes:
+        id: IEEE_802154_PHY_LOADED
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PDS_LOADED:
+      attributes:
+        id: PDS_LOADED
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PHY_PTA_SUPPORTED:
+      attributes:
+        id: PHY_PTA_SUPPORTED
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    THREADSTACK_LOADED:
+      attributes:
+        id: THREADSTACK_LOADED
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    WSS_ENABLE_MODE:
+      attributes:
+        id: WSS_ENABLE_MODE
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: WSS_ENABLE_ZB
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

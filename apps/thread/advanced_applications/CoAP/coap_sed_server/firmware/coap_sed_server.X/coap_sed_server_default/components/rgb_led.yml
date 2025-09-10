@@ -1,0 +1,71 @@
+configVersion: 1.0.0
+componentName: rgb_led
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: rgb_led
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: RGB_LED_PWM_Dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: tcc0
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: TCC0_PWM
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: rgb_led
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: rgb_led
+          x: '890'
+          y: '360'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DEVICE_FAM:
+      attributes:
+        id: DEVICE_FAM
+      children:
+      - children:
+        - attributes:
+            id: rgb_led
+            value: BZ6
+          type: Dynamic
+        type: Values
+      type: String
+    TCC_INSTANCE:
+      attributes:
+        id: TCC_INSTANCE
+      children:
+      - children:
+        - attributes:
+            id: rgb_led
+            value: TCC0
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

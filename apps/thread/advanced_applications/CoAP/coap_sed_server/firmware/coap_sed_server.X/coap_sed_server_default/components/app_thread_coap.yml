@@ -1,0 +1,85 @@
+configVersion: 1.0.0
+componentName: app_thread_coap
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: app_thread_coap
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: app_thread_coap
+          x: '30'
+          y: '220'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    COAP_DEVICE_ROLE_CONFIG:
+      attributes:
+        id: COAP_DEVICE_ROLE_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    RESOURCE_ID1_CONFIG:
+      attributes:
+        id: RESOURCE_ID1_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: APP_LED_RESOURCE
+          type: User
+        type: Values
+      type: String
+    RESOURCE_URI1_CONFIG:
+      attributes:
+        id: RESOURCE_URI1_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: led
+          type: User
+        type: Values
+      type: String
+    THREAD_DEVICE_ROLE_CONFIG:
+      attributes:
+        id: THREAD_DEVICE_ROLE_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    THREAD_SLEEP_ENABLE:
+      attributes:
+        id: THREAD_SLEEP_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+  userData: {}

@@ -1,0 +1,38 @@
+configVersion: 1.0.0
+componentName: THREAD_CLI
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: THREAD_CLI
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: THREAD_CLI
+          x: '950'
+          y: '140'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    OPEN_THREAD_CLI_UART_SYM:
+      attributes:
+        id: OPEN_THREAD_CLI_UART_SYM
+      children:
+      - children:
+        - attributes:
+            id: THREAD_CLI
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
