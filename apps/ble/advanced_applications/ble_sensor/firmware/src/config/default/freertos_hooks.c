@@ -14,7 +14,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,6 +39,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "definitions.h"
+
 
 void vApplicationIdleHook( void );
 void vApplicationTickHook( void );
@@ -148,6 +149,7 @@ void vApplicationTickHook( void )
     added here, but the tick hook is called from an interrupt context, so
     code must not attempt to block, and only the interrupt safe FreeRTOS API
     functions can be used (those that end in FromISR()). */
+    
 }
 
 /*-----------------------------------------------------------*/
@@ -176,6 +178,10 @@ void vAssertCalled( const char * pcFile, unsigned long ulLine )
 /*-----------------------------------------------------------*/
 
 
+
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
 /*******************************************************************************
  End of File
  */

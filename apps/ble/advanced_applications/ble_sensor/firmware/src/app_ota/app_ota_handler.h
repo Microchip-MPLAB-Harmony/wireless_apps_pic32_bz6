@@ -16,7 +16,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -96,7 +96,6 @@ typedef enum APP_OTA_HDL_Mode_T
     None.
 
 */
-void APP_OTA_HDL_DiscEvtProc(uint16_t connHandle);
 void APP_OTA_HDL_Prepare(uint16_t OTAHandle);
 
 /*******************************************************************************

@@ -24,7 +24,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -103,6 +103,7 @@
   This is purely to enable the application to use specific IDs across modules.
 
 */
+#define PDS_MODULE_OT_OFFSET       (1 << 11)
 #define PDS_MODULE_APP_OFFSET      (1 << 12)
 #define PDS_MODULE_BT_OFFSET       (1 << 13)
 #define PDS_MODULE_ZB_OFFSET       (1 << 14)

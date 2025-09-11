@@ -19,23 +19,23 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_ROT_INSTANCE_
 #define _PIC32WM_BZ6_ROT_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for ROT peripheral ========== */
 #define ROT_CAL_NUM                              (0)        /* Number of CAL bits */
-#define ROT_EXT_VDDQ_SW                          (1)        
-#define ROT_MACRO_AUX_IN_WIDTH                   (4)        
+#define ROT_EXT_VDDQ_SW                          (1)
+#define ROT_MACRO_AUX_IN_WIDTH                   (4)
 #define ROT_NUM_FUSE_BLKS                        (3)        /* CAL bits and die info a part of the NVR region */
 #define ROT_PB_ADDRH                             (0x3FF)    /* PB end address */
 #define ROT_PB_ADDRL                             (0x300)    /* PB start address */
-#define ROT_PB_WAIT_ROM                          (0)        
+#define ROT_PB_WAIT_ROM                          (0)
 #define ROT_ROM_SIZE                             (64)       /* In Kbytes */
 #define ROT_RST_CAL_BITS                         (0)        /* Reset value of CAL bits */
-#define ROT_START_OSC_PERIOD                     (125)      
+#define ROT_START_OSC_PERIOD                     (125)
 #define ROT_SYMMETRIC_SECURE_BOOT                (0)        /* Secure boot using ECCDSA authentication */
-#define ROT_TPWRUP_VDDQ_NS                       (4000)     
+#define ROT_TPWRUP_VDDQ_NS                       (4000)
 
 #endif /* _PIC32WM_BZ6_ROT_INSTANCE_ */

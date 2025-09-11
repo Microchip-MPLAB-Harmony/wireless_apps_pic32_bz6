@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -45,17 +45,13 @@
 // *****************************************************************************
 #include <string.h>
 #include <stdint.h>
+#include "configuration.h"
 #include "osal/osal_freertos_extend.h"
 #include "app_ble_handler.h"
 #include "system/console/sys_console.h"
 #include "../app_ble_conn_handler.h"
 
 
-// *****************************************************************************
-// *****************************************************************************
-// Section: Macros
-// *****************************************************************************
-// *****************************************************************************
 
 
 
@@ -71,9 +67,6 @@
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
-
-
-
 void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
 {
     APP_BleGapConnEvtHandler(p_event);
@@ -214,6 +207,18 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
         break;
 
         case BLE_GAP_EVT_PATH_LOSS_THRESHOLD:
+        {
+            /* TODO: implement your application code.*/
+        }
+        break;
+
+        case BLE_GAP_EVT_FEATURE_EXCHANGE_COMPL:
+        {
+            /* TODO: implement your application code.*/
+        }
+        break;
+
+        case BLE_GAP_EVT_SUBRATE_CHANGE:
         {
             /* TODO: implement your application code.*/
         }
@@ -406,6 +411,7 @@ void APP_GattEvtHandler(GATT_Event_T *p_event)
         }
         break;
 
+
         default:
         break;
     }
@@ -552,3 +558,4 @@ void APP_DmEvtHandler(BLE_DM_Event_T *p_event)
         break;
     }
 }
+

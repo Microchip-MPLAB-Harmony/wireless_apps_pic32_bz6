@@ -54,7 +54,6 @@
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_assert.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_dfu.h</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -96,41 +95,41 @@
             </logicalFolder>
             <logicalFolder name="security" displayName="security" projectFiles="true">
               <logicalFolder name="cryptopk" displayName="cryptopk" projectFiles="true">
-                <itemPath>../src/config/default/driver/security/cryptopk/ec_curves_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/adapter_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/cmddefs_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ed25519_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ed448_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/core_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/dsa_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ec_curves_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/eccweierstrass_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ecjpake.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ed448_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/ed25519_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/impl.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/inputslots.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/version.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/internal.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/iomem.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/adapter_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/impl.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/statuscodes_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/eccweierstrass_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/core_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/montgomery_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptopk/rsa.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptopk/ecjpake.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/statuscodes_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptopk/version.h</itemPath>
               </logicalFolder>
               <logicalFolder name="cryptosym" displayName="cryptosym" projectFiles="true">
-                <itemPath>../src/config/default/driver/security/cryptosym/sha1_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/aead_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/blkcipher_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/cmac_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/cmmask_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/hash_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/hmac_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/internal.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/interrupts_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/keyref_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/mac_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/trng_api.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/sha1_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/sha2_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/interrupts_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/blkcipher_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/cmmask_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/hmac_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/aead_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/sm3_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/statuscodes.h</itemPath>
+                <itemPath>../src/config/default/driver/security/cryptosym/trng_api.h</itemPath>
                 <itemPath>../src/config/default/driver/security/cryptosym/trnginternal.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/internal.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/cmac_api.h</itemPath>
-                <itemPath>../src/config/default/driver/security/cryptosym/hash_api.h</itemPath>
               </logicalFolder>
               <itemPath>../src/config/default/driver/security/api_table.h</itemPath>
             </logicalFolder>
@@ -260,16 +259,16 @@
           <logicalFolder name="CMSIS" displayName="CMSIS" projectFiles="true">
             <logicalFolder name="Core" displayName="Core" projectFiles="true">
               <logicalFolder name="Include" displayName="Include" projectFiles="true">
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cachel1_armv7.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h</itemPath>
-                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_version.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armcc.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_armclang_ltm.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm4.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/mpu_armv7.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cachel1_armv7.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -278,7 +277,6 @@
                        displayName="PIC32WM_BZ6204_DFP"
                        projectFiles="true">
           <logicalFolder name="component" displayName="component" projectFiles="true">
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/cru.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/wdt.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/eic.h</itemPath>
@@ -321,6 +319,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/pps.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/freqm.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc2.h</itemPath>
@@ -333,7 +332,6 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/sercom0.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/cru.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc4.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/pac.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/zigbee.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/sercom1.h</itemPath>
@@ -388,6 +386,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/can0.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/cmcc.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/pio/pic32wm_bz6204.h</itemPath>
@@ -410,8 +409,45 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="ble_sensor_default"
+                     displayName="ble_sensor_default"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>ble_sensor_default/components/SERVICE_OTAS.yml</itemPath>
+          <itemPath>ble_sensor_default/components/SERVICE_DIS.yml</itemPath>
+          <itemPath>ble_sensor_default/components/PROFILE_TRSP.yml</itemPath>
+          <itemPath>ble_sensor_default/components/ble_ota.yml</itemPath>
+          <itemPath>ble_sensor_default/components/pdsSystem.yml</itemPath>
+          <itemPath>ble_sensor_default/components/rcon.yml</itemPath>
+          <itemPath>ble_sensor_default/components/sys_console.yml</itemPath>
+          <itemPath>ble_sensor_default/components/tcc0.yml</itemPath>
+          <itemPath>ble_sensor_default/components/eic.yml</itemPath>
+          <itemPath>ble_sensor_default/components/nvm.yml</itemPath>
+          <itemPath>ble_sensor_default/components/PROFILE_OTAP.yml</itemPath>
+          <itemPath>ble_sensor_default/components/rgb_led.yml</itemPath>
+          <itemPath>ble_sensor_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>ble_sensor_default/components/temp_sensor.yml</itemPath>
+          <itemPath>ble_sensor_default/components/BLE_STACK_LIB.yml</itemPath>
+          <itemPath>ble_sensor_default/components/evsys.yml</itemPath>
+          <itemPath>ble_sensor_default/components/rtc.yml</itemPath>
+          <itemPath>ble_sensor_default/components/sys_console_0.yml</itemPath>
+          <itemPath>ble_sensor_default/components/adchs.yml</itemPath>
+          <itemPath>ble_sensor_default/components/sercom0.yml</itemPath>
+          <itemPath>ble_sensor_default/components/FreeRTOS.yml</itemPath>
+          <itemPath>ble_sensor_default/components/cmsis.yml</itemPath>
+          <itemPath>ble_sensor_default/components/pic32cx_bz6_devsupport.yml</itemPath>
+          <itemPath>ble_sensor_default/components/app_timer.yml</itemPath>
+          <itemPath>ble_sensor_default/components/SERVICE_TRS.yml</itemPath>
+          <itemPath>ble_sensor_default/components/core.yml</itemPath>
+          <itemPath>ble_sensor_default/components/dfp.yml</itemPath>
+        </logicalFolder>
+        <itemPath>ble_sensor_default/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>ble_sensor.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -456,7 +492,6 @@
               <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.c</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_dfu.c</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -598,14 +633,14 @@
         <targetDevice>PIC32WM_BZ6204</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.60</languageToolchainVersion>
+        <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
-        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.2.17"/>
+        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
+        <pack name="CMSIS" vendor="ARM" version="6.2.0"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="configuration.header.zota_manufacture_code"
@@ -614,7 +649,7 @@
         <ScriptingSetting key="configuration.header.zota_security_credential_version_check"
                           value="False"/>
         <ScriptingSetting key="configuration.header.flash_type" value="eflash"/>
-        <ScriptingSetting key="configuration.header.auth" value="None"/>
+        <ScriptingSetting key="configuration.header.auth" value="ECDSA p256+SHA256"/>
         <ScriptingSetting key="configuration.header.bota_flash_img_id"
                           value="0x9F000002"/>
         <ScriptingSetting key="configuration.header.iv"
@@ -629,11 +664,12 @@
         <ScriptingSetting key="configuration.header.outputfiletypes"
                           value="BLE OTA File"/>
         <ScriptingSetting key="configuration.header.outputfilename"
-                          value="ble_sensor_OTA.bin"/>
+                          value="ble_sensor_OTA_3.bin"/>
         <ScriptingSetting key="configuration.header.zota_upgrade_file_destination_check"
                           value="False"/>
         <ScriptingSetting key="configuration.header.ss_key_name" value="test1ecdsap256"/>
-        <ScriptingSetting key="configuration.header.key_file" value=""/>
+        <ScriptingSetting key="configuration.header.key_file"
+                          value="java_friendly_private_key.pem"/>
         <ScriptingSetting key="configuration.header.ecdsa_mthd" value="Local Key"/>
         <ScriptingSetting key="configuration.header.aes_key"
                           value="0xAABBCCDDEEFF00112233445566778899"/>
@@ -642,7 +678,7 @@
         <ScriptingSetting key="configuration.header.OTAPath" value="Internal Flash DFU"/>
         <ScriptingSetting key="configuration.header.zota_hardware_version_check"
                           value="False"/>
-        <ScriptingSetting key="configuration.header.fw_rev" value="1.0"/>
+        <ScriptingSetting key="configuration.header.fw_rev" value="3.0.0.0"/>
         <ScriptingSetting key="configuration.header.sequence" value="0xFFFFFFFE"/>
       </ScriptingSettings>
       <compileType>
@@ -676,7 +712,6 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -755,7 +790,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -801,7 +835,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -830,7 +863,6 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="appendMe" value=""/>
         <property key="combine-sourcefiles" value="false"/>
         <property key="common-include-directories" value=""/>
         <property key="common-macros" value=""/>

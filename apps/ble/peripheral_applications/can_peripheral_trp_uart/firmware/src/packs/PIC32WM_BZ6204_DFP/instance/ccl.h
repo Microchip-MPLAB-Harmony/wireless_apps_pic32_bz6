@@ -19,15 +19,15 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_CCL_INSTANCE_
 #define _PIC32WM_BZ6_CCL_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for CCL peripheral ========== */
-#define CCL_CHIP_CCL_LUT_NUM                     (2)        
-#define CCL_CHIP_CCL_PADDR_MSB                   (9)        
-#define CCL_GCLK_ID                              (0)        
+#define CCL_CHIP_CCL_LUT_NUM                     (2)
+#define CCL_CHIP_CCL_PADDR_MSB                   (9)
+#define CCL_GCLK_ID                              (0)
 #define CCL_INSTANCE_ID                          (70)       /* Instance index for CCL */
 #define CCL_PAC_ID                               (70)       /* Index for CCL registers write protection */
 

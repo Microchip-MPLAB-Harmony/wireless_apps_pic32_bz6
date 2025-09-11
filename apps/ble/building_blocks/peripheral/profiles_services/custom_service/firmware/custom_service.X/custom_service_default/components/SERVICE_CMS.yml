@@ -1,0 +1,235 @@
+configVersion: 1.0.0
+componentName: SERVICE_CMS
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: SERVICE_CMS
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: SERVICE_CMS
+          x: '170'
+          y: '60'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    CMS_BOOL_SVC_0_CHAR_0_PROP_NOTIFY:
+      attributes:
+        id: CMS_BOOL_SVC_0_CHAR_0_PROP_NOTIFY
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CMS_BOOL_SVC_0_CHAR_0_PROP_READ:
+      attributes:
+        id: CMS_BOOL_SVC_0_CHAR_0_PROP_READ
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CMS_BOOL_SVC_0_CHAR_0_SETTING_READ:
+      attributes:
+        id: CMS_BOOL_SVC_0_CHAR_0_SETTING_READ
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CMS_BOOL_SVC_0_CHAR_1_PROP_READ:
+      attributes:
+        id: CMS_BOOL_SVC_0_CHAR_1_PROP_READ
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CMS_BOOL_SVC_0_CHAR_1_PROP_WRITE_REQ:
+      attributes:
+        id: CMS_BOOL_SVC_0_CHAR_1_PROP_WRITE_REQ
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    CMS_BOOL_SVC_NAME_0:
+      attributes:
+        id: CMS_BOOL_SVC_NAME_0
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_CMS
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    CMS_INT_SVC_0_CHAR_1_LEN:
+      attributes:
+        id: CMS_INT_SVC_0_CHAR_1_LEN
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '3'
+          type: User
+        type: Values
+      type: Integer
+    CMS_INT_SVC_CHAR_COUNT_0:
+      attributes:
+        id: CMS_INT_SVC_CHAR_COUNT_0
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
+    CMS_STR_SVC_0_CHAR_0_UUID:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_0_UUID
+      children:
+      - children:
+        - attributes:
+            value: eacef4bc1f88f8aed04255525048434d
+          type: User
+        type: Values
+      type: String
+    CMS_STR_SVC_0_CHAR_0_UUID_C:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_0_UUID_C
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_CMS
+            value: 0xea, 0xce, 0xf4, 0xbc, 0x1f, 0x88, 0xf8, 0xae, 0xd0, 0x42, 0x55,
+              0x52, 0x50, 0x48, 0x43, 0x4d
+          type: Dynamic
+        type: Values
+      type: String
+    CMS_STR_SVC_0_CHAR_1_UUID:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_1_UUID
+      children:
+      - children:
+        - attributes:
+            value: eacef4cc1f88f8aed04255525048434d
+          type: User
+        type: Values
+      type: String
+    CMS_STR_SVC_0_CHAR_1_UUID_C:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_1_UUID_C
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_CMS
+            value: 0xea, 0xce, 0xf4, 0xcc, 0x1f, 0x88, 0xf8, 0xae, 0xd0, 0x42, 0x55,
+              0x52, 0x50, 0x48, 0x43, 0x4d
+          type: Dynamic
+        type: Values
+      type: String
+    CMS_STR_SVC_0_CHAR_1_VALUE:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_1_VALUE
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 00FF00
+          type: User
+        type: Values
+      type: String
+    CMS_STR_SVC_0_CHAR_1_VALUE_C:
+      attributes:
+        id: CMS_STR_SVC_0_CHAR_1_VALUE_C
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_CMS
+            value: 0x00, 0xFF, 0x00
+          type: Dynamic
+        type: Values
+      type: String
+    CMS_STR_SVC_NAME_0:
+      attributes:
+        id: CMS_STR_SVC_NAME_0
+      children:
+      - children:
+        - attributes:
+            value: button_led
+          type: User
+        type: Values
+      type: String
+    CMS_STR_SVC_UUID_0:
+      attributes:
+        id: CMS_STR_SVC_UUID_0
+      children:
+      - children:
+        - attributes:
+            value: eacef4ac1f88f8aed04255525048434d
+          type: User
+        type: Values
+      type: String
+    CMS_STR_SVC_UUID_C_0:
+      attributes:
+        id: CMS_STR_SVC_UUID_C_0
+      children:
+      - children:
+        - attributes:
+            id: SERVICE_CMS
+            value: 0xea, 0xce, 0xf4, 0xac, 0x1f, 0x88, 0xf8, 0xae, 0xd0, 0x42, 0x55,
+              0x52, 0x50, 0x48, 0x43, 0x4d
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

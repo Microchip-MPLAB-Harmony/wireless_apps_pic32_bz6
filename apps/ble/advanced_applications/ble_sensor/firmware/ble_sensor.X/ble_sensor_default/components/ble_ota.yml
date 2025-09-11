@@ -1,0 +1,107 @@
+configVersion: 1.0.0
+componentName: ble_ota
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: ble_ota
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_system_pic32cxbz_wbz
+  type: package
+  version: v1.8.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: ble_ota
+          x: '686'
+          y: '171'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    ENCRYPTION_KEY:
+      attributes:
+        id: ENCRYPTION_KEY
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x00, 0x11, 0x22, 0x33, 0x44,
+              0x55, 0x66, 0x77, 0x88, 0x99
+          type: User
+        type: Values
+      type: String
+    FLASH_IMAGE_ID:
+      attributes:
+        id: FLASH_IMAGE_ID
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: '0x9F000002'
+          type: User
+        type: Values
+      type: String
+    FLASH_IMAGE_ID_ENABLE:
+      attributes:
+        id: FLASH_IMAGE_ID_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'false'
+          type: User
+        type: Values
+      type: Boolean
+    IMAGE_DECRYPTION_ENABLE:
+      attributes:
+        id: IMAGE_DECRYPTION_ENABLE
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    INIT_VECTOR:
+      attributes:
+        id: INIT_VECTOR
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+              0x00, 0x00, 0x00, 0x00, 0x00
+          type: User
+        type: Values
+      type: String
+  userData: {}

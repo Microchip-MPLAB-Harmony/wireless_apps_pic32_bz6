@@ -122,8 +122,8 @@ typedef struct H3DeviceVectorsTag
   pfn_handler_t pfnADCHS_FCC_Handler;               /* 37 ADC FCC Interrupt */
   pfn_handler_t pfnADCHS_BGVR_RDY_Handler;          /* 38 ADC BGVR Ready */
   pfn_handler_t pfnAC_Handler;                      /* 39 Analog Comparators */
-  pfn_handler_t pfnSILEX_0_Handler;                 /* 40 Crypto 0 */
-  pfn_handler_t pfnSILEX_1_Handler;                 /* 41 Crypto 1 */
+  pfn_handler_t pfnCRYPTO_0_Handler;                /* 40 Crypto 0 */
+  pfn_handler_t pfnCRYPTO_1_Handler;                /* 41 Crypto 1 */
   pfn_handler_t pfnQSPI_Handler;                    /* 42 Quad SPI interface */
   pfn_handler_t pfnZB_INT0_Handler;                 /* 43 ZIGBEE */
   pfn_handler_t pfnBT_INT0_Handler;                 /* 44 Bluetooth 0 */
@@ -131,7 +131,7 @@ typedef struct H3DeviceVectorsTag
   pfn_handler_t pfnARBITER_Handler;                 /* 46 Radio Arbiter */
   pfn_handler_t pfnCLKI_WAKEUP_NMI_Handler;         /* 47 WSS WAKEUP */
   pfn_handler_t pfnCVD_Handler;                     /* 48 CVD Interrpt */
-  pfn_handler_t pfnReserved49;
+  pfn_handler_t pfnCRYPTO_2_Handler;                /* 49 Crypto 2 */
   pfn_handler_t pfnQEI_Handler;                     /* 50 QEI */
   pfn_handler_t pfnCAN0_Handler;                    /* 51 CAN0 */
   pfn_handler_t pfnCAN1_Handler;                    /* 52 CAN1 */

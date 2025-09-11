@@ -1,0 +1,66 @@
+configVersion: 1.0.0
+componentName: SERVICE_DIS
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: SERVICE_DIS
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_ble
+  type: package
+  version: v1.5.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: SERVICE_DIS
+          x: '431'
+          y: '380'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DIS_FW_REV_ENABLE:
+      attributes:
+        id: DIS_FW_REV_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: ble_ota
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    DIS_FW_REV_STRING:
+      attributes:
+        id: DIS_FW_REV_STRING
+      children:
+      - children:
+        - attributes:
+            id: ble_ota
+            value: 1.0.0.0
+          type: Dynamic
+        - attributes:
+            value: 1.0.0.0
+          type: User
+        type: Values
+      type: String
+    DIS_MODEL_NUM_STRING:
+      attributes:
+        id: DIS_MODEL_NUM_STRING
+      children:
+      - children:
+        - attributes:
+            value: PIC32WM_BZ6204
+          type: User
+        type: Values
+      type: String
+  userData: {}

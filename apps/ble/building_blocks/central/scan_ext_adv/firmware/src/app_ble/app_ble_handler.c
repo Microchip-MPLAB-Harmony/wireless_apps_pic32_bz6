@@ -165,8 +165,6 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
             uint8_t adLen, adContent[BLE_GAP_ADV_MAX_LENGTH];
             uint8_t printLen, printBuf[50];    
             
-            // GPIO will toggle if it can scan any EXT ADV PDU            
-            USER_LED_Toggle();
             memset(adContent, 0 , BLE_GAP_ADV_MAX_LENGTH);
             memset(printBuf, 0, sizeof(printBuf));
             printLen = 0;
@@ -188,6 +186,9 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
                 printBuf[printLen++] = '\r';
                 printBuf[printLen++] = '\n';
                 SERCOM0_USART_Write(printBuf, printLen);                                        
+
+	            // GPIO will toggle if it can scan any EXT ADV PDU            
+	            USER_LED_Toggle();
             }
             
          

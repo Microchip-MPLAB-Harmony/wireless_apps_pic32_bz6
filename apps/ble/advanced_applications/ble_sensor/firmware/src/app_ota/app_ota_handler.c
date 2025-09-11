@@ -16,7 +16,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -261,7 +261,6 @@ void APP_OTA_EvtHandler(BLE_OTAPS_Event_T *p_event)
         case BLE_OTAPS_EVT_START_IND:
         {
             /* TODO: implement your application code.*/
-			
             APP_OTA_HDL_Start();            
         }
         break;
@@ -275,11 +274,8 @@ void APP_OTA_EvtHandler(BLE_OTAPS_Event_T *p_event)
         
         case BLE_OTAPS_EVT_COMPLETE_IND:
         {
-            /* TODO: implement your application code.*/
              if (p_event->eventField.evtCompleteInd.errStatus == APP_OTA_RES_SUCCESS)
             {
-                //APP_DFU_HDL_Complete();
-
                 if (MW_DFU_FwImageValidate(s_fwImageValidate) == APP_OTA_RES_SUCCESS)
                 {
                     //After reset, the new FW will activate.
@@ -305,7 +301,6 @@ void APP_OTA_EvtHandler(BLE_OTAPS_Event_T *p_event)
         }
         break;
             
-        
         case BLE_OTAPS_EVT_RESET_IND:
         {
             /* TODO: implement your application code.*/

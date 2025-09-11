@@ -1,5 +1,5 @@
 /*******************************************************************************
-  Touch Library v3.18.1 Release
+  Touch Library v3.19.0 Release
 
   Company:
     Microchip Technology Inc.
@@ -114,19 +114,19 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define NODE_0_PARAMS                                                                                               \
 {                                                                                                                  \
-   Y(10), Y(17), 30,0, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(10), Y(17), 30,0, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_32                   \
 }
 #define NODE_1_PARAMS                                                                                               \
 {                                                                                                                  \
-   Y(10), Y(4), 30,0, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(10), Y(4), 30,0, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_32                   \
 }
 #define NODE_2_PARAMS                                                                                               \
 {                                                                                                                  \
-   Y(10), Y(14), 30,0, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(10), Y(14), 30,0, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_32                   \
 }
 #define NODE_3_PARAMS                                                                                               \
 {                                                                                                                  \
-   Y(10), Y(11), 30,0, NODE_GAIN(GAIN_1, GAIN_1), (uint8_t)FILTER_LEVEL_16                   \
+   Y(10), Y(11), 30,0, NODE_GAIN(GAIN_1, GAIN_2), (uint8_t)FILTER_LEVEL_32                   \
 }
 
 /**********************************************************/
@@ -239,7 +239,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define SCROLLER_0_PARAMS                                                                                       \
 {                                                                                                              \
     (uint8_t)SCROLLER_TYPE_SLIDER, 1u, 3u,                            \
-		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_1_PERCENT),(uint8_t)8,90\
+		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_1_PERCENT),(uint8_t)8,20\
 }
 
 

@@ -19,7 +19,7 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_CVD_INSTANCE_
 #define _PIC32WM_BZ6_CVD_INSTANCE_
 
@@ -30,8 +30,8 @@
 #define CVD_AN_MIN                               (0)        /* Min number of AN input index */
 #define CVD_FIFO_DEPTH                           (32)       /* Number of words in the UPB FIFO. Max is 1KThe depth of the UPB FIFO is limited to "powers of 2".Allowable values are: 8, 16, 32, 64, 128, 256, 512, 1K */
 #define CVD_TX_NUM                               (18)       /* Number of TX outputs on the device. Max of 64 */
-#define CVD_GCLK_ID                              (31)       
-#define CVD_NUM_ADC                              (1)        
+#define CVD_GCLK_ID                              (31)
+#define CVD_NUM_ADC                              (1)
 #define CVD_NUM_RX                               (20)       /* Number of RX Indexes. */
 #define CVD_NUM_TX                               (20)       /* Number of TX Indexes. */
 #define CVD_UPB_ADDRL                            (0x2400)   /* Start address of UPB registers */

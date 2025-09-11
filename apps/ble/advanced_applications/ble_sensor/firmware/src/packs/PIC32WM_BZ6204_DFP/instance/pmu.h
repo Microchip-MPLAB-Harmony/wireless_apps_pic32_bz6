@@ -19,14 +19,14 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_PMU_INSTANCE_
 #define _PIC32WM_BZ6_PMU_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for PMU peripheral ========== */
 #define PMU_BUCK_OPER_VAL                        (5)        /* {buck_en_mv, mldo_en_mv, buck_mode_mv} */
-#define PMU_BUCK_SEQ_RETRY_NUM                   (10)       
+#define PMU_BUCK_SEQ_RETRY_NUM                   (10)
 #define PMU_LDO1_STARTUP_VAL                     (1)        /* Definition and usage refer to Section 3.63 */
 #define PMU_LDO2_STARTUP_VAL                     (1)        /* Definition and usage refer to Section 3.63 */
 #define PMU_LDO3_STARTUP_VAL                     (10)       /* Definition and usage refer to Section 3.63 */
@@ -36,15 +36,15 @@
 #define PMU_NUM_LDO                              (3)        /* Number of LDOs(CLDO, SoC LDO, VREGPLL) */
 #define PMU_RST_CYCLES                           (8)        /* Duration of SPI Soft Reset in terms of number of SPI Clock Cycles */
 #define PMU_SHARED_LDO_MODE                      (1)        /* WCM memory Core does not use separate LDO in run and in retention mode */
-#define PMU_SPI_ADDR_WIDTH                       (8)        
+#define PMU_SPI_ADDR_WIDTH                       (8)
 #define PMU_SPI_CTRL_STARTUP_VAL                 (4)        /* spi_cs_n_mv, spi_clk_mv, spi_dout_mv */
-#define PMU_SPI_DATA_WIDTH                       (16)       
+#define PMU_SPI_DATA_WIDTH                       (16)
 #define PMU_SPI_DRIVING                          (0)        /* Falling Edge (Rising Edge / Falling Edge) */
 #define PMU_SPI_SAMPLING                         (0)        /* Falling Edge (Rising Edge / Falling Edge) */
 #define PMU_SW_VAL                               (7)        /* {buck_en_mv, mldo_en_mv, buck_mode_mv} */
 #define PMU_VBC_INDIRECT_MODE                    (1)        /* New */
 #define PMU_WCM_RET1N_TIME                       (4)        /* ns based on feedback from ARM and Design team */
-#define PMU_WCM_SIZE                             (8)        
+#define PMU_WCM_SIZE                             (8)
 #define PMU_WCM_TRANSITION_TIME                  (4)        /* ns based on feedback from ARM and Design team */
 #define PMU_WLDO_NUM                             (3)        /* N/A if > NUM_LDOS */
 

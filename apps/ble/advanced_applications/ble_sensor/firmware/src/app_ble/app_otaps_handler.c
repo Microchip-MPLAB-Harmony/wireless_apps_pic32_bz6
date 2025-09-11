@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -49,11 +49,20 @@
 #include "ble_otaps/ble_otaps.h"
 #include "app_ota/app_ota_handler.h"
 
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Global Variables
+// *****************************************************************************
+// *****************************************************************************
+
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
+
 void APP_OtapsEvtHandler(BLE_OTAPS_Event_T *p_event)
 {
     APP_OTA_EvtHandler(p_event);

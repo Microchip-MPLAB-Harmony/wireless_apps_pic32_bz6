@@ -19,9 +19,11 @@
  *
  */
 
-/*  file generated from device description file (ATDF) version 2025-01-29T18:23:31Z  */
+/*  file generated from device description file (ATDF) version 2025-07-28T21:01:48Z  */
 #ifndef _PIC32WM_BZ6_TC_COMPONENT_H_
 #define _PIC32WM_BZ6_TC_COMPONENT_H_
+
+#include "core_cm4.h"
 
 /* ************************************************************************** */
 /*                       SOFTWARE API DEFINITION FOR TC                       */
@@ -373,13 +375,16 @@
 #define TC_SYNCBUSY_COUNT_Pos                 _UINT32_(4)                                          /* (TC_SYNCBUSY) Counter Position */
 #define TC_SYNCBUSY_COUNT_Msk                 (_UINT32_(0x1) << TC_SYNCBUSY_COUNT_Pos)             /* (TC_SYNCBUSY) Counter Mask */
 #define TC_SYNCBUSY_COUNT(value)              (TC_SYNCBUSY_COUNT_Msk & (_UINT32_(value) << TC_SYNCBUSY_COUNT_Pos)) /* Assignment of value for COUNT in the TC_SYNCBUSY register */
+#define TC_SYNCBUSY_PER_Pos                   _UINT32_(5)                                          /* (TC_SYNCBUSY) Period Position */
+#define TC_SYNCBUSY_PER_Msk                   (_UINT32_(0x1) << TC_SYNCBUSY_PER_Pos)               /* (TC_SYNCBUSY) Period Mask */
+#define TC_SYNCBUSY_PER(value)                (TC_SYNCBUSY_PER_Msk & (_UINT32_(value) << TC_SYNCBUSY_PER_Pos)) /* Assignment of value for PER in the TC_SYNCBUSY register */
 #define TC_SYNCBUSY_CC0_Pos                   _UINT32_(6)                                          /* (TC_SYNCBUSY) Compare Channel 0 Position */
 #define TC_SYNCBUSY_CC0_Msk                   (_UINT32_(0x1) << TC_SYNCBUSY_CC0_Pos)               /* (TC_SYNCBUSY) Compare Channel 0 Mask */
 #define TC_SYNCBUSY_CC0(value)                (TC_SYNCBUSY_CC0_Msk & (_UINT32_(value) << TC_SYNCBUSY_CC0_Pos)) /* Assignment of value for CC0 in the TC_SYNCBUSY register */
 #define TC_SYNCBUSY_CC1_Pos                   _UINT32_(7)                                          /* (TC_SYNCBUSY) Compare Channel 1 Position */
 #define TC_SYNCBUSY_CC1_Msk                   (_UINT32_(0x1) << TC_SYNCBUSY_CC1_Pos)               /* (TC_SYNCBUSY) Compare Channel 1 Mask */
 #define TC_SYNCBUSY_CC1(value)                (TC_SYNCBUSY_CC1_Msk & (_UINT32_(value) << TC_SYNCBUSY_CC1_Pos)) /* Assignment of value for CC1 in the TC_SYNCBUSY register */
-#define TC_SYNCBUSY_Msk                       _UINT32_(0x000000DF)                                 /* (TC_SYNCBUSY) Register Mask  */
+#define TC_SYNCBUSY_Msk                       _UINT32_(0x000000FF)                                 /* (TC_SYNCBUSY) Register Mask  */
 
 #define TC_SYNCBUSY_CC_Pos                    _UINT32_(6)                                          /* (TC_SYNCBUSY Position) Compare Channel x */
 #define TC_SYNCBUSY_CC_Msk                    (_UINT32_(0x3) << TC_SYNCBUSY_CC_Pos)                /* (TC_SYNCBUSY Mask) CC */

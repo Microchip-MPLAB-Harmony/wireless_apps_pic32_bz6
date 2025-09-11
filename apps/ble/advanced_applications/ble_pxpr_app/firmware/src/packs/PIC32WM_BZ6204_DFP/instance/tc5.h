@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_TC5_INSTANCE_
 #define _PIC32WM_BZ6_TC5_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TC5 peripheral ========== */
-#define TC5_DMAC_ID_MC0                          (51)       
-#define TC5_DMAC_ID_MC1                          (52)       
-#define TC5_DMAC_ID_OVF                          (50)       
-#define TC5_GCLK_ID                              (9)        
+#define TC5_DMAC_ID_MC0                          (51)
+#define TC5_DMAC_ID_MC1                          (52)
+#define TC5_DMAC_ID_OVF                          (50)
+#define TC5_GCLK_ID                              (9)
 #define TC5_INSTANCE_ID                          (10)       /* Instance index for TC5 */
-#define TC5_MASTER_SLAVE_MODE                    (2)        
+#define TC5_MASTER_SLAVE_MODE                    (2)
 #define TC5_PAC_ID                               (10)       /* Index for TC5 registers write protection */
 
 #endif /* _PIC32WM_BZ6_TC5_INSTANCE_ */

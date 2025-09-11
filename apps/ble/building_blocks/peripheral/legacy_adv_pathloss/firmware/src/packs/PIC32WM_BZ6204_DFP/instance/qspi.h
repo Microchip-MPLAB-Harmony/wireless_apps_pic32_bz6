@@ -19,14 +19,14 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_QSPI_INSTANCE_
 #define _PIC32WM_BZ6_QSPI_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for QSPI peripheral ========== */
-#define QSPI_DMAC_ID_RX                          (65)       
-#define QSPI_DMAC_ID_TX                          (66)       
+#define QSPI_DMAC_ID_RX                          (65)
+#define QSPI_DMAC_ID_TX                          (66)
 #define QSPI_INSTANCE_ID                         (64)       /* Instance index for QSPI */
 #define QSPI_PAC_ID                              (64)       /* Index for QSPI registers write protection */
 

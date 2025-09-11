@@ -1,0 +1,138 @@
+configVersion: 1.0.0
+componentName: le_gfx_intf_parallel_portgroup
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: le_gfx_intf_parallel_portgroup
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: gfx
+  type: package
+  version: v3.16.2
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: TMR
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: tc1
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: TC1_TMR
+            type: String
+          - attributes:
+              id: enabled
+            children:
+            - type: Value
+              value: 'true'
+            type: Boolean
+          type: Attributes
+        type: DirectDependency
+      - attributes:
+          id: le_gfx_intf_parallel_portgroup
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: le_gfx_driver_external
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: Parallel Display Interface
+            type: String
+          type: Attributes
+        type: DirectCapability
+      type: Attachments
+    type: le_gfx_intf_parallel_portgroup
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: le_gfx_intf_parallel_portgroup
+          x: '219'
+          y: '124'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    ReadStrobeControl:
+      attributes:
+        id: ReadStrobeControl
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_intf_parallel_portgroup
+            value: N/A
+          type: Dynamic
+        type: Values
+      type: Combo
+    TimerTriggerIndex:
+      attributes:
+        id: TimerTriggerIndex
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_intf_parallel_portgroup
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TransferMode:
+      attributes:
+        id: TransferMode
+      children:
+      - children:
+        - attributes:
+            value: DMA-CCL
+          type: User
+        type: Values
+      type: Combo
+    UseTimerTrigger:
+      attributes:
+        id: UseTimerTrigger
+      children:
+      - children:
+        - attributes:
+            id: visible
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    WriteStrobeControl:
+      attributes:
+        id: WriteStrobeControl
+      children:
+      - children:
+        - attributes:
+            id: le_gfx_intf_parallel_portgroup
+            value: CCL
+          type: Dynamic
+        type: Values
+      type: Combo
+  userData: {}

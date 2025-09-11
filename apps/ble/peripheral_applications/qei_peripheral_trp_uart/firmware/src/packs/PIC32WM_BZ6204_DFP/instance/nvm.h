@@ -19,7 +19,7 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_NVM_INSTANCE_
 #define _PIC32WM_BZ6_NVM_INSTANCE_
 
@@ -30,14 +30,14 @@
 #define NVM_BCFG_PAGE                            (16)       /* NVR page contain BCFG data. The page must be consistent with the BCFG_ADDR[] parameter. */
 #define NVM_CP_BIT_LOCATION                      (252)      /* The Code Protect value is stored in it own flash word at CP_ADDR[] location. This is to support flash panels with ECC or restrictions on multi-programming per word/bit.The sign bit position must be set to PFM_DATA_MSB-3. */
 #define NVM_FIXED_BOOT_SEL_BIT                   (18)       /* The highest bit position that allows address decode to differentiate between fixed and aliased NVR address space. When set, this bit will select fixed NVR space. */
-#define NVM_FLASH_SIZE                           (2097152)  
+#define NVM_FLASH_SIZE                           (2097152)
 #define NVM_JTAGEN_BIT_LOCATION                  (226)      /* Location of the sign bit in the boot config word. This bit must never be programmed to 0 during a checkerboard program. PFM_DATA_MSB-29Config words are 128-bit regardless of the flash word size. */
 #define NVM_NVMOTP_PAGE                          (17)       /* NVR page contain OTP data. The page must be consistentwith the OTP_ADDR_BASE[] parameter. */
 #define NVM_NVR_NUM_PAGES                        (24)       /* Number of Pages in the NVR regionThe following values must be supported: 8, 24 */
 #define NVM_NVR_PANEL_SEL_BIT                    (17)       /* The highest bit position that allows address decode to differentiate between NVR address space in Panel 1 and Panel 2 (if supported).Note: The value for NVR_PANEL_SEL_BIT will typically be FIXED_BOOT_SEL_BIT-1 */
 #define NVM_NVR_TEST_PAGES                       (1)        /* Number of Pages in the Panel 1 NVR for Test. */
-#define NVM_PAGES                                (512)      
-#define NVM_PAGES_PR_REGION                      (32)       
+#define NVM_PAGES                                (512)
+#define NVM_PAGES_PR_REGION                      (32)
 #define NVM_PAGE_ADDR_MSB                        (11)       /* Flash Page Size MSB (using byte addressing)   (11=4KB page) */
 #define NVM_PFM_DATA_MSB                         (255)      /* Flash wrapper read data bus width-1 */
 #define NVM_PFM_ECC_PRESENT                      (1)        /* 0: ECC not supported,1: ECC supported */

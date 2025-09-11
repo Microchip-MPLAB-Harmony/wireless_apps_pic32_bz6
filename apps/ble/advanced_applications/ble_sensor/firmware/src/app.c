@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -71,7 +71,6 @@
 #define BLE_SENSOR_VERSION  "1.0.0.0"
 
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
@@ -107,6 +106,8 @@ APP_DATA appData;
 
 /* TODO:  Add any necessary callback functions.
 */
+
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -184,6 +185,9 @@ void APP_Tasks ( void )
     APP_Msg_T   *p_appMsg;
     p_appMsg=appMsg;
 
+
+
+
     /* Check the application's current state. */
     switch ( appData.state )
     {
@@ -212,6 +216,7 @@ void APP_Tasks ( void )
         {
             if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER))
             {
+
                 if(p_appMsg->msgId==APP_MSG_BLE_STACK_EVT)
                 {
                     // Pass BLE Stack Event Message to User Application for handling

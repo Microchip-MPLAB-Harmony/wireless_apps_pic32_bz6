@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -128,6 +128,7 @@ extern "C" {
  * @{
  */
 #define BT_SYS_FEAT_PWR_CTRL                (1U)        /**< Power control feature mask. */
+#define BT_SYS_FEAT_CHC                     (1U<<1U)    /**< Channel classification feature mask. */
 /** @} */ //BT_SYS_FEAT_MASK
 
 
@@ -244,7 +245,7 @@ typedef void(*BT_SYS_ErrCb_T)(BT_SYS_ErrCode_T errCode);
 /**
  * @brief Initialize the Bluetooth system.
  *
- * @param[in] p_reqQueueHandle                  Handle to the OS queue for Bluetooth internal task management.
+ * @param[in] p_reqSemHandle                    Handle to the OS semaphore for Bluetooth internal task management.
  * @param[in] p_osalApiList                     Pointer to the list of OS abstraction layer (OSAL) APIs.
  * @param[in] p_option                          Pointer to the structure containing initialization options. See @ref BT_SYS_Option_T.
  * @param[in] p_cfg                             Pointer to the structure containing system configuration parameters. See @ref BT_SYS_Cfg_T.
@@ -252,7 +253,7 @@ typedef void(*BT_SYS_ErrCb_T)(BT_SYS_ErrCode_T errCode);
  * @retval true                                 Successfully initialize Bluetooth system.
  * @retval false                                Fail to initialize Bluetooth system.
  */
-bool BT_SYS_Init(void *p_reqQueueHandle, void *p_osalApiList, BT_SYS_Option_T *p_option, BT_SYS_Cfg_T *p_cfg);
+bool BT_SYS_Init(void *p_reqSemHandle, void *p_osalApiList, BT_SYS_Option_T *p_option, BT_SYS_Cfg_T *p_cfg);
 
 
 /**
