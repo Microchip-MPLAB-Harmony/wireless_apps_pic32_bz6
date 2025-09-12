@@ -181,15 +181,6 @@ void APP_BleStackEvtHandler(STACK_Event_T *p_stackEvt)
 
 
 
-static void APP_DdEvtHandler(BLE_DM_Event_T *p_event)
-{
-
-
-
-
-
-}
-
 
 
 static void APP_BleConfigBasic(void)

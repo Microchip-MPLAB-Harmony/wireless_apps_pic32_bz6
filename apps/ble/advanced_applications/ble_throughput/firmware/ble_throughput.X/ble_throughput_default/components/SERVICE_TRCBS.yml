@@ -1,0 +1,49 @@
+configVersion: 1.0.0
+componentName: SERVICE_TRCBS
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: SERVICE_TRCBS
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: BLE_TRCBS_Capability
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: PROFILE_TRCBP
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: BLE_TRCBS_Dependency
+            type: String
+          type: Attributes
+        type: DirectCapability
+      type: Attachments
+    type: SERVICE_TRCBS
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: SERVICE_TRCBS
+          x: '757'
+          y: '27'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols: {}
+  userData: {}

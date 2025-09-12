@@ -19,7 +19,7 @@
  *
  */
 
-/* File generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* File generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6204_H_
 #define _PIC32WM_BZ6204_H_
 
@@ -125,8 +125,8 @@ typedef enum IRQn
   ADCHS_FCC_IRQn            =  37, /* 37  12-bit Analog to Digital Converter (ADCHS) */
   ADCHS_BGVR_RDY_IRQn       =  38, /* 38  12-bit Analog to Digital Converter (ADCHS) */
   AC_IRQn                   =  39, /* 39  Analog Comparators (AC)             */
-  SILEX_0_IRQn              =  40, /* 40   (SILEX)                            */
-  SILEX_1_IRQn              =  41, /* 41   (SILEX)                            */
+  CRYPTO_0_IRQn             =  40, /* 40   (CRYPTO)                           */
+  CRYPTO_1_IRQn             =  41, /* 41   (CRYPTO)                           */
   QSPI_IRQn                 =  42, /* 42  Quad SPI interface (QSPI)           */
   ZB_INT0_IRQn              =  43, /* 43  ZigBee MAC DOS (ZIGBEE)             */
   BT_INT0_IRQn              =  44, /* 44  BLE (BLE)                           */
@@ -134,6 +134,7 @@ typedef enum IRQn
   ARBITER_IRQn              =  46, /* 46  Radio Arbiter (ARB)                 */
   CLKI_WAKEUP_NMI_IRQn      =  47, /* 47  BLE (BLE)                           */
   CVD_IRQn                  =  48, /* 48  Hardware CVD Controller Macro (CVD) */
+  CRYPTO_2_IRQn             =  49, /* 49   (CRYPTO)                           */
   QEI_IRQn                  =  50, /* 50   (QEI)                              */
   CAN0_IRQn                 =  51, /* 51  Control Area Network (CAN0)         */
   CAN1_IRQn                 =  52, /* 52  Control Area Network (CAN1)         */
@@ -210,8 +211,8 @@ typedef struct _DeviceVectors
   void* pfnADCHS_FCC_Handler;                    /*  37 12-bit Analog to Digital Converter (ADCHS) */
   void* pfnADCHS_BGVR_RDY_Handler;               /*  38 12-bit Analog to Digital Converter (ADCHS) */
   void* pfnAC_Handler;                           /*  39 Analog Comparators (AC) */
-  void* pfnSILEX_0_Handler;                      /*  40  (SILEX) */
-  void* pfnSILEX_1_Handler;                      /*  41  (SILEX) */
+  void* pfnCRYPTO_0_Handler;                     /*  40  (CRYPTO) */
+  void* pfnCRYPTO_1_Handler;                     /*  41  (CRYPTO) */
   void* pfnQSPI_Handler;                         /*  42 Quad SPI interface (QSPI) */
   void* pfnZB_INT0_Handler;                      /*  43 ZigBee MAC DOS (ZIGBEE) */
   void* pfnBT_INT0_Handler;                      /*  44 BLE (BLE) */
@@ -219,7 +220,7 @@ typedef struct _DeviceVectors
   void* pfnARBITER_Handler;                      /*  46 Radio Arbiter (ARB) */
   void* pfnCLKI_WAKEUP_NMI_Handler;              /*  47 BLE (BLE) */
   void* pfnCVD_Handler;                          /*  48 Hardware CVD Controller Macro (CVD) */
-  void* pvReserved49;
+  void* pfnCRYPTO_2_Handler;                     /*  49  (CRYPTO) */
   void* pfnQEI_Handler;                          /*  50  (QEI) */
   void* pfnCAN0_Handler;                         /*  51 Control Area Network (CAN0) */
   void* pfnCAN1_Handler;                         /*  52 Control Area Network (CAN1) */
@@ -289,8 +290,8 @@ void ADCHS_FAULT_Handler           ( void );
 void ADCHS_FCC_Handler             ( void );
 void ADCHS_BGVR_RDY_Handler        ( void );
 void AC_Handler                    ( void );
-void SILEX_0_Handler               ( void );
-void SILEX_1_Handler               ( void );
+void CRYPTO_0_Handler              ( void );
+void CRYPTO_1_Handler              ( void );
 void QSPI_Handler                  ( void );
 void ZB_INT0_Handler               ( void );
 void BT_INT0_Handler               ( void );
@@ -298,6 +299,7 @@ void BT_INT1_Handler               ( void );
 void ARBITER_Handler               ( void );
 void CLKI_WAKEUP_NMI_Handler       ( void );
 void CVD_Handler                   ( void );
+void CRYPTO_2_Handler              ( void );
 void QEI_Handler                   ( void );
 void CAN0_Handler                  ( void );
 void CAN1_Handler                  ( void );
@@ -323,7 +325,7 @@ void BT_LC_Handler                 ( void );
 /* CMSIS includes */
 #include "core_cm4.h"
 #if defined USE_CMSIS_INIT
-#include "system_pic32wm_bz6.h"
+#include "system_pic32wm_bz6204.h"
 #endif /* USE_CMSIS_INIT */
 
 /* ************************************************************************** */
@@ -339,6 +341,7 @@ void BT_LC_Handler                 ( void );
 #include "component/cfg.h"
 #include "component/cmcc.h"
 #include "component/cru.h"
+#include "component/crypto.h"
 #include "component/cvd.h"
 #include "component/dac_ctrl.h"
 #include "component/dmac.h"
@@ -366,7 +369,6 @@ void BT_LC_Handler                 ( void );
 #include "component/rot.h"
 #include "component/rtc.h"
 #include "component/sercom.h"
-#include "component/silex.h"
 #include "component/tc.h"
 #include "component/tcc.h"
 #include "component/usb.h"
@@ -387,6 +389,7 @@ void BT_LC_Handler                 ( void );
 #include "instance/cfg.h"
 #include "instance/cmcc.h"
 #include "instance/cru.h"
+#include "instance/crypto.h"
 #include "instance/cvd.h"
 #include "instance/dac_ctrl.h"
 #include "instance/dmac.h"
@@ -424,7 +427,6 @@ void BT_LC_Handler                 ( void );
 #include "instance/sercom4.h"
 #include "instance/sercom5.h"
 #include "instance/sercom6.h"
-#include "instance/silex.h"
 #include "instance/tc0.h"
 #include "instance/tc1.h"
 #include "instance/tc2.h"
@@ -533,7 +535,7 @@ void BT_LC_Handler                 ( void );
 #define SERCOM4_REGS                     ((sercom_registers_t*)0x46000800)             /* SERCOM4 Registers Address    */
 #define SERCOM5_REGS                     ((sercom_registers_t*)0x46000c00)             /* SERCOM5 Registers Address    */
 #define SERCOM6_REGS                     ((sercom_registers_t*)0x42000400)             /* SERCOM6 Registers Address    */
-#define SILEX_REGS                       ((silex_registers_t*)0x43000000)              /* SILEX Registers Address      */
+#define CRYPTO_REGS                      ((crypto_registers_t*)0x43000000)             /* CRYPTO Registers Address     */
 #define TC0_REGS                         ((tc_registers_t*)0x40001400)                 /* TC0 Registers Address        */
 #define TC1_REGS                         ((tc_registers_t*)0x40001800)                 /* TC1 Registers Address        */
 #define TC2_REGS                         ((tc_registers_t*)0x40001c00)                 /* TC2 Registers Address        */
@@ -603,7 +605,7 @@ void BT_LC_Handler                 ( void );
 #define SERCOM4_BASE_ADDRESS             _UINT32_(0x46000800)                          /* SERCOM4 Base Address */
 #define SERCOM5_BASE_ADDRESS             _UINT32_(0x46000c00)                          /* SERCOM5 Base Address */
 #define SERCOM6_BASE_ADDRESS             _UINT32_(0x42000400)                          /* SERCOM6 Base Address */
-#define SILEX_BASE_ADDRESS               _UINT32_(0x43000000)                          /* SILEX Base Address */
+#define CRYPTO_BASE_ADDRESS              _UINT32_(0x43000000)                          /* CRYPTO Base Address */
 #define TC0_BASE_ADDRESS                 _UINT32_(0x40001400)                          /* TC0 Base Address */
 #define TC1_BASE_ADDRESS                 _UINT32_(0x40001800)                          /* TC1 Base Address */
 #define TC2_BASE_ADDRESS                 _UINT32_(0x40001c00)                          /* TC2 Base Address */
@@ -653,7 +655,7 @@ void BT_LC_Handler                 ( void );
 #define PBA_BRIDGE_SIZE                _UINT32_(0x00004000)    /*   16kB Memory segment type: io */
 #define PBB_BRIDGE_SIZE                _UINT32_(0x00020000)    /*  128kB Memory segment type: io */
 #define PBC_BRIDGE_SIZE                _UINT32_(0x00012000)    /*   72kB Memory segment type: io */
-#define SILEX_SFR_SIZE                 _UINT32_(0x00020000)    /*  128kB Memory segment type: io */
+#define CRYPTO_SFR_SIZE                _UINT32_(0x00020000)    /*  128kB Memory segment type: io */
 #define PBPIC_BRIDGE_SIZE              _UINT32_(0x00014000)    /*   80kB Memory segment type: io */
 #define MCROM_ROM_SIZE                 _UINT32_(0x00002000)    /*    8kB Memory segment type: rom */
 #define PBD_BRIDGE_SIZE                _UINT32_(0x00002800)    /*   10kB Memory segment type: io */
@@ -671,7 +673,7 @@ void BT_LC_Handler                 ( void );
 #define PBA_BRIDGE_ADDR                _UINT32_(0x40000000)    /* PBA_BRIDGE base address (type: io)*/
 #define PBB_BRIDGE_ADDR                _UINT32_(0x41000000)    /* PBB_BRIDGE base address (type: io)*/
 #define PBC_BRIDGE_ADDR                _UINT32_(0x42000000)    /* PBC_BRIDGE base address (type: io)*/
-#define SILEX_SFR_ADDR                 _UINT32_(0x43000000)    /* SILEX_SFR base address (type: io)*/
+#define CRYPTO_SFR_ADDR                _UINT32_(0x43000000)    /* CRYPTO_SFR base address (type: io)*/
 #define PBPIC_BRIDGE_ADDR              _UINT32_(0x44000000)    /* PBPIC_BRIDGE base address (type: io)*/
 #define MCROM_ROM_ADDR                 _UINT32_(0x45000000)    /* MCROM_ROM base address (type: rom)*/
 #define PBD_BRIDGE_ADDR                _UINT32_(0x46000000)    /* PBD_BRIDGE base address (type: io)*/

@@ -19,14 +19,14 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_FREQM_INSTANCE_
 #define _PIC32WM_BZ6_FREQM_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for FREQM peripheral ========== */
-#define FREQM_GCLK_ID_MSR                        (1)        
-#define FREQM_GCLK_ID_REF                        (2)        
+#define FREQM_GCLK_ID_MSR                        (1)
+#define FREQM_GCLK_ID_REF                        (2)
 #define FREQM_INSTANCE_ID                        (1)        /* Instance index for FREQM */
 #define FREQM_PAC_ID                             (1)        /* Index for FREQM registers write protection */
 

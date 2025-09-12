@@ -1,5 +1,5 @@
 /*
- * Peripheral I/O description for PIC32WM_BZ6204
+ * Peripheral I/O description for pic32wm_bz6204
  *
  * Copyright (c) 2025 Microchip Technology Inc. and its subsidiaries.
  *
@@ -19,14 +19,15 @@
  *
  */
 
-/*  file generated from device description file (ATDF) version 2025-01-29T18:23:31Z  */
-#ifndef _PIC32WM_BZ6204_GPIO_H_
-#define _PIC32WM_BZ6204_GPIO_H_
+/*  file generated from device description file (ATDF) version 2025-07-28T21:01:48Z  */
+#ifndef _pic32wm_bz6204_GPIO_H_
+#define _pic32wm_bz6204_GPIO_H_
 
 /* ======================= Peripheral I/O pin numbers ======================= */
 
 /* ========================== Peripheral I/O masks ========================== */
 
 
-#endif /* _PIC32WM_BZ6204_GPIO_H_ */
+
+#endif /* _pic32wm_bz6204_GPIO_H_ */
 

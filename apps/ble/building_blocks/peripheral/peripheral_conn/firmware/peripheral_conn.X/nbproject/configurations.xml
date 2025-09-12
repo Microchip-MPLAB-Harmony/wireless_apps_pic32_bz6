@@ -47,7 +47,6 @@
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_assert.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/byte_stream.h</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -259,7 +258,6 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/rot.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/can.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/cmcc.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/nvm.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/btzbsys.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/tcc.h</itemPath>
@@ -279,6 +277,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/dmac.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/arb.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tcc2.h</itemPath>
@@ -299,7 +298,6 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/fuses.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tcc0.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/arb.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/sercom0.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/pfw.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc2.h</itemPath>
@@ -346,6 +344,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/gpioc.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc7.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/pio/pic32wm_bz6204.h</itemPath>
@@ -359,8 +358,33 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="peripheral_conn_default"
+                     displayName="peripheral_conn_default"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <itemPath>peripheral_conn_default/components/FreeRTOS.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/evsys.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/sercom0.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/BLE_STACK_LIB.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/sys_debug.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/rtc.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/sys_console_0.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/pdsSystem.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/nvm.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/dfp.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/cmsis.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/core.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/sys_console.yml</itemPath>
+          <itemPath>peripheral_conn_default/components/pic32cx_bz6_devsupport.yml</itemPath>
+        </logicalFolder>
+        <itemPath>peripheral_conn_default/mcc-config.mc4</itemPath>
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>peripheral_conn.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -393,7 +417,6 @@
               </logicalFolder>
               <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.c</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_misc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
           </logicalFolder>
@@ -493,14 +516,14 @@
         <targetDevice>PIC32WM_BZ6204</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.60</languageToolchainVersion>
+        <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
-        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.2.17"/>
+        <pack name="CMSIS" vendor="ARM" version="6.2.0"/>
+        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -535,7 +558,6 @@
       <C32>
         <property key="additional-warnings" value="true"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
@@ -614,7 +636,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -660,7 +681,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -689,7 +709,6 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="appendMe" value=""/>
         <property key="combine-sourcefiles" value="false"/>
         <property key="common-include-directories" value=""/>
         <property key="common-macros" value=""/>

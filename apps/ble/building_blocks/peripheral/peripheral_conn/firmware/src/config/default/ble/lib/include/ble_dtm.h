@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -91,7 +91,7 @@ extern "C" {
  * @brief Defines the payload types for the transmitter during DTM.
  * @{
  */
-#define BLE_DTM_TX_TEST_PAYLOAD_0                               (0x00U)        /**< Payload pattern: PRBS9 sequence "11111111100000111101ï¿½?ï¿½" (transmission order). */
+#define BLE_DTM_TX_TEST_PAYLOAD_0                               (0x00U)        /**< Payload pattern: PRBS9 sequence "11111111100000111101â?¦" (transmission order). */
 #define BLE_DTM_TX_TEST_PAYLOAD_1                               (0x01U)        /**< Payload pattern: Repeated "11110000" (transmission order). */
 #define BLE_DTM_TX_TEST_PAYLOAD_2                               (0x02U)        /**< Payload pattern: Repeated "10101010" (transmission order). */
 #define BLE_DTM_TX_TEST_PAYLOAD_3                               (0x03U)        /**< Payload pattern: PRBS15 sequence. */
@@ -210,7 +210,7 @@ uint16_t BLE_DTM_EnhancedTransmitterTest(BLE_DTM_TransmitterTestParams_T *p_tran
  * @brief Starts a receiver test where the device receives test reference packets at a fixed interval.
  * @note  @ref BLE_DTM_Init must be called before using this function.
  *
- * @param[in] rxChannel                     Channel number calculated as (F ï¿½?? 2402) / 2, where F is the frequency in MHz ranging from 2402 to 2480 MHz.
+ * @param[in] rxChannel                     Channel number calculated as (F â?? 2402) / 2, where F is the frequency in MHz ranging from 2402 to 2480 MHz.
  *                                          See @ref BLE_DTM_CHANNEL_RANGE for the valid ranges.
  * @param[in] phy                           PHY type setting for the test. See @ref BLE_DTM_RECEIVER_PHY_TYPE for possible values.
  *
@@ -225,7 +225,7 @@ uint16_t BLE_DTM_EnhancedReceiverTest(uint8_t rxChannel, uint8_t phy);
  * @brief Starts a Continuous Wave (CW) test on a specific channel and with a specific power level.
  * @note  @ref BLE_DTM_Init must be called before using this function.
  *
- * @param[in] txChannel                     Channel number calculated as (F ï¿½?? 2402), where F is the frequency in MHz ranging from 2402 to 2480 MHz. 
+ * @param[in] txChannel                     Channel number calculated as (F â?? 2402), where F is the frequency in MHz ranging from 2402 to 2480 MHz. 
  *                                          See @ref BLE_DTM_CHANNEL_RANGE for the valid ranges.
  * @param[in] txPower                       Transmit power level in dBm, ranging from -127 to +20 dBm.
  *

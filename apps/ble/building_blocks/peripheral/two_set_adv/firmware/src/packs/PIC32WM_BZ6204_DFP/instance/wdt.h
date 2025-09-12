@@ -19,14 +19,14 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_WDT_INSTANCE_
 #define _PIC32WM_BZ6_WDT_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for WDT peripheral ========== */
-#define WDT_MAX_RUN_PS                           (20)       
-#define WDT_MAX_SLEEP_PS                         (20)       
+#define WDT_MAX_RUN_PS                           (20)
+#define WDT_MAX_SLEEP_PS                         (20)
 #define WDT_UPB_ADDRL                            (0x500)    /* See Table 3-21 */
 #define WDT_WINDOW_WDT                           (1)        /* enabled */
 

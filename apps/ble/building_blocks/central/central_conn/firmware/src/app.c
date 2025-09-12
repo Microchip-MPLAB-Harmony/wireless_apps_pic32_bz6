@@ -95,6 +95,8 @@ APP_DATA appData;
 /* TODO:  Add any necessary callback functions.
 */
 
+
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions
@@ -104,6 +106,7 @@ APP_DATA appData;
 
 /* TODO:  Add any necessary local functions.
 */
+
 
 
 // *****************************************************************************
@@ -132,18 +135,6 @@ void APP_Initialize ( void )
      */
 }
 uint16_t conn_hdl;// connection handle info captured @BLE_GAP_EVT_CONNECTED event
-uint8_t uart_data;
-void uart_cb(SERCOM_USART_EVENT event, uintptr_t context)
-{
-  APP_Msg_T   appMsg;   
-  if( event == SERCOM_USART_EVENT_READ_THRESHOLD_REACHED )
-  {
-    SERCOM0_USART_Read(&uart_data, 1);
-
-    appMsg.msgId = APP_MSG_UART_CB;
-    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);   
-  }
- }
 
 /******************************************************************************
   Function:
@@ -159,19 +150,17 @@ void APP_Tasks ( void )
     APP_Msg_T   *p_appMsg;
     p_appMsg=appMsg;
 
+
+
+
     /* Check the application's current state. */
     switch ( appData.state )
     {
         /* Application's initial state. */
-        //SERCOM0_USART_Write((uint8_t *)"Scanning \r\n", 11);
         case APP_STATE_INIT:
         {
             bool appInitialized = true;
             //appData.appQueue = xQueueCreate( 10, sizeof(APP_Msg_T) );
-
-            SERCOM0_USART_ReadNotificationEnable(true, true);
-            SERCOM0_USART_ReadThresholdSet(1);
-            SERCOM0_USART_ReadCallbackRegister(uart_cb, (uintptr_t)NULL);
 			
             APP_BleStackInit();
 
@@ -196,11 +185,9 @@ void APP_Tasks ( void )
                     // Pass BLE Stack Event Message to User Application for handling
                     APP_BleStackEvtHandler((STACK_Event_T *)p_appMsg->msgData);
                 }
-                else if(p_appMsg->msgId==APP_MSG_BLE_STACK_LOG)
-                {
-					// Pass BLE LOG Event Message to User Application for handling
-//                    APP_BleStackLogHandler((BT_SYS_LogEvent_T *)p_appMsg->msgData);
-                }
+
+
+
             }
             break;
         }

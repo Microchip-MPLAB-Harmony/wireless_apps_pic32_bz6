@@ -19,42 +19,42 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_SERCOM5_INSTANCE_
 #define _PIC32WM_BZ6_SERCOM5_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for SERCOM5 peripheral ========== */
-#define SERCOM5_CHIP_SERCOM_CLK_REDUCTION        (1)        
-#define SERCOM5_CHIP_SERCOM_DLY_COMPENSATION     (1)        
-#define SERCOM5_CHIP_SERCOM_DMA                  (1)        
-#define SERCOM5_CHIP_SERCOM_FIFO_DEPTH_POWER     (1)        
-#define SERCOM5_CHIP_SERCOM_PADDR_MSB            (9)        
-#define SERCOM5_CHIP_SERCOM_RETENTION_SUPPORT    (0)        
-#define SERCOM5_CHIP_SERCOM_SE_CNT               (1)        
-#define SERCOM5_CHIP_SERCOM_SPI                  (1)        
-#define SERCOM5_CHIP_SERCOM_SPI_HW_SS_CTRL       (1)        
-#define SERCOM5_CHIP_SERCOM_SPI_ICSPACE_EXT      (1)        
-#define SERCOM5_CHIP_SERCOM_SPI_OZMO             (0)        
-#define SERCOM5_CHIP_SERCOM_SPI_WAKE_ON_SSL      (1)        
-#define SERCOM5_CHIP_SERCOM_TTBIT_EXTENSION      (1)        
-#define SERCOM5_CHIP_SERCOM_TWIM                 (0)        
-#define SERCOM5_CHIP_SERCOM_TWIS                 (0)        
-#define SERCOM5_CHIP_SERCOM_USART                (1)        
-#define SERCOM5_CHIP_SERCOM_USART_AUTOBAUD       (1)        
-#define SERCOM5_CHIP_SERCOM_USART_COLDET         (1)        
-#define SERCOM5_CHIP_SERCOM_USART_FLOW_CTRL      (1)        
-#define SERCOM5_CHIP_SERCOM_USART_FRAC_BAUD      (1)        
-#define SERCOM5_CHIP_SERCOM_USART_IRDA           (1)        
-#define SERCOM5_CHIP_SERCOM_USART_ISO7816        (1)        
-#define SERCOM5_CHIP_SERCOM_USART_LIN_MASTER     (1)        
-#define SERCOM5_CHIP_SERCOM_USART_RS485          (1)        
-#define SERCOM5_CHIP_SERCOM_USART_SAMPA_EXT      (1)        
-#define SERCOM5_CHIP_SERCOM_USART_SAMPR_EXT      (1)        
-#define SERCOM5_DMAC_ID_RX                       (14)       
-#define SERCOM5_DMAC_ID_TX                       (15)       
-#define SERCOM5_GCLK_ID_CORE                     (5)        
-#define SERCOM5_GCLK_ID_SLOW                     (5)        
+#define SERCOM5_CHIP_SERCOM_CLK_REDUCTION        (1)
+#define SERCOM5_CHIP_SERCOM_DLY_COMPENSATION     (1)
+#define SERCOM5_CHIP_SERCOM_DMA                  (1)
+#define SERCOM5_CHIP_SERCOM_FIFO_DEPTH_POWER     (1)
+#define SERCOM5_CHIP_SERCOM_PADDR_MSB            (9)
+#define SERCOM5_CHIP_SERCOM_RETENTION_SUPPORT    (0)
+#define SERCOM5_CHIP_SERCOM_SE_CNT               (1)
+#define SERCOM5_CHIP_SERCOM_SPI                  (1)
+#define SERCOM5_CHIP_SERCOM_SPI_HW_SS_CTRL       (1)
+#define SERCOM5_CHIP_SERCOM_SPI_ICSPACE_EXT      (1)
+#define SERCOM5_CHIP_SERCOM_SPI_OZMO             (0)
+#define SERCOM5_CHIP_SERCOM_SPI_WAKE_ON_SSL      (1)
+#define SERCOM5_CHIP_SERCOM_TTBIT_EXTENSION      (1)
+#define SERCOM5_CHIP_SERCOM_TWIM                 (0)
+#define SERCOM5_CHIP_SERCOM_TWIS                 (0)
+#define SERCOM5_CHIP_SERCOM_USART                (1)
+#define SERCOM5_CHIP_SERCOM_USART_AUTOBAUD       (1)
+#define SERCOM5_CHIP_SERCOM_USART_COLDET         (1)
+#define SERCOM5_CHIP_SERCOM_USART_FLOW_CTRL      (1)
+#define SERCOM5_CHIP_SERCOM_USART_FRAC_BAUD      (1)
+#define SERCOM5_CHIP_SERCOM_USART_IRDA           (1)
+#define SERCOM5_CHIP_SERCOM_USART_ISO7816        (1)
+#define SERCOM5_CHIP_SERCOM_USART_LIN_MASTER     (1)
+#define SERCOM5_CHIP_SERCOM_USART_RS485          (1)
+#define SERCOM5_CHIP_SERCOM_USART_SAMPA_EXT      (1)
+#define SERCOM5_CHIP_SERCOM_USART_SAMPR_EXT      (1)
+#define SERCOM5_DMAC_ID_RX                       (14)
+#define SERCOM5_DMAC_ID_TX                       (15)
+#define SERCOM5_GCLK_ID_CORE                     (5)
+#define SERCOM5_GCLK_ID_SLOW                     (5)
 #define SERCOM5_INSTANCE_ID                      (99)       /* Instance index for SERCOM5 */
 #define SERCOM5_PAC_ID                           (99)       /* Index for SERCOM5 registers write protection */
 

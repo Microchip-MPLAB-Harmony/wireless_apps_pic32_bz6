@@ -426,6 +426,7 @@ void APP_GattEvtHandler(GATT_Event_T *p_event)
         }
         break;
 
+
         default:
         break;
     }
@@ -568,3 +569,13 @@ void APP_DmEvtHandler(BLE_DM_Event_T *p_event)
         break;
     }
 }
+
+void APP_DdEvtHandler(BLE_DD_Event_T *p_event)
+{
+
+
+
+
+
+}
+
