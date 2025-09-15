@@ -65,11 +65,8 @@
 // *****************************************************************************
 
 uint8_t CACHE_ALIGN cdcReadBuffer[APP_READ_BUFFER_SIZE];
-uint8_t CACHE_ALIGN cdcWriteBuffer[APP_READ_BUFFER_SIZE];
 
 uint16_t conn_hdl;// connection handle info captured @BLE_GAP_EVT_CONNECTED event
-
-
 
 // *****************************************************************************
 /* Application Data
@@ -180,7 +177,7 @@ USB_DEVICE_CDC_EVENT_RESPONSE APP_USBDeviceCDCEventHandler
                                         appDataObject->cdcReadBuffer,
                                         APP_READ_BUFFER_SIZE);
                     
-                                        // Copy received USB data directly to the appMsg structure
+                    // Copy received USB data directly to the appMsg structure
                     appMsg.msgId = APP_MSG_UART_CB;
                     appMsg.msgLength = eventDataRead->length;
 
@@ -208,10 +205,7 @@ USB_DEVICE_CDC_EVENT_RESPONSE APP_USBDeviceCDCEventHandler
 
         case USB_DEVICE_CDC_EVENT_WRITE_COMPLETE:
 
-            /* This means that the data write got completed. We can schedule
-             * the next read. */
-
-            appDataObject->isWriteComplete = true;
+            /* This means that the data write got completed. */
             break;
 
         default:
@@ -236,11 +230,6 @@ void APP_USBDeviceEventHandler
     switch(event)
     {
         case USB_DEVICE_EVENT_SOF:
-
-            /* This event is used for switch debounce. This flag is reset
-             * by the switch process routine. */
-            appData.sofEventHasOccurred = true;
-            
             break;
 
         case USB_DEVICE_EVENT_RESET:
@@ -267,6 +256,12 @@ void APP_USBDeviceEventHandler
                  * user data */
 
                 USB_DEVICE_CDC_EventHandlerSet(USB_DEVICE_CDC_INDEX_0, APP_USBDeviceCDCEventHandler, (uintptr_t)&appData);
+                
+                // Schedule initial USB read once configured
+                USB_DEVICE_CDC_Read(USB_DEVICE_CDC_INDEX_0,
+                                    &appData.readTransferHandle,
+                                    appData.cdcReadBuffer,
+                                    APP_READ_BUFFER_SIZE);
 
                 /* Mark that the device is now configured */
                 appData.isConfigured = true;
@@ -320,30 +315,6 @@ void APP_USBDeviceEventHandler
 // *****************************************************************************
 
 
-bool APP_StateReset(void)
-{
-    /* This function returns true if the device
-     * was reset  */
-
-    bool retVal;
-
-    if(appData.isConfigured == false)
-    {
-        appData.state = APP_STATE_WAIT_FOR_CONFIGURATION;
-        appData.readTransferHandle = USB_DEVICE_CDC_TRANSFER_HANDLE_INVALID;
-        appData.writeTransferHandle = USB_DEVICE_CDC_TRANSFER_HANDLE_INVALID;
-        appData.isReadComplete = true;
-        appData.isWriteComplete = true;
-        retVal = true;
-    }
-    else
-    {
-        retVal = false;
-    }
-
-    return(retVal);
-}
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -383,29 +354,8 @@ void APP_Initialize(void)
     /* Write Transfer Handle */
     appData.writeTransferHandle = USB_DEVICE_CDC_TRANSFER_HANDLE_INVALID;
 
-    /* Initialize the read complete flag */
-    appData.isReadComplete = true;
-
-    /*Initialize the write complete flag*/
-    appData.isWriteComplete = true;
-
-    /* Initialize Ignore switch flag */
-    appData.ignoreSwitchPress = false;
-
-    /* Reset the switch debounce counter */
-    appData.switchDebounceTimer = 0;
-
-    /* Reset other flags */
-    appData.sofEventHasOccurred = false;
-    
-    /* To know status of Switch */
-    appData.isSwitchPressed = false;
-
     /* Set up the read buffer */
-    appData.cdcReadBuffer = &cdcReadBuffer[0];
-
-    /* Set up the read buffer */
-    appData.cdcWriteBuffer = &cdcWriteBuffer[0];       
+    appData.cdcReadBuffer = &cdcReadBuffer[0];     
 }
 
 
@@ -432,7 +382,7 @@ void APP_Tasks(void)
                 USB_DEVICE_EventHandlerSet(appData.deviceHandle, APP_USBDeviceEventHandler, (uintptr_t)&appData);
                 
 
-                appData.state = APP_STATE_WAIT_FOR_CONFIGURATION;
+                appData.state = APP_STATE_SERVICE_TASKS;
             }
             else
             {
@@ -440,49 +390,37 @@ void APP_Tasks(void)
             }
             break;
 
-        case APP_STATE_WAIT_FOR_CONFIGURATION:
-            
-
-            if(appData.isConfigured)
-            {
-                // Schedule initial USB read once configured
-                USB_DEVICE_CDC_Read(USB_DEVICE_CDC_INDEX_0,
-                                    &appData.readTransferHandle,
-                                    appData.cdcReadBuffer,
-                                    APP_READ_BUFFER_SIZE);
-                appData.state = APP_STATE_SERVICE_TASKS;
-            }
-            break;
-
         case APP_STATE_SERVICE_TASKS:
             
             // Handle messages enqueued from the USB CDC callback
-            while(OSAL_QUEUE_Receive(&appData.appQueue, p_appMsg, OSAL_WAIT_FOREVER))
+            if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER))
             {
-                switch(p_appMsg->msgId)
+                
+                if(p_appMsg->msgId==APP_MSG_BLE_STACK_EVT)
                 {
-                    case APP_MSG_BLE_STACK_EVT:
-                        APP_BleStackEvtHandler((STACK_Event_T *)p_appMsg->msgData);
-                        break;
-
-                    case APP_MSG_USB_CB:
-                        if(p_appMsg->msgLength > 0)
-                        {
-                            // Echo back to USB
-                            USB_DEVICE_CDC_Write(USB_DEVICE_CDC_INDEX_0,
-                                                 &appData.writeTransferHandle,
-                                                 p_appMsg->msgData,
-                                                 p_appMsg->msgLength,
-                                                 USB_DEVICE_CDC_TRANSFER_FLAGS_DATA_COMPLETE);                           
-                        }
-                        break;
-                    case APP_MSG_UART_CB:
-                        BLE_TRSPS_SendData(conn_hdl, 1, p_appMsg->msgData);
-                        break;
-
-                    default:
-                        break;
+                    // Pass BLE Stack Event Message to User Application for handling
+                    APP_BleStackEvtHandler((STACK_Event_T *)p_appMsg->msgData);
                 }
+
+                if(p_appMsg->msgId==APP_MSG_USB_CB)
+                {
+                        
+                    if(p_appMsg->msgLength > 0)
+                    {
+                        // Echo back to USB
+                        USB_DEVICE_CDC_Write(USB_DEVICE_CDC_INDEX_0,
+                                             &appData.writeTransferHandle,
+                                             p_appMsg->msgData,
+                                             p_appMsg->msgLength,
+                                             USB_DEVICE_CDC_TRANSFER_FLAGS_DATA_COMPLETE);                           
+                    }
+                }
+                if(p_appMsg->msgId==APP_MSG_UART_CB)
+                {
+                    BLE_TRSPS_SendData(conn_hdl, 1, p_appMsg->msgData);
+                }
+
+                
             }
             break;
 

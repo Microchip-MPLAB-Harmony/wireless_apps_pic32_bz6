@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -296,7 +296,8 @@ static leResult _draw(const leImage* img,
     _state.targetMode = leRenderer_CurrentColorMode();
 
     if(img->header.location == LE_STREAM_LOCATION_ID_INTERNAL &&
-       img->format == LE_IMAGE_FORMAT_RAW)
+       img->format == LE_IMAGE_FORMAT_RAW &&
+       (img->flags & LE_IMAGE_USE_MASK_COLOR) == 0)
     {
         if((img->flags & LE_IMAGE_DIRECT_BLIT) > 0 &&
            img->buffer.mode == _state.targetMode)

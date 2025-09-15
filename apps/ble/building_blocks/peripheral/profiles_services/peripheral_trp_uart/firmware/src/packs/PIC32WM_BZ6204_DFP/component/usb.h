@@ -19,9 +19,11 @@
  *
  */
 
-/*  file generated from device description file (ATDF) version 2025-01-29T18:23:31Z  */
+/*  file generated from device description file (ATDF) version 2025-07-28T21:01:48Z  */
 #ifndef _PIC32WM_BZ6_USB_COMPONENT_H_
 #define _PIC32WM_BZ6_USB_COMPONENT_H_
+
+#include "core_cm4.h"
 
 /* ************************************************************************** */
 /*                      SOFTWARE API DEFINITION FOR USB                       */
@@ -1076,6 +1078,13 @@
 #define   USB_UCNFG1_PSIDL_CONTINUE_Val       _UINT32_(0x0)                                        /* (USB_UCNFG1) Continue module operation in Idle mode  */
 #define USB_UCNFG1_PSIDL_DISCONTINUE          (USB_UCNFG1_PSIDL_DISCONTINUE_Val << USB_UCNFG1_PSIDL_Pos) /* (USB_UCNFG1) Discontinue module operation when device enters Idle mode Position */
 #define USB_UCNFG1_PSIDL_CONTINUE             (USB_UCNFG1_PSIDL_CONTINUE_Val << USB_UCNFG1_PSIDL_Pos) /* (USB_UCNFG1) Continue module operation in Idle mode Position */
+#define USB_UCNFG1_PFRZ_Pos                   _UINT32_(5)                                          /* (USB_UCNFG1) Freeze in Debug mode Position */
+#define USB_UCNFG1_PFRZ_Msk                   (_UINT32_(0x1) << USB_UCNFG1_PFRZ_Pos)               /* (USB_UCNFG1) Freeze in Debug mode Mask */
+#define USB_UCNFG1_PFRZ(value)                (USB_UCNFG1_PFRZ_Msk & (_UINT32_(value) << USB_UCNFG1_PFRZ_Pos)) /* Assignment of value for PFRZ in the USB_UCNFG1 register */
+#define   USB_UCNFG1_PFRZ_FREEZE_Val          _UINT32_(0x1)                                        /* (USB_UCNFG1) When emulator is in Debug mode, module freezes operation  */
+#define   USB_UCNFG1_PFRZ_NOT_FREEZE_Val      _UINT32_(0x0)                                        /* (USB_UCNFG1) When emulator is in Debug mode, module continues operation  */
+#define USB_UCNFG1_PFRZ_FREEZE                (USB_UCNFG1_PFRZ_FREEZE_Val << USB_UCNFG1_PFRZ_Pos)  /* (USB_UCNFG1) When emulator is in Debug mode, module freezes operation Position */
+#define USB_UCNFG1_PFRZ_NOT_FREEZE            (USB_UCNFG1_PFRZ_NOT_FREEZE_Val << USB_UCNFG1_PFRZ_Pos) /* (USB_UCNFG1) When emulator is in Debug mode, module continues operation Position */
 #define USB_UCNFG1_UOEMON_Pos                 _UINT32_(6)                                          /* (USB_UCNFG1) USB Position */
 #define USB_UCNFG1_UOEMON_Msk                 (_UINT32_(0x1) << USB_UCNFG1_UOEMON_Pos)             /* (USB_UCNFG1) USB Mask */
 #define USB_UCNFG1_UOEMON(value)              (USB_UCNFG1_UOEMON_Msk & (_UINT32_(value) << USB_UCNFG1_UOEMON_Pos)) /* Assignment of value for UOEMON in the USB_UCNFG1 register */
@@ -1090,7 +1099,7 @@
 #define   USB_UCNFG1_UTEYE_OFF_Val            _UINT32_(0x0)                                        /* (USB_UCNFG1) Eye-Pattern Test is disabled  */
 #define USB_UCNFG1_UTEYE_ON                   (USB_UCNFG1_UTEYE_ON_Val << USB_UCNFG1_UTEYE_Pos)    /* (USB_UCNFG1) Eye-Pattern Test is enabled Position */
 #define USB_UCNFG1_UTEYE_OFF                  (USB_UCNFG1_UTEYE_OFF_Val << USB_UCNFG1_UTEYE_Pos)   /* (USB_UCNFG1) Eye-Pattern Test is disabled Position */
-#define USB_UCNFG1_Msk                        _UINT32_(0x000000D9)                                 /* (USB_UCNFG1) Register Mask  */
+#define USB_UCNFG1_Msk                        _UINT32_(0x000000F9)                                 /* (USB_UCNFG1) Register Mask  */
 
 
 /* -------- USB_UCNFG1CLR : (USB Offset: 0x2E4) (R/W 32)  -------- */

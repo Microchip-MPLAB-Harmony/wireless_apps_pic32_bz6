@@ -170,15 +170,15 @@ void APP_HCI_VndCmdHandler(STACK_HCI_Cb_T *p_stackHciCb)
 	
 	switch(cmdID)
     {
-        case HCI_CMD_RESET:
-            {
-                APP_Msg_T   appMsg;
-                APP_Msg_T   *p_appMsg;
-                appMsg.msgId = (uint8_t)APP_MSG_REBOOT;
-                p_appMsg = &appMsg;
-                (void) OSAL_QUEUE_Send(&appData.appQueue, p_appMsg, 0);                 
-            }
-            break;
+//        case HCI_CMD_RESET:
+//            {
+//                APP_Msg_T   appMsg;
+//                APP_Msg_T   *p_appMsg;
+//                appMsg.msgId = (uint8_t)APP_MSG_REBOOT;
+//                p_appMsg = &appMsg;
+//                (void) OSAL_QUEUE_Send(&appData.appQueue, p_appMsg, 0);                 
+//            }
+//            break;
 
         case HCI_CMD_CUSTOM:
             switch(*p_packet)

@@ -19,7 +19,7 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_PFW_INSTANCE_
 #define _PIC32WM_BZ6_PFW_INSTANCE_
 
@@ -50,6 +50,6 @@
 #define PFW_PFM_TRT_NS                           (500)      /* PORb Release Time (Trt) delay spec (ns):defined from rst_reset_por_n=1 to PORb=1 */
 #define PFW_RR_NUM_RECORDS                       (8)        /* Number of Redundancy Records per Panel. Redundancy Records are 16-bit values. Panels usually have 1 Redundant Page per 512KB.Note: Valid values are 1,2,4,8,16,32. */
 #define PFW_UPB_ADDRL                            (0x800)    /* This parameter is the lowest peripheral bus address the peripheral module owns (i.e., the base address) */
-#define PFW_UPB_DEFAULT_SPACING                  (0x0004)   
+#define PFW_UPB_DEFAULT_SPACING                  (0x0004)
 
 #endif /* _PIC32WM_BZ6_PFW_INSTANCE_ */

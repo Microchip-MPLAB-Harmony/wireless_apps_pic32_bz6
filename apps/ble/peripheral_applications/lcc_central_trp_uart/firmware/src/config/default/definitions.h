@@ -52,12 +52,12 @@
 #include "peripheral/tc/plib_tc1.h"
 #include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/tc/plib_tc2.h"
+#include "driver/i2c/drv_i2c.h"
 #include "peripheral/nvm/plib_nvm.h"
 #include "system/time/sys_time.h"
-#include "driver/i2c/drv_i2c.h"
 #include "peripheral/adchs/plib_adchs.h"
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -92,9 +92,10 @@
 #include "ble/lib/include/bt_sys.h"
 #include <string.h>
 #include "peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h"
+#include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/sercom/usart/plib_sercom0_usart.h"
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -117,7 +118,6 @@
 *******************************************************************************/
 #include "driver/pds/include/pds.h"
 #include "driver/pds/include/pds_config.h"
-#include "peripheral/evsys/plib_evsys.h"
 #include "gfx/legato/generated/le_gen_harmony.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"

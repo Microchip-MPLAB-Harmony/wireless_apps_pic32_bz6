@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -67,7 +67,8 @@ void _leButtonWidget_InvalidateBorderAreas(const leButtonWidget* _this);
 
 static void invalidateImageRect(const leButtonWidget* _this)
 {
-    leRect imgRect, imgSrcRect;
+    leRect imgRect = leRect_Zero;
+    leRect imgSrcRect = leRect_Zero;
     
     _leButtonWidget_GetImageRect(_this, &imgRect, &imgSrcRect);
     

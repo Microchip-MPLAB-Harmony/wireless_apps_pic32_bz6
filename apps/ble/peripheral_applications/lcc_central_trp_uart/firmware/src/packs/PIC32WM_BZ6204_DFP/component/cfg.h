@@ -19,9 +19,11 @@
  *
  */
 
-/*  file generated from device description file (ATDF) version 2025-01-29T18:23:31Z  */
+/*  file generated from device description file (ATDF) version 2025-07-28T21:01:48Z  */
 #ifndef _PIC32WM_BZ6_CFG_COMPONENT_H_
 #define _PIC32WM_BZ6_CFG_COMPONENT_H_
+
+#include "core_cm4.h"
 
 /* ************************************************************************** */
 /*                      SOFTWARE API DEFINITION FOR CFG                       */
@@ -1705,7 +1707,10 @@
 #define CFG_MISCSTAT_CLDORDY_Pos              _UINT32_(9)                                          /* (CFG_MISCSTAT) CLDO Ready Position */
 #define CFG_MISCSTAT_CLDORDY_Msk              (_UINT32_(0x1) << CFG_MISCSTAT_CLDORDY_Pos)          /* (CFG_MISCSTAT) CLDO Ready Mask */
 #define CFG_MISCSTAT_CLDORDY(value)           (CFG_MISCSTAT_CLDORDY_Msk & (_UINT32_(value) << CFG_MISCSTAT_CLDORDY_Pos)) /* Assignment of value for CLDORDY in the CFG_MISCSTAT register */
-#define CFG_MISCSTAT_Msk                      _UINT32_(0x00000200)                                 /* (CFG_MISCSTAT) Register Mask  */
+#define CFG_MISCSTAT_CM4SWRST_EN_Pos          _UINT32_(11)                                         /* (CFG_MISCSTAT) CM4 SW Reset Enable Position */
+#define CFG_MISCSTAT_CM4SWRST_EN_Msk          (_UINT32_(0x1) << CFG_MISCSTAT_CM4SWRST_EN_Pos)      /* (CFG_MISCSTAT) CM4 SW Reset Enable Mask */
+#define CFG_MISCSTAT_CM4SWRST_EN(value)       (CFG_MISCSTAT_CM4SWRST_EN_Msk & (_UINT32_(value) << CFG_MISCSTAT_CM4SWRST_EN_Pos)) /* Assignment of value for CM4SWRST_EN in the CFG_MISCSTAT register */
+#define CFG_MISCSTAT_Msk                      _UINT32_(0x00000A00)                                 /* (CFG_MISCSTAT) Register Mask  */
 
 
 /* -------- CFG_ID : (CFG Offset: 0x160) ( R/ 32) Device ID -------- */

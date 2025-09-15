@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_TC4_INSTANCE_
 #define _PIC32WM_BZ6_TC4_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for TC4 peripheral ========== */
-#define TC4_DMAC_ID_MC0                          (48)       
-#define TC4_DMAC_ID_MC1                          (49)       
-#define TC4_DMAC_ID_OVF                          (47)       
-#define TC4_GCLK_ID                              (9)        
+#define TC4_DMAC_ID_MC0                          (48)
+#define TC4_DMAC_ID_MC1                          (49)
+#define TC4_DMAC_ID_OVF                          (47)
+#define TC4_GCLK_ID                              (9)
 #define TC4_INSTANCE_ID                          (9)        /* Instance index for TC4 */
-#define TC4_MASTER_SLAVE_MODE                    (1)        
+#define TC4_MASTER_SLAVE_MODE                    (1)
 #define TC4_PAC_ID                               (9)        /* Index for TC4 registers write protection */
 
 #endif /* _PIC32WM_BZ6_TC4_INSTANCE_ */

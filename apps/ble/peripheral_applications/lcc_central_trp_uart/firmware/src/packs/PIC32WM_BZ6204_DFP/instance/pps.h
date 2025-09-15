@@ -19,13 +19,13 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_PPS_INSTANCE_
 #define _PIC32WM_BZ6_PPS_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for PPS peripheral ========== */
-#define PPS_PB_ADDRH                             (0x14FF)   
-#define PPS_PB_ADDRL                             (0x1000)   
+#define PPS_PB_ADDRH                             (0x14FF)
+#define PPS_PB_ADDRL                             (0x1000)
 
 #endif /* _PIC32WM_BZ6_PPS_INSTANCE_ */

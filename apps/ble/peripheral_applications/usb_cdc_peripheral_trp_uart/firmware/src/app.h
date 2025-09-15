@@ -93,24 +93,6 @@ typedef enum
 {
     /* Application's state machine's initial state. */
     APP_STATE_INIT=0,
-
-    /* Application waits for device configuration*/
-    APP_STATE_WAIT_FOR_CONFIGURATION,
-
-    /* The application checks if a switch was pressed */
-    APP_STATE_CHECK_SWITCH_PRESSED,
-
-    /* Wait for a character receive */
-    APP_STATE_SCHEDULE_READ,
-
-    /* A character is received from host */
-    APP_STATE_WAIT_FOR_READ_COMPLETE,
-
-    /* Wait for the TX to get completed */
-    APP_STATE_SCHEDULE_WRITE,
-
-    /* Wait for the write to complete */
-    APP_STATE_WAIT_FOR_WRITE_COMPLETE,
             
     APP_STATE_SERVICE_TASKS,
 
@@ -180,39 +162,14 @@ typedef struct
     /* Write transfer handle */
     USB_DEVICE_CDC_TRANSFER_HANDLE writeTransferHandle;
 
-    /* True if a character was read */
-    bool isReadComplete;
-
-    /* True if a character was written*/
-    bool isWriteComplete;
-
-    /* True is switch was pressed */
-    bool isSwitchPressed;
-
-    /* True if the switch press needs to be ignored*/
-    bool ignoreSwitchPress;
-
-    /* Flag determines SOF event occurrence */
-    bool sofEventHasOccurred;
-
     /* Break data */
     uint16_t breakData;
-
-    /* Switch debounce timer */
-    unsigned int switchDebounceTimer;
-
-    /* Switch debounce timer count */
-    unsigned int debounceCount;
 
     /* Application CDC read buffer */
     uint8_t * cdcReadBuffer;
 
-    /* Application CDC Write buffer */
-    uint8_t * cdcWriteBuffer;
-
     /* Number of bytes read from Host */ 
     uint32_t numBytesRead; 
-    
     
 } APP_DATA;
 

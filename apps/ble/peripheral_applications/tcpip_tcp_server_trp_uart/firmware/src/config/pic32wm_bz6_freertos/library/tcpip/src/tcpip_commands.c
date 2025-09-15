@@ -1934,9 +1934,13 @@ static void F_Command_IPAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char**
         return;
     }
 
+    (void)addType;
+
 #if defined(TCPIP_STACK_USE_IPV4)
+#if defined(TCPIP_STACK_USE_IPV6)
     if(addType == IP_ADDRESS_TYPE_IPV4)
     {
+#endif  // defined(TCPIP_STACK_USE_IPV6)
         if(TCPIPStackAddressServiceIsRunning(pNetIf) != TCPIP_STACK_ADDR_SRVC_NONE)
         {
             (*pCmdIO->pCmdApi->msg)(cmdIoParam, "An address service is already running. Stop DHCP, ZCLL, etc. first\r\n");
@@ -1961,14 +1965,17 @@ static void F_Command_IPAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char**
         {
             success = true;
         }
-
+#if defined(TCPIP_STACK_USE_IPV6)
     }
+#endif  // defined(TCPIP_STACK_USE_IPV6)
 #endif  // defined(TCPIP_STACK_USE_IPV4)
 
 #if defined(TCPIP_STACK_USE_IPV6)
 
+#if defined(TCPIP_STACK_USE_IPV4)
     if(addType == IP_ADDRESS_TYPE_IPV6)
     {
+#endif  //  defined(TCPIP_STACK_USE_IPV4)
         if(argc > 3)
         {   // we have prefix length
             uint32_t prefix32 = 0UL;
@@ -1984,7 +1991,9 @@ static void F_Command_IPAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char**
         {
             success = true;
         }
+#if defined(TCPIP_STACK_USE_IPV4)
     }
+#endif  //  defined(TCPIP_STACK_USE_IPV4)
 
 #endif  // defined(TCPIP_STACK_USE_IPV6)
 
@@ -2045,23 +2054,32 @@ static void F_Command_GatewayAddressSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, c
     }
 
 
+    (void)addType;
 #if defined(TCPIP_STACK_USE_IPV4)
+#if defined(TCPIP_STACK_USE_IPV6)
     if(addType == IP_ADDRESS_TYPE_IPV4)
     {
+#endif  // defined(TCPIP_STACK_USE_IPV6)
         success = TCPIP_STACK_NetAddressGatewaySet(netH, &ipGateway);
+#if defined(TCPIP_STACK_USE_IPV6)
     }
+#endif  // defined(TCPIP_STACK_USE_IPV6)
 #endif  // defined(TCPIP_STACK_USE_IPV4)
 
 #if defined(TCPIP_STACK_USE_IPV6)
+#if defined(TCPIP_STACK_USE_IPV4)
     if(addType == IP_ADDRESS_TYPE_IPV6)
     {
+#endif  // defined(TCPIP_STACK_USE_IPV4)
         validTime = 0UL;
         if(argc > 3)
         {   // we have validity time
             (void)FC_Str2UL(argv[3], 10, &validTime);
         }
         success = TCPIP_IPV6_RouterAddressAdd(netH, &ipv6Gateway, validTime, 0);
+#if defined(TCPIP_STACK_USE_IPV4)
     }
+#endif  // defined(TCPIP_STACK_USE_IPV4)
 #endif  // defined(TCPIP_STACK_USE_IPV6)
 
 
@@ -8621,9 +8639,9 @@ static void F_Command_Sntp(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
 #if defined(M_TCPIP_COMMANDS_WSC)  
 typedef struct
 {
-    const char* cmdName;     // name of the WSC command
-    SYS_CMD_FNC cmdFnc;      // command function
-    const char* cmdHelp;        // brief command explanation
+    const char* cmdName;    // name of the WSC command
+    SYS_CMD_FNC cmdFnc;     // command function
+    const char* cmdHelp;    // brief command explanation
 }WSC_COMMAND_DCPT;
 
 // list of supported WSC commands
@@ -8654,6 +8672,7 @@ typedef struct
     const char* server;
     const char* resource;
     const char* proto;
+    TCPIP_WSC_AUTH_HANDLER  authHandler;
     uint16_t    port;
     uint16_t    flags;
 }WSC_TEST_PRESET;
@@ -8662,10 +8681,10 @@ typedef struct
 static const WSC_TEST_PRESET wsc_presets[] = 
 {
 // { server, resource, proto, port}
-    {"ws.ifelse.io", 0, 0, 80, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_OFF},
-    {"ws.ifelse.io", 0, 0, 443, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_DEFAULT},
-    {"echo.websocket.org", 0, 0, 443, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_DEFAULT},
-    {"497877863b54bfd9.octt.openchargealliance.org", "Mchp", "ocpp1.6", 16968, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_ON},
+    {"ws.ifelse.io", 0, 0, NULL, 80, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_OFF},
+    {"ws.ifelse.io", 0, 0, NULL, 443, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_DEFAULT},
+    {"echo.websocket.org", 0, 0, NULL, 443, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_DEFAULT},
+    {"497877863b54bfd9.octt.openchargealliance.org", "Mchp", "ocpp1.6", NULL, 16968, (uint16_t)TCPIP_WSC_CONN_FLAG_SECURE_ON},
 };
 
 // message to be sent for a connection close
@@ -8737,6 +8756,8 @@ static char wsc_server[64 + 1] = "";
 static char wsc_resource[64 + 1] = "";
 // current prototype to request
 static char wsc_proto[16 + 1] = "";
+// current authentication  handler
+static TCPIP_WSC_AUTH_HANDLER wsc_authHandler = NULL; 
 // current port to connect to
 static uint16_t wsc_port = 80U;
 // if proto usage is enforced
@@ -8795,7 +8816,7 @@ static void Wsc_CmdTask(void)
         if(pWsc_TxMsgDcpt != NULL)
         {
             TCPIP_WSC_RES res = Wsc_SendMsg(pWsc_TxMsgDcpt);
-            if(res <= 0)
+            if((int)res <= 0)
             {   // done one way or another
                 pWsc_TxMsgDcpt = NULL;
             }
@@ -8806,7 +8827,7 @@ static void Wsc_CmdTask(void)
         if(!wscDisAutoRead && wsc_RxMsgHandle != NULL)
         {
             TCPIP_WSC_RES res = Wsc_ReadMsg(wsc_RxMsgHandle);
-            if(res <= 0)
+            if((int)res <= 0)
             {   // done one way or another
                 wsc_RxMsgHandle = NULL;
             }
@@ -8889,7 +8910,7 @@ static void F_Command_WsSet(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
         int argIx = 2;
         argc -= 2;
 
-        if((argc & 0x1) != 0)
+        if(((unsigned int)argc & 0x1U) != 0U)
         {
             (*pCmdIO->pCmdApi->msg)(cmdIoParam, "wsc set : an even number of arguments is required. Retry!\r\n");
             printUsage = true;
@@ -8987,7 +9008,7 @@ static void F_Command_WsPreset(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** arg
     (void)FC_Str2UL(argv[2], 10, &presIx);
     if(presIx >= sizeof(wsc_presets) / sizeof(*wsc_presets))
     {
-        (*pCmdIO->pCmdApi->print)(cmdIoParam, "wsc preset - wrong preset index! Maxim '%d'\r\n", sizeof(wsc_presets) / sizeof(*wsc_presets) - 1);
+        (*pCmdIO->pCmdApi->print)(cmdIoParam, "wsc preset - wrong preset index! Maxim '%d'\r\n", sizeof(wsc_presets) / sizeof(*wsc_presets) - 1U);
         return;
     }
 
@@ -9021,6 +9042,7 @@ static void F_Command_WsPreset(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** arg
         wsc_proto[0] = '\0';
     }
 
+    wsc_authHandler = preset->authHandler;
     wsc_port = preset->port;
     wsc_flags = preset->flags;
 
@@ -9035,6 +9057,7 @@ static void Wsc_PrintSettings(SYS_CMD_DEVICE_NODE* pCmdIO, char** argv)
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tserver: '%s'\r\n", wsc_server[0] == '\0' ? "none" : wsc_server);
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tresource: '%s'\r\n", wsc_resource[0] == '\0' ? "none" : wsc_resource);
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tproto: '%s'\r\n", wsc_proto[0] == '\0' ? "none" : wsc_proto);
+    (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tauth: '0x%08x'\r\n", wsc_authHandler);
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tport: %d\r\n", wsc_port);
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tflags: 0x%02x\r\n", wsc_flags);
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "\tproto_enforced: '%d'\r\n", wsc_proto_enforced);
@@ -9049,7 +9072,7 @@ static void F_Command_WscRate(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv
     {
         uint32_t rateMs;
         (void)FC_Str2UL(argv[2], 10, &rateMs);
-        if(rateMs < WSC_CMD_TASK_RATE_MIN) 
+        if(rateMs < (uint32_t)WSC_CMD_TASK_RATE_MIN) 
         {
             (*pCmdIO->pCmdApi->print)(cmdIoParam, "wsc rate - bad value: %d. Minimum: %d\r\n", rateMs, WSC_CMD_TASK_RATE_MIN);
             return;
@@ -9103,6 +9126,7 @@ static void F_Command_WsOpen(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
     connDcpt.protocols = openProtos;
     connDcpt.nProtocols = nProto;
     connDcpt.extensions = NULL;
+    connDcpt.authHandler = wsc_authHandler;
 
     wscConnHandle = TCPIP_WSC_ConnOpen(&connDcpt, &res);
     
@@ -9140,7 +9164,7 @@ static void F_Command_WsRegister(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** a
     {
         uint32_t regVal = 0;
         (void)FC_Str2UL(argv[2], 10, &regVal);
-        bool doReg = regVal != 0;
+        bool doReg = regVal != 0U;
 
         if(doReg && wsc_EvHandle != NULL)
         {   // nothing to do
@@ -9359,7 +9383,7 @@ static void F_Command_WsRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** argv)
     }
 
     TCPIP_WSC_RES res = Wsc_ReadMsg(wsc_RxMsgHandle);
-    if(res <= 0)
+    if((int)res <= 0)
     {   // done one way or another
         wsc_RxMsgHandle = NULL;
     }
@@ -9407,7 +9431,6 @@ static void F_Command_WsAutoRead(SYS_CMD_DEVICE_NODE* pCmdIO, int argc, char** a
 
     (*pCmdIO->pCmdApi->print)(cmdIoParam, "wsc auto-read is: %d\r\n", !wscDisAutoRead);
 }
-
 
 // sends a control message to the server
 static void Wsc_SendCtrlFrame(SYS_CMD_DEVICE_NODE* pCmdIO, char** argv, const char* message, TCPIP_WS_OP_CODE opCode)
@@ -9459,12 +9482,12 @@ static TCPIP_WSC_RES Wsc_SendMsg(TCPIP_WSC_SEND_MSG_DCPT* txDcpt)
     TCPIP_WSC_RES res;
 
     size_t sentSize = TCPIP_WSC_MessageSend(wscConnHandle, txDcpt, &res);
-    if(sentSize != 0)
+    if(sentSize != 0U)
     {
         (*pTcpipCmdDevice->pCmdApi->print)(cmdIoParam, "wsc msg - sent: %d, expected: %d, res: %d\r\n", sentSize, txDcpt->msgSize, res);
     }
 
-    if(res < 0)
+    if((int)res < 0)
     {
         (*pTcpipCmdDevice->pCmdApi->print)(cmdIoParam, "wsc msg - failed with res: %d. Aborted!\r\n", res);
     }
@@ -9486,19 +9509,19 @@ static TCPIP_WSC_RES Wsc_ReadMsg(const void* rxHandle)
     const void* cmdIoParam = pTcpipCmdDevice->cmdIoParam;
 
     size_t readSize = TCPIP_WSC_MessageRead(wscConnHandle, rxHandle, U_WSC_RD_BUFF.uBuffer, wsc_bReadSize, &res);
-    if(readSize != 0)
+    if(readSize != 0U)
     {
         pTcpipCmdDevice->pCmdApi->print(cmdIoParam, "wsc read - readSize: %d, res: %d\r\n", readSize, res);
     }
 
-    if(res < 0)
+    if((int)res < 0)
     {
         (*pTcpipCmdDevice->pCmdApi->print)(cmdIoParam, "wsc read - failed with res: %d. Aborted!\r\n", res);
     }
     else
     {
         // check if smth was read
-        if(readSize != 0)
+        if(readSize != 0U)
         {   // display 100 chars...
             U_WSC_RD_BUFF.cBuffer[readSize] = '\0';
             U_WSC_RD_BUFF.cBuffer[100] = '\0';   // limit to 100 chars
@@ -9561,7 +9584,7 @@ static void Wsc_EventHandler(TCPIP_WSC_CONN_HANDLE hConn, TCPIP_WSC_EVENT_TYPE e
             openInfo = evInfo.openInfo;
 
             addBuff[0] = '\0';
-            if(openInfo->ipType == IP_ADDRESS_TYPE_IPV4)
+            if(openInfo->ipType == (uint8_t)IP_ADDRESS_TYPE_IPV4)
             {
                 (void)TCPIP_Helper_IPAddressToString(&openInfo->srvAddress.v4Add, addBuff, sizeof(addBuff));
             }

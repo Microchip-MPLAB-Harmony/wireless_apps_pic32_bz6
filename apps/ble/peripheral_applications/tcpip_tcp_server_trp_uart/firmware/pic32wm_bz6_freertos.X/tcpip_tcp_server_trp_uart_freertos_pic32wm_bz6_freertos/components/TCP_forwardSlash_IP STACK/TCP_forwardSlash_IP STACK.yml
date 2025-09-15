@@ -1,0 +1,37 @@
+configVersion: 1.0.0
+componentName: TCP/IP STACK
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyGroupModule
+  name: TCP/IP STACK
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: tcpipStack:Core_SysConsole_Dependency
+          namespace: BASIC CONFIGURATION
+          targetAttachmentID: sys_console
+          targetComponentID: sys_console_0
+        type: Attachment
+      type: Attachments
+    type: TCP/IP STACK
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: TCP/IP STACK
+          x: '383'
+          y: '237'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols: {}
+  userData: {}

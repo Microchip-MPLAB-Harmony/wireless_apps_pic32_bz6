@@ -62,6 +62,7 @@ void GPIO_Initialize ( void )
     CFG_REGS->CFG_CFGCON0CLR = CFG_CFGCON0_JTAGEN_Msk;
     /* PORTA Initialization */
     /* PORTB Initialization */
+    GPIOB_REGS->GPIO_ANSELCLR = 0x8U; /* Digital Mode Enable */
     /* PORTC Initialization */
     /* PORTD Initialization */
     /* PORTE Initialization */

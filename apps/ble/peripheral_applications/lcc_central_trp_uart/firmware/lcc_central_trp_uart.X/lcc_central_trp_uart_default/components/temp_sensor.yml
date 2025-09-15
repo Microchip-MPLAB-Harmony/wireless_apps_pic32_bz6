@@ -1,0 +1,64 @@
+configVersion: 1.0.0
+componentName: temp_sensor
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: temp_sensor
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_system_pic32cxbz_wbz
+  type: package
+  version: v1.8.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: Temp_Sensor_Dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: adchs
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: ADCHS_ADC
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: temp_sensor
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: temp_sensor
+          x: '848'
+          y: '372'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DEVICE_FAMILY:
+      attributes:
+        id: DEVICE_FAMILY
+      children:
+      - children:
+        - attributes:
+            id: temp_sensor
+            value: BZ6
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

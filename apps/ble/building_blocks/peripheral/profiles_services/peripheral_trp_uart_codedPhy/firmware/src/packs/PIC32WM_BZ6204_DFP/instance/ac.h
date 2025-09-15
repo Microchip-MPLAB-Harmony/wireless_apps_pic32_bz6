@@ -19,24 +19,24 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_AC_INSTANCE_
 #define _PIC32WM_BZ6_AC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for AC peripheral ========== */
-#define AC_CHIP_AC_FUSES_BIAS0_ROWID             (4)        
-#define AC_CHIP_AC_FUSES_BIAS0_SIZE              (2)        
-#define AC_CHIP_AC_FUSES_BIAS0_START             (0)        
-#define AC_CHIP_AC_FUSES_DATA_MSB                (127)      
-#define AC_CHIP_AC_FUSES_RDY_MSB                 (3)        
-#define AC_CHIP_AC_IMPLEMENTS_VDBLR              (0)        
-#define AC_CHIP_AC_NUM_CMP                       (2)        
-#define AC_CHIP_AC_PADDR_MSB                     (9)        
-#define AC_CHIP_AC_PAIRS                         (1)        
-#define AC_GCLK_ID                               (26)       
+#define AC_CHIP_AC_FUSES_BIAS0_ROWID             (4)
+#define AC_CHIP_AC_FUSES_BIAS0_SIZE              (2)
+#define AC_CHIP_AC_FUSES_BIAS0_START             (0)
+#define AC_CHIP_AC_FUSES_DATA_MSB                (127)
+#define AC_CHIP_AC_FUSES_RDY_MSB                 (3)
+#define AC_CHIP_AC_IMPLEMENTS_VDBLR              (0)
+#define AC_CHIP_AC_NUM_CMP                       (2)
+#define AC_CHIP_AC_PADDR_MSB                     (9)
+#define AC_CHIP_AC_PAIRS                         (1)
+#define AC_GCLK_ID                               (26)
 #define AC_INSTANCE_ID                           (71)       /* Instance index for AC */
-#define AC_LOAD_CALIB                            (0)        
+#define AC_LOAD_CALIB                            (0)
 #define AC_PAC_ID                                (71)       /* Index for AC registers write protection */
 
 #endif /* _PIC32WM_BZ6_AC_INSTANCE_ */

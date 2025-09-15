@@ -180,10 +180,10 @@ SYSTEM_OBJECTS sysObj;
 #define QUEUE_LENGTH_BLE        (32)
 #define QUEUE_ITEM_SIZE_BLE     (sizeof(void *))
 #define EXT_COMMON_MEMORY_SIZE  (31*1024)
-OSAL_QUEUE_HANDLE_TYPE bleRequestQueueHandle;
+OSAL_SEM_HANDLE_TYPE bleRequestSemHandle;
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -206,7 +206,7 @@ OSAL_QUEUE_HANDLE_TYPE bleRequestQueueHandle;
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -239,7 +239,7 @@ OSAL_API_LIST_TYPE     osalAPIList;
 // *****************************************************************************
 // *****************************************************************************
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -294,7 +294,7 @@ void SYS_Initialize ( void* data )
     BT_SYS_Cfg_T        btSysCfg;
     BT_SYS_Option_T     btOption;
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -339,7 +339,7 @@ void SYS_Initialize ( void* data )
     /* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -392,8 +392,8 @@ void SYS_Initialize ( void* data )
 
 
 
-    // Create BLE Stack Message QUEUE
-    OSAL_QUEUE_Create(&bleRequestQueueHandle, QUEUE_LENGTH_BLE, QUEUE_ITEM_SIZE_BLE);
+    // Create BLE Stack Message SEM
+    OSAL_SEM_Create(&bleRequestSemHandle, OSAL_SEM_TYPE_BINARY, 0, 0);
 
     // Retrieve BLE calibration data
     (void)memset(&btSysCfg, 0, sizeof(BT_SYS_Cfg_T));
@@ -413,10 +413,11 @@ void SYS_Initialize ( void* data )
     btOption.cmnMemSize = EXT_COMMON_MEMORY_SIZE;
     //Configure BLE option
     btOption.p_cmnMemAddr = OSAL_Malloc(btOption.cmnMemSize);
-    btOption.deFeatMask = 0;
+    btOption.deFeatMask = (BT_SYS_FEAT_CHC);
 
     // Initialize BLE Stack
-    BT_SYS_Init(&bleRequestQueueHandle, &osalAPIList, &btOption, &btSysCfg);
+    BT_SYS_Init(&bleRequestSemHandle, &osalAPIList, &btOption, &btSysCfg);
+
 
     /* MISRAC 2012 deviation block end */
     APP_Initialize();

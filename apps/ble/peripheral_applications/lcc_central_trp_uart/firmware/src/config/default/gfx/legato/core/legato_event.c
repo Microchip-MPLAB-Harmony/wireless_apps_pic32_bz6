@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -128,6 +128,10 @@ leResult leEvent_ProcessEvents()
             
             node = NULL;
         }
+        else
+        {
+            return LE_FAILURE;
+        }        
     }
 
     return LE_SUCCESS;

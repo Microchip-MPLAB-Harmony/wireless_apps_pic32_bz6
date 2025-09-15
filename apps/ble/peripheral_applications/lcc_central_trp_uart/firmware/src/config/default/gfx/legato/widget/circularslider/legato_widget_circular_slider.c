@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -942,7 +942,13 @@ static void handleTouchDownEvent(leCircularSliderWidget* _this,
 
     if(_pointInButton(_this, pnt) == LE_FALSE)
     {
-        if(_this->buttonTouch == LE_FALSE && _pointInActiveArc(_this, pnt) == LE_FALSE)
+        if(_this->buttonTouch == LE_TRUE)
+        {
+            _this->btnState = LE_CIRCULAR_SLIDER_STATE_UP;
+
+            return;
+        }
+        else if(_this->buttonTouch == LE_FALSE && _pointInActiveArc(_this, pnt) == LE_FALSE)
         {
             _this->btnState = LE_CIRCULAR_SLIDER_STATE_UP;
 

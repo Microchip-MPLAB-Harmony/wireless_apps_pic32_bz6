@@ -196,6 +196,8 @@ bool APP_BLE_UpdateScannedDevice(APP_BLE_ScannedDev *dev)
     return true;
 }
 
+
+
 static void APP_BleConfigBasic(void)
 {
     memset(scannedDevices, 0,  APP_BLE_MAX_SCANNED_DEVICE*sizeof(APP_BLE_ScannedDev));
@@ -217,7 +219,6 @@ static void APP_BleConfigAdvance(void)
 
     // Configure Device Name
     BLE_GAP_SetDeviceName(sizeof(devName), devName);    /* Device Name */
-
 
     // GAP Service option
     gapServiceOptions.charDeviceName.enableWriteProperty = CONFIG_BLE_GAP_SVC_DEV_NAME_WRITE;             /* Enable Device Name Write Property */
@@ -282,6 +283,7 @@ void APP_BleStackInitAdvance(void)
     BLE_GAP_ScanInit();     /* Scan */
 
     BLE_GAP_ConnCentralInit();  /* Central */
+
 
     /* GAP (BLE_GAP_Init())shall be initialized before SMP */
     BLE_SMP_Init();

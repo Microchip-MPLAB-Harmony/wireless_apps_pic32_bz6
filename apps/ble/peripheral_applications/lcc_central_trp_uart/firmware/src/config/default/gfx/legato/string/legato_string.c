@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -188,7 +188,7 @@ leResult _leString_GetLineRect(const leString* _this,
     uint32_t idx;
     uint32_t len;
     leRasterFont* fnt;
-    leFontGlyph glyph;
+    leFontGlyph glyph = {0};
     uint32_t startIdx, endIdx;
     leChar chr;
 
@@ -228,7 +228,7 @@ leResult _leString_GetCharRect(const leString* _this,
     uint32_t idx;
     uint32_t len;
     leRasterFont* fnt;
-    leFontGlyph glyph;
+    leFontGlyph glyph = {0};
     leChar chr;
 
     LE_ASSERT_THIS();
@@ -278,7 +278,7 @@ leResult _leString_GetCharIndexAtPoint(const leString* _this,
     uint32_t idx;
     uint32_t len;
     leRasterFont* fnt;
-    leFontGlyph glyph;
+    leFontGlyph glyph = {0};
     leChar chr;
     leRect rect;
 

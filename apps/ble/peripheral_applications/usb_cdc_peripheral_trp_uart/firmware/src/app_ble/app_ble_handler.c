@@ -76,7 +76,7 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
         {
             /* TODO: implement your application code.*/
             conn_hdl = p_event->eventField.evtConnect.connHandle;
-           uint8_t ConnectionStatus[] = "Connected\r\n";
+            uint8_t ConnectionStatus[] = "Connected\r\n";
             appMsg.msgId = APP_MSG_USB_CB;
             appMsg.msgLength = sizeof(ConnectionStatus) - 1; 
             
@@ -88,7 +88,7 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
         case BLE_GAP_EVT_DISCONNECTED:
         {
             /* TODO: implement your application code.*/
-             BLE_GAP_SetAdvEnable(0x01, 0x00);
+            BLE_GAP_SetAdvEnable(0x01, 0x00);
             uint8_t DisconnecStatus[] = "Disconnected\r\n";
             appMsg.msgId = APP_MSG_USB_CB;
             appMsg.msgLength = sizeof(DisconnecStatus) - 1;     

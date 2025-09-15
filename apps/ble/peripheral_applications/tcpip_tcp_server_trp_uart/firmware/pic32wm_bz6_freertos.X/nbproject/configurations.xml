@@ -50,7 +50,6 @@
                 <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/mw_aes.h</itemPath>
                 <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/byte_stream.h</itemPath>
                 <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/mw_assert.h</itemPath>
-                <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/mw_misc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -459,7 +458,6 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/ac.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/tcc.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/rtc.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/dac_ctrl.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/zigbee.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/dmac.h</itemPath>
@@ -478,10 +476,10 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/tc.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/cru.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/component/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/cmcc.h</itemPath>
-            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/silex.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc4.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc3.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc2.h</itemPath>
@@ -545,6 +543,7 @@
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/nvm.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/tc5.h</itemPath>
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/usb.h</itemPath>
+            <itemPath>../src/packs/PIC32WM_BZ6204_DFP/instance/crypto.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/PIC32WM_BZ6204_DFP/pio/pic32wm_bz6204.h</itemPath>
@@ -703,8 +702,100 @@
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="true">
+      <logicalFolder name="tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos"
+                     displayName="tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos"
+                     projectFiles="true">
+        <logicalFolder name="components" displayName="components" projectFiles="true">
+          <logicalFolder name="TCP_forwardSlash_IP STACK"
+                         displayName="TCP_forwardSlash_IP STACK"
+                         projectFiles="true">
+            <logicalFolder name="components" displayName="components" projectFiles="true">
+              <logicalFolder name="APPLICATION LAYER"
+                             displayName="APPLICATION LAYER"
+                             projectFiles="true">
+                <logicalFolder name="components" displayName="components" projectFiles="true">
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/APPLICATION LAYER/components/tcpipAnnounce.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/APPLICATION LAYER/components/tcpipDns.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/APPLICATION LAYER/components/tcpipDhcp.yml</itemPath>
+                </logicalFolder>
+                <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/APPLICATION LAYER/APPLICATION LAYER.yml</itemPath>
+              </logicalFolder>
+              <logicalFolder name="BASIC CONFIGURATION"
+                             displayName="BASIC CONFIGURATION"
+                             projectFiles="true">
+                <logicalFolder name="components" displayName="components" projectFiles="true">
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/BASIC CONFIGURATION/components/tcpipCmd.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/BASIC CONFIGURATION/components/tcpipStack.yml</itemPath>
+                </logicalFolder>
+                <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/BASIC CONFIGURATION/BASIC CONFIGURATION.yml</itemPath>
+              </logicalFolder>
+              <logicalFolder name="DATA LINK LAYER"
+                             displayName="DATA LINK LAYER"
+                             projectFiles="true">
+                <logicalFolder name="components" displayName="components" projectFiles="true">
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/DATA LINK LAYER/components/tcpipNetConfig.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/DATA LINK LAYER/components/drvExtPhyLan8720.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/DATA LINK LAYER/components/drvGmac.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/DATA LINK LAYER/components/drvMiim.yml</itemPath>
+                </logicalFolder>
+                <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/DATA LINK LAYER/DATA LINK LAYER.yml</itemPath>
+              </logicalFolder>
+              <logicalFolder name="NETWORK LAYER"
+                             displayName="NETWORK LAYER"
+                             projectFiles="true">
+                <logicalFolder name="components" displayName="components" projectFiles="true">
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/NETWORK LAYER/components/tcpipIPv4.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/NETWORK LAYER/components/tcpipArp.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/NETWORK LAYER/components/tcpipIcmp.yml</itemPath>
+                </logicalFolder>
+                <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/NETWORK LAYER/NETWORK LAYER.yml</itemPath>
+              </logicalFolder>
+              <logicalFolder name="TRANSPORT LAYER"
+                             displayName="TRANSPORT LAYER"
+                             projectFiles="true">
+                <logicalFolder name="components" displayName="components" projectFiles="true">
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/TRANSPORT LAYER/components/tcpipUdp.yml</itemPath>
+                  <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/TRANSPORT LAYER/components/tcpipTcp.yml</itemPath>
+                </logicalFolder>
+                <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/components/TRANSPORT LAYER/TRANSPORT LAYER.yml</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/TCP_forwardSlash_IP STACK/TCP_forwardSlash_IP STACK.yml</itemPath>
+          </logicalFolder>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/PROFILE_TRSP.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/BLE_STACK_LIB.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/core.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/BSP_PIC32WM_BZ6_Curiosity.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/tc0.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sys_console_0.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sys_time.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/SERVICE_TRS.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sys_command.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/tc2.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/lib_wolfcrypt.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/pdsSystem.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/nvm.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sys_debug.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/HarmonyCore.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/lib_crypto.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sercom0.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/cmsis.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/tcpipNetConfig_0.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/sys_console.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/evsys.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/FreeRTOS.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/pic32cx_bz6_devsupport.yml</itemPath>
+          <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/components/dfp.yml</itemPath>
+        </logicalFolder>
+        <itemPath>tcpip_tcp_server_trp_uart_freertos_pic32wm_bz6_freertos/mcc-config.mc4</itemPath>
+      </logicalFolder>
+      <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
+      </logicalFolder>
       <itemPath>Makefile</itemPath>
-      <itemPath>tcpip_tcp_server_trp_uart_freertos.mc3</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LibraryFiles"
+                   displayName="LibraryFiles"
+                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -746,7 +837,6 @@
               </logicalFolder>
               <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
                 <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/mw_aes.c</itemPath>
-                <itemPath>../src/config/pic32wm_bz6_freertos/ble/middleware_ble/ble_util/mw_misc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -1031,12 +1121,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.60</languageToolchainVersion>
+        <languageToolchainVersion>5.00</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.2.17"/>
-        <pack name="CMSIS" vendor="ARM" version="5.9.0"/>
+        <pack name="CMSIS" vendor="ARM" version="6.2.0"/>
+        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

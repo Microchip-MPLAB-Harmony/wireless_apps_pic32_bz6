@@ -19,13 +19,13 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_QEI_INSTANCE_
 #define _PIC32WM_BZ6_QEI_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for QEI peripheral ========== */
 #define QEI_SET_CLR_INV_PRESENT                  (1)        /* Present */
-#define QEI_UPB_ADDRL                            (0x500)    
+#define QEI_UPB_ADDRL                            (0x500)
 
 #endif /* _PIC32WM_BZ6_QEI_INSTANCE_ */

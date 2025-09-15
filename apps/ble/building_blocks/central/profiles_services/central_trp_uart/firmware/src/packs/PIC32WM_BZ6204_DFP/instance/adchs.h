@@ -19,7 +19,7 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_ADCHS_INSTANCE_
 #define _PIC32WM_BZ6_ADCHS_INSTANCE_
 
@@ -49,7 +49,7 @@
 #define ADCHS_AIN_20                             (20)       /* ADC Charge Pump */
 #define ADCHS_AIN_21                             (21)       /* VDD Core */
 #define ADCHS_AIN_22                             (22)       /* VDD */
-#define ADCHS_NUM_INTS                           (2)        
+#define ADCHS_NUM_INTS                           (2)
 #define ADCHS_SET_CLR_INV_PRESENT                (1)        /* Present */
 
 #endif /* _PIC32WM_BZ6_ADCHS_INSTANCE_ */

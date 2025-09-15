@@ -188,7 +188,7 @@ SYSTEM_OBJECTS sysObj;
 // *****************************************************************************
 // *****************************************************************************
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -364,7 +364,6 @@ const TCPIP_STACK_MODULE_CONFIG TCPIP_STACK_MODULE_CONFIG_TBL [] =
 
 // MAC modules
     {TCPIP_MODULE_MAC_PIC32C,       &tcpipETHInitData},             // TCPIP_MODULE_MAC_PIC32C
-
 };
 
 const size_t TCPIP_STACK_MODULE_CONFIG_TBL_SIZE = sizeof (TCPIP_STACK_MODULE_CONFIG_TBL) / sizeof (*TCPIP_STACK_MODULE_CONFIG_TBL);
@@ -408,7 +407,7 @@ SYS_MODULE_OBJ TCPIP_STACK_Init(void)
 #define QUEUE_LENGTH_BLE        (32)
 #define QUEUE_ITEM_SIZE_BLE     (sizeof(void *))
 #define EXT_COMMON_MEMORY_SIZE  (31*1024)
-OSAL_QUEUE_HANDLE_TYPE bleRequestQueueHandle;
+OSAL_SEM_HANDLE_TYPE bleRequestSemHandle;
 
 
 uint8_t txPrioNumToQueIndxEth [DRV_ETH_NUMBER_OF_QUEUES];
@@ -452,7 +451,7 @@ const TCPIP_MODULE_MAC_PIC32C_CONFIG tcpipETHInitData =
 
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -532,7 +531,7 @@ static const SYS_TIME_INIT sysTimeInitData =
 
 // </editor-fold>
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -631,7 +630,7 @@ void SYS_Initialize ( void* data )
     /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2012_R_2_2_DR_1 */
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -709,7 +708,7 @@ void SYS_Initialize ( void* data )
 
 
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -764,8 +763,8 @@ void SYS_Initialize ( void* data )
    SYS_ASSERT(sysObj.tcpip != SYS_MODULE_OBJ_INVALID, "TCPIP_STACK_Init Failed" );
 
 
-    // Create BLE Stack Message QUEUE
-    OSAL_QUEUE_Create(&bleRequestQueueHandle, QUEUE_LENGTH_BLE, QUEUE_ITEM_SIZE_BLE);
+    // Create BLE Stack Message SEM
+    OSAL_SEM_Create(&bleRequestSemHandle, OSAL_SEM_TYPE_BINARY, 0, 0);
 
     // Retrieve BLE calibration data
     (void)memset(&btSysCfg, 0, sizeof(BT_SYS_Cfg_T));
@@ -785,10 +784,11 @@ void SYS_Initialize ( void* data )
     btOption.cmnMemSize = EXT_COMMON_MEMORY_SIZE;
     //Configure BLE option
     btOption.p_cmnMemAddr = OSAL_Malloc(btOption.cmnMemSize);
-    btOption.deFeatMask = 0;
+    btOption.deFeatMask = (BT_SYS_FEAT_CHC);
 
     // Initialize BLE Stack
-    BT_SYS_Init(&bleRequestQueueHandle, &osalAPIList, &btOption, &btSysCfg);
+    BT_SYS_Init(&bleRequestSemHandle, &osalAPIList, &btOption, &btSysCfg);
+
     CRYPT_WCCB_Initialize();
 
     /* MISRAC 2012 deviation block end */

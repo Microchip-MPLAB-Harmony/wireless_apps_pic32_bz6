@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -174,6 +174,8 @@ static void drawEdge(leRectangleWidget* rct)
     edgeRect.width = rct->thickness;
     edgeRect.height = widgetRect.height;
     
+    leRectClip(&edgeRect, &widgetRect, &edgeRect);
+    
     leRenderer_RectFill(&edgeRect,
                         leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
@@ -182,6 +184,8 @@ static void drawEdge(leRectangleWidget* rct)
     edgeRect.x = widgetRect.x + rct->thickness;
     edgeRect.width = widgetRect.width - (rct->thickness * 2);
     edgeRect.height = rct->thickness; 
+    
+    leRectClip(&edgeRect, &widgetRect, &edgeRect);
                  
     leRenderer_RectFill(&edgeRect,
                         leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
@@ -195,12 +199,16 @@ static void drawEdge(leRectangleWidget* rct)
     leRenderer_RectFill(&edgeRect,
                         leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
                         paintState.alpha);
+                        
+    leRectClip(&edgeRect, &widgetRect, &edgeRect);                    
                  
     // bottom bar
     edgeRect.x = widgetRect.x + rct->thickness;
     edgeRect.y = widgetRect.y + widgetRect.height - rct->thickness;
     edgeRect.width = widgetRect.width - (rct->thickness * 2);
     edgeRect.height = rct->thickness; 
+                 
+    leRectClip(&edgeRect, &widgetRect, &edgeRect);						
                  
     leRenderer_RectFill(&edgeRect,
                         leScheme_GetRenderColor(rct->widget.scheme, LE_SCHM_FOREGROUND),
