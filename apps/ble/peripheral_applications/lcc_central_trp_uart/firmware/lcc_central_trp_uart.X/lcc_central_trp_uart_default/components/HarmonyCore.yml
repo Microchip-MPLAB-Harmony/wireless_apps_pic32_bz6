@@ -92,18 +92,6 @@ data:
       children:
       - children:
         - attributes:
-            id: readOnly
-          children:
-          - type: Value
-            value: 'true'
-          type: Boolean
-        type: Attributes
-      - children:
-        - attributes:
-            id: HarmonyCore
-            value: 'true'
-          type: Dynamic
-        - attributes:
             value: 'true'
           type: User
         type: Values

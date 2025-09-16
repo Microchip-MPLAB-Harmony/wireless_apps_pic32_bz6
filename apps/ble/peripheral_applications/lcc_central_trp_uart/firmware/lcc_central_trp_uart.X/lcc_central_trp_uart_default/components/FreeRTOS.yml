@@ -57,6 +57,10 @@ data:
       children:
       - children:
         - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
+        - attributes:
             value: 'true'
           type: User
         type: Values
@@ -67,6 +71,10 @@ data:
       children:
       - children:
         - attributes:
+            id: pic32cx_bz6_devsupport
+            value: Heap_4
+          type: Dynamic
+        - attributes:
             value: Heap_4
           type: User
         type: Values
@@ -76,6 +84,10 @@ data:
         id: FREERTOS_MINIMAL_STACK_SIZE
       children:
       - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: '256'
+          type: Dynamic
         - attributes:
             value: '4096'
           type: User
@@ -121,6 +133,10 @@ data:
         id: FREERTOS_USE_QUEUE_SETS
       children:
       - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: 'true'
+          type: Dynamic
         - attributes:
             value: 'true'
           type: User
