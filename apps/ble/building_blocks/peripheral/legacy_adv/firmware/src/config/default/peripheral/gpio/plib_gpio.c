@@ -61,10 +61,18 @@ void GPIO_Initialize ( void )
     /* Disable JTAG since at least one of its pins is configured for Non-JTAG function */
     CFG_REGS->CFG_CFGCON0CLR = CFG_CFGCON0_JTAGEN_Msk;
     /* PORTA Initialization */
+    GPIOA_REGS->GPIO_CNPUSET = 0xffdfU; /* Pull-Up Enable */
     /* PORTB Initialization */
+    GPIOB_REGS->GPIO_ANSELCLR = 0x8U; /* Digital Mode Enable */
+    GPIOB_REGS->GPIO_CNPUSET = 0xfcffU; /* Pull-Up Enable */
     /* PORTC Initialization */
+    GPIOC_REGS->GPIO_CNPUSET = 0xb03U; /* Pull-Up Enable */
+    GPIOC_REGS->GPIO_CNPDSET = 0x480U; /* Pull-Down Enable */
     /* PORTD Initialization */
+    GPIOD_REGS->GPIO_CNPUSET = 0xeeU; /* Pull-Up Enable */
     /* PORTE Initialization */
+    GPIOE_REGS->GPIO_CNPUSET = 0x76U; /* Pull-Up Enable */
+    GPIOE_REGS->GPIO_CNPDSET = 0x1U; /* Pull-Down Enable */
 
 
     /* PPS Input Remapping */
