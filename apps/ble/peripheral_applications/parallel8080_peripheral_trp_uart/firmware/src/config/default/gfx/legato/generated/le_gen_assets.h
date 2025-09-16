@@ -392,7 +392,7 @@ extern leRasterFont inter24;
  * Baseline:     13
  * Style:        Antialias
  * Glyph Count:  96
- * Range Count:  13
+ * Range Count:  14
  * Glyph Ranges: 0xA
                  0x20-0x7E
 ***********************************/
@@ -426,7 +426,7 @@ extern leRasterFont inter35;
  * Legato String Table
  * Encoding        ASCII
  * Language Count: 1
- * String Count:   22
+ * String Count:   24
  *****************************************************************************/
 
 // language IDs
@@ -446,15 +446,17 @@ extern leRasterFont inter35;
 #define stringID_strResume    10
 #define stringID_strSecValue    11
 #define stringID_strMinValue    12
-#define stringID_strSettings    13
-#define stringID_strRemaining    14
-#define stringID_strCoffeeReady    15
-#define stringID_strPleaseWait    16
-#define stringID_strLatte    17
-#define stringID_strStart    18
-#define stringID_strDisconnect    19
-#define stringID_strConnTo    20
-#define stringID_strLowWater    21
+#define stringID_strBTStatus    13
+#define stringID_strSettings    14
+#define stringID_strRemaining    15
+#define stringID_strCoffeeReady    16
+#define stringID_strPleaseWait    17
+#define stringID_strLatte    18
+#define stringID_strStart    19
+#define stringID_strDisconnect    20
+#define stringID_strConnected    21
+#define stringID_strIdle    22
+#define stringID_strLowWater    23
 
 extern const leStringTable stringTable;
 
@@ -473,6 +475,7 @@ extern leTableString string_strSecs;
 extern leTableString string_strResume;
 extern leTableString string_strSecValue;
 extern leTableString string_strMinValue;
+extern leTableString string_strBTStatus;
 extern leTableString string_strSettings;
 extern leTableString string_strRemaining;
 extern leTableString string_strCoffeeReady;
@@ -480,7 +483,8 @@ extern leTableString string_strPleaseWait;
 extern leTableString string_strLatte;
 extern leTableString string_strStart;
 extern leTableString string_strDisconnect;
-extern leTableString string_strConnTo;
+extern leTableString string_strConnected;
+extern leTableString string_strIdle;
 extern leTableString string_strLowWater;
 
 void initializeStrings(void);

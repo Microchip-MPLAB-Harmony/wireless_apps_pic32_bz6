@@ -8,14 +8,14 @@ leImageWidget* Settings_imgMchp;
 leLabelWidget* Settings_lblSettings;
 leLabelWidget* Settings_lblEnableAdv;
 leButtonWidget* Settings_btnEnableAdv;
-leLabelWidget* Settings_lblConnTo;
-leLabelWidget* Settings_lblConnDevName;
+leLabelWidget* Settings_lblConnDisconn;
 leImageWidget* Settings_imgCancel;
 leButtonWidget* Settings_btnCancel;
 leButtonWidget* Settings_btnDisconnect;
 leLabelWidget* Settings_lblDisconnect;
 leLabelWidget* Settings_lblThroughputTest;
 leButtonWidget* Settings_btnThroughputTest;
+leLabelWidget* Settings_lblBTStatus;
 
 static leBool initialized = LE_FALSE;
 static leBool showing = LE_FALSE;
@@ -89,21 +89,13 @@ leResult screenShow_Settings(void)
     Settings_btnEnableAdv->fn->setReleasedEventCallback(Settings_btnEnableAdv, event_Settings_btnEnableAdv_OnReleased);
     root0->fn->addChild(root0, (leWidget*)Settings_btnEnableAdv);
 
-    Settings_lblConnTo = leLabelWidget_New();
-    Settings_lblConnTo->fn->setPosition(Settings_lblConnTo, 12, 174);
-    Settings_lblConnTo->fn->setSize(Settings_lblConnTo, 113, 41);
-    Settings_lblConnTo->fn->setScheme(Settings_lblConnTo, &BaseScheme);
-    Settings_lblConnTo->fn->setBackgroundType(Settings_lblConnTo, LE_WIDGET_BACKGROUND_NONE);
-    Settings_lblConnTo->fn->setString(Settings_lblConnTo, (leString*)&string_strConnTo);
-    root0->fn->addChild(root0, (leWidget*)Settings_lblConnTo);
-
-    Settings_lblConnDevName = leLabelWidget_New();
-    Settings_lblConnDevName->fn->setPosition(Settings_lblConnDevName, 122, 174);
-    Settings_lblConnDevName->fn->setSize(Settings_lblConnDevName, 192, 41);
-    Settings_lblConnDevName->fn->setScheme(Settings_lblConnDevName, &BaseScheme);
-    Settings_lblConnDevName->fn->setBackgroundType(Settings_lblConnDevName, LE_WIDGET_BACKGROUND_NONE);
-    Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString*)&string_strConnDevName);
-    root0->fn->addChild(root0, (leWidget*)Settings_lblConnDevName);
+    Settings_lblConnDisconn = leLabelWidget_New();
+    Settings_lblConnDisconn->fn->setPosition(Settings_lblConnDisconn, 92, 174);
+    Settings_lblConnDisconn->fn->setSize(Settings_lblConnDisconn, 115, 41);
+    Settings_lblConnDisconn->fn->setScheme(Settings_lblConnDisconn, &BaseScheme);
+    Settings_lblConnDisconn->fn->setBackgroundType(Settings_lblConnDisconn, LE_WIDGET_BACKGROUND_NONE);
+    Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString*)&string_strIdle);
+    root0->fn->addChild(root0, (leWidget*)Settings_lblConnDisconn);
 
     Settings_imgCancel = leImageWidget_New();
     Settings_imgCancel->fn->setPosition(Settings_imgCancel, 24, 423);
@@ -167,6 +159,14 @@ leResult screenShow_Settings(void)
     Settings_btnThroughputTest->fn->setReleasedEventCallback(Settings_btnThroughputTest, event_Settings_btnThroughputTest_OnReleased);
     root0->fn->addChild(root0, (leWidget*)Settings_btnThroughputTest);
 
+    Settings_lblBTStatus = leLabelWidget_New();
+    Settings_lblBTStatus->fn->setPosition(Settings_lblBTStatus, 12, 174);
+    Settings_lblBTStatus->fn->setSize(Settings_lblBTStatus, 81, 41);
+    Settings_lblBTStatus->fn->setScheme(Settings_lblBTStatus, &BaseScheme);
+    Settings_lblBTStatus->fn->setBackgroundType(Settings_lblBTStatus, LE_WIDGET_BACKGROUND_NONE);
+    Settings_lblBTStatus->fn->setString(Settings_lblBTStatus, (leString*)&string_strBTStatus);
+    root0->fn->addChild(root0, (leWidget*)Settings_lblBTStatus);
+
     leAddRootWidget(root0, 0);
     leSetLayerColorMode(0, LE_COLOR_MODE_RGB_565);
 
@@ -198,14 +198,14 @@ void screenHide_Settings(void)
     Settings_lblSettings = NULL;
     Settings_lblEnableAdv = NULL;
     Settings_btnEnableAdv = NULL;
-    Settings_lblConnTo = NULL;
-    Settings_lblConnDevName = NULL;
+    Settings_lblConnDisconn = NULL;
     Settings_imgCancel = NULL;
     Settings_btnCancel = NULL;
     Settings_btnDisconnect = NULL;
     Settings_lblDisconnect = NULL;
     Settings_lblThroughputTest = NULL;
     Settings_btnThroughputTest = NULL;
+    Settings_lblBTStatus = NULL;
 
 
     showing = LE_FALSE;

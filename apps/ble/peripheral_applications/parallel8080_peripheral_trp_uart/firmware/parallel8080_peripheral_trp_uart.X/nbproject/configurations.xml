@@ -624,38 +624,38 @@
                      displayName="parallel8080_peripheral_trp_uart_default"
                      projectFiles="true">
         <logicalFolder name="components" displayName="components" projectFiles="true">
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/core.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/PROFILE_TRSP.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_hal_le.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/tc1.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/pic32cx_bz6_devsupport.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_console.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/dfp.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/cmsis.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_time.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/le_gfx_driver_external.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/evsys.yml</itemPath>
           <itemPath>parallel8080_peripheral_trp_uart_default/components/tc2.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/drv_i2c_0.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/pdsSystem.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_console_0.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_input.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/FreeRTOS.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/drv_i2c.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/nvm.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/legato_gfx_mxt_cpro.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/sercom1.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/ccl.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/BSP_PIC32WM_BZ6_Curiosity.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_legato.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/SERVICE_TRS.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_maxtouch_controller.yml</itemPath>
           <itemPath>parallel8080_peripheral_trp_uart_default/components/sercom0.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/HarmonyCore.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/ccl.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_maxtouch_controller.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/drv_i2c.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_console.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_input.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/pic32cx_bz6_devsupport.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/nvm.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/cmsis.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_console_0.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/evsys.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/pdsSystem.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/drv_i2c_0.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_hal_le.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/SERVICE_TRS.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/tc4.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/dfp.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/sys_time.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/BSP_PIC32WM_BZ6_Curiosity.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/le_gfx_driver_external.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/sercom1.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/tc1.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/legato_gfx_mxt_cpro.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/PROFILE_TRSP.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/FreeRTOS.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_legato.yml</itemPath>
           <itemPath>parallel8080_peripheral_trp_uart_default/components/BLE_STACK_LIB.yml</itemPath>
           <itemPath>parallel8080_peripheral_trp_uart_default/components/gfx_disp_mxt_cpro_320x480.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/HarmonyCore.yml</itemPath>
           <itemPath>parallel8080_peripheral_trp_uart_default/components/le_gfx_intf_parallel_portgroup.yml</itemPath>
-          <itemPath>parallel8080_peripheral_trp_uart_default/components/tc4.yml</itemPath>
+          <itemPath>parallel8080_peripheral_trp_uart_default/components/core.yml</itemPath>
         </logicalFolder>
         <itemPath>parallel8080_peripheral_trp_uart_default/mcc-config.mc4</itemPath>
       </logicalFolder>
@@ -1136,12 +1136,12 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pkob4hybrid</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>5.00</languageToolchainVersion>
+        <languageToolchainVersion>4.60</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
         <pack name="CMSIS" vendor="ARM" version="6.2.0"/>
+        <pack name="PIC32CX-BZ6_DFP" vendor="Microchip" version="1.3.38"/>
       </packs>
       <ScriptingSettings>
         <ScriptingSetting key="configuration.header.zota_manufacture_code"
@@ -1479,7 +1479,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1000000-2007ffff"/>
         <property key="programmerToGoFilePath"
-                  value="C:/Bigbuck/wireless_apps_pic32_bz6/apps/ble/peripheral_applications/parallel8080_peripheral_trp_uart/firmware/parallel8080_peripheral_trp_uart.X/debug/default/parallel8080_peripheral_trp_uart_ptg"/>
+                  value="C:/sept25/wireless_apps_pic32_bz6/apps/ble/peripheral_applications/parallel8080_peripheral_trp_uart/firmware/parallel8080_peripheral_trp_uart.X/debug/default/parallel8080_peripheral_trp_uart_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

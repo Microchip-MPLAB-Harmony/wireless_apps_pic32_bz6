@@ -18,14 +18,14 @@ extern leImageWidget* Settings_imgMchp;
 extern leLabelWidget* Settings_lblSettings;
 extern leLabelWidget* Settings_lblEnableAdv;
 extern leButtonWidget* Settings_btnEnableAdv;
-extern leLabelWidget* Settings_lblConnTo;
-extern leLabelWidget* Settings_lblConnDevName;
+extern leLabelWidget* Settings_lblConnDisconn;
 extern leImageWidget* Settings_imgCancel;
 extern leButtonWidget* Settings_btnCancel;
 extern leButtonWidget* Settings_btnDisconnect;
 extern leLabelWidget* Settings_lblDisconnect;
 extern leLabelWidget* Settings_lblThroughputTest;
 extern leButtonWidget* Settings_btnThroughputTest;
+extern leLabelWidget* Settings_lblBTStatus;
 
 // event handlers
 // !!THESE MUST BE IMPLEMENTED IN THE APPLICATION CODE!!

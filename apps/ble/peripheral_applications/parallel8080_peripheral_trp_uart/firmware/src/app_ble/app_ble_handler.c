@@ -73,19 +73,17 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
         case BLE_GAP_EVT_CONNECTED:
         {
             /* TODO: implement your application code.*/
+            connected_flg = 1;
             SERCOM0_USART_Write((uint8_t *)"Connected\r\n",11);
             conn_hdl = p_event->eventField.evtConnect.connHandle;
-
-            // get connected device name
-            GATTC_Read(conn_hdl, 0x0003, 0);
         }
         break;
 
         case BLE_GAP_EVT_DISCONNECTED:
         {
             /* TODO: implement your application code.*/
-            SERCOM0_USART_Write((uint8_t *)"Disconnected\r\n",14);
             connected_flg = 0;
+            SERCOM0_USART_Write((uint8_t *)"Disconnected\r\n",14);
         }
         break;
 
@@ -327,19 +325,6 @@ void APP_GattEvtHandler(GATT_Event_T *p_event)
         case GATTC_EVT_READ_RESP:
         {
             /* TODO: implement your application code.*/
-            if (p_event->eventField.onReadResp.charHandle == 0x0003) { 
-                
-                //print connected device name to console
-                SERCOM0_USART_Write((uint8_t *)"Device Name: ", 13);
-                SERCOM0_USART_Write(p_event->eventField.onReadResp.readValue, p_event->eventField.onReadResp.attrDataLength);
-                SERCOM0_USART_Write((uint8_t *)"\r\n", 2);
-                
-                // set global buffer to device name. legato task will handle the GUI label update
-                memset(devNameBuff, 0, sizeof(devNameBuff));
-                snprintf(devNameBuff,  p_event->eventField.onReadResp.attrDataLength+1, "%s", p_event->eventField.onReadResp.readValue);
-                
-                connected_flg = 1;
-            }
         }
         break;
 

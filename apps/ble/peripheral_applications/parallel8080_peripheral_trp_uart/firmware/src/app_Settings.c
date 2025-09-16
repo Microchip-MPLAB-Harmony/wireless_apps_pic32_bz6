@@ -16,8 +16,6 @@
 #include "app_ble/app_ble_handler.h"
 #include "app_ble/app_trsps_handler.h"
 
-static leDynamicString * devName;
-char devNameBuff[32];
 bool adv_flg = 1;
 uint16_t conn_hdl;
 static bool name_set = 0;
@@ -50,8 +48,7 @@ void event_Settings_btnDisconnect_OnPressed(leButtonWidget* btn)
 {
     if (connected_flg && name_set) // peripheral disconnect
     {
-        Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString *)&string_strConnDevName);
-        leString_Delete((leString *) devName);
+        Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString *)&string_strIdle);
         Settings_btnEnableAdv->fn->setEnabled(Settings_btnEnableAdv, LE_TRUE);
         name_set = 0;
         connected_flg = 0;
@@ -89,13 +86,12 @@ void Settings_OnShow(void)
 
     if(connected_flg && name_set) // still connected after cycling back to settings screen
     {
-        Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString *)devName);
+        Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString *)&string_strConnected);
         Settings_btnEnableAdv->fn->setEnabled(Settings_btnEnableAdv, LE_FALSE);
     }
     if(!connected_flg && name_set) // disconnected off settings screen
     {
-        Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString *)&string_strConnDevName);
-        leString_Delete((leString *) devName);
+        Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString *)&string_strIdle);
         Settings_btnEnableAdv->fn->setEnabled(Settings_btnEnableAdv, LE_TRUE);
         name_set = 0;
     }
@@ -126,18 +122,14 @@ void Settings_OnUpdate(void)
    
     if(connected_flg && !name_set) // connected on settings screen
     {
-        devName = leDynamicString_New();
-        devName->fn->setFont(devName, (leFont *) &inter16);
-        devName->fn->setFromCStr(devName, devNameBuff); 
-        Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString *)devName);
+        Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString *)&string_strConnected);
         Settings_btnEnableAdv->fn->setEnabled(Settings_btnEnableAdv, LE_FALSE);
         name_set = 1;
     }
     
     if(!connected_flg && name_set) // central disconnected on settings screen
     {
-        Settings_lblConnDevName->fn->setString(Settings_lblConnDevName, (leString *)&string_strConnDevName);
-        leString_Delete((leString *) devName);
+        Settings_lblConnDisconn->fn->setString(Settings_lblConnDisconn, (leString *)&string_strIdle);
         Settings_btnEnableAdv->fn->setEnabled(Settings_btnEnableAdv, LE_TRUE);
         name_set = 0;
     }
