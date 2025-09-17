@@ -8,6 +8,10 @@ dependency:
   name: BLE_STACK_LIB
   type: module
   version: ''
+- dependencyPackage: ''
+  name: wireless_ble
+  type: package
+  version: v1.5.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -86,8 +90,8 @@ data:
       - children:
         - attributes:
             id: BLE_STACK_LIB
-            value: 0x02, 0x01, 0x05, 0x0C, 0x09, 0x70, 0x69, 0x63, 0x33, 0x32, 0x63,
-              0x78, 0x2D, 0x62, 0x7A, 0x36, 0x05, 0x16, 0xDA, 0xFE, 0xFF, 0x03
+            value: 0x02, 0x01, 0x06, 0x0C, 0x09, 0x70, 0x69, 0x63, 0x33, 0x32, 0x63,
+              0x78, 0x2D, 0x62, 0x7A, 0x36, 0x05, 0x16, 0xDA, 0xFE, 0xFF, 0x01
           type: Dynamic
         type: Values
       type: String
@@ -148,7 +152,7 @@ data:
         type: Attributes
       - children:
         - attributes:
-            value: FF03
+            value: FF01
           type: User
         type: Values
       type: String
@@ -469,8 +473,8 @@ data:
       - children:
         - attributes:
             id: BLE_STACK_LIB
-            value: 0x0B, 0x09, 0x70, 0x69, 0x63, 0x33, 0x32, 0x63, 0x78, 0x2D, 0x62,
-              0x7A
+            value: 0x0C, 0x09, 0x70, 0x69, 0x63, 0x33, 0x32, 0x63, 0x78, 0x2D, 0x62,
+              0x7A, 0x36
           type: Dynamic
         type: Values
       type: String
@@ -492,7 +496,7 @@ data:
       - children:
         - attributes:
             id: BLE_STACK_LIB
-            value: '12'
+            value: '13'
           type: Dynamic
         type: Values
       type: Integer
@@ -503,7 +507,7 @@ data:
       - children:
         - attributes:
             id: BLE_STACK_LIB
-            value: '12'
+            value: '13'
           type: Dynamic
         type: Values
       type: Integer
@@ -530,4 +534,24 @@ data:
           type: Dynamic
         type: Values
       type: String
+    GAP_SCAN_RSP_DATA_LOCAL_NAME:
+      attributes:
+        id: GAP_SCAN_RSP_DATA_LOCAL_NAME
+      children:
+      - children:
+        - attributes:
+            value: pic32cx-bz6
+          type: User
+        type: Values
+      type: String
+    GAP_ADV_DATA_FLAG:
+      attributes:
+        id: GAP_ADV_DATA_FLAG
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
   userData: {}

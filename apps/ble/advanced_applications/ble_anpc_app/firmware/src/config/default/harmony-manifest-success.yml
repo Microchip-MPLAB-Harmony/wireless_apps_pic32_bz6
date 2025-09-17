@@ -4,14 +4,14 @@
 
 
 project: ble_anpc_app
-creation_date: 2025-09-05T15:51:25.087+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2025-09-16T10:28:21.530+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 11
 mcc_mode: IDE            # [IDE|Standalone|Headless]
 mcc_version: v5.6.2
 mcc_core_version: v5.8.2
 mplabx_version: v6.25        # if MPLAB X plugin only
 harmony_version: v5.6.2
-compiler: XC32 5.00
+compiler: XC32 4.60
 
 modules:
     - {name: "wireless_pic32cxbz_wbz", version: "v1.6.0"}

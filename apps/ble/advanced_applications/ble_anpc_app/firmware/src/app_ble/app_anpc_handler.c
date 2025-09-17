@@ -208,7 +208,7 @@ void APP_AnpcEvtHandler(BLE_ANPC_Event_T *p_event)
                 "  categoryId: %02x\r\n"
                 "  numOfNewAlert: %02x\r\n"
                 "  receivedLength: %04x\r\n"
-                "  txtStr: %s\n",
+                "  txtStr: %s\r\n",
                 p_event->eventField.evtNewAlertInd.connHandle,
                 p_event->eventField.evtNewAlertInd.categoryId,
                 p_event->eventField.evtNewAlertInd.numOfNewAlert,

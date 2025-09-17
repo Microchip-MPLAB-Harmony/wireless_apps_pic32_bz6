@@ -8,6 +8,10 @@ dependency:
   name: PROFILE_TRSP
   type: module
   version: ''
+- dependencyPackage: ''
+  name: wireless_ble
+  type: package
+  version: v1.5.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments:

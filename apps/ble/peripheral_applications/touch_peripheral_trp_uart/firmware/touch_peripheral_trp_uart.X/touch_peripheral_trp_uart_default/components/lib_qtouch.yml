@@ -104,7 +104,7 @@ data:
       children:
       - children:
         - attributes:
-            value: '20'
+            value: '40'
           type: User
         type: Values
       type: Integer
@@ -572,4 +572,34 @@ data:
           type: User
         type: Values
       type: Boolean
+    DEF_SENSOR_DET_THRESHOLD1:
+      attributes:
+        id: DEF_SENSOR_DET_THRESHOLD1
+      children:
+      - children:
+        - attributes:
+            value: '40'
+          type: User
+        type: Values
+      type: Integer
+    DEF_SENSOR_DET_THRESHOLD2:
+      attributes:
+        id: DEF_SENSOR_DET_THRESHOLD2
+      children:
+      - children:
+        - attributes:
+            value: '40'
+          type: User
+        type: Values
+      type: Integer
+    DEF_SENSOR_DET_THRESHOLD3:
+      attributes:
+        id: DEF_SENSOR_DET_THRESHOLD3
+      children:
+      - children:
+        - attributes:
+            value: '40'
+          type: User
+        type: Values
+      type: Integer
   userData: {}

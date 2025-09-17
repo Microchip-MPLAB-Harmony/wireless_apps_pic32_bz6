@@ -150,19 +150,19 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define KEY_1_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    40u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
 }
 
 
 #define KEY_2_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    40u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
 }
 
 
 #define KEY_3_PARAMS                                                                                            \
 {                                                                                                              \
-    20u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
+    40u, (uint8_t)HYST_25, (uint8_t)AKS_GROUP_1                       \
 }
 
 
@@ -239,7 +239,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define SCROLLER_0_PARAMS                                                                                       \
 {                                                                                                              \
     (uint8_t)SCROLLER_TYPE_SLIDER, 1u, 3u,                            \
-		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_1_PERCENT),(uint8_t)8,20\
+		SCROLLER_RESOL_DEADBAND((uint8_t)SCR_RESOL_8_BIT, (uint8_t)SCR_DB_1_PERCENT),(uint8_t)8,40\
 }
 
 

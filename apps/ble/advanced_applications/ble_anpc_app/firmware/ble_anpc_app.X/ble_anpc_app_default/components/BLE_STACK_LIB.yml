@@ -154,20 +154,6 @@ data:
       children:
       - children:
         - attributes:
-            id: max
-          children:
-          - type: Value
-            value: '8'
-          type: Integer
-        - attributes:
-            id: min
-          children:
-          - type: Value
-            value: '-21'
-          type: Integer
-        type: Attributes
-      - children:
-        - attributes:
             id: BLE_STACK_LIB
             value: '8'
           type: Dynamic
@@ -177,20 +163,6 @@ data:
       attributes:
         id: GAP_CONN_TX_PWR
       children:
-      - children:
-        - attributes:
-            id: max
-          children:
-          - type: Value
-            value: '14'
-          type: Integer
-        - attributes:
-            id: min
-          children:
-          - type: Value
-            value: '-21'
-          type: Integer
-        type: Attributes
       - children:
         - attributes:
             id: BLE_STACK_LIB
@@ -271,20 +243,6 @@ data:
       children:
       - children:
         - attributes:
-            id: max
-          children:
-          - type: Value
-            value: '8'
-          type: Integer
-        - attributes:
-            id: min
-          children:
-          - type: Value
-            value: '-21'
-          type: Integer
-        type: Attributes
-      - children:
-        - attributes:
             id: BLE_STACK_LIB
             value: '8'
           type: Dynamic
@@ -294,20 +252,6 @@ data:
       attributes:
         id: GAP_EXT_ADV_TX_POWER_2
       children:
-      - children:
-        - attributes:
-            id: max
-          children:
-          - type: Value
-            value: '8'
-          type: Integer
-        - attributes:
-            id: min
-          children:
-          - type: Value
-            value: '-21'
-          type: Integer
-        type: Attributes
       - children:
         - attributes:
             id: BLE_STACK_LIB

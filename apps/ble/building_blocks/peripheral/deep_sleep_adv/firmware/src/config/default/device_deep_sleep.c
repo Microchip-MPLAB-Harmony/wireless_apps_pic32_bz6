@@ -426,7 +426,7 @@ static void Device_GpioConfig(void)
 
     /*  PORT D  */
     GPIOD_REGS->GPIO_TRISSET = 0xFFFF;  //Set all pins as input
-    GPIOD_REGS->GPIO_CNPUSET = 0xFFEF;  //Except PD4 (Temp sensor), the others are pulled up
+    GPIOD_REGS->GPIO_CNPUSET = 0xFFEE;  //Except PD4 (Temp sensor), PD0, the others are pulled up
 
     /*  PORT E  */
     GPIOE_REGS->GPIO_TRISSET = 0xFFFF;  //Set all pins as input
@@ -466,8 +466,7 @@ bool DEVICE_ClearDeepSleepReg(void)
         //Note: Before cleaning deep sleep related register,
         //the application might consider to restore the GPIO settings before entering deep sleep
         //to avoid reseting the I/O status to default.
-        Device_GpioConfig();
-        
+
         //Clear RCON reg
         RCON_REGS->RCON_RCONCLR = 0xFFFFFFFFU;
 

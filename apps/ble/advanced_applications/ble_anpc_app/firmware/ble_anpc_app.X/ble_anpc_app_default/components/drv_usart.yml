@@ -30,10 +30,6 @@ data:
       children:
       - children:
         - attributes:
-            id: drv_usart
-            value: Synchronous
-          type: Dynamic
-        - attributes:
             value: Asynchronous
           type: User
         type: Values

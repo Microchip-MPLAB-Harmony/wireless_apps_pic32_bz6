@@ -8,6 +8,10 @@ dependency:
   name: pic32cx_bz6_devsupport
   type: module
   version: ''
+- dependencyPackage: ''
+  name: wireless_pic32cxbz_wbz
+  type: package
+  version: v1.6.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}

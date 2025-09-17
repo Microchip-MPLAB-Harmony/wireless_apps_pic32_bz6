@@ -8,6 +8,10 @@ dependency:
   name: evsys
   type: module
   version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.22.7
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
