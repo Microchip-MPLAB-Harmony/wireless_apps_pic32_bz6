@@ -1,0 +1,93 @@
+configVersion: 1.0.0
+componentName: pdsSystem
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: pdsSystem
+  type: module
+  version: ''
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: NVM_Dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: nvm
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: NVM_MEMORY
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: pdsSystem
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: pdsSystem
+          x: '330'
+          y: '60'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    DEEP_SLEEP_ENABLED:
+      attributes:
+        id: DEEP_SLEEP_ENABLED
+      children:
+      - children:
+        - attributes:
+            id: pdsSystem
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    RETENTION_RAM:
+      attributes:
+        id: RETENTION_RAM
+      children:
+      - children:
+        - attributes:
+            id: pdsSystem
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    RETENTION_RAM_SIZE:
+      attributes:
+        id: RETENTION_RAM_SIZE
+      children:
+      - children:
+        - attributes:
+            id: pdsSystem
+            value: '1024'
+          type: Dynamic
+        type: Values
+      type: Integer
+    THREADSTACK_LOADED:
+      attributes:
+        id: THREADSTACK_LOADED
+      children:
+      - children:
+        - attributes:
+            id: pdsSystem
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
