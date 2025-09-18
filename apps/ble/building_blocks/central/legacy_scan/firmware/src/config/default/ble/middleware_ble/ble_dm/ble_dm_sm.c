@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -272,7 +272,7 @@ static void ble_dm_SecurityManager(BLE_SMP_Event_T *p_event)
             {
                 return;
             }
-            
+            memset(p_devInfo,0,sizeof(BLE_DM_PairedDevInfo_T));
             p_key = &p_event->eventField.evtNotifyKeys.keys;
 
             p_devInfo->remoteAddr = p_key->remote.idInfo.addr;

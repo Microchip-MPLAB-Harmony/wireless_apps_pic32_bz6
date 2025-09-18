@@ -19,14 +19,14 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_DSCON_INSTANCE_
 #define _PIC32WM_BZ6_DSCON_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DSCON peripheral ========== */
-#define DSCON_DS_NUM_XSEMA_REGS                  (1)        
-#define DSCON_KEYRAMEN_BIT_PRESENT               (0)        
-#define DSCON_SYS_DATA_WIDTH                     (32)       
+#define DSCON_DS_NUM_XSEMA_REGS                  (1)
+#define DSCON_KEYRAMEN_BIT_PRESENT               (0)
+#define DSCON_SYS_DATA_WIDTH                     (32)
 
 #endif /* _PIC32WM_BZ6_DSCON_INSTANCE_ */

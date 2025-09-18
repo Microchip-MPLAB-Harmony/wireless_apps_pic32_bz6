@@ -19,8 +19,8 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
-#ifndef _PIC32WM_BZ6_SILEX_INSTANCE_
-#define _PIC32WM_BZ6_SILEX_INSTANCE_
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
+#ifndef _PIC32WM_BZ6_CRYPTO_INSTANCE_
+#define _PIC32WM_BZ6_CRYPTO_INSTANCE_
 
-#endif /* _PIC32WM_BZ6_SILEX_INSTANCE_ */
+#endif /* _PIC32WM_BZ6_CRYPTO_INSTANCE_ */

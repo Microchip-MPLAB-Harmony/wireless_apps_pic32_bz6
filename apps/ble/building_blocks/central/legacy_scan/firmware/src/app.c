@@ -132,21 +132,6 @@ void APP_Initialize ( void )
      */
 }
 
-
-uint16_t conn_hdl;// connection handle info captured @BLE_GAP_EVT_CONNECTED event
-uint8_t uart_data;
-void uart_cb(SERCOM_USART_EVENT event, uintptr_t context)
-{
-  APP_Msg_T   appMsg;   
-  if( event == SERCOM_USART_EVENT_READ_THRESHOLD_REACHED )
-  {
-    SERCOM0_USART_Read(&uart_data, 1);
-
-    appMsg.msgId = APP_MSG_UART_CB;
-    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);   
-  }
- }
-
 /******************************************************************************
   Function:
     void APP_Tasks ( void )
@@ -169,11 +154,6 @@ void APP_Tasks ( void )
         {
             bool appInitialized = true;
             //appData.appQueue = xQueueCreate( 10, sizeof(APP_Msg_T) );
-
-//            SERCOM0_USART_ReadNotificationEnable(true, true);
-//            SERCOM0_USART_ReadThresholdSet(1);
-//            SERCOM0_USART_ReadCallbackRegister(uart_cb, (uintptr_t)NULL);
-			
 			
             APP_BleStackInit();
 

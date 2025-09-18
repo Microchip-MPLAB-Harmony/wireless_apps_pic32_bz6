@@ -19,18 +19,18 @@
  *
  */
 
-/* file generated from device description file (ATDF) version 2025-01-29T18:23:31Z */
+/* file generated from device description file (ATDF) version 2025-07-28T21:01:48Z */
 #ifndef _PIC32WM_BZ6_DMAC_INSTANCE_
 #define _PIC32WM_BZ6_DMAC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for DMAC peripheral ========== */
-#define DMAC_DMA_CH_NUM                          (16)       
-#define DMAC_DMA_EVIN_NUM                        (8)        
-#define DMAC_DMA_EVOUT_NUM                       (4)        
-#define DMAC_DMA_FIFO_SIZE                       (16)       
+#define DMAC_DMA_CH_NUM                          (16)
+#define DMAC_DMA_EVIN_NUM                        (8)
+#define DMAC_DMA_EVOUT_NUM                       (4)
+#define DMAC_DMA_FIFO_SIZE                       (16)
 #define DMAC_INSTANCE_ID                         (34)       /* Instance index for DMAC */
 #define DMAC_PAC_ID                              (34)       /* Index for DMAC registers write protection */
-#define DMAC_TRIG_NUM                            (67)       
+#define DMAC_TRIG_NUM                            (67)
 
 #endif /* _PIC32WM_BZ6_DMAC_INSTANCE_ */
