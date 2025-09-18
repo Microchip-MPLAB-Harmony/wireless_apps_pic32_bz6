@@ -131,7 +131,7 @@ void app_idle_task( void )
 
     if (PDS_Items_Pending || RF_Cal_Needed)
     {
-        if (1) // TODO: Modify to evaluate to true only if application is idle
+        if (MAC_ReadyToSleep()) 
         {
             if (PDS_Items_Pending)
             {
@@ -360,6 +360,11 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 
 
         /* Enter system sleep mode */
+        (void)ulCompleteTickPeriods;
+        (void)xModifiableIdleTime;
+        (void)ulRtcCntBeforeSleep;
+        (void)ulRtcCntAfterSleep;
+        (void)ulRtcCntPassed;
     }
 }
 
