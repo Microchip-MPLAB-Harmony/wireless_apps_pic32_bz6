@@ -186,7 +186,7 @@ void APP_Tasks ( void )
             APP_BleStackInit();
             
             SERCOM0_USART_Write((uint8_t *)" ----------------------------------------- \r\n", 45);
-            SERCOM0_USART_Write((uint8_t *)"   QEI and Transparent UART Demo   \r\n", 45);
+            SERCOM0_USART_Write((uint8_t *)"   QEI and Transparent UART Demo   \r\n", 37);
             SERCOM0_USART_Write((uint8_t *)" ----------------------------------------- \r\n", 45);
             
             // Start Advertisement
