@@ -584,7 +584,7 @@ void APP_Tasks ( void )
             GPIO_RB10_Set();
             nBytes = sprintf((char*)txBufferSercom, " ------------------------------- \r\n");
             SERCOM0_USART_Write((uint8_t*)txBufferSercom, nBytes);
-            nBytes = sprintf((char*)txBufferSercom, "   BigBuck CAN and CAN-FD Demo   \r\n");
+            nBytes = sprintf((char*)txBufferSercom, "   CAN and CAN-FD Demo   \r\n");
             SERCOM0_USART_Write((uint8_t*)txBufferSercom, nBytes);
             nBytes = sprintf((char*)txBufferSercom, " ------------------------------- \r\n");
             SERCOM0_USART_Write((uint8_t*)txBufferSercom, nBytes);
