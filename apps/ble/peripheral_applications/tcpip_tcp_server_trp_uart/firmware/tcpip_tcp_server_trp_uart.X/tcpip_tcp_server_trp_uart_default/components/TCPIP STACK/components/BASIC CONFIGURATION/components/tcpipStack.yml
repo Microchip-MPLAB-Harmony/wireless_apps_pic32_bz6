@@ -1,0 +1,219 @@
+configVersion: 1.0.0
+componentName: tcpipStack
+coreVersion: 5.8.2
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: tcpipStack
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: net
+  type: package
+  version: v3.14.2
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: BASIC CONFIGURATION
+    children:
+    - children:
+      - attributes:
+          id: tcpipStack
+          x: '21'
+          y: '20'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    TCPIP_RTOS_TASK_PRIORITY:
+      attributes:
+        id: TCPIP_RTOS_TASK_PRIORITY
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
+    TCPIP_STACK_CALLOC_FUNC:
+      attributes:
+        id: TCPIP_STACK_CALLOC_FUNC
+      children:
+      - children:
+        - attributes:
+            value: pvPortCalloc
+          type: User
+        type: Values
+      type: String
+    TCPIP_STACK_DRAM_SIZE:
+      attributes:
+        id: TCPIP_STACK_DRAM_SIZE
+      children:
+      - children:
+        - attributes:
+            value: '57344'
+          type: User
+        type: Values
+      type: Integer
+    TCPIP_STACK_FREE_FUNC:
+      attributes:
+        id: TCPIP_STACK_FREE_FUNC
+      children:
+      - children:
+        - attributes:
+            value: OSAL_Free
+          type: User
+        type: Values
+      type: String
+    TCPIP_STACK_HEAP_SIZE_RECOMMEND:
+      attributes:
+        id: TCPIP_STACK_HEAP_SIZE_RECOMMEND
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: '78'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TCPIP_STACK_HEAP_USAGE_CONFIG:
+      attributes:
+        id: TCPIP_STACK_HEAP_USAGE_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: TCPIP_STACK_HEAP_USE_GENERIC
+          type: User
+        type: Values
+      type: Combo
+    TCPIP_STACK_HEAP_USE_FLAGS:
+      attributes:
+        id: TCPIP_STACK_HEAP_USE_FLAGS
+      children:
+      - children:
+        - attributes:
+            value: TCPIP_STACK_HEAP_FLAG_NONE
+          type: User
+        type: Values
+      type: Combo
+    TCPIP_STACK_INTMAC_INTERFACE_NUM:
+      attributes:
+        id: TCPIP_STACK_INTMAC_INTERFACE_NUM
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TCPIP_STACK_INT_MAC_IDX0:
+      attributes:
+        id: TCPIP_STACK_INT_MAC_IDX0
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TCPIP_STACK_MAC_CLOCK:
+      attributes:
+        id: TCPIP_STACK_MAC_CLOCK
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: '128000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TCPIP_STACK_MALLOC_FUNC:
+      attributes:
+        id: TCPIP_STACK_MALLOC_FUNC
+      children:
+      - children:
+        - attributes:
+            value: OSAL_Malloc
+          type: User
+        type: Values
+      type: String
+    TCPIP_STACK_MII_MODE_IDX0:
+      attributes:
+        id: TCPIP_STACK_MII_MODE_IDX0
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: RMII
+          type: Dynamic
+        type: Values
+      type: String
+    TCPIP_STACK_NET_INTERFACE_NAME_IDX0:
+      attributes:
+        id: TCPIP_STACK_NET_INTERFACE_NAME_IDX0
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: ETH
+          type: Dynamic
+        type: Values
+      type: String
+    TCPIP_STACK_NET_INTERFACE_NUM:
+      attributes:
+        id: TCPIP_STACK_NET_INTERFACE_NUM
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    TCPIP_STACK_RTOS_USE_DELAY:
+      attributes:
+        id: TCPIP_STACK_RTOS_USE_DELAY
+      children:
+      - children:
+        - attributes:
+            value: 'true'
+          type: User
+        type: Values
+      type: Boolean
+    TCPIP_STACK_SYS_RANDOM_H2_ADAPTER:
+      attributes:
+        id: TCPIP_STACK_SYS_RANDOM_H2_ADAPTER
+      children:
+      - children:
+        - attributes:
+            id: tcpipStack
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    TCPIP_STACK_TICK_RATE:
+      attributes:
+        id: TCPIP_STACK_TICK_RATE
+      children:
+      - children:
+        - attributes:
+            value: '5'
+          type: User
+        type: Values
+      type: Integer
+    TCPIP_STACK_USE_HEAP_CONFIG:
+      attributes:
+        id: TCPIP_STACK_USE_HEAP_CONFIG
+      children:
+      - children:
+        - attributes:
+            value: TCPIP_STACK_HEAP_TYPE_EXTERNAL_HEAP
+          type: User
+        type: Values
+      type: Combo
+  userData: {}

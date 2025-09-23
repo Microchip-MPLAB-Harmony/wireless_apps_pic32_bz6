@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -67,9 +67,6 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define GAP_DEV_NAME_VALUE          "Microchip"
-
-
 
 // *****************************************************************************
 // *****************************************************************************
@@ -90,8 +87,6 @@ BLE_DD_Config_T         g_ddConfig;
 // Section: Functions
 // *****************************************************************************
 // *****************************************************************************
-
-
 
 static void APP_BleStackCb(STACK_Event_T *p_stack)
 {
@@ -176,7 +171,7 @@ void APP_BleStackEvtHandler(STACK_Event_T *p_stackEvt)
     /* Transparent Profile */
     BLE_TRSPS_BleEventHandler(p_stackEvt);
 
-    
+
 
 
 
@@ -235,10 +230,9 @@ static void APP_BleConfigAdvance(void)
     BLE_DM_Config_T                 dmConfig;
     BLE_GAP_ServiceOption_T         gapServiceOptions;
 
-    
+
     // Configure Device Name
     BLE_GAP_SetDeviceName(sizeof(devName), devName);    /* Device Name */
-
 
     // GAP Service option
     gapServiceOptions.charDeviceName.enableWriteProperty = CONFIG_BLE_GAP_SVC_DEV_NAME_WRITE;             /* Enable Device Name Write Property */
@@ -291,6 +285,7 @@ void APP_BleStackInitAdvance(void)
     uint16_t gattcInitParam=GATTC_CONFIG_NONE;
 
     STACK_EventRegister(APP_BleStackCb);
+
 
 
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -59,6 +59,7 @@
 extern uint16_t conn_hdl;
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Variables
@@ -79,7 +80,8 @@ void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
         {
             /* TODO: implement your application code.*/
             SERCOM0_USART_Write((uint8_t *)"Connected\r\n",11);
-            conn_hdl = p_event->eventField.evtConnect.connHandle;        }
+            conn_hdl = p_event->eventField.evtConnect.connHandle;        
+        }
         break;
 
         case BLE_GAP_EVT_DISCONNECTED:

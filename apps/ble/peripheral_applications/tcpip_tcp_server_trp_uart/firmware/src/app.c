@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -53,17 +53,33 @@
 // *****************************************************************************
 #include <string.h>
 #include "app.h"
-#include "app_commands.h"
 #include "definitions.h"
 #include "app_ble.h"
 #include "ble_trsps/ble_trsps.h"
-#define SERVER_PORT 9760
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
 // *****************************************************************************
 // *****************************************************************************
+
+#define SERVER_PORT 9760
+#define BLE_BUFFER_SIZE 4096
+#define BLE_TIMER_MS 10
+#define FIN_TIMER_MS 100
+
+uint16_t conn_hdl;// connection handle info captured @BLE_GAP_EVT_CONNECTED event
+
+static bool bleBufferFlg = 0;
+uint8_t bleToTcpBuffer[BLE_BUFFER_SIZE];
+uint16_t bleToTcpWrite = 0;
+uint16_t bleToTcpRead = 0;
+
+static bool resendPending = 0;
+uint8_t resendBuffer[(BLE_ATT_MAX_MTU_LEN - ATT_HANDLE_VALUE_HEADER_SIZE) + 1];
+uint32_t resendLen;
+
+static TCPIP_TCP_SIGNAL_HANDLE tcpSignalHandle = NULL;
 
 // *****************************************************************************
 /* Application Data
@@ -81,7 +97,7 @@
 */
 
 APP_DATA appData;
-volatile bool delayElapsed = false;
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Functions
@@ -91,7 +107,180 @@ volatile bool delayElapsed = false;
 /* TODO:  Add any necessary callback functions.
 */
 
+void processConn()
+{
+    SYS_CONSOLE_MESSAGE("Received a connection\r\n");
+}
 
+void processFin()
+{
+    SYS_CONSOLE_MESSAGE("Connection was closed\r\n");
+    TCPIP_TCP_SignalHandlerDeregister(appData.serverSocket, tcpSignalHandle);
+    tcpSignalHandle = NULL;
+    TCPIP_TCP_Close(appData.serverSocket);
+    appData.serverSocket = INVALID_SOCKET;
+    appData.t_state = APP_TCPIP_OPENING_SERVER;
+    APP_tcpip_init(false);
+}
+
+void processTxSpace()
+{
+    int16_t wMaxPut = 0;
+    wMaxPut = TCPIP_TCP_PutIsReady(appData.serverSocket);
+    
+    uint16_t remaining = bleToTcpWrite - bleToTcpRead;
+    uint16_t toSend = (remaining < wMaxPut) ? remaining : wMaxPut; // TCP send length constrained by wMaxPut
+    if (toSend > 0) // send as much as possible
+    {
+        uint16_t put_result = TCPIP_TCP_ArrayPut(appData.serverSocket, bleToTcpBuffer + bleToTcpRead, toSend);
+        bleToTcpRead += put_result;
+    }
+
+    if (bleToTcpRead >= bleToTcpWrite) // all data in buffer has been sent
+    {
+        bleBufferFlg = 0;
+        bleToTcpRead = 0;
+        SYS_CONSOLE_PRINT("     max in buff: %d\r\n", bleToTcpWrite);
+        bleToTcpWrite = 0;
+    }
+}
+
+void resendTimerCallback()
+{
+    APP_Msg_T   appMsg; 
+    appMsg.msgId = APP_MSG_TCPIP_RESEND;
+    memcpy(appMsg.msgData, &resendBuffer, resendLen);
+    appMsg.data_len = resendLen;
+    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
+}
+
+void processRxData()
+{
+    if (resendPending)
+    {
+        return;
+    }
+    int i;
+    int16_t wMaxGet, wCurrentChunk;
+    uint16_t w2;
+    uint8_t AppBuffer[(BLE_ATT_MAX_MTU_LEN - ATT_HANDLE_VALUE_HEADER_SIZE) + 1]; // only buffer max size BLE packets
+    wMaxGet = TCPIP_TCP_GetIsReady(appData.serverSocket);	// Get TCP RX FIFO byte count
+    
+    if (wMaxGet <= 0)
+        return;
+    
+    if(wMaxGet <= (BLE_ATT_MAX_MTU_LEN - ATT_HANDLE_VALUE_HEADER_SIZE))
+    {
+        // Transfer the data out of the TCP RX FIFO and into our local processing buffer.
+        TCPIP_TCP_ArrayGet(appData.serverSocket, AppBuffer, wMaxGet);            
+        // Perform the "ToUpper" operation on each data byte
+        for(w2 = 0; w2 < wMaxGet; w2++)
+        {
+            i = AppBuffer[w2];
+            if(i == '\x1b')   // escape
+            {
+                processFin();
+                return;
+            }
+        }
+        AppBuffer[w2] = 0;  // end the console string properly
+        
+        SERCOM0_USART_Write(AppBuffer, wMaxGet);
+        
+        uint16_t result = 0;
+        result = BLE_TRSPS_SendData(conn_hdl, wMaxGet, AppBuffer);
+
+        if(result != 0)
+        {
+            resendPending = 1;
+            memcpy(resendBuffer, AppBuffer, wMaxGet);
+            resendLen = wMaxGet;
+            
+            // allow BLE to recover
+            SYS_TIME_CallbackRegisterMS(resendTimerCallback, 0, BLE_TIMER_MS, SYS_TIME_SINGLE);
+        }
+    }
+    
+    else
+    {
+        // received TCP data is too large for a single BLE packet
+        wCurrentChunk = sizeof(AppBuffer) -1;
+        // get BLE max packet size
+        TCPIP_TCP_ArrayGet(appData.serverSocket, AppBuffer, wCurrentChunk);          
+        // Perform the "ToUpper" operation on each data byte
+        for(w2 = 0; w2 < wCurrentChunk; w2++)
+        {
+            i = AppBuffer[w2];
+            if(i == '\x1b')   // escape
+            {
+                processFin();
+                return;
+            }
+        }
+        AppBuffer[w2] = 0;  // end the console string properly
+        
+        SERCOM0_USART_Write(AppBuffer, wCurrentChunk);
+        
+        uint16_t result = 0;
+        result = BLE_TRSPS_SendData(conn_hdl, wCurrentChunk, AppBuffer);
+
+        if(result != 0)
+        {
+            resendPending = 1;
+            memcpy(resendBuffer, AppBuffer, wCurrentChunk);
+            resendLen = wCurrentChunk;
+            
+            // allow BLE to recover
+            SYS_TIME_CallbackRegisterMS(resendTimerCallback, 0, BLE_TIMER_MS, SYS_TIME_SINGLE);
+            return;
+        }
+        // schedule event to continue processing received TCP data
+        APP_Msg_T   appMsg;
+        appMsg.msgId = APP_MSG_TCPIP_EVT;
+        OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
+    }
+}
+
+void rxResend(uint8_t* buffer,uint16_t data_len)
+{
+    uint16_t result = 0;
+    result = BLE_TRSPS_SendData(conn_hdl, data_len, buffer);  
+
+    if(result != 0)
+    {
+        // allow BLE to recover
+        SYS_TIME_CallbackRegisterMS(resendTimerCallback, 0, BLE_TIMER_MS, SYS_TIME_SINGLE);
+    }
+    else
+    {
+        resendPending = 0;
+        processRxData();   
+    }
+}
+
+void TCP_EventHandler(TCP_SOCKET hTCP, TCPIP_NET_HANDLE hNet, 
+                  TCPIP_TCP_SIGNAL_TYPE sigType, const void* param)
+{
+    if(sigType & TCPIP_TCP_SIGNAL_ESTABLISHED)
+    {
+        processConn();
+    }
+    if((sigType & TCPIP_TCP_SIGNAL_RX_FIN) || (sigType & TCPIP_TCP_SIGNAL_RX_RST))
+    {
+        SYS_TIME_CallbackRegisterMS(processFin, 0, FIN_TIMER_MS, SYS_TIME_SINGLE);
+    }
+    if((sigType & TCPIP_TCP_SIGNAL_RX_DATA) && (resendPending != 1))
+    {
+        processRxData();
+    }
+    if(sigType & TCPIP_TCP_SIGNAL_TX_SPACE)
+    {
+        if(bleBufferFlg)
+        {
+            processTxSpace();
+        }
+    }
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -103,7 +292,50 @@ volatile bool delayElapsed = false;
 /* TODO:  Add any necessary local functions.
 */
 
-
+void TCPIP_TCP_sendData()
+{
+    uint16_t data_len;
+    uint8_t *data; 
+    // Retrieve received data length
+    BLE_TRSPS_GetDataLength(conn_hdl, &data_len);
+    if (!TCPIP_TCP_IsConnected(appData.serverSocket) || TCPIP_TCP_WasDisconnected(appData.serverSocket))
+    {
+        SYS_CONSOLE_MESSAGE("Cannot send the Data: Client not connected\r\n");
+        
+        bleBufferFlg = 0;
+        bleToTcpRead = 0;
+        bleToTcpWrite = 0;
+        
+        data = OSAL_Malloc(data_len);
+        if(data == NULL)
+            return;
+        BLE_TRSPS_GetData(conn_hdl, data);
+        OSAL_Free(data);
+        return;
+    }
+    int16_t wMaxPut = 0;
+    wMaxPut = TCPIP_TCP_PutIsReady(appData.serverSocket);	// Get TCP TX FIFO free space
+    
+    if((wMaxPut >= data_len) && !bleBufferFlg)
+    {
+        data = OSAL_Malloc(data_len);
+        if(data == NULL)
+            return;
+        // Retrieve received data
+        BLE_TRSPS_GetData(conn_hdl, data);
+        SERCOM0_USART_Write(data, data_len);
+        TCPIP_TCP_ArrayPut(appData.serverSocket, data, data_len);
+        OSAL_Free(data);
+    }
+    else
+    {
+        bleBufferFlg = 1;
+        // store received data in buffer: "bleToTcpBuffer"
+        BLE_TRSPS_GetData(conn_hdl, bleToTcpBuffer + bleToTcpWrite);
+        SERCOM0_USART_Write(bleToTcpBuffer + bleToTcpWrite, data_len);
+        bleToTcpWrite += data_len;
+    }
+}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -118,189 +350,18 @@ volatile bool delayElapsed = false;
   Remarks:
     See prototype in app.h.
  */
-//Define data processing callback
 
-// Callback function to free the buffer
-void FreeBufferCallback(uint8_t* buffer)
-{
-    OSAL_Free(buffer);
-}
-
-
-void TC2_Callback_InterruptHandler(TC_TIMER_STATUS status, uintptr_t context)
-{
-    delayElapsed = true;  // Set the flag to indicate the delay has elapsed
-}
-void TCPIP_TCP_sendData(uint8_t* buffer,uint16_t data_len, DataSentCallback callback)
-{
-    //Process the data and send it to client
-    int16_t wMaxPut, offset = 0;
-            
-    if (!TCPIP_TCP_IsConnected(appData.serverSocket) || TCPIP_TCP_WasDisconnected(appData.serverSocket))
-    {             
-        SYS_CONSOLE_MESSAGE("Cannot send the Data: Client not connected\r\n");
-        return;
-    }
-    // Figure out how many we can transmit.
-    wMaxPut = TCPIP_TCP_PutIsReady(appData.serverSocket);	// Get TCP TX FIFO free space
-    
-    while (offset < data_len)
-    {
-        uint16_t chunkSize = (data_len - offset) > wMaxPut ? wMaxPut : (data_len - offset);    
-        TCPIP_TCP_ArrayPut(appData.serverSocket, buffer + offset, chunkSize);
-        offset += chunkSize;
-    } 
-    if(callback != NULL)
-    {
-        callback(buffer);
-    }
-}
 void APP_Initialize ( void )
 {
     /* Place the App state machine in its initial state. */
-    appData.state = APP_STATE_INIT;
+    appData.state = APP_STATE_TCPIP_INIT;
     appData.t_state = APP_TCPIP_WAIT_INIT;
-    appData.clientState = APP_TCPIP_WAIT_INIT;
-    appData.serverState = APP_TCPIP_WAIT_INIT;
     appData.serverSocket = INVALID_SOCKET;
-    appData.clientSocket = INVALID_SOCKET;
-#if defined(TCPIP_STACK_COMMAND_ENABLE)
-    APP_Commands_Init();
-#endif    
 
     appData.appQueue = xQueueCreate( 64, sizeof(APP_Msg_T) );
-    /* TODO: Initialize your application's state machine and other
-     * parameters.
-     */
 }
 
-uint16_t conn_hdl;// connection handle info captured @BLE_GAP_EVT_CONNECTED event
-uint16_t ret;
-uint8_t uart_data;
-void uart_cb(SERCOM_USART_EVENT event, uintptr_t context)
-{
-  APP_Msg_T   appMsg;  
-  // If RX data from UART reached threshold (previously set to 1)
-  if( event == SERCOM_USART_EVENT_READ_THRESHOLD_REACHED)
-  {
-    // Read 1 byte data from UART
-    SERCOM0_USART_Read(&uart_data, 1);
-    appMsg.msgId = APP_MSG_UART_CB;
-    OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);     
-  }
-}
-
-void APP_UartCBHandler()
-{
-    // Send the data from UART to connected device through Transparent service
-    BLE_TRSPS_SendData(conn_hdl, 1, &uart_data);      
-}
-
-void _APP_ServerTasks(APP_Msg_T   *p_appMsg)
-{
-
-    int                 i;
-    switch(appData.serverState)
-    {
-        case APP_TCPIP_OPENING_SERVER:
-        {            
-            SYS_CONSOLE_PRINT("Waiting for Client Connection on port: %d\r\n", SERVER_PORT);
-            SYS_CONSOLE_PRINT("Waiting for Client Connection on IPV4: %d\r\n", IP_ADDRESS_TYPE_IPV4);
-            appData.serverSocket = TCPIP_TCP_ServerOpen(IP_ADDRESS_TYPE_IPV4, SERVER_PORT, 0);
-            if (appData.serverSocket == INVALID_SOCKET)
-            {
-                SYS_CONSOLE_MESSAGE("Couldn't open server socket\r\n");
-                break;
-            }
-            appData.serverState = APP_TCPIP_WAIT_FOR_CONNECTION;
-        }
-        break;
-
-        case APP_TCPIP_WAIT_FOR_CONNECTION:
-        {
-            if (!TCPIP_TCP_IsConnected(appData.serverSocket))
-            {
-                return;
-            }
-            else
-            {               
-                // We got a connection
-                appData.serverState = APP_TCPIP_SERVING_CONNECTION;
-                SYS_CONSOLE_MESSAGE("Received a connection\r\n");
-            }
-        }
-        break;
-
-        case APP_TCPIP_SERVING_CONNECTION:
-        {
-            if (!TCPIP_TCP_IsConnected(appData.serverSocket) || TCPIP_TCP_WasDisconnected(appData.serverSocket))
-            {             
-                appData.serverState = APP_TCPIP_CLOSING_CONNECTION;
-                SYS_CONSOLE_MESSAGE("Connection was closed\r\n");
-                break;
-            }
-            int16_t wMaxGet, wMaxPut, wCurrentChunk;
-            uint16_t w, w2;
-            uint8_t AppBuffer[32 + 1];
-            // Figure out how many bytes have been received and how many we can transmit.
-            wMaxGet = TCPIP_TCP_GetIsReady(appData.serverSocket);	// Get TCP RX FIFO byte count
-            wMaxPut = TCPIP_TCP_PutIsReady(appData.serverSocket);	// Get TCP TX FIFO free space
-
-            // Make sure we don't take more bytes out of the RX FIFO than we can put into the TX FIFO
-            if(wMaxPut < wMaxGet)
-                    wMaxGet = wMaxPut;
-
-            // Process all bytes that we can
-            // This is implemented as a loop, processing up to sizeof(AppBuffer) bytes at a time.
-            // This limits memory usage while maximizing performance.  Single byte Gets and Puts are a lot slower than multibyte GetArrays and PutArrays.
-            wCurrentChunk = sizeof(AppBuffer) -1;
-
-            for(w = 0; w < wMaxGet; w += sizeof(AppBuffer) - 1)
-            {
-                // Make sure the last chunk, which will likely be smaller than sizeof(AppBuffer), is treated correctly.
-                if(w + sizeof(AppBuffer) - 1 > wMaxGet)
-                    wCurrentChunk = wMaxGet - w;
-                // Transfer the data out of the TCP RX FIFO and into our local processing buffer.
-                TCPIP_TCP_ArrayGet(appData.serverSocket, AppBuffer, wCurrentChunk);
-                // Wait for the timer-based delay
-                delayElapsed = false;  // Reset the flag
-                TC2_TimerStart();      // Restart the timer
-                while (!delayElapsed);               
-                // Perform the "ToUpper" operation on each data byte
-                for(w2 = 0; w2 < wCurrentChunk; w2++)
-                {
-                    i = AppBuffer[w2];
-                    if(i == '\x1b')   // escape
-                    {
-                        appData.serverState = APP_TCPIP_CLOSING_CONNECTION;
-                        SYS_CONSOLE_MESSAGE("Connection was closed\r\n");
-                    }
-                }
-                AppBuffer[w2] = 0;  // end the console string properly
-                p_appMsg->msgData[0] = wCurrentChunk;
-                (void)memcpy((uint8_t *)&p_appMsg->msgData[1], (uint8_t *)AppBuffer, wCurrentChunk);
-                BLE_TRSPS_SendData(conn_hdl, p_appMsg->msgData[0], &p_appMsg->msgData[1]);
-               // Transfer the data out of our local processing buffer and into the TCP TX FIFO.
-                SYS_CONSOLE_PRINT("%s", AppBuffer);
-                TCPIP_TCP_ArrayPut(appData.serverSocket, AppBuffer, wCurrentChunk);
-                // No need to perform any flush.  TCP data in TX FIFO will automatically transmit itself after it accumulates for a while.  If you want to decrease latency (at the expense of wasting network bandwidth on TCP overhead), perform and explicit flush via the TCPFlush() API.
-            }
-        }
-        break;
-        case APP_TCPIP_CLOSING_CONNECTION:
-        {
-            // Close the socket connection.
-            TCPIP_TCP_Close(appData.serverSocket);
-            appData.serverSocket = INVALID_SOCKET;
-            appData.serverState = APP_TCPIP_WAIT_FOR_IP;
-
-        }
-        break;
-        default:
-            break;
-    }    
-}
-void APP_tcpip_task(APP_Msg_T   *p_appMsg)
+void APP_tcpip_init(bool ble_init)
 {
     SYS_STATUS          tcpipStat;
     const char          *netName, *netBiosName;
@@ -310,7 +371,6 @@ void APP_tcpip_task(APP_Msg_T   *p_appMsg)
     TCPIP_NET_HANDLE    netH;
     switch(appData.t_state)
     {
-       
         case APP_TCPIP_WAIT_INIT:
             tcpipStat = TCPIP_STACK_Status(sysObj.tcpip);
             if(tcpipStat < 0)
@@ -364,22 +424,41 @@ void APP_tcpip_task(APP_Msg_T   *p_appMsg)
                     SYS_CONSOLE_MESSAGE(TCPIP_STACK_NetNameGet(netH));
                     SYS_CONSOLE_MESSAGE(" IP Address: ");
                     SYS_CONSOLE_PRINT("%d.%d.%d.%d \r\n", ipAddr.v[0], ipAddr.v[1], ipAddr.v[2], ipAddr.v[3]);
-                    SYS_CONSOLE_MESSAGE("Waiting for command type: openurl <url>\r\n");
                 }
-                appData.t_state = appData.clientState = APP_TCPIP_WAITING_FOR_COMMAND;
                 if(appData.serverSocket == INVALID_SOCKET)
                 {
-                    appData.serverState = APP_TCPIP_OPENING_SERVER;
-                }  
+                    appData.t_state = APP_TCPIP_OPENING_SERVER;
+                }
             }
             break;
+           
+        case APP_TCPIP_OPENING_SERVER:
+        {
+            SYS_CONSOLE_PRINT("Waiting for Client Connection on port: %d\r\n", SERVER_PORT);
+            appData.serverSocket = TCPIP_TCP_ServerOpen(IP_ADDRESS_TYPE_IPV4, SERVER_PORT, 0);
+            if (appData.serverSocket == INVALID_SOCKET)
+            {
+                SYS_CONSOLE_MESSAGE("Couldn't open server socket\r\n");
+                break;
+            }
+            tcpSignalHandle = TCPIP_TCP_SignalHandlerRegister(
+                    appData.serverSocket, 
+                    TCPIP_TCP_SIGNAL_RX_DATA | TCPIP_TCP_SIGNAL_ESTABLISHED | TCPIP_TCP_SIGNAL_RX_FIN 
+                        | TCPIP_TCP_SIGNAL_TX_SPACE | TCPIP_TCP_SIGNAL_RX_RST,
+                    TCP_EventHandler,
+                    NULL);
+
+            if(ble_init)
+                appData.state = APP_STATE_BLE_INIT;
+        }
+        break;
+        
         case APP_TCPIP_ERROR:
             break;
 
         default:
-            _APP_ServerTasks(p_appMsg);
             break;
-    }    
+    }
 }
 
 /******************************************************************************
@@ -397,24 +476,22 @@ void APP_Tasks ( void )
     p_appMsg=appMsg;
 
     
+
+
     /* Check the application's current state. */
     switch ( appData.state )
     {
         /* Application's initial state. */
-        case APP_STATE_INIT:
+        case APP_STATE_TCPIP_INIT:
+        {
+            APP_tcpip_init(true);
+            break;
+        }
+        
+        case APP_STATE_BLE_INIT:
         {
             bool appInitialized = true;
-            //appData.appQueue = xQueueCreate( 10, sizeof(APP_Msg_T) );
-            /* Register callback function for TC0 period interrupt */
-            TC2_TimerCallbackRegister(TC2_Callback_InterruptHandler, (uintptr_t)NULL);  
-            // Start the timer
-            TC2_TimerStart();            
-            // Enable UART Read
-            SERCOM0_USART_ReadNotificationEnable(true, true);
-            // Set UART RX notification threshold to be 1
-            SERCOM0_USART_ReadThresholdSet(1);
-            // Register the UART RX callback function
-            //SERCOM0_USART_ReadCallbackRegister(uart_cb, (uintptr_t)NULL);
+            //appData.appQueue = xQueueCreate( 10, sizeof(APP_Msg_T) );           
             APP_BleStackInit();
             // Start Advertisement
             BLE_GAP_SetAdvEnable(0x01, 0x00);
@@ -429,17 +506,22 @@ void APP_Tasks ( void )
 
         case APP_STATE_SERVICE_TASKS:
         {
-
             if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER))
             {
+
                 if(p_appMsg->msgId==APP_MSG_BLE_STACK_EVT)
                 {
                     // Pass BLE Stack Event Message to User Application for handling
                     APP_BleStackEvtHandler((STACK_Event_T *)p_appMsg->msgData);
                 }
-                p_appMsg->msgId = APP_MSG_TCPIP_EVT;
-                OSAL_QUEUE_Send(&appData.appQueue, p_appMsg, 0); 
-                APP_tcpip_task(p_appMsg);
+                else if(p_appMsg->msgId==APP_MSG_TCPIP_EVT)
+                {
+                    processRxData();
+                }
+                else if(p_appMsg->msgId==APP_MSG_TCPIP_RESEND)
+                {
+                    rxResend(p_appMsg->msgData, p_appMsg->data_len);
+                }
             }
             break;
         }

@@ -1,6 +1,6 @@
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -88,8 +88,9 @@ extern "C" {
 
 typedef enum
 {
-    APP_STATE_INIT,
-    
+    /* Application's state machine's initial state. */
+    APP_STATE_TCPIP_INIT,
+    APP_STATE_BLE_INIT,
     APP_STATE_SERVICE_TASKS,
 } APP_STATES;
 
@@ -102,34 +103,21 @@ typedef enum
     /* In this state, the application waits for a IP Address */
     APP_TCPIP_WAIT_FOR_IP,
 
-    APP_TCPIP_WAITING_FOR_COMMAND,
     APP_TCPIP_OPENING_SERVER,
-
-    APP_TCPIP_WAIT_ON_DNS,
             
     APP_TCPIP_WAIT_FOR_CONNECTION,
-
-    APP_TCPIP_SERVING_CONNECTION,
-            
-    APP_TCPIP_WAIT_FOR_RESPONSE,
-
-    APP_TCPIP_CLOSING_CONNECTION,
 
     APP_TCPIP_ERROR,
 }APP_TSTATES;
 
 typedef enum APP_MsgId_T
 {
-
     APP_MSG_BLE_STACK_EVT,
     APP_MSG_BLE_STACK_LOG,
-
-
     APP_MSG_ZB_STACK_EVT,
     APP_MSG_ZB_STACK_CB,
-    APP_MSG_UART_CB,
     APP_MSG_TCPIP_EVT,
-    APP_MSG_TCPIP_DATA,
+    APP_MSG_TCPIP_RESEND,
     APP_MSG_STACK_END
 } APP_MsgId_T;
 
@@ -137,7 +125,6 @@ typedef struct APP_Msg_T
 {
     uint8_t msgId;
     uint8_t msgData[256];
-    uint8_t *buffer;
     uint32_t data_len;
 } APP_Msg_T;
 
@@ -159,19 +146,9 @@ typedef struct
     /* The application's current state */
     APP_STATES state;
     APP_TSTATES t_state;
-    APP_TSTATES  clientState;
-    APP_TSTATES  serverState;
 
     TCP_SOCKET              serverSocket;
 
-        /* Application data buffer */
-
-    TCP_SOCKET              clientSocket;
-
-    char *            host;
-
-    char *            path;
-    uint16_t          port;
     /* TODO: Define any additional data used by the application. */
     OSAL_QUEUE_HANDLE_TYPE appQueue;
 
@@ -186,7 +163,6 @@ extern APP_DATA appData;
 /* These routines are called by drivers when certain events occur.
 */
 
-	
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Initialization and State Machine Functions
@@ -257,12 +233,11 @@ void APP_Initialize ( void );
     This routine must be called from SYS_Tasks() routine.
  */
 
-void APP_Tasks ( void );
+void APP_Tasks( void );
 
 
-typedef void (*DataSentCallback)(uint8_t* buffer);
-void FreeBufferCallback(uint8_t* buffer);
-void TCPIP_TCP_sendData(uint8_t* buffer, uint16_t data_len, DataSentCallback callback);
+void TCPIP_TCP_sendData();
+void APP_tcpip_init(bool ble_init);
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus

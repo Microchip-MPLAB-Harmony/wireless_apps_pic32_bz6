@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -45,8 +45,8 @@
 // *****************************************************************************
 #include "./../app.h"
 #include "app_trsps_handler.h"
-#include "osal/osal_freertos_extend.h"
-#include "peripheral/sercom/usart/plib_sercom0_usart.h"
+
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Variables
@@ -91,33 +91,7 @@ void APP_TrspsEvtHandler(BLE_TRSPS_Event_T *p_event)
         case BLE_TRSPS_EVT_RECEIVE_DATA:
         {
             /* TODO: implement your application code.*/
-        {
-            /* TODO: implement your application code.*/
-            uint16_t data_len;
-            uint8_t *data;
-            uint8_t* buffer; 
-            // Retrieve received data length
-            BLE_TRSPS_GetDataLength(p_event->eventField.onReceiveData.connHandle, &data_len);
-            // Allocate memory according to data length
-            data = OSAL_Malloc(data_len);
-            if(data == NULL)
-            break;
-            // Retrieve received data
-            BLE_TRSPS_GetData(p_event->eventField.onReceiveData.connHandle, data);
-            // Output received data to UART
-            SERCOM0_USART_Write(data, data_len);
-            buffer = OSAL_Malloc(data_len);
-            if(buffer == NULL)
-            {
-                break; //malloc error
-            }
-            (void)memcpy((uint8_t *)buffer, (uint8_t *)data, data_len);
-             
-            TCPIP_TCP_sendData(buffer,data_len,FreeBufferCallback);
-            
-            // Free memory
-            OSAL_Free(data);
-        }            
+            TCPIP_TCP_sendData();
         }
         break;
         
