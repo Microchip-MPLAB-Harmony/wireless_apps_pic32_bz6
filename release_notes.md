@@ -3,6 +3,42 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 Wireless BLE application examples for PIC32WM_BZ6204 family  **v1.1.0**
+
+### Development kit and demo application support
+
+Following table provides number of Wireless examples available for different development kits.
+
+| Development Kits           | MPLABx applications |
+|:--------------------------:|:-------------------:|
+| PIC32WM_BZ6204 Curiosity Board 	 |       13             |
+
+## New Features
+### BLE Applications
+- BLE Parallel8080 Peripheral Transparent UART
+
+### IEEE_802_15_4
+- IEEE 802.15.4 MAC Harmony compoenent based application.
+- IEEE 802.15.4 PHY Harmony compoenent based application.
+
+### Thread
+- Thread CoAP Harmony component based applications.
+
+### Bug fixes and Improvements
+- New applications release.
+
+
+### Known Issues
+- None 
+
+### Development Tools
+
+- [MPLAB® X IDE v6.25]
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Code Configurator (MCC) `v5.6.2`
+- [MPLAB® XC32 C/C++ Compiler v4.60]
+- PIC32CX-BZ6 Family - DFP 1.3.38
+
 ## Harmony 3 Wireless BLE application examples for PIC32WM_BZ6204 family  **v1.0.0**
 
 ### Development kit and demo application support

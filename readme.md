@@ -1,7 +1,7 @@
 ﻿![Microchip logo](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_logo.png)
 ![Harmony logo small](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_mplab_harmony_logo_small.png)
 
-# MPLAB® Harmony 3 Wireless BLE Application Examples
+# MPLAB® Harmony 3 Wireless BLE, IEEE 802.15.4 Standalone Phy and Thread Application Examples
 
 MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating embedded firmware 
 solutions for Microchip 32-bit SAM and PIC® microcontroller and microprocessor devices.  
@@ -31,7 +31,7 @@ topology needs. Refer to the following links for release notes, training materia
 
 ## Code Examples
 
-The following applications are provided to demonstrate the typical use case of one or more Peripheral libraries.
+The following applications are provided to demonstrate the typical use case of BLE, Thread, IEEE 802.15.4 PHY and IEEE 802.15.4 MAC with PIC32CX_BZ6 devices.
 
 | BLE Examples | Families |
 | --- | :---: |
@@ -66,6 +66,25 @@ The following applications are provided to demonstrate the typical use case of o
 | [BLE TCPIP TCP SERVER TRP UART](apps/ble/peripheral_applications/tcpip_tcp_server_trp_uart/readme.md) | PIC32WM_BZ6204 |
 | [BLE Peripheral Touch TRP UART](apps/ble/peripheral_applications/touch_peripheral_trp_uart/readme.md) | PIC32WM_BZ6204 |
 | [BLE Peripheral USB CDC TRP UART](apps/ble/peripheral_applications/usb_cdc_peripheral_trp_uart/readme.md) | PIC32WM_BZ6204 |
+| [BLE Peripheral Parallel8080 TRP UART](apps/ble/peripheral_applications/parallel8080_peripheral_trp_uart/readme.md) | PIC32WM_BZ6204 |
+
+| ieee_802_15_4 Applications | Families |
+| --- | :---: |
+| [IEEE_802_15_4 demoapp_ffd](apps/ieee_802_15_4/MAC/push_pull_mac_app/demoapp_ffd/readme.md) | PIC32WM_BZ6204 |
+| [IEEE_802_15_4 demoapp_rfd](apps/ieee_802_15_4/MAC/push_pull_mac_app/demoapp_rfd/readme.md) | PIC32WM_BZ6204 |
+| [IEEE_802_15_4 p2p_phy](apps/ieee_802_15_4/PHY/p2p_phy/readme.md) | PIC32WM_BZ6204 |
+
+| Thread Applications | Families |
+| --- | :---: |
+| [Thread cli_ftd](apps/thread/building_blocks/cli/cli_ftd/readme.md) | PIC32WM_BZ6204 |
+| [Thread cli_mtd](apps/thread/building_blocks/cli/cli_mtd/readme.md) | PIC32WM_BZ6204 |
+| [Thread demo_app_udp_ftd](apps/thread/building_blocks/demo_app_udp/demo_app_udp_ftd/readme.md) | PIC32WM_BZ6204 |
+| [Thread demo_app_udp_mtd](apps/thread/building_blocks/demo_app_udp/demo_app_udp_mtd/readme.md) | PIC32WM_BZ6204 |
+| [Thread rcp_uart](apps/thread/building_blocks/rcp_uart/readme.md) | PIC32WM_BZ6204 |
+| [Thread CoAP coap_ftd_client](apps/thread/advanced_applications/CoAP/coap_ftd_client/readme.md) | PIC32WM_BZ6204 |
+| [Thread CoAP coap_ftd_server](apps/thread/advanced_applications/CoAP/coap_ftd_server/readme.md) | PIC32WM_BZ6204 |
+| [Thread CoAP coap_sed_client](apps/thread/advanced_applications/CoAP/coap_sed_client/readme.md) | PIC32WM_BZ6204 |
+| [Thread CoAP coap_sed_server](apps/thread/advanced_applications/CoAP/coap_sed_server/readme.md) | PIC32WM_BZ6204 |	
 ____
 
 

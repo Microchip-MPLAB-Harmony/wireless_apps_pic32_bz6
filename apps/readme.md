@@ -2,7 +2,7 @@
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 # Examples applications
 
-The following applications are provided to demonstrate the typical use case of BLE with PIC32WM_BZ6204 devices.
+The following applications are provided to demonstrate the typical use case of BLE, 15.4 and Thread with PIC32WM_BZ6204 devices.
 
 ## BLE
 
@@ -46,3 +46,14 @@ The following applications are provided to demonstrate the typical use case of B
 * [BLE TCPIP TCP Server TRP UART](ble/peripheral_applications/tcpip_tcp_server_trp_uart/readme.md)
 * [BLE Touch Peripheral TRP UART](ble/peripheral_applications/touch_peripheral_trp_uart/readme.md)
 * [BLE USB CDC Peripheral TRP UART](ble/peripheral_applications/usb_cdc_peripheral_trp_uart/readme.md)
+* [BLE Parallel8080 Peripheral TRP UART](ble/peripheral_applications/parallel8080_peripheral_trp_uart/readme.md)
+
+## ieee_802_15_4 Applications
+* [ieee_802_15_4](ieee_802_15_4/readme.md)
+	* [IEEE_802_15_4 demoapp_ffd](ieee_802_15_4/MAC/push_pull_mac_app/demoapp_ffd/readme.md)
+	* [IEEE_802_15_4 demoapp_rfd](ieee_802_15_4/MAC/push_pull_mac_app/demoapp_rfd/readme.md)
+	* [IEEE_802_15_4 p2p_phy](ieee_802_15_4/PHY/p2p_phy/readme.md)
+	
+## Thread Application
+* [Building Blocks](thread/building_blocks/readme.md)
+* [Advanced Applications](thread/advanced_applications/readme.md)

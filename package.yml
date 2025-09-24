@@ -4,7 +4,7 @@ package:
   type: "application"
   status: "production"
   required: false
-  version: "v1.0.0"
+  version: "v1.1.0"
 
   dependencies:
     - name: "csp"
@@ -15,10 +15,10 @@ package:
       version: "v3.22.0"
     - name: "core"
       type: "package"
-      version: "3.15.5"
+      version: "v3.15.5"
     - name: "FreeRTOS-Kernel"
       type: "package"
-      version: "V11.1.0"
+      version: "v11.1.0"
     - name: "wireless_ble"
       type: "package"
       version: "v1.5.0"
