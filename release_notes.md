@@ -11,22 +11,30 @@ Following table provides number of Wireless examples available for different dev
 
 | Development Kits           | MPLABx applications |
 |:--------------------------:|:-------------------:|
-| PIC32WM_BZ6204 Curiosity Board 	 |       13             |
+| PIC32WM_BZ6204 Curiosity Board 	 |       13    |
 
 ## New Features
 ### BLE Applications
 - BLE Parallel8080 Peripheral Transparent UART
 
 ### IEEE_802_15_4
-- IEEE 802.15.4 MAC Harmony compoenent based application.
-- IEEE 802.15.4 PHY Harmony compoenent based application.
+- IEEE_802_15_4 MAC demoapp_ffd
+- IEEE_802_15_4 MAC demoapp_rfd
+- IEEE_802_15_4 p2p_phy
 
 ### Thread
-- Thread CoAP Harmony component based applications.
+- Thread cli_ftd
+- Thread cli_mtd
+- Thread demo_app_udp_ftd
+- Thread demo_app_udp_mtd
+- Thread rcp_uart
+- Thread CoAP coap_ftd_client
+- Thread CoAP coap_ftd_server
+- Thread CoAP coap_sed_client
+- Thread CoAP coap_sed_server
 
 ### Bug fixes and Improvements
 - New applications release.
-
 
 ### Known Issues
 - None 

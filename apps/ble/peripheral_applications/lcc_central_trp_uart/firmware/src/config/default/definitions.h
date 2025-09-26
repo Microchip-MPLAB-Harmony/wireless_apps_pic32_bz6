@@ -57,7 +57,7 @@
 #include "driver/i2c/drv_i2c.h"
 #include "peripheral/adchs/plib_adchs.h"
 /*******************************************************************************
-* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -93,7 +93,7 @@
 #include <string.h>
 #include "peripheral/sercom/i2c_master/plib_sercom1_i2c_master.h"
 /*******************************************************************************
-* Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your

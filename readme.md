@@ -68,7 +68,7 @@ The following applications are provided to demonstrate the typical use case of B
 | [BLE Peripheral USB CDC TRP UART](apps/ble/peripheral_applications/usb_cdc_peripheral_trp_uart/readme.md) | PIC32WM_BZ6204 |
 | [BLE Peripheral Parallel8080 TRP UART](apps/ble/peripheral_applications/parallel8080_peripheral_trp_uart/readme.md) | PIC32WM_BZ6204 |
 
-| ieee_802_15_4 Applications | Families |
+| IEEE_802_15_4 Applications | Families |
 | --- | :---: |
 | [IEEE_802_15_4 demoapp_ffd](apps/ieee_802_15_4/MAC/push_pull_mac_app/demoapp_ffd/readme.md) | PIC32WM_BZ6204 |
 | [IEEE_802_15_4 demoapp_rfd](apps/ieee_802_15_4/MAC/push_pull_mac_app/demoapp_rfd/readme.md) | PIC32WM_BZ6204 |

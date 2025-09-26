@@ -3,7 +3,7 @@
  *
  * @brief File contains P2P PHY App configuration parameters.
  *
- * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
  *
  *
  * Subject to your compliance with these terms, you may use Microchip

@@ -17,7 +17,7 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2025 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -203,7 +203,7 @@ void APP_TRPS_Sensor_TimerHandler(void)
         bleSensorData.tempSens.msb = (uint8_t) (tempS>>8);  
 
         if ( APP_GetBleState() == APP_BLE_STATE_CONNECTED){
-            if( (tempBack > (lastNotifiedTemp + 1)) || (tempBack < (lastNotifiedTemp-1)) )  //+/- 1°C above, only then do the notification
+            if( (tempBack > (lastNotifiedTemp + 1)) || (tempBack < (lastNotifiedTemp-1)) )  //+/- 1ï¿½C above, only then do the notification
             {
                 if(APP_TRPS_SendNotification(APP_TRP_VENDOR_OPCODE_BLE_SENSOR,TEMP_SENSOR_NFY)== APP_RES_SUCCESS)
                 {
@@ -214,7 +214,7 @@ void APP_TRPS_Sensor_TimerHandler(void)
         }
         else
         {
-            if( (tempBack > (lastAdvTemp + 1)) || (tempBack < (lastAdvTemp-1)) )  //+/- 1°C above, only then update advertisement payload
+            if( (tempBack > (lastAdvTemp + 1)) || (tempBack < (lastAdvTemp-1)) )  //+/- 1ï¿½C above, only then update advertisement payload
             {       
                 APP_ADV_Init();
                 lastAdvTemp = tempBack;                
