@@ -3,7 +3,7 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
-## Harmony 3 Wireless BLE, Thread and IEEE_802 15.4 application examples for PIC32WM_BZ6204 family  **v1.1.0**
+## Harmony 3 Wireless BLE, Thread, IEEE_802 15.4 MAC and PHY application examples for PIC32WM_BZ6204 family  **v1.1.0**
 
 ### Development kit and demo application support
 
