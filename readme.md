@@ -20,7 +20,7 @@ Our comprehensive Wireless BLE Application Examples portfolio has the technology
 topology needs. Refer to the following links for release notes, training materials, and interface reference information.
 
 - [Release Notes](./release_notes.md)
-- [MPLAB® Harmony License](mplab_harmony_license.md)
+- [MPLAB® Harmony License](License.md)
 
 # Contents Summary
 
@@ -88,7 +88,7 @@ The following applications are provided to demonstrate the typical use case of B
 ____
 
 
-[![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35/blob/master/mplab_harmony_license.md)
+[![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_pic32cxbz_wbz/blob/master/License.md)
 [![Latest release](https://img.shields.io/github/release/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35/releases/latest)
 [![Latest release date](https://img.shields.io/github/release-date/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35/releases/latest)
 [![Commit activity](https://img.shields.io/github/commit-activity/y/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35/graphs/commit-activity)
