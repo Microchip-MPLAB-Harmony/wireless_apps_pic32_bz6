@@ -1,0 +1,53 @@
+configVersion: 1.0.0
+componentName: ble_prov
+coreVersion: 5.8.3
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: ble_prov
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_system_pic32cxbz_wbz
+  type: package
+  version: v1.8.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: ble_prov
+          x: '655'
+          y: '133'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    COMBO_APP_CONFIG:
+      attributes:
+        id: COMBO_APP_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: ble_prov
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    MAC_DEVICE_CONFIG:
+      attributes:
+        id: MAC_DEVICE_CONFIG
+      children:
+      - children:
+        - attributes:
+            id: ble_prov
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+  userData: {}

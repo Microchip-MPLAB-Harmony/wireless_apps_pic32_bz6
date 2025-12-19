@@ -1,0 +1,184 @@
+configVersion: 1.0.0
+componentName: IEEE_802154_MAC
+coreVersion: 5.8.3
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: IEEE_802154_MAC
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_15_4_mac
+  type: package
+  version: v1.2.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: IEEE_802154_MAC
+          x: '457'
+          y: '159'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    IEEE802154MAC_SAL_C:
+      attributes:
+        id: IEEE802154MAC_SAL_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    IEEE_802154_MAC_INC_PATH_CPP_IEEE_802154_MAC_SERVICES_SAL_INC_:
+      attributes:
+        id: IEEE_802154_MAC_INC_PATH_CPP_IEEE_802154_MAC_SERVICES_SAL_INC_
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Setting
+    IEEE_802154_MAC_INC_PATH_CPP_IEEE_802154_MAC_STB_INC_:
+      attributes:
+        id: IEEE_802154_MAC_INC_PATH_CPP_IEEE_802154_MAC_STB_INC_
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Setting
+    IEEE_802154_MAC_INC_PATH_IEEE_802154_MAC_SERVICES_SAL_INC_:
+      attributes:
+        id: IEEE_802154_MAC_INC_PATH_IEEE_802154_MAC_SERVICES_SAL_INC_
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Setting
+    IEEE_802154_MAC_INC_PATH_IEEE_802154_MAC_STB_INC_:
+      attributes:
+        id: IEEE_802154_MAC_INC_PATH_IEEE_802154_MAC_STB_INC_
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: Setting
+    MAC_SECURITY_OPTION:
+      attributes:
+        id: MAC_SECURITY_OPTION
+      children:
+      - children:
+        - attributes:
+            value: '1'
+          type: User
+        type: Values
+      type: KeyValueSet
+    SAL_GENERIC_H:
+      attributes:
+        id: SAL_GENERIC_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SAL_H:
+      attributes:
+        id: SAL_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    SAL_TYPES_H:
+      attributes:
+        id: SAL_TYPES_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    STB_C:
+      attributes:
+        id: STB_C
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    STB_GENERIC_H:
+      attributes:
+        id: STB_GENERIC_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+    STB_H:
+      attributes:
+        id: STB_H
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      type: File
+  userData: {}
