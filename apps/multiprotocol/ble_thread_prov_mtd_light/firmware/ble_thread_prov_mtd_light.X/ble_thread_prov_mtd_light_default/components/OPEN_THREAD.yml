@@ -1,0 +1,106 @@
+configVersion: 1.0.0
+componentName: OPEN_THREAD
+coreVersion: 5.8.4
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: OPEN_THREAD
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: openthread
+  type: package
+  version: mchp_harmony_wireless_thread_v1.3.0
+- dependencyPackage: ''
+  name: wireless_thread
+  type: package
+  version: v1.3.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: OPEN_THREAD
+          x: '726'
+          y: '186'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    OPEN_THREAD_DEVICE_ROLE:
+      attributes:
+        id: OPEN_THREAD_DEVICE_ROLE
+      children:
+      - children:
+        - attributes:
+            id: OPEN_THREAD
+            value: MTD
+          type: Dynamic
+        type: Values
+      type: String
+    OPEN_THREAD_DEVICE_ROLE_CONFIG_1:
+      attributes:
+        id: OPEN_THREAD_DEVICE_ROLE_CONFIG_1
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: ble_prov
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    OPEN_THREAD_ENABLE_SERIAL_PARSING:
+      attributes:
+        id: OPEN_THREAD_ENABLE_SERIAL_PARSING
+      children:
+      - children:
+        - attributes:
+            id: OPEN_THREAD
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    OPEN_THREAD_MTD_SLEEP_ENABLE:
+      attributes:
+        id: OPEN_THREAD_MTD_SLEEP_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: readOnly
+          children:
+          - type: Value
+            value: 'true'
+          type: Boolean
+        type: Attributes
+      - children:
+        - attributes:
+            id: ble_prov
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    OPEN_THREAD_UART_SERVICE:
+      attributes:
+        id: OPEN_THREAD_UART_SERVICE
+      children:
+      - children:
+        - attributes:
+            id: OPEN_THREAD
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData: {}
