@@ -1,0 +1,141 @@
+configVersion: 1.0.0
+componentName: adchs
+coreVersion: 5.8.3
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: adchs
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.24.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: adchs
+          x: '446'
+          y: '396'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    ADCHS_DMA_STATUS_REG:
+      attributes:
+        id: ADCHS_DMA_STATUS_REG
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCDMASTAT
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_CALLBACK_API:
+      attributes:
+        id: ADC_CALLBACK_API
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_CallbackRegister
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_CH_PHASE_U:
+      attributes:
+        id: ADC_CH_PHASE_U
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_CH0
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_CH_PHASE_V:
+      attributes:
+        id: ADC_CH_PHASE_V
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_CH4
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_CH_POT:
+      attributes:
+        id: ADC_CH_POT
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_CH15
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_CH_VDC_BUS:
+      attributes:
+        id: ADC_CH_VDC_BUS
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_CH10
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_GET_RESULT_API:
+      attributes:
+        id: ADC_GET_RESULT_API
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_ChannelResultGet
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_IS_RESULT_READY_API:
+      attributes:
+        id: ADC_IS_RESULT_READY_API
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_ChannelResultIsReady
+          type: Dynamic
+        type: Values
+      type: String
+    ADC_START_CONV_API:
+      attributes:
+        id: ADC_START_CONV_API
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: ADCHS_ChannelConversionStart
+          type: Dynamic
+        type: Values
+      type: String
+    INTERRUPT_ADC_RESULT:
+      attributes:
+        id: INTERRUPT_ADC_RESULT
+      children:
+      - children:
+        - attributes:
+            id: adchs
+            value: INT_SOURCE_ADC_DATA0
+          type: Dynamic
+        type: Values
+      type: String
+  userData: {}

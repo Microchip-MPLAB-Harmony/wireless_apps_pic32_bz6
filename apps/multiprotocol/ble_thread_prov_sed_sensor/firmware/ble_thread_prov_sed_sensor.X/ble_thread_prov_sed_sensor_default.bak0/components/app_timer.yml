@@ -1,0 +1,51 @@
+configVersion: 1.0.0
+componentName: app_timer
+coreVersion: 5.8.3
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: app_timer
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_system_pic32cxbz_wbz
+  type: package
+  version: v1.8.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: app_timer
+          x: '312'
+          y: '33'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    APP_TIMER_ID0:
+      attributes:
+        id: APP_TIMER_ID0
+      children:
+      - children:
+        - attributes:
+            value: APP_TIMER_BLE_SENSOR
+          type: User
+        type: Values
+      type: String
+    APP_TIMER_ID1:
+      attributes:
+        id: APP_TIMER_ID1
+      children:
+      - children:
+        - attributes:
+            value: APP_TIMER_ADV_CTRL
+          type: User
+        type: Values
+      type: String
+  userData: {}

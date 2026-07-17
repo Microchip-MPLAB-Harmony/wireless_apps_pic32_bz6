@@ -1,0 +1,66 @@
+framework:
+  global:
+    contentPaths:
+      - >-
+        c:/Users/I73764/.vscode/extensions/microchip.mcc-ng-vscode-extension-0.9.0-pre.308/dist/ufc-content
+    ecosystem: Dev
+    generatedPath: ../mcc_generated_files
+    ide: VSCode
+    mplabActiveAssociation:
+      configName: default
+      projectPath: .vscode/ble_thread_prov_sed_sensor.mplab.json
+    projectDirectory: .
+  modules:
+    active: {}
+  spaLayout:
+    borders:
+      - children:
+          - enableClose: false
+            id: device-info
+            name: Project Information
+            type: tab
+          - enableClose: false
+            id: notifications
+            name: Notifications
+            type: tab
+          - enableClose: false
+            id: output
+            name: Output
+            type: tab
+        location: bottom
+        type: border
+      - children:
+          - borderWidth: 375
+            enableClose: false
+            id: active-modules
+            name: Project Resources
+            type: tab
+          - borderWidth: 375
+            enableClose: false
+            id: discovered-content
+            name: Device Resources
+            type: tab
+        location: left
+        selected: 1
+        type: border
+      - children: []
+        enableAutoHide: true
+        location: right
+        type: border
+    global:
+      splitterSize: 6
+      tabEnableClose: false
+      tabEnableRename: false
+    layout:
+      children:
+        - children:
+            - enableClose: false
+              id: application-builder
+              name: APP Builder
+              type: tab
+          id: center
+          type: tabset
+      id: '#9f11b3e8-265a-47c0-b7a1-969b2e88c635'
+      type: row
+    popouts: {}
+  version: 0.17.0

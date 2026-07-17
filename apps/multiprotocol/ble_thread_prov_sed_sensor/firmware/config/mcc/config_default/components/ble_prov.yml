@@ -1,0 +1,47 @@
+configVersion: 1.0.0
+componentName: ble_prov
+coreVersion: 5.9.1-tc.b
+device: PIC32WM_BZ6204
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: ble_prov
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: wireless_system_pic32cxbz_wbz
+  type: package
+  version: v1.8.1
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition: {}
+  symbols:
+    COMBO_APP_CONFIG:
+      attributes:
+        id: COMBO_APP_CONFIG
+        label: Combo APP Config
+      children:
+      - children:
+        - attributes:
+            id: ble_prov
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: KeyValueSet
+    MAC_DEVICE_CONFIG:
+      attributes:
+        id: MAC_DEVICE_CONFIG
+        label: MAC Device Role
+      type: KeyValueSet
+    THREAD_DEVICE_CONFIG:
+      attributes:
+        id: THREAD_DEVICE_CONFIG
+        label: Thread Device Role
+      type: KeyValueSet
+    THREAD_SLEEP_ENABLE:
+      attributes:
+        id: THREAD_SLEEP_ENABLE
+        label: Enable As Sleep End Device
+      type: Boolean
+  userData: {}

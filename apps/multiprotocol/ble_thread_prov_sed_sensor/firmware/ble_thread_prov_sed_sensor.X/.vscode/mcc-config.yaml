@@ -1,0 +1,15 @@
+framework:
+  global:
+    contentPaths:
+      - >-
+        c:/Users/I73764/.vscode/extensions/microchip.mcc-ng-vscode-extension-0.9.0-pre.308/dist/ufc-content
+    ecosystem: Dev
+    generatedPath: ../mcc_generated_files
+    ide: VSCode
+    mplabActiveAssociation:
+      configName: default
+      projectPath: .vscode/ble_thread_prov_sed_sensor.mplab.json
+    projectDirectory: .
+  modules:
+    active: {}
+  version: 0.17.0
