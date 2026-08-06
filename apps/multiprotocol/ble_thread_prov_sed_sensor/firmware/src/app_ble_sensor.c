@@ -71,6 +71,7 @@ uint32_t bleSensTimer = 0;
 APP_TRPS_SensorData_T bleSensorData = {LED_OFF,{0,0x7F,0x7F},{0,0}};
 float lastNotifiedTemp = -50.0, lastAdvTemp = -50.0;
 static bool updateAdvData = false;
+static bool waitToSleep = false;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -294,7 +295,18 @@ void APP_TRPS_Sensor_TimerHandler(void)
 /* Do the BLE Sensor specific on disconnection  */
 void APP_TRPS_Sensor_DiscEvtProc(void)
 {
-    lastNotifiedTemp = -50.0;    
+    lastNotifiedTemp = -50.0;
+    if(waitToSleep)
+    {
+       /* BLE disconnected - now safe to enter deep sleep */
+       APP_TIMER_SetTimer(APP_TIMER_SED_TIMEOUT, APP_TIMER_2S, false);
+       waitToSleep = false;
+    }
+}
+
+void APP_TRPS_Sensor_SetWaitToSleep(bool val)
+{
+    waitToSleep = val;
 }
 
 /* Fill Adv Beacon with BLE Sensor specific */

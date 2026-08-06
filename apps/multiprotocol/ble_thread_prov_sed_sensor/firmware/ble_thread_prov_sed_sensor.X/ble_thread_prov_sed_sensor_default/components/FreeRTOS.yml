@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: FreeRTOS
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -15,7 +15,7 @@ dependency:
 - dependencyPackage: ''
   name: core
   type: package
-  version: v3.15.5
+  version: v3.17.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -253,6 +253,18 @@ data:
         - attributes:
             value: '80000'
           type: User
+        type: Values
+      type: Integer
+    FREERTOS_CPU_CLOCK_HZ:
+      attributes:
+        id: FREERTOS_CPU_CLOCK_HZ
+        label: CPU Clock Speed (Hz)
+      children:
+      - children:
+        - attributes:
+            id: FreeRTOS
+            value: '64000000'
+          type: Dynamic
         type: Values
       type: Integer
   userData: {}

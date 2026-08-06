@@ -68,21 +68,6 @@
 #define USER_LED_Get() ((GPIOB_REGS->GPIO_PORT >> 7) & 0x1U)
 #define USER_LED_On() (GPIOB_REGS->GPIO_LATCLR = (1UL<<7))
 #define USER_LED_Off() (GPIOB_REGS->GPIO_LATSET = (1UL<<7))
-/*** LED Macros for RGB_LED_GREEN ***/
-#define RGB_LED_GREEN_Toggle() (GPIOC_REGS->GPIO_LATINV = (1UL<<10))
-#define RGB_LED_GREEN_Get() ((GPIOC_REGS->GPIO_PORT >> 10) & 0x1U)
-#define RGB_LED_GREEN_On() (GPIOC_REGS->GPIO_LATSET = (1UL<<10))
-#define RGB_LED_GREEN_Off() (GPIOC_REGS->GPIO_LATCLR = (1UL<<10))
-/*** LED Macros for RGB_LED_RED ***/
-#define RGB_LED_RED_Toggle() (GPIOC_REGS->GPIO_LATINV = (1UL<<7))
-#define RGB_LED_RED_Get() ((GPIOC_REGS->GPIO_PORT >> 7) & 0x1U)
-#define RGB_LED_RED_On() (GPIOC_REGS->GPIO_LATSET = (1UL<<7))
-#define RGB_LED_RED_Off() (GPIOC_REGS->GPIO_LATCLR = (1UL<<7))
-/*** LED Macros for RGB_LED_BLUE ***/
-#define RGB_LED_BLUE_Toggle() (GPIOE_REGS->GPIO_LATINV = (1UL<<0))
-#define RGB_LED_BLUE_Get() ((GPIOE_REGS->GPIO_PORT >> 0) & 0x1U)
-#define RGB_LED_BLUE_On() (GPIOE_REGS->GPIO_LATSET = (1UL<<0))
-#define RGB_LED_BLUE_Off() (GPIOE_REGS->GPIO_LATCLR = (1UL<<0))
 /*** SWITCH Macros for SWITCH1 ***/
 #define SWITCH1_Get() ((GPIOB_REGS->GPIO_PORT >> 9) & 0x1U)
 #define SWITCH1_STATE_PRESSED 0U

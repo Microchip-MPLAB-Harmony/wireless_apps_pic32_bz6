@@ -1,6 +1,6 @@
 configVersion: 1.0.0
-coreVersion: 5.8.4
-spaHostVersion: 1.2.1
+coreVersion: 5.9.0
+spaHostVersion: 1.3.0
 device: PIC32WM_BZ6204
 deviceLibrary: {}
 groupModules: []
@@ -92,7 +92,7 @@ generatedFileHashHistoryMap:
 - file: ..\src\app_user_edits.c
   hash: 04dd931d353a16a2ec9c0b94668360fe94d833dc80c7451c694726381aa71e9e
 - file: ..\src\config\default\FreeRTOSConfig.h
-  hash: 8b57030f71a072023e2095d732213efa5be4a2031dd56094194f3b5e6c940b73
+  hash: 1c707a26621f5add65c408cc042a44e5001ae45ceee12db8ef31f7af8e9d5893
 - file: ..\src\config\default\PIC32WM_BZ6204.ld
   hash: 6ebe26d65e4f568ad75a645bccd26f877a21df7edcc16618e78a6f55d3732920
 - file: ..\src\config\default\ble\lib\ble_stack_bz6_lib.a
@@ -164,11 +164,11 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\bsp\bsp.h
   hash: 852e93821121af81ef255f69ee222d451a24ca149f64db7869d9f10b87c390af
 - file: ..\src\config\default\configuration.h
-  hash: 4f1d2c130a7ca32defd1912c2da0cf00ef094c0567e42dff45b3f18d7cf041aa
+  hash: 1d1a06c48172262230e2729fdd7080e351e5edca6e099ae7402e2498a31dfd94
 - file: ..\src\config\default\definitions.h
-  hash: 5748ad53789c4c1667c6c087d456295512c9c30f8f635726c8bdea3a341f0ab7
+  hash: 43bc61d07c97a1fce52828b351fa07fdeb38910777df4456c57df5652584d439
 - file: ..\src\config\default\device.h
-  hash: 751c7a83c29599a951e732ea0efaf0a85ab5d0f09568f27eee620fb5bddb7149
+  hash: ec20ea1592eafc827051df69b9f208f28cae622cdfe6f96670995d7833d2ff79
 - file: ..\src\config\default\device_cache.h
   hash: e2914501b361bbc93a56d6915b1bf4fac00277e61f31fdee87a587bc15dea5b6
 - file: ..\src\config\default\device_deep_sleep.c
@@ -2078,19 +2078,19 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\driver\thread\src\uart.c
   hash: a5dac52d579d55aabf3dd214f74b07ace843483d02752bca6e77ef23deec50ad
 - file: ..\src\config\default\exceptions.c
-  hash: a565e8d25d218b3e1069267ae9cc317161d062683a27c64e3cb454757bb82fd9
+  hash: 251729130964d6a74b7a9ee99700b57a16c0e1b5d31029678e06ecd3d8dedc9e
 - file: ..\src\config\default\framework_defs.h
   hash: a83a009955539e660bf7dcdbf69d9a47649f0fe9907cbb308e8ad7f19726baa8
 - file: ..\src\config\default\freertos_hooks.c
   hash: c97b8f92ad60ff513a27ac7a27b3c6824b75005eb8f7b85fe5ae18deaf568c4e
 - file: ..\src\config\default\initialization.c
-  hash: 72125f7385e62a90d229753fef83c593153ab632322154cc190783537eafc670
+  hash: ba5af6e6a947c7fdbc4d9f26fefec94d7b4776d3100fe99f4c54901f2fc0e3be
 - file: ..\src\config\default\interrupts.c
-  hash: 7603fa903bc0be9e769978f0eda93179f330b3ccd3a8dfd9f7f8977293989033
+  hash: 6bffb9d6b809ac5bc890e5305d6ce82350eedb8e38c7b53f724f32c09a878d41
 - file: ..\src\config\default\interrupts.h
   hash: 7a5b4a1e89a96f2c029e69ac7f1473443be2927cfca32019edb8bb59a112a47c
 - file: ..\src\config\default\libc_syscalls.c
-  hash: 88bb2e34c939601b5b7ad076556e3ee0fcedf388436b8cddb6d6fd3e9d07472f
+  hash: c9afc1b1257829415a1a6746ce3744f0a768b339d59fff2ab3ca1fab58b2a916
 - file: ..\src\config\default\osal\osal.h
   hash: 4e5d7ca0ea22a3304eee868454bca732052c88930eed7e54349bc08c7350d0fc
 - file: ..\src\config\default\osal\osal_definitions.h
@@ -2104,13 +2104,13 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\osal\osal_freertos_extend.h
   hash: 1c44e71d6e5312364cb5c62331e12489a87ef67e43ee2499bc14953d3c063727
 - file: ..\src\config\default\peripheral\adchs\plib_adchs.c
-  hash: 89865509445a3fb2325560090dd2d220a59d2e86afc371b2a89ce85fb4aadc93
+  hash: 5d9e0469597a91a55eba97beb2b9c68f7a3d2e9b1679dd9e3297c7aa943da641
 - file: ..\src\config\default\peripheral\adchs\plib_adchs.h
   hash: 19b5b51dd98231b7c0b81bbfc816c29ad6cfe243618f591be76b81e0e506ac9a
 - file: ..\src\config\default\peripheral\adchs\plib_adchs_common.h
   hash: 8f74ae928fda5ce5ae91f778f336e0b5086c80be9596469365c367d8a70cfd0f
 - file: ..\src\config\default\peripheral\clk\plib_clk.c
-  hash: 6416a5034606ed7464027578d649c7ba37f43697957f5b38181184f4af506f0f
+  hash: 7f94bac07fb24942c483680c3f2fa24d2cd686f060bcc40adf6743e7391c0b62
 - file: ..\src\config\default\peripheral\clk\plib_clk.h
   hash: 2d1939a0da512a64fea40fffe4c2f30f2d3d16344591a807c5814fc1e67fcc01
 - file: ..\src\config\default\peripheral\cmcc\plib_cmcc.c
@@ -2146,61 +2146,61 @@ generatedFileHashHistoryMap:
 - file: ..\src\config\default\peripheral\rtc\plib_rtc_timer.c
   hash: e3d0a592a17b6286a4088d7350e98b205849db30762cde57926d819beef87a3c
 - file: ..\src\config\default\peripheral\sercom\usart\plib_sercom0_usart.c
-  hash: 56378e0bb4ca79abf5c6db79d820b9ae73585e4788dcf85bdd857fddb750ca1f
+  hash: c18cdff10b451a6b6750b176a4d6f0d74055156826165b2c0fbea3543454e6b5
 - file: ..\src\config\default\peripheral\sercom\usart\plib_sercom0_usart.h
   hash: 0df2c338e8de7443bc597e108b579c4f29d23090bba433ebddf71d0eac3d218a
 - file: ..\src\config\default\peripheral\sercom\usart\plib_sercom_usart_common.h
   hash: 3653b66472c558c50f7037a1dd25d2678e9a13aa718f3c53a2195e6f3919ea48
 - file: ..\src\config\default\peripheral\tc\plib_tc0.c
-  hash: f45c11a37e2edbb0db38f06e6b1966cc39d573824329409a13f52a7b4830a8f9
+  hash: 8129c57626212a46e1637d74ed8028e374d7dd17f436914fd7aaf71270927965
 - file: ..\src\config\default\peripheral\tc\plib_tc0.h
   hash: c71eb1c99c9c3244b6d2a5030b97723a3d32d7a2c83c4ab2374c2e947e64b0c0
 - file: ..\src\config\default\peripheral\tc\plib_tc_common.h
   hash: 487b4f489229b8e16b24ab48ddc1f414b095585439f0e10d53b2285fc3979f63
 - file: ..\src\config\default\peripheral\tcc\plib_tcc0.c
-  hash: 63355989e8b6de5ce987c2c23061c8fcf5667a0e35c0417c80d741d1750c3697
+  hash: 043e16548278bdc84a93877fc6732c1e6901aaa780a5b44fde4affcc06e40b69
 - file: ..\src\config\default\peripheral\tcc\plib_tcc0.h
   hash: 3893164ffdcf6f5fba5f8e76e6cc40fefcccddb34dbbfc4894d5e847d6ce708e
 - file: ..\src\config\default\peripheral\tcc\plib_tcc_common.h
   hash: 2bd78c7b794475007265f122ca57ef54a64efc8894cc2423a1d0f74caa627b2b
 - file: ..\src\config\default\startup_xc32.c
-  hash: 95d22da03176bc3a797e2e56be702fe4776ce754d18448cd86ca42ccd4083e00
+  hash: f9c333ab2b6a49301866c8b4fe4d2fc9dd4473d7ebfc3769282fc1ebcb73d65e
 - file: ..\src\config\default\stdio\xc32_monitor.c
   hash: 858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a
 - file: ..\src\config\default\sys_tasks.h
   hash: 8e1a48dc226e9af26c57fc69ba76d2de0279f4bbc96e071a57fd0911a782545d
 - file: ..\src\config\default\system\cache\sys_cache.c
-  hash: da28c09b0da0fdd6fb7064631c15c9197c78df33fcd17d742baef909830a320e
+  hash: de8bfadd859b6bd7517c3653e5455c24bb9f95624d9006bed6d7530ad556dcc7
 - file: ..\src\config\default\system\cache\sys_cache.h
   hash: b4b3a4e7434759c9bbcd3c6a0ab97558eb2a007f083a4eb76dbedcb2e2c3d86b
 - file: ..\src\config\default\system\console\src\sys_console.c
-  hash: 622a27844a650b4fa265c7a4739ba3768a76e4148600be42e44eec2e0673d7c6
+  hash: c700e674c008118db9cbf993420f95fb7690469d30bbb53569819cb0d1d24fc0
 - file: ..\src\config\default\system\console\src\sys_console_local.h
   hash: 024a0b50ea2fea72b964b8209fb256b5df6693badd320485821e7912c5eebb25
 - file: ..\src\config\default\system\console\src\sys_console_uart.c
-  hash: ff3d1854f469e4fc41d96adce6f7ec38afad5d1b076c295eb4777936777673d0
+  hash: ad18cc6e4a36264b24ae997120baf3f34d69b7413ff13a204952536e4fb5cd25
 - file: ..\src\config\default\system\console\src\sys_console_uart.h
   hash: 690c74d55c9204f3e3d621635257df1de1c89f097671a678c359f5e24461589a
 - file: ..\src\config\default\system\console\src\sys_console_uart_definitions.h
   hash: bf403c11673266a5a861fd99253c377030c1a7f9e912eef446101e416b4f8c9a
 - file: ..\src\config\default\system\console\sys_console.h
-  hash: cc82ba93f8d69bf31a9dfcfe1e425de3924bcf9e4e4b31f7efad9c2d062dcbf6
+  hash: 345c73887a1e1a25e039da41649d3e8461c47f5a40710e2076dd683d2e13c983
 - file: ..\src\config\default\system\debug\sys_debug.h
   hash: 4162d9e1fab93b8b33f6c8a24726f5dc287ea05c31e3ab984c3c920c725d0882
 - file: ..\src\config\default\system\int\src\sys_int.c
   hash: 4281667cc2b84c9e4be1f0dfb3f7d42b77d36c5dcf6513d29ff40262f746cfc6
 - file: ..\src\config\default\system\int\sys_int.h
-  hash: dc104ae181fd5309e1bb42896246644fae95915a8e639b23ecfccc8840850274
+  hash: d8207e3358a37e8e964cd563150eda15ac17ec512b6e3c221f5603d9fa2da0ca
 - file: ..\src\config\default\system\int\sys_int_mapping.h
-  hash: 5abf8528dabc1b17378f5d137870597037214fddf33880fa40e9263352da3008
+  hash: 8e6e231f4debf9f25707af7aa1af1f07fbd93596e8045030991b7685290d354c
 - file: ..\src\config\default\system\system.h
   hash: 2b75f8e370e5cb2c54f70da7351ee149f0d5a7673e700f39b373099716b31b55
 - file: ..\src\config\default\system\system_common.h
   hash: c9f34bd226f8efab12f5766e77f8355996cd0430b50e0f6ee30258664c494984
 - file: ..\src\config\default\system\system_module.h
-  hash: 96c74368801b0a7aaa25aec3ec2cb0d483250385f103ffc1ff64089b4ca2c6d9
+  hash: 7bfe351ce506b843c61e5be013b6e3bf2a6253d73f5db189dbaf0c4f494cb75a
 - file: ..\src\config\default\system\time\src\sys_time.c
-  hash: dc74d512b721a836d281971589587797699785b284c73ef9a4e48023eff77c8c
+  hash: 43de5f42d1737ea2d8b5a51bdc187f9914740a6c7118d7e6b67b047749a9766b
 - file: ..\src\config\default\system\time\src\sys_time_local.h
   hash: b5911e9527666f333c003f69b86f92b9b88712a365d0d5f92c6e816e9f43b4c6
 - file: ..\src\config\default\system\time\sys_time.h
@@ -2215,26 +2215,28 @@ generatedFileHashHistoryMap:
   hash: 451e0878e9fcf6cf9fab046c1452ea662757988346c7f39e6bc98478ca25f995
 - file: ..\src\main.c
   hash: d3c233d419e6304bfacbafc18cc68c0f5c26e365f23b20ea40ccfac458f664c5
-- file: ..\src\packs\CMSIS\CMSIS\Core\Include\cachel1_armv7.h
-  hash: 6cdb5b324f2fd1bb5b2f47298ba6e6777e735d7cad3bb8d942cd36e2c6e65328
-- file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_armcc.h
-  hash: d074534d7106cec83474b3b0a897bd2553e1a8895ecbd54f4f4fb25928066eee
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_armclang.h
-  hash: 11b39b96ddc1125124762b3423a77b90dd40ea5b4582a3513830245046b24311
-- file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_armclang_ltm.h
-  hash: 8621969ea669a1b230ff2125a760ef66d575c48cb45e9e457f768909abcbda46
+  hash: 578fe027f4e7e56647492b07e62133b7747128984edac2c06d2bd0c2ca5bd306
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_compiler.h
-  hash: 869640702d811c4c63abb52206715c891a93fd03be954df5ad40d378355af3d6
+  hash: 1c526a918e9ab4754ec46ffce43b671e99acab15e7680beeb7ed9e95a5e1de59
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_gcc.h
-  hash: 3d4e265d0aa42f888385ccf073666e6ebb5ec9f834760b9da27c474e177f708d
+  hash: 9aa83d319c083f88c980e80034c498dd6a80052654cb1719b0c8de7f5273d91b
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_iccarm.h
-  hash: f28119adbc81fb0e3c957c9aebe8fb423ad93634e76ead3caa2b0818d2e123ae
+  hash: c9fa727161bcede2779c7221f5909dcd9fd36f0acd7baa3aaaa36482f46c9805
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\cmsis_version.h
-  hash: 8cda7ac3ff6f0eb5e83c4fe613dd195151b24da54167f5c3c007e599a03f1edc
+  hash: 2604dabf484bb5df3d76b77bc6da12094238994dfc03827a6e97ec7fe8cf0328
 - file: ..\src\packs\CMSIS\CMSIS\Core\Include\core_cm4.h
-  hash: d59a9e3ed4cf43a3c74a2e48f344d41be2b6363ef9394ea2c551052fe553a6af
-- file: ..\src\packs\CMSIS\CMSIS\Core\Include\mpu_armv7.h
-  hash: de1b5eb9ed566527b66dc06f4ecb6a43ab6800f7dac47e87c9cb42984dca41bb
+  hash: 3568e1944a626142e2c19906defed0c64d33da67a24ca05657db5e77bc7b8f83
+- file: ..\src\packs\CMSIS\CMSIS\Core\Include\m-profile\armv7m_cachel1.h
+  hash: 1d038e917d12d106da818c2d44ea692d2f6dc1f401aa65b776bbf4fd7629e9f7
+- file: ..\src\packs\CMSIS\CMSIS\Core\Include\m-profile\armv7m_mpu.h
+  hash: a3a658d8e8df70b019484fb3780bbc4f56b3d93230737c798b78db89597903cd
+- file: ..\src\packs\CMSIS\CMSIS\Core\Include\m-profile\cmsis_armclang_m.h
+  hash: e28c41d27ce3dcf843453fa2fb197587ee2a0f151ac81b9aa471927b44153ee0
+- file: ..\src\packs\CMSIS\CMSIS\Core\Include\m-profile\cmsis_gcc_m.h
+  hash: c397c0254868347b8ebcdf630ff761295c4a657a23b20090ad1b9dcfe838f3e9
+- file: ..\src\packs\CMSIS\CMSIS\Core\Include\m-profile\cmsis_iccarm_m.h
+  hash: 8c3cfb6d8be1fef93e3a73e9356b2c893f94c93e924cf3742aef21ec48409944
 - file: ..\src\packs\PIC32WM_BZ6204_DFP\component\ac.h
   hash: 6b6875085a47a989983b5ef6ad625c70815070533054065ffce2e6fddffecd1d
 - file: ..\src\packs\PIC32WM_BZ6204_DFP\component\adchs.h

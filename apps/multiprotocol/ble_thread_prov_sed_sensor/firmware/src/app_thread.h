@@ -60,11 +60,8 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 
-/* Deep sleep period for SED (ms) - device sleeps this long between polling intervals */
+/* Deep sleep period for SED (ms) - device sleeps this long between wake cycles */
 #define APP_THREAD_DEVICE_SLEEP_PERIOD   5000
-
-/* Periodic sensor reporting interval for SED (ms) */
-#define APP_TIMER_SED_SENSOR_PERIOD      10000
 
 // *****************************************************************************
 // *****************************************************************************

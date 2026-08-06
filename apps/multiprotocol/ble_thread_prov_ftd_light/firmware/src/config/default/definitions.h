@@ -91,8 +91,8 @@
 #include "system/debug/sys_debug.h"
 #include "ble/lib/include/bt_sys.h"
 #include <string.h>
-#include "peripheral/sercom/usart/plib_sercom0_usart.h"
 #include "peripheral/evsys/plib_evsys.h"
+#include "peripheral/sercom/usart/plib_sercom0_usart.h"
 /*******************************************************************************
 * Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
 *

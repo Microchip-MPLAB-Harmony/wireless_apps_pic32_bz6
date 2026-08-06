@@ -48,8 +48,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/tc/plib_tc0.h"
+#include "peripheral/rtc/plib_rtc.h"
 #include "peripheral/rcon/plib_rcon.h"
 #include "system/time/sys_time.h"
 #include "peripheral/nvm/plib_nvm.h"
@@ -152,7 +152,7 @@ extern "C" {
 #define DEVICE_SERIES        "PIC32WM_BZ6"
 
 /* CPU clock frequency */
-#define CPU_CLOCK_FREQUENCY 128000000U
+#define CPU_CLOCK_FREQUENCY 64000000U
 
 // *****************************************************************************
 // *****************************************************************************

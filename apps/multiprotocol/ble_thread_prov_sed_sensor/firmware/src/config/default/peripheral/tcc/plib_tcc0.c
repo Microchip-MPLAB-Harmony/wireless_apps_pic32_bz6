@@ -136,7 +136,7 @@ void TCC0_CompareStop( void )
 
 uint32_t TCC0_CompareFrequencyGet( void )
 {
-    return (uint32_t)128000000;
+    return (uint32_t)64000000;
 }
 
 void TCC0_CompareCommandSet(TCC_COMMAND command)

@@ -164,4 +164,6 @@ void APP_TRPS_Sensor_BLE_light_Brightness_Sync(uint8_t value);
 void APP_TRPS_Sensor_HSV2XYL(uint8_t hue,uint8_t saturation,uint8_t level);
 
 void APP_TRPS_Sensor_BLE_light_toggle(void);
+
+void APP_TRPS_Sensor_SetWaitToSleep(bool val);
 #endif

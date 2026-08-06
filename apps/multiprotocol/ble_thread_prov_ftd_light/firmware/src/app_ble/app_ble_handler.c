@@ -68,7 +68,7 @@
 // *****************************************************************************
 void APP_BleGapEvtHandler(BLE_GAP_Event_T *p_event)
 {
-    APP_BleGapConnEvtHandler(p_event); //NEha
+    APP_BleGapConnEvtHandler(p_event);
     switch(p_event->eventId)
     {
         case BLE_GAP_EVT_CONNECTED:
@@ -422,7 +422,7 @@ void APP_BleSmpEvtHandler(BLE_SMP_Event_T *p_event)
     {
         case BLE_SMP_EVT_PAIRING_COMPLETE:
         {
-            if (p_event->eventField.evtPairingComplete.status != BLE_SMP_PAIRING_SUCCESS) //Neha
+            if (p_event->eventField.evtPairingComplete.status != BLE_SMP_PAIRING_SUCCESS)
             {
                 BLE_GAP_Disconnect(p_event->eventField.evtPairingComplete.connHandle, GAP_DISC_REASON_REMOTE_TERMINATE);
                 SYS_CONSOLE_PRINT("[BLE] Pairing Failed\n\r");                

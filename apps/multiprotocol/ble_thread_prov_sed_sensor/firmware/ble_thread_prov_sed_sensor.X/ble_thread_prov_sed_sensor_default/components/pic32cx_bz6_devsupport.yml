@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: pic32cx_bz6_devsupport
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -323,4 +323,16 @@ data:
           type: Boolean
         type: Attributes
       type: File
+    DEVICE_CHECON_PFMWS:
+      attributes:
+        id: DEVICE_CHECON_PFMWS
+        label: Program Flash memory Wait states
+      children:
+      - children:
+        - attributes:
+            id: pic32cx_bz6_devsupport
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
   userData: {}

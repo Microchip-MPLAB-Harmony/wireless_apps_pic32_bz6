@@ -44,7 +44,6 @@
 // *****************************************************************************
 
 #include "definitions.h"
-#include "timers.h"
 #include "app_thread/app_thread_common.h"
 #include "app_thread.h"
 #include "app_thread_udp.h"
@@ -58,21 +57,14 @@
 // *****************************************************************************
 
 static otDeviceRole s_appthreadstate = OT_DEVICE_ROLE_DISABLED;
-static TimerHandle_t s_sedSensorTimerHandle = NULL;
+extern bool otIsIdle(void);
+extern APP_DATA appData;
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Local Functions
 // *****************************************************************************
 // *****************************************************************************
-
-/* FreeRTOS auto-reload timer: fires every APP_TIMER_SED_SENSOR_PERIOD ms */
-static void APP_ThreadSEDSensorTimerCb(TimerHandle_t xTimer)
-{
-    APP_Msg_T msg;
-    msg.msgId = APP_MSG_THREAD_SEND_SENSOR_DATA;
-    OSAL_QUEUE_Send(&appData.appQueue, &msg, 0);
-}
 
 static void APP_ThreadRoleChangeHandler(otChangedFlags aFlags)
 {
@@ -84,11 +76,10 @@ static void APP_ThreadRoleChangeHandler(otChangedFlags aFlags)
             SYS_CONSOLE_MESSAGE("[THREAD] SED enabled as Child\r\n");
             APP_Thread_UdpInitData();
             deviceattached = true;
-            /* Start periodic sensor reporting */
-            if (s_sedSensorTimerHandle != NULL)
-            {
-                xTimerStart(s_sedSensorTimerHandle, 0);
-            }
+            /* Send one sensor data packet; sleep will be triggered after send */
+            APP_Msg_T appMsg;
+            appMsg.msgId = APP_MSG_THREAD_SEND_SENSOR_DATA;
+            OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);
         }
         break;
 
@@ -110,10 +101,6 @@ static void APP_ThreadRoleChangeHandler(otChangedFlags aFlags)
             {
                SYS_CONSOLE_MESSAGE("[THREAD] SED Detached\r\n");
                deviceattached = false;
-               if (s_sedSensorTimerHandle != NULL)
-               {
-                   xTimerStop(s_sedSensorTimerHandle, 0);
-               }
             }
         }
         break;
@@ -122,10 +109,6 @@ static void APP_ThreadRoleChangeHandler(otChangedFlags aFlags)
         {
             SYS_CONSOLE_MESSAGE("[THREAD] Device disabled. Reset!\r\n");
             deviceattached = false;
-            if (s_sedSensorTimerHandle != NULL)
-            {
-                xTimerStop(s_sedSensorTimerHandle, 0);
-            }
         }
         break;
 
@@ -168,16 +151,6 @@ void APP_ThreadResetToFactoryNew(void)
 
 void APP_ThreadAppStackInit(APP_ProvNwData_T *provNwData)
 {
-  /* Create auto-reload FreeRTOS timer for periodic sensor reporting */
-  if (s_sedSensorTimerHandle == NULL)
-  {
-      s_sedSensorTimerHandle = xTimerCreate("sed_sensor",
-                                            pdMS_TO_TICKS(APP_TIMER_SED_SENSOR_PERIOD),
-                                            pdTRUE,  /* auto-reload */
-                                            (void *)0,
-                                            APP_ThreadSEDSensorTimerCb);
-  }
-
   otError error;
   error = APP_ThreadInit(APP_ThreadHandler);
   if(OT_ERROR_NONE == error)
@@ -203,28 +176,36 @@ void APP_ThreadAppStackInit(APP_ProvNwData_T *provNwData)
     appMsg.msgData[0] =  true;
     OSAL_QUEUE_Send(&appData.appQueue, &appMsg, 0);  
   }
-  /* TODO: implement any initialization for application code.*/
 }
 
 void APP_ThreadDeviceSleep(void)
 {
-    /* For SED: trigger a sleep timeout so the device can re-enter sleep state.
-     * Use a one-shot timer to schedule the next sleep attempt, allowing the
-     * Thread stack to complete any pending operations before sleeping.
-     */
-    if (otIsIdle())
+    static uint8_t retryCount = 0;
+
+    if(otIsIdle() || retryCount >= 10)
     {
-        /* Thread stack is idle - schedule next wakeup via the SED timeout timer.
-         * On BZ6, actual deep sleep entry is handled through the PMU/tickless idle
-         * mechanism. The timer keeps the SED polling cycle active.
-         */
-        APP_TIMER_SetTimer(APP_TIMER_SED_TIMEOUT, APP_THREAD_DEVICE_SLEEP_PERIOD, false);
+       retryCount = 0;
+
+       /* Flush all pending PDS items to flash before entering deep sleep.
+        * PDS_Store() only queues writes in RAM; the actual flash write is
+        * performed by PDS_StoreItemTaskHandler() (normally called from the
+        * FreeRTOS idle task). Since the idle task won't run after this point,
+        * we must flush here to persist OpenThread settings across deep sleep. */
+       while(PDS_GetPendingItemsCount() > 0)
+       {
+           PDS_StoreItemTaskHandler();
+       }
+
+       vQueueDelete(appData.appQueue);
+       DEVICE_EnterDeepSleep(false, APP_THREAD_DEVICE_SLEEP_PERIOD);
     }
     else
     {
-        /* Stack is busy - retry after a short delay */
-        APP_Msg_T sleepReq;
-        sleepReq.msgId = APP_TIMER_SED_TIMEOUT_MSG;
-        OSAL_QUEUE_Send(&appData.appQueue, &sleepReq, 0);
+       retryCount++;
+       /* Use 500ms timer delay between retries instead of immediate re-post.
+        * This gives the Thread task CPU time to complete pending MAC operations
+        * (data polls, retransmissions, ACK waits) before we check otIsIdle()
+        * again. After 10 retries (~5s), we force deep sleep entry regardless. */
+       APP_TIMER_SetTimer(APP_TIMER_SED_TIMEOUT, APP_TIMER_500MS, false);
     }
 }

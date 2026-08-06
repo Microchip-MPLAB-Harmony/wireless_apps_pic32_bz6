@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: core
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.26.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -53,11 +53,12 @@ data:
     GCLK_ID_24_FREQ:
       attributes:
         id: GCLK_ID_24_FREQ
+        label: 'Peripheral Channel 24 Frequency '
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -504,11 +505,12 @@ data:
     TC0_CLOCK_FREQUENCY:
       attributes:
         id: TC0_CLOCK_FREQUENCY
+        label: TC0 Clock Frequency
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -581,22 +583,24 @@ data:
     SERCOM0_CORE_CLOCK_FREQUENCY:
       attributes:
         id: SERCOM0_CORE_CLOCK_FREQUENCY
+        label: SERCOM0_CORE Clock Frequency
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
     GCLK_ID_3_FREQ:
       attributes:
         id: GCLK_ID_3_FREQ
+        label: 'Peripheral Channel 3 Frequency '
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -734,22 +738,24 @@ data:
     TCC0_CLOCK_FREQUENCY:
       attributes:
         id: TCC0_CLOCK_FREQUENCY
+        label: TCC0 Clock Frequency
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
     GCLK_ID_21_FREQ:
       attributes:
         id: GCLK_ID_21_FREQ
+        label: 'Peripheral Channel 21 Frequency '
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -877,17 +883,19 @@ data:
     SPLLCON_VALUE:
       attributes:
         id: SPLLCON_VALUE
+        label: SPLLCON_VALUE
       children:
       - children:
         - attributes:
             id: core
-            value: '3221291272'
+            value: '3221291528'
           type: Dynamic
         type: Values
       type: Hex
     SPLL2_FREQ:
       attributes:
         id: SPLL2_FREQ
+        label: SPLL2 Clock (for ADC Charge Pump) Frequency (Hz)
       children:
       - children:
         - attributes:
@@ -899,6 +907,7 @@ data:
     SPLLCON_SPLLPOSTDIV2_VALUE:
       attributes:
         id: SPLLCON_SPLLPOSTDIV2_VALUE
+        label: SPLL Clock 2 Divide Value, 1 to 15
       children:
       - children:
         - attributes:
@@ -910,11 +919,12 @@ data:
     ADCHS_CLOCK_FREQUENCY:
       attributes:
         id: ADCHS_CLOCK_FREQUENCY
+        label: ADCHS Clock Frequency
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -943,22 +953,24 @@ data:
     EIC_CLOCK_FREQUENCY:
       attributes:
         id: EIC_CLOCK_FREQUENCY
+        label: EIC Clock Frequency
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
     GCLK_ID_0_FREQ:
       attributes:
         id: GCLK_ID_0_FREQ
+        label: 'Peripheral Channel 0 Frequency '
       children:
       - children:
         - attributes:
             id: core
-            value: '128000000'
+            value: '64000000'
           type: Dynamic
         type: Values
       type: Integer
@@ -3341,6 +3353,7 @@ data:
     RTC_CLOCK_FREQUENCY:
       attributes:
         id: RTC_CLOCK_FREQUENCY
+        label: RTC Clock Frequency
       children:
       - children:
         - attributes:
@@ -3393,6 +3406,400 @@ data:
           type: Dynamic
         type: Values
       type: Boolean
+    CONFIG_CHECON_PFMWS:
+      attributes:
+        id: CONFIG_CHECON_PFMWS
+        label: Program Flash memory Wait states
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_CHECON_ADRWS:
+      attributes:
+        id: CONFIG_CHECON_ADRWS
+        label: Address Setup Time
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SYSTICK_PERIOD:
+      attributes:
+        id: SYSTICK_PERIOD
+        label: SysTick Period
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0xFA00'
+          type: Dynamic
+        type: Values
+      type: String
+    SYSTICK_PERIOD_US:
+      attributes:
+        id: SYSTICK_PERIOD_US
+        label: SYSTICK_PERIOD_US
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '1000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CPU_CLOCK_FREQUENCY:
+      attributes:
+        id: CPU_CLOCK_FREQUENCY
+        label: CPU Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '64000000'
+          type: Dynamic
+        type: Values
+      type: String
+    WDT_ALLOWED_WINDOW_PERIOD:
+      attributes:
+        id: WDT_ALLOWED_WINDOW_PERIOD
+        label: Configured WDT Allowed Window Period
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 256.0 s
+          type: Dynamic
+        type: Values
+      type: String
+    WDT_TIMEOUT_PERIOD:
+      attributes:
+        id: WDT_TIMEOUT_PERIOD
+        label: Configured WDT Time-out Period
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 1024.0 s
+          type: Dynamic
+        type: Values
+      type: String
+    WDT_CLOCK_FREQUENCY:
+      attributes:
+        id: WDT_CLOCK_FREQUENCY
+        label: WDT Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32768'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SYS_CLK_FREQ:
+      attributes:
+        id: SYS_CLK_FREQ
+        label: System (CPU) Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_PBCLK1_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_PBCLK1_FREQ
+        label: 'Peripheral Bus Clock #1 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    QSPI_CLOCK_FREQUENCY:
+      attributes:
+        id: QSPI_CLOCK_FREQUENCY
+        label: QSPI Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    CONFIG_SYS_CLK_PBCLK2_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_PBCLK2_FREQ
+        label: 'Peripheral Bus Clock #2 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_PBCLK3_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_PBCLK3_FREQ
+        label: 'Peripheral Bus Clock #3 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '6400000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_PBCLK4_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_PBCLK4_FREQ
+        label: 'Peripheral Bus Clock #4 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_PBCLK5_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_PBCLK5_FREQ
+        label: 'Peripheral Bus Clock #5 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK1_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK1_FREQ
+        label: 'Reference Clock #1 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '64000000'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK2_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK2_FREQ
+        label: 'Reference Clock #2 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK3_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK3_FREQ
+        label: 'Reference Clock #3 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK4_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK4_FREQ
+        label: 'Reference Clock #4 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK5_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK5_FREQ
+        label: 'Reference Clock #5 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: String
+    CONFIG_SYS_CLK_REFCLK6_FREQ:
+      attributes:
+        id: CONFIG_SYS_CLK_REFCLK6_FREQ
+        label: 'Reference Clock #6 Frequency (Hz)'
+      children:
+      - children:
+        - attributes:
+            value: '0'
+          type: User
+        type: Values
+      type: String
+    SERCOM_SLOW_CLOCK_FREQUENCY:
+      attributes:
+        id: SERCOM_SLOW_CLOCK_FREQUENCY
+        label: SERCOM Slow Clock Frequency
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    DSWDT_TIMEOUT_PERIOD:
+      attributes:
+        id: DSWDT_TIMEOUT_PERIOD
+        label: Configured DSWDT Time-out Period
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 16.0 ms
+          type: Dynamic
+        type: Values
+      type: String
+    DSWDT_CLOCK_FREQUENCY:
+      attributes:
+        id: DSWDT_CLOCK_FREQUENCY
+        label: Deep Sleep WDT Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    LPCLK_FREQ:
+      attributes:
+        id: LPCLK_FREQ
+        label: Low Power Clock (LPCLK) Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SOSC_OUT_FREQ:
+      attributes:
+        id: SOSC_OUT_FREQ
+        label: Secondary Oscillator Output Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '32768'
+          type: Dynamic
+        type: Values
+      type: Integer
+    OSCCON_VALUE:
+      attributes:
+        id: OSCCON_VALUE
+        label: OSCCON_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '2097411'
+          type: Dynamic
+        type: Values
+      type: Hex
+    OSCCON_SOSCEN_VALUE:
+      attributes:
+        id: OSCCON_SOSCEN_VALUE
+        label: 32 kHz Secondary (LP) Oscillator Enable bit
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'ON'
+          type: Dynamic
+        type: Values
+      type: Combo
+    CONFIG_LPOSCEN:
+      attributes:
+        id: CONFIG_LPOSCEN
+        label: Low Power (Secondary) Oscillator Enable (LPOSCEN)
+      children:
+      - children:
+        - attributes:
+            value: 'ON'
+          type: User
+        type: Values
+      type: Combo
+    SPLL1_FREQ:
+      attributes:
+        id: SPLL1_FREQ
+        label: SPLL1 Clock Frequency (Hz)
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '64000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SPLLCON_SPLLPOSTDIV1_VALUE:
+      attributes:
+        id: SPLLCON_SPLLPOSTDIV1_VALUE
+        label: SPLL Clock 1 Divide Value, 1 to 255
+      children:
+      - children:
+        - attributes:
+            value: '2'
+          type: User
+        type: Values
+      type: Integer
+    SYSTICK_PERIOD_MS:
+      attributes:
+        id: SYSTICK_PERIOD_MS
+        label: Systick Period(Milliseconds)
+      children:
+      - children:
+        - attributes:
+            id: max
+          children:
+          - type: Value
+            value: '262.14398'
+          type: Float
+        type: Attributes
+      type: Float
+    CONFIG_VBKP_32KCSEL:
+      attributes:
+        id: CONFIG_VBKP_32KCSEL
+        label: VDDBUKPCORE 32kHz clock source selection (VBKP_32KCSEL)
+      children:
+      - children:
+        - attributes:
+            value: SOSC
+          type: User
+        type: Values
+      type: Combo
+    CONFIG_LPCLK_MOD:
+      attributes:
+        id: CONFIG_LPCLK_MOD
+        label: LPCLK modifier in counter/delay mode (LPCLK_MOD)
+      children:
+      - children:
+        - attributes:
+            value: DIV_1_024
+          type: User
+        type: Values
+      type: Combo
   userData:
     children:
     - attributes:

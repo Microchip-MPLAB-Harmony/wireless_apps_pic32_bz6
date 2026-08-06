@@ -169,7 +169,7 @@ void APP_Tasks ( void )
         {
             bool appInitialized = true;
             //appData.appQueue = xQueueCreate( 10, sizeof(APP_Msg_T) );
-            SYS_CONSOLE_MESSAGE("\r\n=====BLE_THREAD_COMBO_SED_SENSOR======\r\n");
+            SYS_CONSOLE_MESSAGE("\r\n=====BLE_THREAD_COMBO_SED======\r\n");
 
             APP_BleStackInit();
             APP_UpdateLocalName(0, NULL);

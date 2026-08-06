@@ -83,7 +83,7 @@ extern "C" {
 #define SYS_TIME_INDEX_0                            (0)
 #define SYS_TIME_MAX_TIMERS                         (5)
 #define SYS_TIME_HW_COUNTER_WIDTH                   (16)
-#define SYS_TIME_TICK_FREQ_IN_HZ                    (1000.50025)
+#define SYS_TIME_TICK_FREQ_IN_HZ                    (1001.001)
 
 #define SYS_CONSOLE_INDEX_0                       0
 
@@ -117,7 +117,7 @@ extern "C" {
 // Section: Application Configuration
 // *****************************************************************************
 // *****************************************************************************
-#define CONFIG_BLE_GAP_DEV_NAME_VALUE                    {"Microchip"}
+#define CONFIG_BLE_GAP_DEV_NAME_VALUE                    {"BLE_SED_SENSOR"}
 // GAP Service option
 #define CONFIG_BLE_GAP_SVC_DEV_NAME_WRITE                false             /* Enable Device Name Write Property */
 #define CONFIG_BLE_GAP_SVC_APPEARANCE                    0x0                 /* Appearance */

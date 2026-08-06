@@ -117,7 +117,7 @@ extern "C" {
 // Section: Application Configuration
 // *****************************************************************************
 // *****************************************************************************
-#define CONFIG_BLE_GAP_DEV_NAME_VALUE                    {"Microchip"}
+#define CONFIG_BLE_GAP_DEV_NAME_VALUE                    {"BLE_FTD_LIGHT"}
 // GAP Service option
 #define CONFIG_BLE_GAP_SVC_DEV_NAME_WRITE                false             /* Enable Device Name Write Property */
 #define CONFIG_BLE_GAP_SVC_APPEARANCE                    0x0                 /* Appearance */

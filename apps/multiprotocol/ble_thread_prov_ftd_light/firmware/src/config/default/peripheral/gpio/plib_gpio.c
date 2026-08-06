@@ -66,19 +66,18 @@ void GPIO_Initialize ( void )
     GPIOB_REGS->GPIO_TRISCLR = 0x80U; /* Direction Control */
     GPIOB_REGS->GPIO_ANSELCLR = 0x88U; /* Digital Mode Enable */
     /* PORTC Initialization */
-    GPIOC_REGS->GPIO_LAT = 0x0U; /* Initial Latch Value */
-    GPIOC_REGS->GPIO_TRISCLR = 0x480U; /* Direction Control */
     GPIOC_REGS->GPIO_ANSELCLR = 0x80U; /* Digital Mode Enable */
     /* PORTD Initialization */
     /* PORTE Initialization */
-    GPIOE_REGS->GPIO_LAT = 0x0U; /* Initial Latch Value */
-    GPIOE_REGS->GPIO_TRISCLR = 0x1U; /* Direction Control */
 
 
     /* PPS Input Remapping */
     PPS_REGS->PPS_EXTINT3R = 7U;
 
     /* PPS Output Remapping */
+    PPS_REGS->PPS_RPC10G5R = 5U;
+    PPS_REGS->PPS_RPC7G2R = 17U;
+    PPS_REGS->PPS_RPE0G1R = 14U;
 
 
 }

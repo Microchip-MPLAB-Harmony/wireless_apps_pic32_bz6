@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: ble_prov
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: wireless_system_pic32cxbz_wbz
   type: package
-  version: v1.8.1
+  version: v1.8.2
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments:

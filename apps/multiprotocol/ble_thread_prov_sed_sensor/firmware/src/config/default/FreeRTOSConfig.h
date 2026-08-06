@@ -1,5 +1,5 @@
-/* MISRA C-2012 Rule 3.1, 5.4 deviated below. Deviation record ID -
-   H3_MISRAC_2012_R_3_1_DR_1 & H3_MISRAC_2012_R_5_4_DR_1*/
+/* MISRA C-2023 Rule 3.1, 5.4 deviated below. Deviation record ID -
+   H3_MISRAC_2023_R_3_1_DR_1 & H3_MISRAC_2023_R_5_4_DR_1*/
 
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
@@ -55,7 +55,7 @@
  * The default value is set to 20MHz and matches the QEMU demo settings.  Your
  * application will certainly need a different value so set this correctly.
  * This is very often, but not always, equal to the main system clock frequency. */
-#define configCPU_CLOCK_HZ                      ( 128000000UL )
+#define configCPU_CLOCK_HZ                      ( 64000000UL )
 /******************************************************************************/
 /* Scheduling behaviour related definitions. **********************************/
 /******************************************************************************/

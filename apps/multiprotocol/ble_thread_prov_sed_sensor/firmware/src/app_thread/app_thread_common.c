@@ -112,40 +112,40 @@ otError APP_ThreadInit(otStateChangedCallback stateChangedCallback)
 otError APP_ThreadSetNwParameters(APP_ProvNwData_T *provNwData)
 {
     otError error = OT_ERROR_NONE;  
-        otOperationalDataset aDataset;
-        memset(&aDataset, 0, sizeof(otOperationalDataset));
+    otOperationalDataset aDataset;
+    memset(&aDataset, 0, sizeof(otOperationalDataset));
 
-        aDataset.mChannel                      = provNwData->channel;
-        aDataset.mComponents.mIsChannelPresent = true;
+    aDataset.mChannel                      = provNwData->channel;
+    aDataset.mComponents.mIsChannelPresent = true;
 
-        aDataset.mChannelMask                      = (otChannelMask)provNwData->channelMask;
-        aDataset.mComponents.mIsChannelMaskPresent = true;
+    aDataset.mChannelMask                      = (otChannelMask)provNwData->channelMask;
+    aDataset.mComponents.mIsChannelMaskPresent = true;
 
-        aDataset.mPanId                      = (otPanId)provNwData->panId;
-        aDataset.mComponents.mIsPanIdPresent = true;
+    aDataset.mPanId                      = (otPanId)provNwData->panId;
+    aDataset.mComponents.mIsPanIdPresent = true;
 
-        memcpy(aDataset.mExtendedPanId.m8, provNwData->extPanId, sizeof(aDataset.mExtendedPanId));
-        aDataset.mComponents.mIsExtendedPanIdPresent = true;
+    memcpy(aDataset.mExtendedPanId.m8, provNwData->extPanId, sizeof(aDataset.mExtendedPanId));
+    aDataset.mComponents.mIsExtendedPanIdPresent = true;
 
-        memcpy(aDataset.mNetworkKey.m8,provNwData->networkKey,sizeof(aDataset.mNetworkKey));
-        aDataset.mComponents.mIsNetworkKeyPresent = true;
+    memcpy(aDataset.mNetworkKey.m8,provNwData->networkKey,sizeof(aDataset.mNetworkKey));
+    aDataset.mComponents.mIsNetworkKeyPresent = true;
 
-        size_t length = strlen(provNwData->networkName);
-        memset(aDataset.mNetworkName.m8,0,OT_NETWORK_NAME_MAX_SIZE);
-        if(length <= OT_NETWORK_NAME_MAX_SIZE)
-        {
-           memcpy(aDataset.mNetworkName.m8, provNwData->networkName, length);
-        }
-        else
-        {
-           memcpy(aDataset.mNetworkName.m8, provNwData->networkName, OT_NETWORK_NAME_MAX_SIZE); 
-        }
-        aDataset.mComponents.mIsNetworkNamePresent = true;
+    size_t length = strlen(provNwData->networkName);
+    memset(aDataset.mNetworkName.m8,0,OT_NETWORK_NAME_MAX_SIZE);
+    if(length <= OT_NETWORK_NAME_MAX_SIZE)
+    {
+       memcpy(aDataset.mNetworkName.m8, provNwData->networkName, length);
+    }
+    else
+    {
+       memcpy(aDataset.mNetworkName.m8, provNwData->networkName, OT_NETWORK_NAME_MAX_SIZE); 
+    }
+    aDataset.mComponents.mIsNetworkNamePresent = true;
 
-        memcpy(aDataset.mMeshLocalPrefix.m8,provNwData->meshLocalPrefix,sizeof(aDataset.mMeshLocalPrefix));
-        aDataset.mComponents.mIsMeshLocalPrefixPresent = true;
+    memcpy(aDataset.mMeshLocalPrefix.m8,provNwData->meshLocalPrefix,sizeof(aDataset.mMeshLocalPrefix));
+    aDataset.mComponents.mIsMeshLocalPrefixPresent = true;
 
-        error = otDatasetSetActive(instance, &aDataset);
+    error = otDatasetSetActive(instance, &aDataset);
     return error; 
 }
 

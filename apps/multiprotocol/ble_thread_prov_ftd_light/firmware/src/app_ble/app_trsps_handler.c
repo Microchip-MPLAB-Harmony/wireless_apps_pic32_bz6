@@ -65,7 +65,7 @@ void APP_TrspsEvtHandler(BLE_TRSPS_Event_T *p_event)
     {
         case BLE_TRSPS_EVT_CTRL_STATUS:
         {
-            APP_TRPS_EventHandler(p_event);//Neha
+            APP_TRPS_EventHandler(p_event);
         }
         break;
         
@@ -95,7 +95,7 @@ void APP_TrspsEvtHandler(BLE_TRSPS_Event_T *p_event)
         
         case BLE_TRSPS_EVT_VENDOR_CMD:
         {
-            APP_TRPS_EventHandler(p_event); //NEha
+            APP_TRPS_EventHandler(p_event);
         }
         break;
 

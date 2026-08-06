@@ -56,6 +56,8 @@
 #include "app_thread.h"
 #include "app_thread_udp.h"
 #include "app_ble_sensor.h"
+#include "app_ble_conn_handler.h"
+#include "app_timer/app_timer.h"
 #include "sensors/inc/temp_sensor.h"
 
 
@@ -163,6 +165,10 @@ void APP_Thread_UdpInitData(void)
  * Read temperature from MCP9700 sensor and send a 2-byte UDP packet to FTD.
  * Format: [MSB][LSB] where uint16 = (int)(temperature_Celsius * 10)
  * e.g. 25.4 C -> 254 -> 0x00FE
+ *
+ * After sending, schedules deep sleep:
+ *  - If BLE connected: defers sleep until BLE disconnect (waitToSleep)
+ *  - If BLE not connected: starts 2s one-shot timer to trigger deep sleep
  */
 void APP_Thread_SendTempSensorData(void)
 {
@@ -173,6 +179,18 @@ void APP_Thread_SendTempSensorData(void)
     tempBuf[1] = (uint8_t)(tempScaled & 0xFFU);
     SYS_CONSOLE_PRINT("[SED] Temperature: %.1f DegC -> sending UDP\r\n", tempC);
     APP_Thread_UdpSend(tempBuf, sizeof(tempBuf));
+
+    /* Schedule deep sleep after sending data */
+    if (APP_GetBleState() == APP_BLE_STATE_CONNECTED)
+    {
+        /* BLE still connected - defer sleep until disconnect */
+        APP_TRPS_Sensor_SetWaitToSleep(true);
+    }
+    else
+    {
+        /* No BLE connection - schedule sleep after 2s delay */
+        APP_TIMER_SetTimer(APP_TIMER_SED_TIMEOUT, APP_TIMER_2S, false);
+    }
 }
 
 

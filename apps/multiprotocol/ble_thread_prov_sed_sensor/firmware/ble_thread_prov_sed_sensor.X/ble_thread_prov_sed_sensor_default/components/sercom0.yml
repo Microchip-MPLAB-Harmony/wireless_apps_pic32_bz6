@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: sercom0
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -11,7 +11,7 @@ dependency:
 - dependencyPackage: ''
   name: csp
   type: package
-  version: v3.24.0
+  version: v3.26.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments:
@@ -77,6 +77,7 @@ data:
     I2CM_BAUD:
       attributes:
         id: I2CM_BAUD
+        label: I2C BAUD
       children:
       - children:
         - attributes:
@@ -88,24 +89,26 @@ data:
     I2CS_SDASETUP_TIME_NS:
       attributes:
         id: I2CS_SDASETUP_TIME_NS
+        label: SDA Setup Time (ns)
       children:
       - children:
         - attributes:
             id: max
           children:
           - type: Value
-            value: '1921'
+            value: '3843'
           type: Integer
         type: Attributes
       type: Integer
     I2CS_SDASETUP_TIME_REG_VALUE:
       attributes:
         id: I2CS_SDASETUP_TIME_REG_VALUE
+        label: SDA Setup Time Register Value
       children:
       - children:
         - attributes:
             id: sercom0
-            value: '1'
+            value: '0'
           type: Dynamic
         type: Values
       type: Integer
@@ -204,11 +207,12 @@ data:
     SPI_BAUD_REG_VALUE:
       attributes:
         id: SPI_BAUD_REG_VALUE
+        label: SPI Baud
       children:
       - children:
         - attributes:
             id: sercom0
-            value: '63'
+            value: '31'
           type: Dynamic
         type: Values
       type: Integer
@@ -226,11 +230,12 @@ data:
     USART_BAUD_VALUE:
       attributes:
         id: USART_BAUD_VALUE
+        label: Baud Rate Value
       children:
       - children:
         - attributes:
             id: sercom0
-            value: '64592'
+            value: '63648'
           type: Dynamic
         type: Values
       type: Integer
@@ -299,6 +304,7 @@ data:
     USART_SAMPLE_COUNT:
       attributes:
         id: USART_SAMPLE_COUNT
+        label: No Of Samples
       children:
       - children:
         - attributes:
@@ -310,6 +316,7 @@ data:
     USART_SAMPLE_RATE:
       attributes:
         id: USART_SAMPLE_RATE
+        label: Sample Rate
       children:
       - children:
         - attributes:
