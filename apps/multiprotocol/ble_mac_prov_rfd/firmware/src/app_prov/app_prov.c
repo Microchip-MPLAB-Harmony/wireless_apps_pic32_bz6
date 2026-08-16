@@ -53,7 +53,6 @@
 #include "app_trps/app_trps.h"
 #include "../app_ble_conn_handler.h"
 #include "driver/device_support/include/info_block.h"
-#include "../config/default/system/console/sys_console.h"
 
 
 // *****************************************************************************
@@ -273,7 +272,6 @@ void APP_Prov_TRPS_ProvComplete(bool commStatus)
         
 		if ( APP_GetBleState() == APP_BLE_STATE_CONNECTED)
 		{
-            SYS_CONSOLE_PRINT("\n02\r\n"); //Neha
 			APP_TRPS_SendNotification(APP_TRP_VENDOR_OPCODE_PROV,PROV_STATUS_NFY);
 		}
 	}

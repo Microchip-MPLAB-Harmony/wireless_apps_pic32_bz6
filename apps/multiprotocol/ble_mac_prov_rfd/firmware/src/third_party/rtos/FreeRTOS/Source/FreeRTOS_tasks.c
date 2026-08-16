@@ -40,7 +40,6 @@
 #include "task.h"
 #include "timers.h"
 #include "stack_macros.h"
-#include "bsp/bsp.h"
 
 /* The default definitions are only available for non-MPU ports. The
  * reason is that the stack alignment requirements vary for different
@@ -5845,7 +5844,6 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 
                     if( xExpectedIdleTime >= ( TickType_t ) configEXPECTED_IDLE_TIME_BEFORE_SLEEP )
                     {
-                        
                         traceLOW_POWER_IDLE_BEGIN();
                         portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime );
                         traceLOW_POWER_IDLE_END();

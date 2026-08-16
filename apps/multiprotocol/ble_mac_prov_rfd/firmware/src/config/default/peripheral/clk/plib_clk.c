@@ -114,14 +114,14 @@ void CLOCK_Initialize( void )
         //Setup 128MHz PLL
         CLOCK_RF_Write_Reg(0x2EU, 0x4328U);
 
-        /* MISRAC 2012 deviation block start */
-        /* MISRA C-2012 Rule 11.1 deviated 1 time. Deviation record ID -  H3_MISRAC_2012_R_11_1_DR_1 */
+        /* MISRAC 2023 deviation block start */
+        /* MISRA C-2023 Rule 11.1 deviated 1 time. Deviation record ID -  H3_MISRAC_2023_R_11_1_DR_1 */
         /* Configure Prefetch, Wait States by calling the ROM function whose address is available at address 0xF2D0 */
         typedef void (*FUNC_PCHE_SETUP)(uint32_t setup);
         (void)((FUNC_PCHE_SETUP)(*(uint32_t*)0xF2D0))((PCHE_REGS->PCHE_CHECON & (~(PCHE_CHECON_PFMWS_Msk | PCHE_CHECON_ADRWS_Msk | PCHE_CHECON_PREFEN_Msk)))
                                         | (PCHE_CHECON_PFMWS(1) | PCHE_CHECON_PREFEN(1) | PCHE_CHECON_ADRWS(1)));
     }
-    
+
 
     //wait for crystal ready
     while((BTZBSYS_REGS->BTZBSYS_SUBSYS_STATUS_REG1 & BTZBSYS_SUBSYS_STATUS_REG1_xtal_ready_out_Msk) != BTZBSYS_SUBSYS_STATUS_REG1_xtal_ready_out_Msk)

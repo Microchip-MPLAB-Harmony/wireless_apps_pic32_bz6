@@ -102,7 +102,6 @@ APP_DATA appData;
 */
 static void Disconnect_Timer_Callback(TimerHandle_t xTimer)
 {
-    SYS_CONSOLE_PRINT("\n03\r\n");
     uint16_t disconnStatus = BLE_GAP_Disconnect(APP_GetConnHandleByIndex(0), GAP_DISC_REASON_REMOTE_TERMINATE);
     SYS_CONSOLE_PRINT("\nDisconnection Status after prov %d\r\n", disconnStatus);
 }
@@ -204,7 +203,6 @@ void APP_Tasks ( void )
             #ifdef ENABLE_DEVICE_DEEP_SLEEP  
                 DEVICE_DeepSleepWakeSrc_T wakeupSrc;
                 DEVICE_GetDeepSleepWakeUpSrc(&wakeupSrc);
-                SYS_CONSOLE_PRINT("\nwakeupSrc %d\r\n", wakeupSrc);
                 if(wakeupSrc == DEVICE_DEEP_SLEEP_WAKE_NONE  ||  wakeupSrc == DEVICE_DEEP_SLEEP_WAKE_MCLR)
             #endif 
             {
@@ -245,7 +243,6 @@ void APP_Tasks ( void )
                 }
                 else if(p_appMsg->msgId==APP_MSG_MAC_PROV_COMPLTE)
                 {
-                    SYS_CONSOLE_PRINT("\n01\r\n"); //Neha
                     APP_Prov_TRPS_ProvComplete(p_appMsg->msgData[0]);
                     (void)xTimerStart(Disconnect_Handle,pdMS_TO_TICKS(0));
                 }

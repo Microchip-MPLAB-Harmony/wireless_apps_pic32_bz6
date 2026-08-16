@@ -157,10 +157,10 @@
 // *****************************************************************************
 // *****************************************************************************
 /* Following MISRA-C rules are deviated in the below code block */
-/* MISRA C-2012 Rule 7.2 - Deviation record ID - H3_MISRAC_2012_R_7_2_DR_1 */
-/* MISRA C-2012 Rule 11.1 - Deviation record ID - H3_MISRAC_2012_R_11_1_DR_1 */
-/* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
-/* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+/* MISRA C-2023 Rule 7.2 - Deviation record ID - H3_MISRAC_2023_R_7_2_DR_1 */
+/* MISRA C-2023 Rule 11.1 - Deviation record ID - H3_MISRAC_2023_R_11_1_DR_1 */
+/* MISRA C-2023 Rule 11.3 - Deviation record ID - H3_MISRAC_2023_R_11_3_DR_1 */
+/* MISRA C-2023 Rule 11.8 - Deviation record ID - H3_MISRAC_2023_R_11_8_DR_1 */
 
 
 
@@ -331,7 +331,7 @@ static const SYS_CONSOLE_INIT sysConsole0Init =
 // *****************************************************************************
 // *****************************************************************************
 
-/* MISRAC 2012 deviation block end */
+/* MISRAC 2023 deviation block end */
 
 /*******************************************************************************
   Function:
@@ -346,8 +346,8 @@ static const SYS_CONSOLE_INIT sysConsole0Init =
 void SYS_Initialize ( void* data )
 {
 
-    /* MISRAC 2012 deviation block start */
-    /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2012_R_2_2_DR_1 */
+    /* MISRAC 2023 deviation block start */
+    /* MISRA C-2023 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2023_R_2_2_DR_1 */
 
     BT_SYS_Cfg_T        btSysCfg;
     BT_SYS_Option_T     btOption;
@@ -377,13 +377,13 @@ void SYS_Initialize ( void* data )
 
   
     CLOCK_Initialize();
-    /* MISRAC 2012 deviation block start */
-    /* MISRA C-2012 Rule 11.1 deviated 1 time. Deviation record ID -  H3_MISRAC_2012_R_11_1_DR_1 */
+    /* MISRAC 2023 deviation block start */
+    /* MISRA C-2023 Rule 11.1 deviated 1 time. Deviation record ID -  H3_MISRAC_2023_R_11_1_DR_1 */
     /* Configure Prefetch, Wait States by calling the ROM function whose address is available at address 0xF2D0 */
     typedef void (*FUNC_PCHE_SETUP)(uint32_t setup);
     (void)((FUNC_PCHE_SETUP)(*(uint32_t*)0xF2D0))((PCHE_REGS->PCHE_CHECON & (~(PCHE_CHECON_PFMWS_Msk | PCHE_CHECON_ADRWS_Msk | PCHE_CHECON_PREFEN_Msk)))
                                     | (PCHE_CHECON_PFMWS(1) | PCHE_CHECON_PREFEN(1) | PCHE_CHECON_ADRWS(1)));
-    /* MISRA C-2012 Rule 11.1 deviation block end */
+    /* MISRA C-2023 Rule 11.1 deviation block end */
 
 
 
@@ -401,10 +401,10 @@ void SYS_Initialize ( void* data )
     NVM_Initialize();
 
 
-    /* MISRAC 2012 deviation block start */
+    /* MISRAC 2023 deviation block start */
     /* Following MISRA-C rules deviated in this block  */
-    /* MISRA C-2012 Rule 11.3 - Deviation record ID - H3_MISRAC_2012_R_11_3_DR_1 */
-    /* MISRA C-2012 Rule 11.8 - Deviation record ID - H3_MISRAC_2012_R_11_8_DR_1 */
+    /* MISRA C-2023 Rule 11.3 - Deviation record ID - H3_MISRAC_2023_R_11_3_DR_1 */
+    /* MISRA C-2023 Rule 11.8 - Deviation record ID - H3_MISRAC_2023_R_11_8_DR_1 */
 
 /*******************************************************************************
 * Copyright (C) 2022 Microchip Technology Inc. and its subsidiaries.
@@ -466,11 +466,11 @@ void SYS_Initialize ( void* data )
 
 
 
-    /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
-    H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
-        
-    sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
+    /* MISRA C-2023 Rule 11.3, 11.8 deviated below. Deviation record ID -
+    H3_MISRAC_2023_R_11_3_DR_1 & H3_MISRAC_2023_R_11_8_DR_1*/
     
+    sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
+
     /* MISRAC 2012 deviation block end */
     /* Initialization for IEEE_802154_PHY */
         OSAL_SEM_Create(&semPhyInternalHandler, OSAL_SEM_TYPE_COUNTING, 20, 0);
@@ -479,8 +479,8 @@ void SYS_Initialize ( void* data )
     
     /* End of Initialization for IEEE_802154_PHY */
 
-    /* MISRA C-2012 Rule 11.3, 11.8 deviated below. Deviation record ID -  
-     H3_MISRAC_2012_R_11_3_DR_1 & H3_MISRAC_2012_R_11_8_DR_1*/
+    /* MISRA C-2023 Rule 11.3, 11.8 deviated below. Deviation record ID -
+     H3_MISRAC_2023_R_11_3_DR_1 & H3_MISRAC_2023_R_11_8_DR_1*/
         sysObj.sysConsole0 = SYS_CONSOLE_Initialize(SYS_CONSOLE_INDEX_0, (SYS_MODULE_INIT *)&sysConsole0Init);
    /* MISRAC 2012 deviation block end */
 
@@ -511,7 +511,7 @@ void SYS_Initialize ( void* data )
     BT_SYS_Init(&bleRequestSemHandle, &osalAPIList, &btOption, &btSysCfg);
 
 
-    /* MISRAC 2012 deviation block end */
+    /* MISRAC 2023 deviation block end */
     
 	/* Initialization for IEEE_802154_MAC */
 	
@@ -525,7 +525,7 @@ void SYS_Initialize ( void* data )
     NVIC_Initialize();
 
 
-    /* MISRAC 2012 deviation block end */
+    /* MISRAC 2023 deviation block end */
 }
 
 /*******************************************************************************

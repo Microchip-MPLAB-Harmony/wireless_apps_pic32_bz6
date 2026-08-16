@@ -747,12 +747,12 @@ static void usr_mlme_set_conf_run_time(uint8_t status, uint8_t PIBAttribute,
 			/* Temp is used to not update the already device table
 			 * again */
 			for (uint16_t i = Temp; i < no_of_assoc_devices; i++) {
+                PibValue_t pib_panid;
+                (void)PHY_PibGet(macPANId, (uint8_t *)&pib_panid);
 				mac_dev_table[0]
-					= (uint8_t)(DEFAULT_PAN_ID &
-						0x00FFU);
+					= (uint8_t)(pib_panid.pib_value_16bit & 0x00FFU);
 				mac_dev_table[1]
-					= (uint8_t)(DEFAULT_PAN_ID >>
-						8U);
+					= (uint8_t)(pib_panid.pib_value_16bit >> 8U);
 				mac_dev_table[2]
 					= (uint8_t)device_list[i].shortAddr;
 				mac_dev_table[3]

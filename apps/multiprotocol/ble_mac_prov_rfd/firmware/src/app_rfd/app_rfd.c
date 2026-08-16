@@ -200,7 +200,7 @@ static void Timer_Callback(TimerHandle_t xTimer)
 static void push_data(void)
 {   
 //    USER_LED_On(); 
-    RGB_LED_GREEN_On(); //Neha Indicates data push
+    RGB_LED_GREEN_On();
     SYS_CONSOLE_MESSAGE("[MAC] Data for FFD\n");    
     uint8_t src_addr_mode;
     WPAN_AddrSpec_t dst_addr;   
@@ -245,7 +245,7 @@ static void push_data(void)
         #ifdef ENABLE_DEVICE_DEEP_SLEEP    
             APP_Msg_T sleepReq;
             sleepReq.msgId = APP_MSG_SLEEP_REQ;      
-            RGB_LED_GREEN_Off(); //Neha Indicates data pushed successfully and ready to sleep
+            RGB_LED_GREEN_Off();
             (void)OSAL_QUEUE_Send(&appData.appQueue, &sleepReq, 0);
         #endif   
     }
@@ -282,6 +282,62 @@ void ble_device_init(void)
        
 }
 
+/* --- App-layer IEEE override --------------------------------------
+ * WORKAROUND for two MAC driver issues (see WSBB-297):
+ *
+ *   1. MAC_Init() (mac_misc.c) generates a fresh random IEEE via
+ *      PAL_GetRandomNumber() on every reset. PAL_GetRandomNumber has
+ *      a silent-failure path (pal.c:413-416) that returns PAL_SUCCESS
+ *      without filling the output buffer, so the IEEE can become
+ *      uninitialised stack garbage.
+ *
+ *   2. On deep-sleep wake, MAC_WakeUpFromDeepSleep() (mac.c) restores
+ *      the IEEE from persistent RAM (mdsParam.mac_ieee_addr). That
+ *      persistent value can be corrupt because MAC_ReadyToDeepSleep()
+ *      captures PHY_PibGet(macIeeeAddress) at a moment when the PHY
+ *      register holds a spurious value (e.g. 0x0080000000000000).
+ *
+ * By calling PHY_PibSet(macIeeeAddress, fixed) from the application
+ * layer AFTER the driver finishes its own IEEE handling, both issues
+ * are neutralised without modifying any Harmony-generated driver file.
+ *
+ * Called from MAC_RFDDemoInit() at two points:
+ *   - Cold-boot path: after print_stack_app_build_features(), before
+ *     WPAN_MLME_ResetReq(true) — ensures AssocReq carries the fixed
+ *     IEEE that the FFD will store in its security device table.
+ *   - Wake path:     after MAC_Wakeup(), before push_data() — corrects
+ *     any corrupt value restored by MAC_WakeUpFromDeepSleep() so that
+ *     SecureFrame builds the CCM* nonce with the correct IEEE.
+ *
+ * Long-term fix: replace the hardcoded value with a runtime read from
+ * IB_GetMACAddr() to derive the IEEE from the device's factory-
+ * programmed Info Block (same source used by BLE for its BD address).
+ * ------------------------------------------------------------------- */
+static void app_set_fixed_ieee(void)
+{
+    /* Use SetPhyPibInternal (not PHY_PibSet directly) so the MAC driver's
+     * radio-wake wrapper is applied. PHY_PibSet silently fails when the
+     * radio is sleeping; SetPhyPibInternal wakes the radio, writes the PIB,
+     * then puts the radio back to sleep — guaranteed write regardless of
+     * radio state. */
+    static uint64_t hardcoded_ieee = 0x4F9540577B86E836ULL;
+    PibValue_t pib;
+    pib.pib_value_64bit = hardcoded_ieee;
+    (void)SetPhyPibInternal(macIeeeAddress, &pib);
+
+#ifdef MAC_PROV_DEBUG
+    /* Readback confirms the write took effect.
+     * Expected: 36E8867B5740954F (little-endian bytes of 0x4F9540577B86E836) */
+    {
+        PibValue_t rb;
+        (void)PHY_PibGet(macIeeeAddress, (uint8_t *)&rb);
+        uint8_t *p = (uint8_t *)&rb.pib_value_64bit;
+        SYS_CONSOLE_PRINT("[IEEE] override readback=%02X%02X%02X%02X%02X%02X%02X%02X\n",
+            p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7]);
+    }
+#endif /* MAC_PROV_DEBUG */
+}
+
 void MAC_RFDDemoInit(void)
 { 
     /* Initialize LEDs. */
@@ -301,13 +357,16 @@ void MAC_RFDDemoInit(void)
         SYS_CONSOLE_PRINT("\n[APPLICATION] MAC RFD Demo Application\r\n");
 
         print_stack_app_build_features();
-                
+
+        app_set_fixed_ieee();   /* cold-boot: override random/failed IEEE before AssocReq */
+
         (void)WPAN_MLME_ResetReq(true);
     }
 #ifdef ENABLE_DEVICE_DEEP_SLEEP 
     else
     {
         MAC_Wakeup();
+        app_set_fixed_ieee();   /* wake: override corrupt/random IEEE after mdsParam restore */
         push_data();
         /* Poll the coordinator first instead of pushing data directly.
          * This matches the reference standalone app behaviour and ensures
@@ -335,6 +394,24 @@ static bool APP_ReadyToSleep(uint32_t *sleepDuration)
 #ifdef ENABLE_DEVICE_DEEP_SLEEP
         else
         {
+#ifdef MAC_PROV_DEBUG
+            /* A3: throttled defer print — first 5 verbatim, then every 256th.
+             * Shows WHICH MAC resource is preventing sleep (macBusy, queues, trx). */
+            {
+                static uint32_t defer_cnt = 0U;
+                defer_cnt++;
+                if ((defer_cnt <= 5U) || ((defer_cnt & 0xFFU) == 0U)) {
+                    PHY_TrxStatus_t trx = PHY_GetTrxStatus();
+                    SYS_CONSOLE_PRINT("[SLEEP] deferred #%lu (macBusy=%u nhle=%u nhleMac=%u phyMac=%u trx=%u)\n",
+                        (unsigned long)defer_cnt,
+                        (unsigned)macBusy,
+                        (unsigned)macNhleQueue.size,
+                        (unsigned)nhleMacQueue.size,
+                        (unsigned)phyMacQueue.size,
+                        (unsigned)trx);
+                }
+            }
+#endif /* MAC_PROV_DEBUG */
             APP_Msg_T sleepReq;
             sleepReq.msgId = APP_MSG_SLEEP_REQ;      
     
@@ -852,7 +929,17 @@ void Handle_DeviceSleep(APP_Msg_T *appMsg)
     uint32_t sleepDuration;
     if (APP_ReadyToSleep(&sleepDuration))
     {
-         vTaskDelay((sleepDuration / portTICK_PERIOD_MS));
+#ifdef MAC_PROV_DEBUG
+        /* A4a: sleep was granted — about to block APP task for sleepDuration */
+        SYS_CONSOLE_PRINT("[SLEEP] granted -> vTaskDelay(%lu ticks)\n",
+            (unsigned long)(sleepDuration / portTICK_PERIOD_MS));
+#endif /* MAC_PROV_DEBUG */
+        vTaskDelay((sleepDuration / portTICK_PERIOD_MS));
+#ifdef MAC_PROV_DEBUG
+        /* A4b: if we reach here, deep sleep was NOT entered (vPortSuppressTicksAndSleep
+         * gates failed — BLE, MAC, deviceCanSleep, or idle-time check failed). */
+        SYS_CONSOLE_PRINT("[SLEEP] vTaskDelay returned (deep sleep NOT entered)\n");
+#endif /* MAC_PROV_DEBUG */
     }
     
     (void)appMsg;
@@ -861,6 +948,10 @@ void Handle_DeviceSleep(APP_Msg_T *appMsg)
 
 void Handle_DataConf(APP_Msg_T *appMsg)
 {
+#ifdef MAC_PROV_DEBUG
+    /* A2: proves APP task dispatched the DataConf message */
+    SYS_CONSOLE_PRINT("[APP] Handle_DataConf entry\n");
+#endif /* MAC_PROV_DEBUG */
     deviceCanSleep = true;
     #ifdef ENABLE_DEVICE_DEEP_SLEEP    
         APP_Msg_T sleepReq;

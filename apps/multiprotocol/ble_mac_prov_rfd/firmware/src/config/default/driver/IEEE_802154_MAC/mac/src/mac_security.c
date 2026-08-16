@@ -45,7 +45,6 @@
 #include "mac_internal.h"
 #include "stb.h"
 #include "mac_security.h"
-
 /* === Macros =============================================================== */
 
 /* Security Control Field: Security Level mask */

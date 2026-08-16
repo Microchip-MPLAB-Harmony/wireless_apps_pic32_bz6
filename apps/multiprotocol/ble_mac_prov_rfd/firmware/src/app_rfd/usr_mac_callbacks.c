@@ -51,6 +51,8 @@
 #include "mac_msg_const.h"
 #include "app.h"
 #include "app_rfd.h"
+#include "stack_config.h"
+#include "system/console/sys_console.h"
 /* === IMPLEMENTATION ====================================================== */
 
 #if defined(ENABLE_TSTAMP)
@@ -69,6 +71,11 @@ void USR_MCPS_DataConf(uint8_t msduHandle,
 		uint8_t status)
 #endif  /* ENABLE_TSTAMP */
 {
+#ifdef MAC_PROV_DEBUG
+    /* A1: confirms TX confirm callback fired — 5 of these then silence = WPAN hung */
+    SYS_CONSOLE_PRINT("[DATA_CONF] msduHandle=%u status=%u\n",
+        (unsigned)msduHandle, (unsigned)status);
+#endif /* MAC_PROV_DEBUG */
     usr_mcps_data_cnf_t dataconf;
     APP_Msg_T appMsg;
     

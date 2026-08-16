@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 componentName: FreeRTOS
-coreVersion: 5.8.4
+coreVersion: 5.9.0
 device: PIC32WM_BZ6204
 library: []
 dependency:
@@ -15,7 +15,7 @@ dependency:
 - dependencyPackage: ''
   name: core
   type: package
-  version: v3.15.5
+  version: v3.17.0
 customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
 data:
   attachments: {}
@@ -257,4 +257,15 @@ data:
           type: User
         type: Values
       type: Boolean
+    FREERTOS_TOTAL_HEAP_SIZE:
+      attributes:
+        id: FREERTOS_TOTAL_HEAP_SIZE
+        label: Total heap size
+      children:
+      - children:
+        - attributes:
+            value: '81920'
+          type: User
+        type: Values
+      type: Integer
   userData: {}

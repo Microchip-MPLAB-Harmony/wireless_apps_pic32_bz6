@@ -62,19 +62,18 @@ void vAssertCalled( const char * pcFile, unsigned long ulLine );
 */
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
-    RGB_LED_BLUE_On();
    ( void ) pcTaskName;
-   ( void ) xTask;
+    ( void ) xTask;
 
-   /* Run time task stack overflow checking is performed if
+    /* Run time task stack overflow checking is performed if
    configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook  function is
    called if a task stack overflow is detected.  Note the system/interrupt
-   stack is not checked. */
-   taskDISABLE_INTERRUPTS();
-   for( ;; )
-   {
-       /* Do Nothing */
-   }
+    stack is not checked. */
+    taskDISABLE_INTERRUPTS();
+    for( ;; )
+    {
+        /* Do Nothing */
+    }
 }
 
 /*
@@ -106,7 +105,6 @@ void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 */
 void vApplicationMallocFailedHook( void )
 {
-    RGB_LED_BLUE_On();
    /* vApplicationMallocFailedHook() will only be called if
       configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h.  It is a hook
       function that will get called if a call to pvPortMalloc() fails.
@@ -118,11 +116,11 @@ void vApplicationMallocFailedHook( void )
       to query the size of free heap space that remains (although it does not
       provide information on how the remaining heap might be fragmented). */
 
-   taskDISABLE_INTERRUPTS();
-   for( ;; )
-   {
+    taskDISABLE_INTERRUPTS();
+    for( ;; )
+    {
        /* Do Nothing */
-   }
+    }
 }
 /*-----------------------------------------------------------*/
 

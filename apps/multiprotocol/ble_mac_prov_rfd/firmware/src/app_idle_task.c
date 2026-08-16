@@ -38,6 +38,7 @@
 // DOM-IGNORE-END
 
 #include "definitions.h"
+#include "stack_config.h"
 /*-----------------------------------------------------------*/
 
 /* Ensure the SysTick is clocked at the same frequency as the core. */
@@ -129,16 +130,6 @@ extern bool deviceCanSleep;
 
 void app_idle_task( void )
 {
-    //Neha toggle user led to check if idle task is executed
-    RGB_LED_RED_On();
-    APP_IDLE_TOG_Toggle();
-    static uint32_t count = 0;
-    const uint32_t flicker = 1000;
-    if (++count >= flicker)
-    {
-    USER_LED_Toggle();
-    count =0;
-    }
     uint8_t PDS_Items_Pending = PDS_GetPendingItemsCount();
     bool RF_Cal_Needed = RF_NeedCal(); // device_support library API
     uint8_t BT_RF_Suspended = 0;
@@ -350,7 +341,6 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
     else if ((SERCOM0_REGS->USART_INT.SERCOM_INTFLAG & SERCOM_USART_INT_INTFLAG_DRE_Msk) != SERCOM_USART_INT_INTFLAG_DRE_Msk)
         return;
  
-
     /* If a context switch is pending or a task is waiting for the scheduler
     to be unsuspended then abandon the low power entry. */
     if( eTaskConfirmSleepModeStatus() == eAbortSleep )
@@ -367,7 +357,6 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
     /* Allow system to enter sleep mode */
     if(isSystemCanSleep && MAC_ReadyToSleep() && deviceCanSleep && (xExpectedIdleTime > 512) && (xExpectedIdleTime < MAX_SLEEP_ALLOWED))
     {
-        RGB_LED_RED_Off(); //Neha indication to enter into deep sleep
         TickType_t xModifiableIdleTime = 0;
         uint32_t ulRtcCntBeforeSleep = 0;
         uint32_t ulRtcCntAfterSleep = 0;
@@ -420,6 +409,12 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 
 
         /* Enter system sleep mode */
+#ifdef MAC_PROV_DEBUG
+        /* A5: proves deep-sleep entry was reached — should appear once per sleep cycle.
+         * If we see N-1 of these and silence on cycle N, DEVICE_EnterDeepSleep hangs. */
+//        SYS_CONSOLE_PRINT("[SLEEP] DEVICE_EnterDeepSleep idle=%lu\n",
+//            (unsigned long)xExpectedIdleTime);
+#endif /* MAC_PROV_DEBUG */
 		DEVICE_EnterDeepSleep(true, xExpectedIdleTime);
     }
 }
