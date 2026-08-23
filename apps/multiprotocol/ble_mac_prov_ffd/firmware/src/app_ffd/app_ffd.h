@@ -48,6 +48,7 @@
 
 /* === Includes ============================================================= */
 #include "definitions.h"
+#include "ieee_mac_const.h"
 /* === TYPES =============================================================== */
 
 /** This type definition of a structure can store the short address and the
@@ -76,10 +77,10 @@ typedef struct usr_mcps_data_cnf
 
 typedef struct usr_mcps_data_ind
 {
-    WPAN_AddrSpec_t *SrcAddrSpec;
-    WPAN_AddrSpec_t *DstAddrSpec;
+    WPAN_AddrSpec_t SrcAddrSpec;
+    WPAN_AddrSpec_t DstAddrSpec;
     uint8_t msduLength;
-    uint8_t *msdu;
+    uint8_t msdu[aMaxMACPayloadSize];
     uint8_t mpduLinkQuality;
     uint8_t DSN;
 #ifdef ENABLE_TSTAMP

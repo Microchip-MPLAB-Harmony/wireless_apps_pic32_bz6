@@ -352,12 +352,18 @@ void Handle_DataInd(APP_Msg_T *appMsg)
     usr_mcps_data_ind_t mscpDataInd;
     (void)memcpy((void *)&mscpDataInd,(const void *)appMsg->msgData,sizeof(usr_mcps_data_ind_t));   
 
-	SYS_CONSOLE_PRINT(Display_Rx_Frame_Address,(mscpDataInd.SrcAddrSpec->Addr.shortAddress));
-    for (uint8_t i = 0; i < mscpDataInd.msduLength; i++)
+	SYS_CONSOLE_PRINT(Display_Rx_Frame_Address,(mscpDataInd.SrcAddrSpec.Addr.shortAddress));
+//    for (uint8_t i = 0; i < mscpDataInd.msduLength; i++)
+//    {
+//        SYS_CONSOLE_PRINT("%c", mscpDataInd.msdu[i]);
+//    }   
+    if (mscpDataInd.msduLength == sizeof(float))
     {
-        SYS_CONSOLE_PRINT("%c", mscpDataInd.msdu[i]);
-    }   
-    SYS_CONSOLE_MESSAGE("\n");
+        float received;
+        memcpy(&received, mscpDataInd.msdu, sizeof(float));
+        SYS_CONSOLE_PRINT("%f\n", received);
+    }
+//    SYS_CONSOLE_MESSAGE("\n");
     
     RGB_LED_GREEN_On();
 //    if( xTimerIsTimerActive( Data_Ind_LED_Timer_Handle ) != pdFALSE ) 

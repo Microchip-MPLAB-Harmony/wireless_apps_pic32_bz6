@@ -136,10 +136,11 @@ void USR_MCPS_DataInd(WPAN_AddrSpec_t *SrcAddrSpec,
     APP_Msg_T appMsg;
     
     dataInd.DSN = DSN;
-    dataInd.DstAddrSpec = DstAddrSpec;
-    dataInd.SrcAddrSpec = SrcAddrSpec;
+    dataInd.DstAddrSpec = *DstAddrSpec;
+    dataInd.SrcAddrSpec = *SrcAddrSpec;
     dataInd.msduLength = msduLength;
-    dataInd.msdu = msdu;
+//    dataInd.msdu = msdu
+    (void)memcpy(dataInd.msdu, msdu, msduLength);
     dataInd.mpduLinkQuality = mpduLinkQuality;
     
  #ifdef ENABLE_TSTAMP

@@ -282,37 +282,7 @@ void ble_device_init(void)
        
 }
 
-/* --- App-layer IEEE override --------------------------------------
- * WORKAROUND for two MAC driver issues (see WSBB-297):
- *
- *   1. MAC_Init() (mac_misc.c) generates a fresh random IEEE via
- *      PAL_GetRandomNumber() on every reset. PAL_GetRandomNumber has
- *      a silent-failure path (pal.c:413-416) that returns PAL_SUCCESS
- *      without filling the output buffer, so the IEEE can become
- *      uninitialised stack garbage.
- *
- *   2. On deep-sleep wake, MAC_WakeUpFromDeepSleep() (mac.c) restores
- *      the IEEE from persistent RAM (mdsParam.mac_ieee_addr). That
- *      persistent value can be corrupt because MAC_ReadyToDeepSleep()
- *      captures PHY_PibGet(macIeeeAddress) at a moment when the PHY
- *      register holds a spurious value (e.g. 0x0080000000000000).
- *
- * By calling PHY_PibSet(macIeeeAddress, fixed) from the application
- * layer AFTER the driver finishes its own IEEE handling, both issues
- * are neutralised without modifying any Harmony-generated driver file.
- *
- * Called from MAC_RFDDemoInit() at two points:
- *   - Cold-boot path: after print_stack_app_build_features(), before
- *     WPAN_MLME_ResetReq(true) — ensures AssocReq carries the fixed
- *     IEEE that the FFD will store in its security device table.
- *   - Wake path:     after MAC_Wakeup(), before push_data() — corrects
- *     any corrupt value restored by MAC_WakeUpFromDeepSleep() so that
- *     SecureFrame builds the CCM* nonce with the correct IEEE.
- *
- * Long-term fix: replace the hardcoded value with a runtime read from
- * IB_GetMACAddr() to derive the IEEE from the device's factory-
- * programmed Info Block (same source used by BLE for its BD address).
- * ------------------------------------------------------------------- */
+
 static void app_set_fixed_ieee(void)
 {
     /* Use SetPhyPibInternal (not PHY_PibSet directly) so the MAC driver's
@@ -320,9 +290,12 @@ static void app_set_fixed_ieee(void)
      * radio is sleeping; SetPhyPibInternal wakes the radio, writes the PIB,
      * then puts the radio back to sleep — guaranteed write regardless of
      * radio state. */
-    static uint64_t hardcoded_ieee = 0x4F9540577B86E836ULL;
+    uint8_t mac_id[8] = {0};
+    IB_GetMACAddr(mac_id);
+//    static uint64_t hardcoded_ieee = 0x4F9540577B86E836ULL;
+//    pib.pib_value_64bit = hardcoded_ieee;
     PibValue_t pib;
-    pib.pib_value_64bit = hardcoded_ieee;
+    memcpy(&(pib.pib_value_64bit), mac_id, sizeof(mac_id));
     (void)SetPhyPibInternal(macIeeeAddress, &pib);
 
 #ifdef MAC_PROV_DEBUG
