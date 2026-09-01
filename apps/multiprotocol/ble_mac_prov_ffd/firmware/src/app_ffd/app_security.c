@@ -51,6 +51,8 @@
 #include "ieee_mac_const.h"
 #include "app.h"
 
+/* Runtime provisioned PAN ID (set via BLE provisioning, may differ from DEFAULT_PAN_ID) */
+extern APP_ProvData_T provData;
 /* === MACROS ============================================================== */
 
 /* === GLOBALS ============================================================= */

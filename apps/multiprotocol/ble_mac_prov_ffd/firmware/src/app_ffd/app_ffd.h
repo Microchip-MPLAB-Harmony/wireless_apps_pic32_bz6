@@ -48,7 +48,7 @@
 
 /* === Includes ============================================================= */
 #include "definitions.h"
-#include "ieee_mac_const.h"
+#include "app_prov/app_prov.h"
 /* === TYPES =============================================================== */
 
 /** This type definition of a structure can store the short address and the
