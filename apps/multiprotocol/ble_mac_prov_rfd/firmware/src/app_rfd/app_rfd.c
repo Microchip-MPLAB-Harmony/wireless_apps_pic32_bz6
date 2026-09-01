@@ -331,7 +331,6 @@ void MAC_RFDDemoInit(void)
 
         print_stack_app_build_features();
 
-        app_set_fixed_ieee();   /* cold-boot: override random/failed IEEE before AssocReq */
 
         (void)WPAN_MLME_ResetReq(true);
     }
@@ -339,7 +338,6 @@ void MAC_RFDDemoInit(void)
     else
     {
         MAC_Wakeup();
-        app_set_fixed_ieee();   /* wake: override corrupt/random IEEE after mdsParam restore */
         push_data();
         /* Poll the coordinator first instead of pushing data directly.
          * This matches the reference standalone app behaviour and ensures

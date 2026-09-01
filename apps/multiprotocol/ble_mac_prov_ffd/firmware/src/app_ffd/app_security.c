@@ -743,16 +743,21 @@ static void usr_mlme_set_conf_run_time(uint8_t status, uint8_t PIBAttribute,
 			 * device */
 			static uint8_t Temp = 0;
 			uint8_t mac_dev_table[17];
-           
+
 			/* Temp is used to not update the already device table
 			 * again */
 			for (uint16_t i = Temp; i < no_of_assoc_devices; i++) {
-                PibValue_t pib_panid;
-                (void)PHY_PibGet(macPANId, (uint8_t *)&pib_panid);
+                /* Use the runtime provisioned PAN ID, not the compile-time
+                 * DEFAULT_PAN_ID. The network PAN ID is set by BLE provisioning
+                 * and may differ from DEFAULT_PAN_ID. Using the wrong PAN ID
+                 * here causes MAC security (PAN_ID, ShortAddr) device lookup
+                 * to fail and silently drop all incoming data frames. */
 				mac_dev_table[0]
-					= (uint8_t)(pib_panid.pib_value_16bit & 0x00FFU);
+					= (uint8_t)(provData.provNwData.panId &
+						0x00FFU);
 				mac_dev_table[1]
-					= (uint8_t)(pib_panid.pib_value_16bit >> 8U);
+					= (uint8_t)(provData.provNwData.panId >>
+						8U);
 				mac_dev_table[2]
 					= (uint8_t)device_list[i].shortAddr;
 				mac_dev_table[3]

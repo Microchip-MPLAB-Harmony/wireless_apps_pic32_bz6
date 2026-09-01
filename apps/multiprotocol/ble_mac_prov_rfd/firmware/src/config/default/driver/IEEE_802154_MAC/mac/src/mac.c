@@ -386,7 +386,8 @@ static void MAC_ReadyToDeepSleep(void)
     pibStatus = PHY_PibGet(phyCurrentChannel, &channelBeforeSleep);
     param.phy_current_channel = (uint32_t)channelBeforeSleep; 
         
-    memcpy4ByteAligned(&mdsParam,&param,((uint16_t)sizeof(mdsParam))); 
+    // memcpy4ByteAligned(&mdsParam,&param,((uint16_t)sizeof(mdsParam))); 
+    (void)memcpy(&mdsParam, &param, sizeof(mdsParam));
 #if ((defined MAC_SECURITY_ZIP)  || (defined MAC_SECURITY_2006))   
     memcpy4ByteAligned(&macSecPibBackup, &macSecPib, ((uint16_t)sizeof(macSecPib)) );
 #endif
