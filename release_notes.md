@@ -3,7 +3,7 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
-## Harmony 3 Wireless Multiprotocol application examples for PIC32WM_BZ6204 family  **v1.2.0**
+## Harmony 3 Wireless Multiprotocol application examples for PIC32WM_BZ6204 family  **v1.1.1**
 
 ### Development kit and demo application support
 
