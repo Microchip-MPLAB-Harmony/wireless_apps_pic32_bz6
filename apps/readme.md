@@ -2,7 +2,7 @@
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 # Examples applications
 
-The following applications are provided to demonstrate the typical use case of BLE, 15.4 and Thread with PIC32WM_BZ6204 devices.
+The following applications are provided to demonstrate the typical use case of BLE, 15.4, Thread and Multiprotocol with PIC32WM_BZ6204 devices.
 
 ## BLE
 
@@ -54,6 +54,13 @@ The following applications are provided to demonstrate the typical use case of B
 	* [IEEE_802_15_4 demoapp_rfd](ieee_802_15_4/MAC/push_pull_mac_app/demoapp_rfd/readme.md)
 	* [IEEE_802_15_4 p2p_phy](ieee_802_15_4/PHY/p2p_phy/readme.md)
 	
-## Thread Application
+## Thread Applications
 * [Building Blocks](thread/building_blocks/readme.md)
 * [Advanced Applications](thread/advanced_applications/readme.md)
+
+## Multiprotocol Applications
+* [BLE + IEEE 802.15.4 MAC Provisioning FFD](multiprotocol/ble_mac_prov_ffd/readme.md)
+* [BLE + IEEE 802.15.4 MAC Provisioning RFD](multiprotocol/ble_mac_prov_rfd/readme.md)
+* [BLE + Thread Provisioning FTD Light](multiprotocol/ble_thread_prov_ftd_light/readme.md)
+* [BLE + Thread Provisioning MTD Light](multiprotocol/ble_thread_prov_mtd_light/readme.md)
+* [BLE + Thread Provisioning SED Sensor](multiprotocol/ble_thread_prov_sed_sensor/readme.md)
