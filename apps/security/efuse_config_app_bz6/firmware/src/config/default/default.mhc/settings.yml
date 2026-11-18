@@ -1,0 +1,14 @@
+configName: default
+format_version: v1.0
+settings:
+  CMSISPath: dev_packs\arm\CMSIS\5.8.0
+  DFPPath: dev_packs\Microchip\PIC32CX-BZ3_DFP\1.0.154\WBZ35\atdf\WBZ351.atdf
+  TRUSTZONE: 'false'
+  MERGE_STRATEGY: USER_ALL
+  FORCE_OPTIMIZATION: 'false'
+  PackageFilter: ''
+  GENERATE_BACKUP: 'true'
+frameworkPath: C:\H3_BUCKLAND_EA1
+projectName: efuse_config_app
+processor: WBZ351
+folderName: efuse_config_app
