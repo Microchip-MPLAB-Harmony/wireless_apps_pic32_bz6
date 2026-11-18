@@ -3,6 +3,33 @@
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 Wireless Multiprotocol application examples for PIC32WM_BZ6204 family  **v1.1.2**
+
+### Development kit and demo application support
+
+Following table provides number of Wireless examples available for different development kits.
+
+| Development Kits           | MPLABx applications |
+|:--------------------------:|:-------------------:|
+| PIC32WM_BZ6204 Curiosity Board 	 |       2             |
+
+## New Features
+### Security applications
+
+- key encryption and decryption using the Storage Root Key (`AppKeyMgr`)
+- OTP efuse configuration (`efuse_config_app`)
+
+### Known Issues
+- 
+
+### Development Tools
+
+- [MPLAB® X IDE v6.35]
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Code Configurator (MCC) `v5.6.4`
+- [MPLAB® XC32 C/C++ Compiler v5.10]
+- PIC32CX-BZ6 Family - DFP 1.4.74
+
 ## Harmony 3 Wireless Multiprotocol application examples for PIC32WM_BZ6204 family  **v1.1.1**
 
 ### Development kit and demo application support

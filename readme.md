@@ -87,6 +87,12 @@ The following applications are provided to demonstrate the typical use case of B
 | [Thread CoAP coap_sed_server](apps/thread/advanced_applications/CoAP/coap_sed_server/readme.md) | PIC32WM_BZ6204 |	
 ____
 
+| Security Applications | Families |
+| --- | :---: |
+| [Security - key encryption and decryption using the Storage Root Key](apps/security/AppKeyMgr/readme.md) | PIC32WM_BZ6204 |
+| [Security - OTP efuse configuration](apps/security/efuse_config_app/readme.md) | PIC32WM_BZ6204 |
+____
+
 
 [![License](https://img.shields.io/badge/license-Harmony%20license-orange.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_pic32cxbz_wbz/blob/master/License.md)
 [![Latest release](https://img.shields.io/github/release/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35.svg)](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz3_wbz35/releases/latest)

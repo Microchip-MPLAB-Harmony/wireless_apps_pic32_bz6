@@ -1,0 +1,192 @@
+configVersion: 1.0.0
+componentName: sys_console_0
+coreVersion: 5.9.0
+device: PIC32CX2051BZ62132
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: sys_console_0
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: core
+  type: package
+  version: v3.15.5
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments:
+    children:
+    - children:
+      - attributes:
+          id: sys_console_UART_dependency
+        children:
+        - children:
+          - attributes:
+              id: targetComponentID
+            children:
+            - type: Value
+              value: sercom0
+            type: String
+          - attributes:
+              id: targetAttachmentID
+            children:
+            - type: Value
+              value: SERCOM0_UART
+            type: String
+          type: Attributes
+        type: DirectDependency
+      type: Attachments
+    type: sys_console_0
+  elementPosition: {}
+  symbols:
+    SYS_CONSOLE_DEVICE:
+      attributes:
+        id: SYS_CONSOLE_DEVICE
+        label: Device Used
+      children:
+      - children:
+        - attributes:
+            id: sys_console_0
+            value: SERCOM0
+          type: Dynamic
+        type: Values
+      type: String
+    SYS_CONSOLE_DEVICE_INDEX:
+      attributes:
+        id: SYS_CONSOLE_DEVICE_INDEX
+        label: Device Index
+      type: Integer
+    SYS_CONSOLE_DEVICE_SET:
+      attributes:
+        id: SYS_CONSOLE_DEVICE_SET
+        label: Device Set
+      children:
+      - children:
+        - attributes:
+            id: sys_console_0
+            value: UART
+          type: Dynamic
+        type: Values
+      type: String
+    SYS_CONSOLE_DEVICE_UART_INDEX:
+      attributes:
+        id: SYS_CONSOLE_DEVICE_UART_INDEX
+        label: SYS_CONSOLE_DEVICE_UART_INDEX
+      children:
+      - children:
+        - attributes:
+            id: sys_console
+            value: '0'
+          type: Dynamic
+        type: Values
+      type: Integer
+    SYS_CONSOLE_RTOS_DELAY:
+      attributes:
+        id: SYS_CONSOLE_RTOS_DELAY
+        label: Task Delay
+      type: Integer
+    SYS_CONSOLE_RTOS_STACK_SIZE:
+      attributes:
+        id: SYS_CONSOLE_RTOS_STACK_SIZE
+        label: Stack Size (in bytes)
+      type: Integer
+    SYS_CONSOLE_RTOS_TASK_MSG_QTY:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_MSG_QTY
+        label: Maximum Message Queue Size
+      type: Integer
+    SYS_CONSOLE_RTOS_TASK_OPT_NONE:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_OPT_NONE
+        label: Task Specific Options
+      type: Boolean
+    SYS_CONSOLE_RTOS_TASK_OPT_NO_TLS:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_OPT_NO_TLS
+        label: TLS (Thread Local Storage) support needed for the task
+      type: Boolean
+    SYS_CONSOLE_RTOS_TASK_OPT_SAVE_FP:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_OPT_SAVE_FP
+        label: Floating-point registers needs to be saved
+      type: Boolean
+    SYS_CONSOLE_RTOS_TASK_OPT_STK_CHK:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_OPT_STK_CHK
+        label: Stack checking is allowed for the task
+      type: Boolean
+    SYS_CONSOLE_RTOS_TASK_OPT_STK_CLR:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_OPT_STK_CLR
+        label: Stack needs to be cleared
+      type: Boolean
+    SYS_CONSOLE_RTOS_TASK_PRIORITY:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_PRIORITY
+        label: Task Priority
+      type: Integer
+    SYS_CONSOLE_RTOS_TASK_TIME_QUANTA:
+      attributes:
+        id: SYS_CONSOLE_RTOS_TASK_TIME_QUANTA
+        label: Task Time Quanta
+      type: Integer
+    SYS_CONSOLE_RTOS_USE_DELAY:
+      attributes:
+        id: SYS_CONSOLE_RTOS_USE_DELAY
+        label: Use Task Delay ?
+      type: Boolean
+    SYS_CONSOLE_RX_BUFFER_SIZE:
+      attributes:
+        id: SYS_CONSOLE_RX_BUFFER_SIZE
+        label: Receive Buffer Size (1-4096)
+      type: Integer
+    SYS_CONSOLE_TX_BUFFER_SIZE:
+      attributes:
+        id: SYS_CONSOLE_TX_BUFFER_SIZE
+        label: Transmit Buffer Size (1-4096)
+      type: Integer
+    SYS_CONSOLE_USB_CDC_SOURCE:
+      attributes:
+        id: SYS_CONSOLE_USB_CDC_SOURCE
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYS_CONSOLE_USB_DEFINITIONS_HEADER:
+      attributes:
+        id: SYS_CONSOLE_USB_DEFINITIONS_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+    SYS_CONSOLE_USB_DEVICE_SPEED:
+      attributes:
+        id: SYS_CONSOLE_USB_DEVICE_SPEED
+        label: USB Device Speed
+      type: String
+    SYS_CONSOLE_USB_HEADER:
+      attributes:
+        id: SYS_CONSOLE_USB_HEADER
+      children:
+      - children:
+        - attributes:
+            id: enabled
+          children:
+          - type: Value
+            value: 'false'
+          type: Boolean
+        type: Attributes
+      type: File
+  userData: {}

@@ -64,3 +64,7 @@ The following applications are provided to demonstrate the typical use case of B
 * [BLE + Thread Provisioning FTD Light](multiprotocol/ble_thread_prov_ftd_light/readme.md)
 * [BLE + Thread Provisioning MTD Light](multiprotocol/ble_thread_prov_mtd_light/readme.md)
 * [BLE + Thread Provisioning SED Sensor](multiprotocol/ble_thread_prov_sed_sensor/readme.md)
+
+## Security Applications
+* [key encryption and decryption using the Storage Root Key](security/AppKeyMgr/readme.md)
+* [OTP efuse configuration](security/efuse_config_app/readme.md)
